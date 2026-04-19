@@ -1,17 +1,17 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import ProductImage from "@/components/ui/ProductImage";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 
 // Section content array
-const employeeManagementSections = [
+const hrmSections = [
   {
     heading: "Basic Employee Info",
-    subText: "A soft copy of your certificates and other professional documents can be plugged into the HR360 software's employee information list.",
+    subText: "A soft copy of your certificates and other professional documents can be plugged into the ERP17 software's employee information list.",
     list: [
-      "Every employee’s details must be recorded by the company in the employee management software.",
-      "In HR360 Software, using the employee management software you can store all the information like Contact, email address, phone number, Blood group, Joining date, etc.",
+      "Every employee’s details must be recorded by the company in the HRM module.",
+      "In ERP17 Software, using HRM you can store all the information like Contact, email address, phone number, Blood group, Joining date, etc.",
       "For employee accounts, email id and password are mandatory."
     ],
     img: "/img/products/employee-manege/EM2.png",
@@ -21,7 +21,7 @@ const employeeManagementSections = [
     heading: "Attached Document",
     subText: "The ability to add any kind of soft copy to an employee's listed information is available in the software program.",
     list: [
-      "Employees documents are very important to be stored in employee management tool.",
+      "Employees documents are very important to be stored in HRM.",
       "Within the software, any kind of soft copy like CV, Educational Certificates, etc. can be attached to the employee’s information list.",
       "Admin/HR can archive the documents according to their work process."
     ],
@@ -51,9 +51,9 @@ const employeeManagementSections = [
   },
   {
     heading: "Report Template",
-    subText: "HR360 has various sorts of report templates that you can use in your work.",
+    subText: "ERP17 has various sorts of report templates that you can use in your work.",
     list: [
-      "Any kind of documents like NOC, experience certificate etc can be generated through HR360 Software.",
+      "Any kind of documents like NOC, experience certificate etc can be generated through ERP17 Software.",
       "Just provide the valid information and the template will be generated accordingly."
     ],
     img: "/img/products/employee-manege/EM6.jpg",
@@ -71,7 +71,7 @@ const employeeManagementSections = [
   }
 ];
 
-const EmployeeManagementPage = () => {
+const HrmPage = () => {
   return (
     <main className="bg-white">
       {/* Hero Section with Unique Background & Patterns */}
@@ -105,18 +105,17 @@ const EmployeeManagementPage = () => {
         <div className="container relative z-10">
           <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
             <div className="flex-1 space-y-6 text-center md:text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 text-red-700 text-xs md:text-sm font-bold uppercase tracking-wider mb-2">
-                <span className="w-2 h-2 rounded-full bg-red-600 animate-ping"></span>
-                Employee Management System
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-red-100 text-red-700 text-xs md:text-sm font-bold uppercase tracking-wider mb-2">
+                ERP17 · HRM
               </div>
-              <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-gray-900 leading-[1.1] tracking-tight">
-                Effortless <br />
+              <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 leading-[1.12] tracking-tight">
+                People, records, and HR workflows{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-rose-500">
-                  Staff Management
+                  in one intelligent workspace
                 </span>
               </h1>
               <p className="text-gray-600 text-base md:text-xl leading-relaxed max-w-2xl mx-auto md:mx-0">
-                Most handy employee management tool with personal info, documents, history, and hierarchy tracking. Experience the ultimate HR solution.
+                Centralize profiles, documents, history, hierarchy, and reports so HR spends less time on admin and more on strategy—backed by ERP17 Cloud.
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
                 <button className="px-8 py-4 bg-red-600 text-white font-bold rounded-2xl hover:bg-red-700 shadow-xl shadow-red-200 transition-all hover:scale-105 active:scale-95 text-sm md:text-base">
@@ -130,9 +129,9 @@ const EmployeeManagementPage = () => {
 
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
-                <Image 
+                <ProductImage 
                   src="/img/products/employee-manege/EM1.svg"
-                  alt="Employee Management Software"
+                  alt="HRM software"
                   width={600}
                   height={400}
                   className="w-full h-auto object-cover"
@@ -146,7 +145,7 @@ const EmployeeManagementPage = () => {
       {/* Sections Content */}
       <section className="py-20 bg-white">
         <div className="container space-y-24 md:space-y-32">
-          {employeeManagementSections.map((sec, idx) => (
+          {hrmSections.map((sec, idx) => (
             <div key={idx} className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
               {/* Text Content */}
               <div className={`flex-1 space-y-6 text-center md:text-left order-2 ${sec.imgRight ? "md:order-1" : "md:order-2"}`}>
@@ -171,7 +170,7 @@ const EmployeeManagementPage = () => {
               {/* Image */}
               <div className={`flex-1 w-full order-1 ${sec.imgRight ? "md:order-2" : "md:order-1"}`}>
                 <div className="w-full">
-                  <Image 
+                  <ProductImage 
                     src={sec.img}
                     alt={sec.heading}
                     width={500}
@@ -188,4 +187,4 @@ const EmployeeManagementPage = () => {
   );
 };
 
-export default EmployeeManagementPage;
+export default HrmPage;

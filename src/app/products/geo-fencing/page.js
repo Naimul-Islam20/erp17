@@ -3,7 +3,7 @@
 import Link from "next/link";
 
 import React from "react";
-import Image from "next/image";
+import ProductImage from "@/components/ui/ProductImage";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 
 const geoFencingSections = [
@@ -24,7 +24,7 @@ const geoFencingSections = [
     subText: "Perfect for field workers and remote project sites where traditional biometric devices aren't feasible.",
     list: [
       "Track attendance at client locations or construction sites.",
-      "No hardware installation required - just the HR360 app.",
+      "No hardware installation required - just the ERP17 app.",
       "Real-time visibility into who is at which site.",
       "Historical location logs for compliance and reporting."
     ],
@@ -78,7 +78,7 @@ export default function GeoFencingPage() {
                 </span>
               </h1>
               <p className="text-gray-600 text-base md:text-xl leading-relaxed max-w-2xl mx-auto md:mx-0">
-                Ensure your workforce is where they need to be. defining virtual boundaries and validating attendance locations in real-time with HR360&apos;s advanced geo-fencing technology.
+                Ensure your workforce is where they need to be. defining virtual boundaries and validating attendance locations in real-time with ERP17&apos;s advanced geo-fencing technology.
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
                 <button className="px-8 py-4 bg-emerald-600 text-white font-bold rounded-2xl hover:bg-emerald-700 shadow-xl shadow-emerald-200 transition-all hover:scale-105 active:scale-95 text-sm md:text-base">
@@ -92,7 +92,7 @@ export default function GeoFencingPage() {
 
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
-                <Image 
+                <ProductImage 
                   src="/img/products/tracking/ET1.png"
                   alt="Geo-fencing Illustration"
                   width={600}
@@ -133,7 +133,7 @@ export default function GeoFencingPage() {
               {/* Image */}
               <div className={`flex-1 w-full order-1 ${sec.imgRight ? "md:order-2" : "md:order-1"}`}>
                 <div className="w-full">
-                  <Image 
+                  <ProductImage 
                     src={sec.img}
                     alt={sec.heading}
                     width={500}

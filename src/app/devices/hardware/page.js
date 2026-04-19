@@ -19,14 +19,14 @@ export default function HardwarePage() {
             Works Seamlessly with Top Attendance Machines in Bangladesh
           </h3>
           <p className="text-gray-600 leading-relaxed">
-            HR360 is a leading biometric attendance software in Bangladesh 
+            ERP17 is a leading biometric attendance software in Bangladesh 
             that works out of the box with the most popular fingerprint and 
             face recognition attendance devices. Whether your team uses ZKTeco 
             terminals or hybrid setups, our platform supports both real-time 
             syncing over IP and offline Biotime database integration. 
           </p>
           <p className="text-gray-600 leading-relaxed mt-4">
-            With HR360, you no longer need manual CSV exports or third-party 
+            With ERP17, you no longer need manual CSV exports or third-party 
             syncing software. Every device log is automatically pushed into our 
             cloud system, enabling accurate shift tracking, late mark detection, 
             and automated payroll calculations.

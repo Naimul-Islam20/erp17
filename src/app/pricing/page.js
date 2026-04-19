@@ -109,7 +109,7 @@ export default function PricingPage() {
         {/* Pricing Header */}
         <h2 className="text-md tracking-widest text-gray-400 font-bold mb-4">Pricing</h2>
         <p className="text-4xl font-semibold text-black mb-12">
-          Affordable Pricing for <span className="text-sky-600 tracking-wide ">HR360</span> Software - <br />
+          Affordable Pricing for <span className="text-sky-600 tracking-wide ">ERP17</span> Software - <br />
           Tailored for Your Business Needs
         </p>
 

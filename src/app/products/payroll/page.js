@@ -1,14 +1,14 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import ProductImage from "@/components/ui/ProductImage";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 
 // Section content array
 const payrollSections = [
   {
     heading: "Salary Structure",
-    subText: "HR360 can assist you in building salary structure types.",
+    subText: "ERP17 can assist you in building salary structure types.",
     list: [
       "Salary structure is needed to be ready to provide the salary.",
       "Salary structure can be ready by creating and processing breakups, also by consolidated structure.",
@@ -23,18 +23,18 @@ const payrollSections = [
     list: [
       "Salary can be disbursed by the bank, through cash, or by cheque.",
       "Managers can easily choose any of the available options while disbursing.",
-      "Through HR360 employee management software, an admin can add the template format of any bank for salary payment."
+      "Through ERP17 employee management software, an admin can add the template format of any bank for salary payment."
     ],
     img: "/img/products/payroll/PS3.png",
     imgRight: false
   },
   {
     heading: "Salary Pay Slip",
-    subText: "Employees can view and get their salary slip via HR360 app.",
+    subText: "Employees can view and get their salary slip via ERP17 app.",
     list: [
       "When salary is disbursed, employees can get the payslip from an admin or HR.",
       "After salary generation, an employee can get payslip via mail.",
-      "HR360 app also allows employees to view their payslip.",
+      "ERP17 app also allows employees to view their payslip.",
       "Payslip shows all breakdowns related to adjustments, tax, deductions, etc."
     ],
     img: "/img/products/payroll/PS4.png",
@@ -42,19 +42,19 @@ const payrollSections = [
   },
   {
     heading: "Salary Certificate",
-    subText: "Salary certificate can be created easily from HR360.",
+    subText: "Salary certificate can be created easily from ERP17.",
     list: [
       "Salary certificate is important for both organization and employees.",
-      "From HR360, you can create a customized salary certificate for any employee within seconds."
+      "From ERP17, you can create a customized salary certificate for any employee within seconds."
     ],
     img: "/img/products/payroll/PS5.png",
     imgRight: false
   },
   {
     heading: "Loan Management",
-    subText: "HR360 can help you manage employee loans.",
+    subText: "ERP17 can help you manage employee loans.",
     list: [
-      "Employees can apply for advance salary or loan via HR360.",
+      "Employees can apply for advance salary or loan via ERP17.",
       "Applications can be approved or rejected by supervisors.",
       "Applications can be submitted via web or mobile app.",
       "Loan can be adjusted with salary or by cash."
@@ -109,7 +109,7 @@ const PayrollPage = () => {
                 </span>
               </h1>
               <p className="text-gray-600 text-base md:text-xl leading-relaxed max-w-2xl mx-auto md:mx-0">
-                Manage salary structures, payments, and payslips effortlessly. HR360 provides a complete payroll and loan management solution for modern organizations.
+                Manage salary structures, payments, and payslips effortlessly. ERP17 provides a complete payroll and loan management solution for modern organizations.
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
                 <button className="px-8 py-4 bg-cyan-600 text-white font-bold rounded-2xl hover:bg-cyan-700 shadow-xl shadow-cyan-200 transition-all hover:scale-105 active:scale-95 text-sm md:text-base">
@@ -123,7 +123,7 @@ const PayrollPage = () => {
 
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
-                <Image 
+                <ProductImage 
                   src="/img/products/payroll/PS1.png"
                   alt="Payroll Software Illustration"
                   width={600}
@@ -164,7 +164,7 @@ const PayrollPage = () => {
               {/* Image */}
               <div className={`flex-1 w-full order-1 ${sec.imgRight ? "md:order-2" : "md:order-1"}`}>
                 <div className="w-full">
-                  <Image 
+                  <ProductImage 
                     src={sec.img}
                     alt={sec.heading}
                     width={500}

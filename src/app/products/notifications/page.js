@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import ProductImage from "@/components/ui/ProductImage";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 
 // Section Content Array
@@ -9,7 +9,7 @@ const notificationSections = [
   {
     heading: "Mail Notifications",
     subText:
-      "Keep employees informed with HR360 mail notifications sent directly to their inbox.",
+      "Keep employees informed with ERP17 mail notifications sent directly to their inbox.",
     list: [
       "Notifications for leave applications, payslips, visits, daily attendance, claims, and more.",
       "Ensure every employee receives timely updates without manual follow-ups.",
@@ -77,7 +77,7 @@ const NotificationsPage = () => {
                 </span>
               </h1>
               <p className="text-gray-600 text-base md:text-xl leading-relaxed max-w-2xl mx-auto md:mx-0">
-                Keep your workforce informed with seamless mail and pop-up notifications. HR360 ensures timely updates for leave, payroll, and more, improving communication across your organization.
+                Keep your workforce informed with seamless mail and pop-up notifications. ERP17 ensures timely updates for leave, payroll, and more, improving communication across your organization.
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
                 <button className="px-8 py-4 bg-violet-600 text-white font-bold rounded-2xl hover:bg-violet-700 shadow-xl shadow-violet-200 transition-all hover:scale-105 active:scale-95 text-sm md:text-base">
@@ -91,7 +91,7 @@ const NotificationsPage = () => {
 
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
-                <Image
+                <ProductImage
                   src="/img/products/notifications/N1.png"
                   alt="Notifications Illustration"
                   width={600}
@@ -132,7 +132,7 @@ const NotificationsPage = () => {
               {/* Image */}
               <div className={`flex-1 w-full order-1 ${sec.imgRight ? "md:order-2" : "md:order-1"}`}>
                 <div className="w-full">
-                  <Image
+                  <ProductImage
                     src={sec.img}
                     alt={sec.heading}
                     width={500}

@@ -52,7 +52,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900">Email</h3>
-                  <p className="text-gray-600">biz.dev@hr360.com</p>
+                  <p className="text-gray-600">biz.dev@erp17.com</p>
                 </div>
               </div>
             </div>
@@ -129,7 +129,7 @@ export default function ContactPage() {
           allowFullScreen=""
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="HR360 Office Location"
+          title="ERP17 Office Location"
         ></iframe>
       </div>
     </main>

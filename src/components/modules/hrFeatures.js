@@ -8,7 +8,7 @@ const features = [
   {
     icon: "FaMapMarkerAlt",
     name: "Mobile Attendance Tracking with GPS",
-    desc: "The HR360 app simplifies attendance management with accurate, real-time tools.",
+    desc: "The ERP17 app simplifies attendance management with accurate, real-time tools.",
     points: [
       "GPS-based location tracking and biometric selfie attendance",
       "Cloud-synced data visible instantly on your dashboard",
@@ -77,7 +77,7 @@ const features = [
   },
   {
     icon: "FaUsers",
-    name: "Employee Management Dashboard",
+    name: "HRM Dashboard",
     desc: "Access and manage employee data in real time.",
     points: [
       "Centralized employee profiles with salary, leave, and attendance history",
@@ -134,7 +134,7 @@ const HrFeatures = () => {
     {/* Page Title */}
     <div className="text-center mb-6 md:mb-12 px-2">
       <h2 className="text-base sm:text-lg md:text-xl text-gray-500">
-        Key Features of HR360 Mobile App
+        Key Features of ERP17 Mobile App
       </h2>
       <p className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl text-[#141451] font-bold mt-1 md:mt-4 leading-snug">
         Smart Workforce Management Designed for Every Sector

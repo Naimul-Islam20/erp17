@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "HR360",
+  title: "ERP17",
   description: "Modern HR & Payroll Software in Bangladesh",
 };
 

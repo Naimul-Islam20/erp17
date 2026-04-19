@@ -195,7 +195,7 @@ export default function DevicesPage() {
               Supported Devices
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl leading-relaxed">
-              HR360 currently supports the following ZKTeco devices, widely
+              ERP17 currently supports the following ZKTeco devices, widely
               used across factories, offices, retail stores, and educational
               institutions in Bangladesh. These models are fully compatible with:
             </p>

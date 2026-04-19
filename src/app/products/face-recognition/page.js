@@ -2,7 +2,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import ProductImage from "@/components/ui/ProductImage";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 
 // Section Content Array
@@ -116,7 +116,7 @@ const FaceRecognitionPage = () => {
 
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
-                <Image
+                <ProductImage
                   src="/img/products/face/face1.png"
                   alt="Face Recognition Attendance"
                   width={600}
@@ -157,7 +157,7 @@ const FaceRecognitionPage = () => {
               {/* Image */}
               <div className={`flex-1 w-full order-1 ${sec.imgRight ? "md:order-2" : "md:order-1"}`}>
                 <div className="w-full">
-                  <Image
+                  <ProductImage
                     src={sec.img}
                     alt={sec.heading}
                     width={500}

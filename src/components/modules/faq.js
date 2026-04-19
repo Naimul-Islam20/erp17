@@ -7,11 +7,11 @@ import { MessageCircle, ChevronDown, Phone, Mail } from "lucide-react";
 const faqs = [
   {
     id: 1,
-    question: "How will my business benefit from HR360's HR Software?",
+    question: "How will my business benefit from ERP17's HR Software?",
     answer: (
       <div className="space-y-3">
         <p>
-          HR360 streamlines HR operations for businesses in Bangladesh. It boosts
+          ERP17 streamlines HR operations for businesses in Bangladesh. It boosts
           efficiency, reduces manual admin work, and helps you stay compliant with local
           labor laws.
         </p>
@@ -25,10 +25,10 @@ const faqs = [
   },
   {
     id: 2,
-    question: "What does HR360 HR Software do?",
+    question: "What does ERP17 HR Software do?",
     answer: (
       <div>
-        <p>HR360 is an all‑in‑one HRIS & HRM platform to automate your HR processes.</p>
+        <p>ERP17 is an all‑in‑one HRIS & HRM platform to automate your HR processes.</p>
         <ul className="list-disc pl-5 mt-3 space-y-1">
           <li>Attendance management</li>
           <li>Shift & leave management</li>
@@ -45,11 +45,11 @@ const faqs = [
   },
   {
     id: 3,
-    question: "Does HR360's HR Software support payroll?",
+    question: "Does ERP17's HR Software support payroll?",
     answer: (
       <div className="space-y-3">
         <p>
-          Yes. HR360 includes a complete payroll engine with salary structures,
+          Yes. ERP17 includes a complete payroll engine with salary structures,
           allowances, deductions, and automated tax calculations.
         </p>
         <p>Generate payslips, process payroll cycles, and export reports in clicks.</p>
@@ -66,7 +66,7 @@ const faqs = [
           access), then match solutions to your company size and industry.
         </p>
         <p>
-          HR360 offers flexible modules and pricing so you pay for what you need and
+          ERP17 offers flexible modules and pricing so you pay for what you need and
           scale as you grow.
         </p>
       </div>
@@ -74,11 +74,11 @@ const faqs = [
   },
   {
     id: 5,
-    question: "Is HR360 the best HR software in Bangladesh?",
+    question: "Is ERP17 the best HR software in Bangladesh?",
     answer: (
       <div>
         <p>
-          HR360 is trusted for comprehensive HR & payroll features, a user‑friendly
+          ERP17 is trusted for comprehensive HR & payroll features, a user‑friendly
           interface, and compliance‑focused workflows—making it a top choice for
           organizations in Bangladesh.
         </p>
@@ -87,11 +87,11 @@ const faqs = [
   },
   {
     id: 6,
-    question: "Is HR360 suitable for small businesses?",
+    question: "Is ERP17 suitable for small businesses?",
     answer: (
       <div>
         <p>
-          Absolutely. HR360 serves startups, SMEs, and large enterprises with packages
+          Absolutely. ERP17 serves startups, SMEs, and large enterprises with packages
           tailored to team size and budget.
         </p>
       </div>
@@ -99,7 +99,7 @@ const faqs = [
   },
   {
     id: 7,
-    question: "How much does HR360 HR Software cost?",
+    question: "How much does ERP17 HR Software cost?",
     answer: (
       <div className="space-y-2">
         <p>Pricing varies by organization size:</p>
@@ -115,7 +115,7 @@ const faqs = [
   },
   {
     id: 8,
-    question: "Can I see a demo of HR360?",
+    question: "Can I see a demo of ERP17?",
     answer: (
       <div>
         <p>
@@ -127,11 +127,11 @@ const faqs = [
   },
   {
     id: 9,
-    question: "Can HR360 be customized to fit my organization’s needs?",
+    question: "Can ERP17 be customized to fit my organization’s needs?",
     answer: (
       <div>
         <p>
-          Yes. HR360 is highly customizable. Tell us your processes and we’ll tailor the
+          Yes. ERP17 is highly customizable. Tell us your processes and we’ll tailor the
           workflows to match. Send us an email and we’ll get back ASAP.
         </p>
       </div>
@@ -139,11 +139,11 @@ const faqs = [
   },
   {
     id: 10,
-    question: "Is HR360 cloud‑based?",
+    question: "Is ERP17 cloud‑based?",
     answer: (
       <div>
         <p>
-          Yes. HR360 is a secure, cloud‑based HR solution with automatic updates and
+          Yes. ERP17 is a secure, cloud‑based HR solution with automatic updates and
           enterprise‑grade infrastructure.
         </p>
       </div>
@@ -151,7 +151,7 @@ const faqs = [
   },
   {
     id: 11,
-    question: "How does HR360 ensure security of employee data?",
+    question: "How does ERP17 ensure security of employee data?",
     answer: (
       <div className="ps-5">
         <p>
@@ -180,7 +180,7 @@ const faqs = [
     question: "Do you have a mobile app?",
     answer: (
       <div>
-        <p>Yes. HR360 is available on both Android and iOS for on‑the‑go HR.</p>
+        <p>Yes. ERP17 is available on both Android and iOS for on‑the‑go HR.</p>
       </div>
     ),
   },
@@ -217,7 +217,7 @@ function FaqItem({ q, a }) {
   );
 }
 
-export default function HR360Faq() {
+export default function ERP17Faq() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -249,10 +249,10 @@ export default function HR360Faq() {
             </div>
             {/* Email on its own line on mobile, but side-by-side on desktop */}
             <a
-              href="mailto:hello@hr360.com"
+              href="mailto:hello@erp17.com"
               className="inline-flex items-center gap-1.5 rounded-xl px-4 py-2 border border-gray-200 bg-white shadow hover:shadow-md transition text-[9px] sm:text-xs md:text-sm whitespace-nowrap"
             >
-              <Mail className="h-3 w-3 sm:h-4 sm:w-4" /> hello@hr360.com
+              <Mail className="h-3 w-3 sm:h-4 sm:w-4" /> hello@erp17.com
             </a>
           </div>
         </div>

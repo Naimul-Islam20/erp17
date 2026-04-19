@@ -1,4 +1,4 @@
-// app/hr360Info.js
+// app/erp17Info.js
 "use client";
 
 import Image from "next/image";
@@ -17,7 +17,7 @@ const HrApp = () => {
           <div className="order-2 lg:order-2 relative w-[250px] sm:w-[350px] md:w-[450px] lg:w-[500px] mx-auto lg:mx-0">
             <Image
               src="/img/home/intgMobile.webp"
-              alt="HR360 Mobile App Illustration"
+              alt="ERP17 Mobile App Illustration"
               width={600}
               height={600}
               className="rounded-2xl object-contain"
@@ -30,10 +30,10 @@ const HrApp = () => {
             {/* Headline + paragraph */}
             <div className="text-center lg:text-start">
               <p className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-extrabold text-[#0f172a] mt-2 leading-snug">
-                HR360 Mobile App
+                ERP17 Mobile App
               </p>
               <p className="text-gray-700 text-base sm:text-lg mt-3">
-                HR360 delivers a cloud-based HR and payroll system designed to simplify HR tasks, cut down paperwork, and empower both employers and employees with smooth digital tools.
+                ERP17 delivers a cloud-based HR and payroll system designed to simplify HR tasks, cut down paperwork, and empower both employers and employees with smooth digital tools.
               </p>
             </div>
 
@@ -54,7 +54,7 @@ const HrApp = () => {
             {/* Additional Info */}
             <div className="mt-6 md:mt-8 text-center lg:text-left">
               <p className="text-gray-700 text-sm sm:text-base md:text-lg">
-                HR360 is a comprehensive HR and payroll solution that transforms traditional HR processes into smart, automated workflows — helping businesses save time, reduce errors, and support their teams effectively.
+                ERP17 is a comprehensive HR and payroll solution that transforms traditional HR processes into smart, automated workflows — helping businesses save time, reduce errors, and support their teams effectively.
               </p>
             </div>
 

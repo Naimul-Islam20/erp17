@@ -61,6 +61,15 @@ export default function Header() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [openDropdown]);
 
+  // Close mobile drawer when viewport is desktop (matches Tailwind md: 768px)
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) setIsMobileOpen(false);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <nav
      ref={navRef}
@@ -74,7 +83,7 @@ export default function Header() {
               <div className="w-20 md:w-30">
                 <Image
                   src="/logo.jpeg"
-                  alt="HR360 Logo"
+                  alt="ERP17 Logo"
                   width={120}
                   height={40}
                   priority
@@ -121,7 +130,7 @@ export default function Header() {
                  <div
   className={`
     ${childCount > 10
-      ? "fixed text-gray-800 top-[88px] left-0 right-0 mx-auto w-[90vw] max-w-[1600px] bg-white shadow-lg border border-gray-300 z-50 p-6  max-h-[80vh]"
+      ? "fixed text-gray-800 top-[88px] left-0 right-0 mx-auto w-[90vw] max-w-[1600px] bg-white shadow-lg border border-gray-300 z-50 p-6 max-h-[80vh] overflow-y-auto overscroll-contain"
       : "absolute top-full mt-8 text-gray-800 bg-white shadow-lg border border-gray-300 z-50 p-6 " +
         (childCount > 5
           ? "left-1/2 transform text-gray-800 -translate-x-1/2 min-w-[700px]"

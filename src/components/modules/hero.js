@@ -36,21 +36,17 @@ const HeroSection = () => {
           
           {/* Left Column - Text */}
           <div className="flex-1 space-y-8 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-100 text-sky-700 text-xs md:text-sm font-bold uppercase tracking-wider mb-2">
-              <span className="w-2 h-2 rounded-full bg-sky-600 animate-ping"></span>
-              Modern HR & Payroll Solution
-            </div>
+          
 
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-gray-900 leading-[1.1] tracking-tight">
-              Transform Your <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-blue-500">
-                Workforce Management
+            <h1 className="text-4xl sm:text-5xl md:text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight">
+              ERP17 Cloud Solution <br />
+              <span className=" text-blue-500">
+                Smarter Business. Hassle-Free Life.
               </span>
             </h1>
 
             <p className="text-gray-600 text-base md:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              HR360 is the leading HR software in Bangladesh, trusted by 500+ companies. 
-              Streamline your HR and payroll activities with a single, powerful platform.
+              Empower your enterprise with intelligent automation that drives growth while eliminating operational stress. ERP17 Cloud Solution streamlines your entire workflow, allowing you to focus on the big picture without the daily headaches. Experience the perfect harmony of professional excellence and a truly hassle-free life.
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">

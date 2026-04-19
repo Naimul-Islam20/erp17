@@ -4,7 +4,7 @@ import Image from "next/image";
 import React from "react";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 
-const Hr360Info = () => {
+const Erp17Info = () => {
   return (
     <section className="py-10 md:py-16 bg-white">
       <div className="container">
@@ -14,11 +14,11 @@ const Hr360Info = () => {
           {/* ✅ Left Column - Text */}
           <div className="text-center lg:text-left lg:ms-10 space-y-3 order-1">
             <h2 className="text-sm sm:text-base font-bold text-gray-500 uppercase tracking-wide">
-              WHAT IS HR360?
+              WHAT IS ERP17?
             </h2>
 
             <p className="text-xl sm:text-2xl lg:text-3xl mb-6 sm:mb-10 font-bold text-[#141451] leading-snug">
-              HR360 – Modern HR & Payroll Software for Bangladeshi Businesses
+              ERP17 – Modern HR & Payroll Software for Bangladeshi Businesses
             </p>
             <div className="space-y-3 sm:space-y-4 text-left">
               {[
@@ -69,4 +69,4 @@ const Hr360Info = () => {
   );
 };
 
-export default Hr360Info;
+export default Erp17Info;

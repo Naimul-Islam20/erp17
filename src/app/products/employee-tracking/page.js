@@ -1,16 +1,16 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import ProductImage from "@/components/ui/ProductImage";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 
 // Section content array
 const monitoringSections = [
   {
     heading: "Employee Monitoring",
-    subText: "From HR360, you can track your employees as they work.",
+    subText: "From ERP17, you can track your employees as they work.",
     list: [
-      "Easily track your employees through HR360 Software.",
+      "Easily track your employees through ERP17 Software.",
       "Admins or supervisors/managers can check last location and tracking history.",
       "Admin has to enable tracking for specific employees.",
       "Admin can check tracking history by selecting Plotting and Run time options."
@@ -32,7 +32,7 @@ const monitoringSections = [
     heading: "Tracking Report",
     subText: "View detailed tracking reports right on your computer.",
     list: [
-      "Tracking reports are available in HR360 Software.",
+      "Tracking reports are available in ERP17 Software.",
       "Admin can get the tracking report for a certain date.",
       "Tracking data is updated within 5 minutes.",
       "Admin can get the address along with the timestamp in the report."
@@ -87,7 +87,7 @@ const EmployeeMonitoringPage = () => {
                 </span>
               </h1>
               <p className="text-gray-600 text-base md:text-xl leading-relaxed max-w-2xl mx-auto md:mx-0">
-                Gain full visibility into your workforce with HR360. Monitor location, time, and performance in real-time with our state-of-the-art tracking infrastructure.
+                Gain full visibility into your workforce with ERP17. Monitor location, time, and performance in real-time with our state-of-the-art tracking infrastructure.
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
                 <button className="px-8 py-4 bg-indigo-600 text-white font-bold rounded-2xl hover:bg-indigo-700 shadow-xl shadow-indigo-200 transition-all hover:scale-105 active:scale-95 text-sm md:text-base">
@@ -101,7 +101,7 @@ const EmployeeMonitoringPage = () => {
 
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
-                <Image 
+                <ProductImage 
                   src="/img/products/tracking/ET1.png"
                   alt="Employee Monitoring Illustration"
                   width={600}
@@ -142,7 +142,7 @@ const EmployeeMonitoringPage = () => {
               {/* Image */}
               <div className={`flex-1 w-full order-1 ${sec.imgRight ? "md:order-2" : "md:order-1"}`}>
                 <div className="w-full">
-                  <Image 
+                  <ProductImage 
                     src={sec.img}
                     alt={sec.heading}
                     width={500}

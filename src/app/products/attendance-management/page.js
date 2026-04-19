@@ -1,14 +1,14 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import ProductImage from "@/components/ui/ProductImage";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 
 // Section content arrays
 const section1 = {
-  heading: "Employee Time & Attendance Tracking with HR360",
+  heading: "Employee Time & Attendance Tracking with ERP17",
   list: [
-    "Employees can easily mark their attendance using the HR360 Mobile App or the web portal.",
+    "Employees can easily mark their attendance using the ERP17 Mobile App or the web portal.",
     "With geo-fencing enabled, attendance is validated only within the assigned location radius, ensuring compliance with company policies.",
   ],
   img: "/img/products/AM2.svg",
@@ -16,9 +16,9 @@ const section1 = {
 };
 
 const section2 = {
-  heading: "Remote Attendance Tracking with HR360",
+  heading: "Remote Attendance Tracking with ERP17",
   list: [
-    "Employees can mark their attendance from anywhere using the HR360 Mobile App or web portal.",
+    "Employees can mark their attendance from anywhere using the ERP17 Mobile App or web portal.",
     "Supervisors, Admins, and HR teams can easily access real-time location data to monitor attendance efficiently and ensure compliance.",
   ],
   img: "/img/products/AM3.svg",
@@ -26,9 +26,9 @@ const section2 = {
 };
 
 const section3 = {
-  heading: "Overtime Calculation & Management with HR360",
+  heading: "Overtime Calculation & Management with ERP17",
   list: [
-    "Fully Automated System: HR360 allows companies to calculate and manage overtime automatically.",
+    "Fully Automated System: ERP17 allows companies to calculate and manage overtime automatically.",
     "Quick Processing: Overtime can be processed within seconds, saving time and effort.",
     "Track Employee Hours: HRs and Admins can easily monitor total working hours for accurate payroll and compliance.",
   ],
@@ -37,7 +37,7 @@ const section3 = {
 };
 
 const section4 = {
-  heading: "Employee Attendance Reporting with HR360",
+  heading: "Employee Attendance Reporting with ERP17",
   list: [
     "Flexible Reports: Generate attendance reports daily, weekly, or monthly as per requirement.",
     "Instant Access: Reports can be quickly accessed anytime by the appropriate authority.",
@@ -109,7 +109,7 @@ const Page = () => {
 
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
-                <Image
+                <ProductImage
                   src="/img/products/AM1.svg"
                   alt="Attendance Software Illustration"
                   width={600}
@@ -147,7 +147,7 @@ const Page = () => {
               {/* Image */}
               <div className={`flex-1 w-full order-1 ${sec.imgRight ? "md:order-2" : "md:order-1"}`}>
                 <div className="w-full">
-                  <Image
+                  <ProductImage
                     src={sec.img}
                     alt={sec.heading}
                     width={500}

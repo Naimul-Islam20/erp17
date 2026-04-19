@@ -16,7 +16,7 @@ const HrAppB = () => {
           <div className="order-2 lg:order-1 relative w-[250px] sm:w-[350px] md:w-[450px] lg:w-[500px] mx-auto lg:mx-0">
             <Image
               src="/img/home/intgMobile.webp"
-              alt="HR360 Mobile App Illustration"
+              alt="ERP17 Mobile App Illustration"
               width={600}
               height={600}
               className="rounded-2xl object-contain"
@@ -28,10 +28,10 @@ const HrAppB = () => {
             {/* Headline + paragraph */}
             <div className="text-center lg:text-start space-y-4 md:space-y-5">
               <p className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-extrabold text-[#0f172a] mt-2 leading-snug">
-                HR360 Mobile App
+                ERP17 Mobile App
               </p>
               <p className="text-gray-700 text-base sm:text-lg mt-3">
-                HR360 delivers a cloud-based HR and payroll system designed to simplify HR tasks, cut down paperwork, and empower both employers and employees with smooth digital tools.
+                ERP17 delivers a cloud-based HR and payroll system designed to simplify HR tasks, cut down paperwork, and empower both employers and employees with smooth digital tools.
               </p>
             </div>
 

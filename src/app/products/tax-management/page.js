@@ -1,18 +1,18 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import ProductImage from "@/components/ui/ProductImage";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 
 // Section Content Array
 const taxSections = [
   {
     heading: "Tax Calculation",
-    subText: "HR360 will help you to calculate income taxes.",
+    subText: "ERP17 will help you to calculate income taxes.",
     list: [
-      "HR360 is included with online tax preparation, processing, submission according to the Bangladesh Govt. policy.",
+      "ERP17 is included with online tax preparation, processing, submission according to the Bangladesh Govt. policy.",
       "It is a system-guided, easy-to-use tax preparation software that will save you time, money, and reduce any potential audits by the government.",
-      "Through HR360 you can generate your salary easily with tax.",
+      "Through ERP17 you can generate your salary easily with tax.",
       "Using income tax calculation software ensures you only pay the necessary taxes.",
       "The salary income tax calculation software calculates the different deductions allowed under the Income Tax Act and provides employees with the net salary after tax deduction.",
     ],
@@ -22,7 +22,7 @@ const taxSections = [
   {
     heading: "Salary Calculation",
     subText:
-      "HR360 Software will help you to calculate net income after deducting taxes and other costs.",
+      "ERP17 Software will help you to calculate net income after deducting taxes and other costs.",
     list: [
       "The salary income tax calculation system will help calculate the taxes based on the salary income.",
       "Deduct employee EPF, labor welfare funds, and others from their gross salary.",
@@ -34,7 +34,7 @@ const taxSections = [
   },
   {
     heading: "Tax Factors",
-    subText: "HR360 can help you automate tax collecting data.",
+    subText: "ERP17 can help you automate tax collecting data.",
     list: [
       "Tax factors depend on basic, house rent, medical allowance, and conveyance.",
       "After inputting these options, the admin has to create the slab.",
@@ -46,10 +46,10 @@ const taxSections = [
   },
   {
     heading: "Tax Rules",
-    subText: "With the help of HR360 Software you can add the financial rules.",
+    subText: "With the help of ERP17 Software you can add the financial rules.",
     list: [
       "Tax rules are important for tax calculation.",
-      "In HR360 Software, an admin or a finance person can add the tax rules.",
+      "In ERP17 Software, an admin or a finance person can add the tax rules.",
       "Admin or finance person has to select the tax calculation methods to generate the tax rules.",
       "Deduction from salary varies from person to person depending on their investment in EPF, labor welfare fund, and other such schemes.",
     ],
@@ -103,7 +103,7 @@ const TaxManagementPage = () => {
                 </span>
               </h1>
               <p className="text-gray-600 text-base md:text-xl leading-relaxed max-w-2xl mx-auto md:mx-0">
-                Simplify income tax calculations according to government policy. HR360 automates tax rule setup, salary deductions, and investment tracking for complete peace of mind.
+                Simplify income tax calculations according to government policy. ERP17 automates tax rule setup, salary deductions, and investment tracking for complete peace of mind.
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
                 <button className="px-8 py-4 bg-rose-600 text-white font-bold rounded-2xl hover:bg-rose-700 shadow-xl shadow-rose-200 transition-all hover:scale-105 active:scale-95 text-sm md:text-base">
@@ -117,7 +117,7 @@ const TaxManagementPage = () => {
 
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
-                <Image
+                <ProductImage
                   src="/img/products/tax/TM1.png"
                   alt="Tax Management Illustration"
                   width={600}
@@ -158,7 +158,7 @@ const TaxManagementPage = () => {
               {/* Image */}
               <div className={`flex-1 w-full order-1 ${sec.imgRight ? "md:order-2" : "md:order-1"}`}>
                 <div className="w-full">
-                  <Image
+                  <ProductImage
                     src={sec.img}
                     alt={sec.heading}
                     width={500}

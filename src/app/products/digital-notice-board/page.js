@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import ProductImage from "@/components/ui/ProductImage";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 
 // Section content array
@@ -11,7 +11,7 @@ const noticeBoardSections = [
     subText:
       "Create public announcements, bulletin board management, and more with the best HR management software.",
     list: [
-      "Through HR360 Software you can easily display digital notice board.",
+      "Through ERP17 Software you can easily display digital notice board.",
       "You will find it useful as no one has to go desk to desk to deliver a message.",
       "Just create a notice board from the admin panel and everyone will get a pop up notification through the app.",
     ],
@@ -20,7 +20,7 @@ const noticeBoardSections = [
   },
   {
     heading: "Creation of Notices",
-    subText: "Create notice and attach document with HR360.",
+    subText: "Create notice and attach document with ERP17.",
     list: [
       "An admin can create a notice from web and mobile app.",
       "An admin can easily send notice to an employee or a department or a branch.",
@@ -76,7 +76,7 @@ const DigitalNoticeBoardPage = () => {
                 </span>
               </h1>
               <p className="text-gray-600 text-base md:text-xl leading-relaxed max-w-2xl mx-auto md:mx-0">
-                Publish all updates on a digital notice board. Create announcements, manage bulletins, and reach everyone instantly with pop-up notifications through HR360.
+                Publish all updates on a digital notice board. Create announcements, manage bulletins, and reach everyone instantly with pop-up notifications through ERP17.
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
                 <button className="px-8 py-4 bg-yellow-600 text-white font-bold rounded-2xl hover:bg-yellow-700 shadow-xl shadow-yellow-200 transition-all hover:scale-105 active:scale-95 text-sm md:text-base">
@@ -90,7 +90,7 @@ const DigitalNoticeBoardPage = () => {
 
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
-                <Image
+                <ProductImage
                   src="/img/products/digital/DN1.svg"
                   alt="Digital Notice Board Illustration"
                   width={600}
@@ -131,7 +131,7 @@ const DigitalNoticeBoardPage = () => {
               {/* Image */}
               <div className={`flex-1 w-full order-1 ${sec.imgRight ? "md:order-2" : "md:order-1"}`}>
                 <div className="w-full">
-                  <Image
+                  <ProductImage
                     src={sec.img}
                     alt={sec.heading}
                     width={500}

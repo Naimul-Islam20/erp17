@@ -111,7 +111,7 @@ export default function BlogDetailsPage() {
             </p>
             
             <p className="mb-6">
-              Effective HR management is the backbone of any successful organization. In the dynamic business environment of Bangladesh, staying ahead with digital solutions like HR360 is no longer a luxury but a necessity. Companies are moving away from manual spreadsheets and paperwork to integrated systems that handle everything from recruitment to payroll.
+              Effective HR management is the backbone of any successful organization. In the dynamic business environment of Bangladesh, staying ahead with digital solutions like ERP17 is no longer a luxury but a necessity. Companies are moving away from manual spreadsheets and paperwork to integrated systems that handle everything from recruitment to payroll.
             </p>
 
             <h3 className="text-2xl font-bold text-[#141451] mt-10 mb-4">Why Digital HR Matters</h3>
@@ -134,7 +134,7 @@ export default function BlogDetailsPage() {
             </p>
 
             <p>
-              In conclusion, embracing a comprehensive HR and payroll solution like HR360 allows Bangladeshi companies to scale efficiently while maintaining a happy, productive workforce.
+              In conclusion, embracing a comprehensive HR and payroll solution like ERP17 allows Bangladeshi companies to scale efficiently while maintaining a happy, productive workforce.
             </p>
           </div>
 

@@ -15,7 +15,7 @@ export default function Footer() {
             {/* Column 1: Brand & Contact */}
             <div className="space-y-8 flex flex-col items-center md:items-start text-center md:text-left">
               <Link href="/" className="inline-block">
-                <Image src="/hr360-logo.png" alt="HR360 Logo" width={140} height={40} className="brightness-200" />
+                <Image src="/logo.jpeg" alt="ERP17 Logo" width={140} height={40} className="brightness-200" />
               </Link>
               <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
                 The most advanced and comprehensive HR & Payroll management system in Bangladesh. 
@@ -28,8 +28,8 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center justify-center md:justify-start gap-3">
                   <FaEnvelope className="text-sky-500 flex-shrink-0" />
-                  <Link href="mailto:biz.dev@hr360.com" className="text-sm hover:text-sky-500 transition-colors">
-                    biz.dev@hr360.com
+                  <Link href="mailto:biz.dev@erp17.com" className="text-sm hover:text-sky-500 transition-colors">
+                    biz.dev@erp17.com
                   </Link>
                 </div>
                 <div className="flex items-center justify-center md:justify-start gap-3">
@@ -137,7 +137,7 @@ export default function Footer() {
       <div className="border-t border-gray-800 py-8 bg-[#0a0a2b]">
         <div className="container flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-sm text-gray-500">
-            © {new Date().getFullYear()} HR360. All rights reserved. | Developed by{' '}
+            © {new Date().getFullYear()} ERP17. All rights reserved. | Developed by{' '}
             <Link href="https://muktodhara.com" className="text-gray-400 hover:text-sky-500 transition-colors font-medium">
               Muktodhara Technology Limited
             </Link>

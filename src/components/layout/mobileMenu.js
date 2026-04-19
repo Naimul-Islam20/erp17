@@ -63,7 +63,7 @@ const MobileMenu = ({ isOpen, onClose, menus }) => {
   };
 
   return (
-    <>
+    <div className="md:hidden">
       {/* Overlay */}
       {isOpen && (
         <div
@@ -164,7 +164,7 @@ const MobileMenu = ({ isOpen, onClose, menus }) => {
           })}
         </ul>
       </div>
-    </>
+    </div>
   );
 };
 

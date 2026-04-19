@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import ProductImage from "@/components/ui/ProductImage";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 
 const taskSections = [
@@ -11,7 +11,7 @@ const taskSections = [
       "Boosting your company’s productivity is our first priority. It saves both valuable time and energy!",
     list: [
       "Task management means tracking each task through its full lifecycle and making decisions according to progress.",
-      "With HR360 software, you can organize and manage tasks more effectively by using features such as creation, planning, assigning, tracking, and reporting.",
+      "With ERP17 software, you can organize and manage tasks more effectively by using features such as creation, planning, assigning, tracking, and reporting.",
     ],
     img: "/img/products/task/task2.png",
     imgRight: false,
@@ -21,7 +21,7 @@ const taskSections = [
     subText:
       "Stay on top of your daily or weekly work by creating instant tasks in your to-do list.",
     list: [
-      "Using HR360, you can easily create tasks by setting titles, assigning employees, choosing start and end dates, priorities, categories, status, descriptions, and uploading any required documents.",
+      "Using ERP17, you can easily create tasks by setting titles, assigning employees, choosing start and end dates, priorities, categories, status, descriptions, and uploading any required documents.",
       "Both individuals and team leaders can create tasks from the mobile app as well.",
       "Once a task is created, the assigned person immediately receives a notification.",
     ],
@@ -42,7 +42,7 @@ const taskSections = [
   },
   {
     heading: "Task Report",
-    subText: "Generate in-depth task progress reports within HR360.",
+    subText: "Generate in-depth task progress reports within ERP17.",
     list: [
       "Create reports by selecting date ranges and filtering employees or task status.",
       "Admins can track department-wise task reports for better performance insights.",
@@ -67,7 +67,7 @@ const taskSections = [
   {
     heading: "Customers",
     subText:
-      "Maintain and manage your company’s customer lists inside HR360 software.",
+      "Maintain and manage your company’s customer lists inside ERP17 software.",
     list: [
       "Customer lists are useful for task management and client interactions.",
       "Admins can define a location radius for customer offices or branches.",
@@ -123,7 +123,7 @@ const TaskManagementPage = () => {
                 </span>
               </h1>
               <p className="text-gray-600 text-base md:text-xl leading-relaxed max-w-2xl mx-auto md:mx-0">
-                A complete solution for assigning, tracking, and reporting tasks. Organize responsibilities and improve workflow with HR360 — the all-in-one HR management system.
+                A complete solution for assigning, tracking, and reporting tasks. Organize responsibilities and improve workflow with ERP17 — the all-in-one HR management system.
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
                 <button className="px-8 py-4 bg-amber-600 text-white font-bold rounded-2xl hover:bg-amber-700 shadow-xl shadow-amber-200 transition-all hover:scale-105 active:scale-95 text-sm md:text-base">
@@ -137,7 +137,7 @@ const TaskManagementPage = () => {
 
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
-                <Image
+                <ProductImage
                   src="/img/products/task/task1.png"
                   alt="Task Management Illustration"
                   width={600}
@@ -178,7 +178,7 @@ const TaskManagementPage = () => {
               {/* Image */}
               <div className={`flex-1 w-full order-1 ${sec.imgRight ? "md:order-2" : "md:order-1"}`}>
                 <div className="w-full">
-                  <Image
+                  <ProductImage
                     src={sec.img}
                     alt={sec.heading}
                     width={500}

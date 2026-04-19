@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import ProductImage from "@/components/ui/ProductImage";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 
 // Section content array
@@ -13,7 +13,7 @@ const shiftSections = [
       "Admins can build employee schedules in a minute.",
       "Multiple shifts can be set.",
       "Shift management can reduce absenteeism, late arrivals, etc.",
-      "Admins can easily maintain company’s shifts through HR360 Software.",
+      "Admins can easily maintain company’s shifts through ERP17 Software.",
     ],
     img: "/img/products/shift/SM2.png",
     imgRight: false,
@@ -44,7 +44,7 @@ const shiftSections = [
     heading: "Shift Management Report",
     subText: "Control roster setup in the office with detailed reports.",
     list: [
-      "Various reports are available in HR360 Software.",
+      "Various reports are available in ERP17 Software.",
       "Attendance reports can be generated monthly, weekly, or daily at any time.",
       "Extra time reports, overtime reports, and attendance analysis reports can also be generated.",
     ],
@@ -98,7 +98,7 @@ const ShiftManagementPage = () => {
                 </span>
               </h1>
               <p className="text-gray-600 text-base md:text-xl leading-relaxed max-w-2xl mx-auto md:mx-0">
-                The ultimate solution for roster setup, shift duties, and attendance management. Streamline your company&apos;s workforce scheduling with ease using HR360.
+                The ultimate solution for roster setup, shift duties, and attendance management. Streamline your company&apos;s workforce scheduling with ease using ERP17.
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
                 <button className="px-8 py-4 bg-rose-600 text-white font-bold rounded-2xl hover:bg-rose-700 shadow-xl shadow-rose-200 transition-all hover:scale-105 active:scale-95 text-sm md:text-base">
@@ -112,7 +112,7 @@ const ShiftManagementPage = () => {
 
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
-                <Image
+                <ProductImage
                   src="/img/products/shift/SM1.png"
                   alt="Shift Management Illustration"
                   width={600}
@@ -153,7 +153,7 @@ const ShiftManagementPage = () => {
               {/* Image */}
               <div className={`flex-1 w-full order-1 ${sec.imgRight ? "md:order-2" : "md:order-1"}`}>
                 <div className="w-full">
-                  <Image
+                  <ProductImage
                     src={sec.img}
                     alt={sec.heading}
                     width={500}

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import ProductImage from "@/components/ui/ProductImage";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 
 // Section content array
@@ -19,7 +19,7 @@ const securitySections = [
   },
   {
     heading: "User Setup",
-    subText: "Create and configure your new employee profile with the HR360 Software program easily.",
+    subText: "Create and configure your new employee profile with the ERP17 Software program easily.",
     list: [
       "Make a user category.",
       "Assign employees according to the category.",
@@ -31,7 +31,7 @@ const securitySections = [
   },
   {
     heading: "User Setup",
-    subText: "Create and configure your new employee profile with the HR360 Software program easily.",
+    subText: "Create and configure your new employee profile with the ERP17 Software program easily.",
     list: [
       "Make a user category.",
       "Assign employees according to the category.",
@@ -53,19 +53,19 @@ const securitySections = [
   },
   {
     heading: "SQL Injection",
-    subText: "We're using a standard algorithm and parameterized SQL operations to shield our HR360 software from numerous kinds of malicious attacks.",
+    subText: "We're using a standard algorithm and parameterized SQL operations to shield our ERP17 software from numerous kinds of malicious attacks.",
     list: [
       "This is one of the most common hacking techniques which might destroy our database.",
-      "We are maintaining a standard coding structure and parameterized SQL operations to protect our HR360 Software from any kind of malicious attack or hacking technique like SQL Injection."
+      "We are maintaining a standard coding structure and parameterized SQL operations to protect our ERP17 Software from any kind of malicious attack or hacking technique like SQL Injection."
     ],
     img: "/img/products/security/S6.svg",
     imgRight: false
   },
   {
     heading: "Data Encryption",
-    subText: "Information from HR360 Software is kept confidential.",
+    subText: "Information from ERP17 Software is kept confidential.",
     list: [
-      "Data is securely protected in our HR360 Software.",
+      "Data is securely protected in our ERP17 Software.",
       "We consider our own developed encryption/decryption technique for password mechanism."
     ],
     img: "/img/products/security/S7.svg",
@@ -118,7 +118,7 @@ const SecurityPage = () => {
                 </span>
               </h1>
               <p className="text-gray-600 text-base md:text-xl leading-relaxed max-w-2xl mx-auto md:mx-0">
-                Keep your company data safe and confidential. HR360 employs advanced encryption, SQL injection protection, and secure device management for your peace of mind.
+                Keep your company data safe and confidential. ERP17 employs advanced encryption, SQL injection protection, and secure device management for your peace of mind.
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
                 <button className="px-8 py-4 bg-slate-800 text-white font-bold rounded-2xl hover:bg-slate-900 shadow-xl shadow-slate-200 transition-all hover:scale-105 active:scale-95 text-sm md:text-base">
@@ -132,7 +132,7 @@ const SecurityPage = () => {
 
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
-                <Image 
+                <ProductImage 
                   src="/img/products/security/S1.png"
                   alt="Security Software Illustration"
                   width={600}
@@ -173,7 +173,7 @@ const SecurityPage = () => {
               {/* Image */}
               <div className={`flex-1 w-full order-1 ${sec.imgRight ? "md:order-2" : "md:order-1"}`}>
                 <div className="w-full">
-                  <Image 
+                  <ProductImage 
                     src={sec.img}
                     alt={sec.heading}
                     width={500}

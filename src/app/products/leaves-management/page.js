@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import ProductImage from "@/components/ui/ProductImage";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 
 // Section content array
@@ -11,7 +11,7 @@ const sections = [
     subText: "It manages your employee absences and leaves with cloud-based HRM Software. This absence & leave management software has features like Employee Leave Applications, Leave Calendar, Leave Reliever, and more.",
     list: [
       "It helps employees to work from anywhere.",
-      "HR360 Leave Management Software has replaced traditional hard copy applications.",
+      "ERP17 Leave Management Software has replaced traditional hard copy applications.",
       "Staff can easily submit their leave application through mobile app or web.",
       "This Employee Leave App will send the leave application to the layerwise approver.",
       "Leave requests can be accepted or rejected quickly."
@@ -31,17 +31,17 @@ const sections = [
   },
   {
     heading: "Leave Status",
-    subText: "Our HR360 dashboard allows you to view the status of leaves allotted to each employee.",
+    subText: "Our ERP17 dashboard allows you to view the status of leaves allotted to each employee.",
     list: [
       "Admins can look up each employee’s leave status, counts, replacements, and more data.",
-      "Office staff can also check their leave status through HR360 app or web portal."
+      "Office staff can also check their leave status through ERP17 app or web portal."
     ],
     img: "/img/products/employee/el4.svg",
     imgRight: false,
   },
   {
     heading: "Multiple Leaves Approver",
-    subText: "HR360 provides a feature for multiple layers of leave approval.",
+    subText: "ERP17 provides a feature for multiple layers of leave approval.",
     list: [
       "Admins can set the parameters for leave approvers.",
       "Multiple layers can be added for approving leave requests.",
@@ -122,7 +122,7 @@ const EmployeeLeavePage = () => {
 
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
-                <Image 
+                <ProductImage 
                   src="/img/products/employee/EL1.webp"
                   alt="Employee Leave Management Illustration"
                   width={600}
@@ -163,7 +163,7 @@ const EmployeeLeavePage = () => {
               {/* Image */}
               <div className={`flex-1 w-full order-1 ${sec.imgRight ? "md:order-2" : "md:order-1"}`}>
                 <div className="w-full">
-                  <Image 
+                  <ProductImage 
                     src={sec.img}
                     alt={sec.heading}
                     width={500}

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import ProductImage from "@/components/ui/ProductImage";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 
 // Expense Sections
@@ -9,11 +9,11 @@ const expenseSections = [
   {
     heading: "Claim",
     subText:
-      "HR360 Expense offers handy features to capture and record every penny your business spends. Prevent an unseen expense from reoccurring.",
+      "ERP17 Expense offers handy features to capture and record every penny your business spends. Prevent an unseen expense from reoccurring.",
     list: [
-      "Employees can easily claim for their expenses through HR360.",
+      "Employees can easily claim for their expenses through ERP17.",
       "They can easily submit their expenses through app or the web.",
-      "An admin can also store the office expenses through claim by using HR360 Software.",
+      "An admin can also store the office expenses through claim by using ERP17 Software.",
       "Employees can upload any kind of documents of their expenses."
     ],
     img: "/img/products/expense/EM2.png",
@@ -22,7 +22,7 @@ const expenseSections = [
   {
     heading: "Claim Category",
     subText:
-      "Make claim from selected categories. HR360 Expense offers handy features to capture and record every penny your business spends. Prevent an unseen expense from reoccurring.",
+      "Make claim from selected categories. ERP17 Expense offers handy features to capture and record every penny your business spends. Prevent an unseen expense from reoccurring.",
     list: [
       "An admin can make any kind of categories for claim.",
       "After the category is set up, then any employees can apply for the claim."
@@ -33,7 +33,7 @@ const expenseSections = [
   {
     heading: "Claim Report",
     subText:
-      "When your employees are traveling all around the city/ country, HR360 Expense Management will allow you to keep track of expenses right from your mobile device or from the web to ensure error-free calculations.",
+      "When your employees are traveling all around the city/ country, ERP17 Expense Management will allow you to keep track of expenses right from your mobile device or from the web to ensure error-free calculations.",
     list: [
       "After submitting the claim, an admin can generate a report according to the needs.",
       "Admin has to select the date range, status and categories to generate a report."
@@ -88,7 +88,7 @@ const ExpenseManagementPage = () => {
                 </span>
               </h1>
               <p className="text-gray-600 text-base md:text-xl leading-relaxed max-w-2xl mx-auto md:mx-0">
-                Capture every penny with HR360 Expense. Streamline claims, manage categories, and generate error-free reports right from your mobile device or the web.
+                Capture every penny with ERP17 Expense. Streamline claims, manage categories, and generate error-free reports right from your mobile device or the web.
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
                 <button className="px-8 py-4 bg-emerald-600 text-white font-bold rounded-2xl hover:bg-emerald-700 shadow-xl shadow-emerald-200 transition-all hover:scale-105 active:scale-95 text-sm md:text-base">
@@ -102,7 +102,7 @@ const ExpenseManagementPage = () => {
 
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
-                <Image
+                <ProductImage
                   src="/img/products/expense/EM1.png"
                   alt="Expense Management Illustration"
                   width={600}
@@ -143,7 +143,7 @@ const ExpenseManagementPage = () => {
               {/* Image */}
               <div className={`flex-1 w-full order-1 ${sec.imgRight ? "md:order-2" : "md:order-1"}`}>
                 <div className="w-full">
-                  <Image
+                  <ProductImage
                     src={sec.img}
                     alt={sec.heading}
                     width={500}

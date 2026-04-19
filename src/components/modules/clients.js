@@ -60,7 +60,7 @@ export default function ClientsMarquee() {
       </style>
 
       <div className="w-full bg-white py-10 md:py-16">
-        {/* Title */}
+        {/* Title — hidden per request
         <div className="container text-center mb-10 md:mb-12">
           <h2 className="text-sm md:text-md lg:text-xl text-[#2f2f57]">
             Companies Using
@@ -69,6 +69,7 @@ export default function ClientsMarquee() {
             Modern HR & Payroll Software in Bangladesh
           </p>
         </div>
+        */}
 
         {/* Clients Marquee */}
         <div className="marquee-viewport py-6 md:py-8">
