@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import { primaryCtaClassName } from "@/constants/cta";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 
 const Erp17Info = () => {
@@ -42,13 +44,12 @@ const Erp17Info = () => {
               Interested? Request a live demo.
             </p>
 
-         <button
-  className="mt-3 sm:mt-4 bg-sky-500 hover:bg-sky-600 text-white font-bold py-2.5 sm:py-3 px-5 sm:px-6 
-  rounded-full transition text-sm sm:text-base 
-  mx-auto block sm:mx-0 sm:inline-flex"
->
-  Contact Us
-</button>
+         <Link
+            href="/contact"
+            className={`mt-3 sm:mt-4 mx-auto sm:mx-0 ${primaryCtaClassName}`}
+          >
+            Contact Us
+          </Link>
 
           </div>
 

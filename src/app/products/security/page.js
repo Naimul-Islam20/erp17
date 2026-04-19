@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { primaryCtaClassName } from "@/constants/cta";
 import React from "react";
 import ProductImage from "@/components/ui/ProductImage";
 import { AiOutlineCheckCircle } from "react-icons/ai";
@@ -121,12 +123,12 @@ const SecurityPage = () => {
                 Keep your company data safe and confidential. ERP17 employs advanced encryption, SQL injection protection, and secure device management for your peace of mind.
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
-                <button className="px-8 py-4 bg-slate-800 text-white font-bold rounded-2xl hover:bg-slate-900 shadow-xl shadow-slate-200 transition-all hover:scale-105 active:scale-95 text-sm md:text-base">
+                <Link
+                  href="/contact"
+                  className={primaryCtaClassName}
+                >
                   Contact Us
-                </button>
-                <button className="px-8 py-4 bg-white text-slate-700 font-bold rounded-2xl border-2 border-slate-200 hover:bg-slate-50 transition-all text-sm md:text-base">
-                  View Demo
-                </button>
+                </Link>
               </div>
             </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { primaryCtaClassName } from "@/constants/cta";
 
 export default function CoreHRPage() {
   return (
@@ -42,10 +43,7 @@ export default function CoreHRPage() {
       </div>
 
       <div className="mt-6">
-        <Link
-          href="/get-started"
-          className="px-4 py-2 bg-blue-600 text-white font-medium rounded hover:bg-blue-700 transition"
-        >
+        <Link href="/contact" className={primaryCtaClassName}>
           Get Started
         </Link>
       </div>

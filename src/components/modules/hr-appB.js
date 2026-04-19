@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import { primaryCtaClassName } from "@/constants/cta";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 
 const HrAppB = () => {
@@ -51,9 +53,9 @@ const HrAppB = () => {
 
             {/* CTA / Contact */}
             <div className="mt-6 md:mt-8 flex justify-center lg:justify-start">
-              <button className="bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 text-white font-bold py-3 px-6 sm:px-8 rounded-full transition-all">
-               Contact Us
-              </button>
+              <Link href="/contact" className={primaryCtaClassName}>
+                Contact Us
+              </Link>
             </div>
           </div>
 

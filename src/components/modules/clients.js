@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
+import { primaryCtaInlineFlexClassName, secondaryOutlineCtaClassName } from "@/constants/cta";
 
 const clients = [
   "/img/home/c1.svg",
@@ -92,21 +93,12 @@ export default function ClientsMarquee() {
         {/* Buttons always side by side */}
         <div className="container flex justify-center items-center flex-wrap gap-4 sm:gap-8 md:gap-12 mt-12 md:mt-16">
           {/* Get Started */}
-          <Link
-            href="/get-started"
-            className="flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white font-semibold 
-            py-3 px-5 sm:py-4 sm:px-7 rounded-full transition text-sm sm:text-base whitespace-nowrap"
-          >
+          <Link href="/contact" className={primaryCtaInlineFlexClassName}>
             Get Started
             <FaArrowRight size={16} className="sm:size-5" />
           </Link>
 
-          {/* Contact */}
-          <Link
-            href="/contact"
-            className="flex items-center border border-sky-500 gap-2 hover:bg-gray-100 text-sky-500 font-semibold 
-            py-3 px-5 sm:py-4 sm:px-7 rounded-full transition text-sm sm:text-base whitespace-nowrap"
-          >
+          <Link href="/contact" className={secondaryOutlineCtaClassName}>
             Contact
             <FaArrowRight size={16} className="sm:size-5" />
           </Link>

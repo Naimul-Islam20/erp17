@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { primaryCtaClassName } from "@/constants/cta";
 import menus from "@/data/menus";
 import { BiChevronDown, BiCircle } from "react-icons/bi";
 import * as BiIcons from "react-icons/bi";
@@ -181,10 +182,7 @@ export default function Header() {
 
             {/* Get Started button */}
             <div className="ml-6">
-              <Link
-                href="/get-started-path"
-                className="px-4 py-3 bg-sky-500 text-white font-bold rounded-full hover:bg-sky-600 transition"
-              >
+              <Link href="/contact" className={primaryCtaClassName}>
                 Get Started
               </Link>
             </div>

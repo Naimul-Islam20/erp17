@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { primaryCtaClassName } from "@/constants/cta";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { FaMapMarkedAlt, FaDrawPolygon, FaUsers, FaFingerprint, FaFolderOpen } from "react-icons/fa";
 
@@ -134,9 +136,9 @@ export default function PricingPage() {
               </ul>
               <p>Call for Price :+880 14 0400 8950</p>
 
-              <button className="bg-sky-500 text-white py-2 rounded-full font-semibold hover:bg-sky-600 transition">
+              <Link href="/contact" className={`${primaryCtaClassName} w-full`}>
                 Get Started
-              </button>
+              </Link>
             </div>
           ))}
         </div>

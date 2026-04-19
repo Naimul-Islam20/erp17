@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { primaryCtaClassName } from "@/constants/cta";
 import React from "react";
 import ProductImage from "@/components/ui/ProductImage";
 import { AiOutlineCheckCircle } from "react-icons/ai";
@@ -104,18 +106,12 @@ const CrmPage = () => {
                 workspace built for growing teams in Bangladesh and beyond.
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
-                <button
-                  type="button"
-                  className="px-8 py-4 bg-indigo-600 text-white font-bold rounded-2xl hover:bg-indigo-700 shadow-xl shadow-indigo-200 transition-all hover:scale-105 active:scale-95 text-sm md:text-base"
+                <Link
+                  href="/contact"
+                  className={primaryCtaClassName}
                 >
                   Contact Us
-                </button>
-                <button
-                  type="button"
-                  className="px-8 py-4 bg-white text-indigo-600 font-bold rounded-2xl border-2 border-indigo-100 hover:bg-indigo-50 transition-all text-sm md:text-base"
-                >
-                  View Demo
-                </button>
+                </Link>
               </div>
             </div>
 

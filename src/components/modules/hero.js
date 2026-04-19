@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { primaryCtaClassName } from "@/constants/cta";
 
 const HeroSection = () => {
   return (
@@ -50,24 +52,12 @@ const HeroSection = () => {
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
-              <button className="px-8 py-4 bg-sky-500 text-white font-bold rounded-2xl hover:bg-sky-600 shadow-xl shadow-sky-200 transition-all hover:scale-105 active:scale-95 text-sm md:text-base">
+              <Link href="/contact" className={primaryCtaClassName}>
                 Get Started
-              </button>
-              <button className="px-8 py-4 bg-white text-sky-500 font-bold rounded-2xl border-2 border-sky-100 hover:bg-sky-50 transition-all text-sm md:text-base">
-                Watch Demo
-              </button>
+              </Link>
             </div>
 
-            <div className="pt-6 flex items-center justify-center lg:justify-start gap-4">
-               <div className="flex -space-x-2">
-                 {[1, 2, 3, 4].map((i) => (
-                   <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-sky-200 overflow-hidden shadow-sm">
-                      <div className="w-full h-full bg-gradient-to-br from-sky-400 to-blue-500 flex items-center justify-center text-[10px] text-white font-bold">HR</div>
-                   </div>
-                 ))}
-               </div>
-               <p className="text-gray-500 text-sm font-medium">Joined by <span className="text-sky-600 font-bold">500+</span> companies nationwide</p>
-            </div>
+           
           </div>
 
           {/* Right Column - Image */}

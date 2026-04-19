@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { primaryCtaClassName } from "@/constants/cta";
 import React from "react";
 import ProductImage from "@/components/ui/ProductImage";
 import { AiOutlineCheckCircle } from "react-icons/ai";
@@ -106,12 +108,12 @@ const TaxManagementPage = () => {
                 Simplify income tax calculations according to government policy. ERP17 automates tax rule setup, salary deductions, and investment tracking for complete peace of mind.
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
-                <button className="px-8 py-4 bg-rose-600 text-white font-bold rounded-2xl hover:bg-rose-700 shadow-xl shadow-rose-200 transition-all hover:scale-105 active:scale-95 text-sm md:text-base">
-                  Calculate Your Tax
-                </button>
-                <button className="px-8 py-4 bg-white text-rose-600 font-bold rounded-2xl border-2 border-rose-100 hover:bg-rose-50 transition-all text-sm md:text-base">
-                  View Demo
-                </button>
+                <Link
+                  href="/contact"
+                  className={primaryCtaClassName}
+                >
+                  Contact Us
+                </Link>
               </div>
             </div>
 

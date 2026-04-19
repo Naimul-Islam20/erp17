@@ -2,127 +2,118 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import * as FaIcons from "react-icons/fa";
 
 const features = [
   {
-    icon: "FaMapMarkerAlt",
-    name: "Mobile Attendance Tracking with GPS",
-    desc: "The ERP17 app simplifies attendance management with accurate, real-time tools.",
+    href: "/products/crm",
+    icon: "FaAddressBook",
+    name: "CRM",
+    desc: "Leads, deals, contacts, and pipelines in one cloud CRM on ERP17.",
     points: [
-      "GPS-based location tracking and biometric selfie attendance",
-      "Cloud-synced data visible instantly on your dashboard",
-      "Supports remote workforces, field staff, and hybrid models",
+      "Customizable stages and pipeline value your team can trust",
+      "Companies and contacts with full activity history",
+      "Managers see workload and deals without digging through inboxes",
     ],
   },
   {
-    icon: "FaMapMarkedAlt",
-    name: "Geo-Fencing for Attendance",
-    desc: "Control where your team can clock in.",
-    points: [
-      "Restrict attendance to office or job sites",
-      "Prevent false or remote check-ins",
-      "Boost accountability in your HR system",
-    ],
-  },
-  {
-    icon: "FaLocationArrow",
-    name: "Live Location Tracking",
-    desc: "Track employee location live during working hours.",
-    points: [
-      "Manage mobile and field staff easily",
-      "Increase transparency and operational control",
-      "Reduce location-related attendance fraud",
-    ],
-  },
-  {
-    icon: "FaRegCalendarCheck",
-    name: "Instant Leave Requests & Approvals",
-    desc: "Digital leave management at your fingertips.",
-    points: [
-      "Submit and approve leave anytime, anywhere",
-      "Live leave balance tracking for employees",
-      "HR stays informed through real-time updates",
-    ],
-  },
-  {
-    icon: "FaBusinessTime",
-    name: "Shift & Schedule Management",
-    desc: "Efficient scheduling is critical for workforce performance.",
-    points: [
-      "Create and assign employee shifts",
-      "Notify staff of changes instantly",
-      "Maintain consistent workforce coverage",
-    ],
-  },
-  {
-    icon: "FaWallet",
-    name: "Payslip & Payroll Access",
-    desc: "Ensure payroll transparency with mobile access to payslips and salary breakdowns.",
-    points: [
-      "View and download payslips on-demand",
-      "Breakdown includes gross salary, deductions, bonuses",
-      "Integrated with your existing payroll process",
-    ],
-  },
-  {
-    icon: "FaBell",
-    name: "Real-Time HR Notifications",
-    desc: "Keep employees informed with push notifications.",
-    points: [
-      "HR announcements",
-      "Policy updates",
-      "Attendance, leave, and payroll deadlines",
-    ],
-  },
-  {
+    href: "/products/hrm",
     icon: "FaUsers",
-    name: "HRM Dashboard",
-    desc: "Access and manage employee data in real time.",
+    name: "HRM",
+    desc: "Human resource management — profiles, documents, hierarchy & reports in one place.",
     points: [
-      "Centralized employee profiles with salary, leave, and attendance history",
-      "Lifecycle tracking from onboarding to exit",
-      "Admin and managers can update employee info securely",
+      "Employee records, org structure, and HR documents in one system",
+      "Policies and approvals that scale with your headcount",
+      "Role-based access for HR, line managers, and employees",
     ],
   },
   {
-    icon: "FaFileInvoiceDollar",
-    name: "Auto-Generated Salary Certificate",
-    desc: "Generate official salary certificates with one tap.",
+    href: "/products/ecommerce",
+    icon: "FaShoppingCart",
+    name: "eCommerce",
+    desc: "Online store, catalog, checkout, and order management on ERP17 Cloud.",
     points: [
-      "Includes monthly payroll, deductions, and net pay",
-      "Ready for bank, visa, and internal use",
-      "Signable by HR/Admin for authenticity",
+      "Catalog, pricing, and variants aligned with inventory",
+      "Checkout flows with tax and order status customers can follow",
+      "Orders feed accounts so revenue matches operations",
     ],
   },
   {
-    icon: "FaCogs",
-    name: "Seamless Integration with Web-Based HR Platform",
-    desc: "The mobile app connects directly with Rysenova's web dashboard.",
+    href: "/products/hotel-booking",
+    icon: "FaHotel",
+    name: "Hotel Booking",
+    desc: "Rooms, rates, reservations, and guest experience in one booking suite.",
     points: [
-      "Real-time sync across devices",
-      "Unified experience for HR, admins, and employees",
-      "Avoids data duplication and reduces errors",
+      "Availability and rate plans in a single operational calendar",
+      "Reservations and guest folios updated in real time",
+      "Front office, housekeeping, and billing on one platform",
     ],
   },
   {
-    icon: "FaChartBar",
-    name: "Reporting & Analytics",
-    desc: "Generate real-time HR reports, analyze attendance data, and ensure payroll compliance.",
+    href: "/products/gamezone",
+    icon: "FaGamepad",
+    name: "Gamezone",
+    desc: "Engage teams with quests, points, badges, and leaderboards on ERP17.",
     points: [
-      "Visualize employee attendance, leave balances, and payroll summaries",
-      "Make data-driven decisions with built-in HR reporting tools",
-      "Streamline audits and forecasting with detailed workforce analytics",
+      "Quests tied to onboarding, compliance, or sales goals",
+      "Leaderboards that motivate without exposing payroll data",
+      "HR sets rules; staff see a simple, game-style progress view",
     ],
   },
   {
-    icon: "FaShieldAlt",
-    name: "Security & Access Control",
-    desc: "Protect HR and payroll data with secure access.",
+    href: "/products/point-of-sale",
+    icon: "FaCashRegister",
+    name: "Point of Sale",
+    desc: "Fast retail checkout, barcodes, receipts, and store sync on ERP17 Cloud.",
     points: [
-      "Assign user permissions to HR, admins, and managers",
-      "Prevent unauthorized access to sensitive employee information",
-      "Ensure full HR data security aligned with GDPR and local labor laws",
+      "Barcode and keyboard-friendly checkout for busy counters",
+      "Shifts, registers, and cash variance visible to HQ",
+      "Sales queue locally when the link drops, then sync cleanly",
+    ],
+  },
+  {
+    href: "/products/distribution",
+    icon: "FaTruck",
+    name: "Distribution",
+    desc: "Depot to dealer — stock transfers, van sales, and delivery tracking on ERP17.",
+    points: [
+      "Transfers and van routes with stock movement everyone can see",
+      "Proof of delivery and status for each drop",
+      "Tied to inventory and invoicing so nothing is re-keyed at night",
+    ],
+  },
+  {
+    href: "/products/accounts",
+    icon: "FaCalculator",
+    name: "Accounts",
+    desc: "Chart of accounts, journals, bank reconciliation, and financial reporting on ERP17 Cloud.",
+    points: [
+      "General ledger and journals with a clear audit trail",
+      "Bank and cash matching without spreadsheet gymnastics",
+      "Financial statements from the same data as sales and stock",
+    ],
+  },
+  {
+    href: "/products/invoicing",
+    icon: "FaFileInvoice",
+    name: "Invoicing",
+    desc: "Quotes, tax-ready invoices, payments, and customer statements in one billing flow.",
+    points: [
+      "Quotes that convert to invoices with consistent line items and tax",
+      "Payments and aging your collections team can work from daily",
+      "Links to inventory and accounts for margin you can defend",
+    ],
+  },
+  {
+    href: "/products/inventory",
+    icon: "FaBoxes",
+    name: "Inventory",
+    desc: "Multi-location stock, batches, reorder alerts, and valuation synced with sales and purchasing.",
+    points: [
+      "On-hand, reserved, and inbound by site or bin",
+      "Batches, serials, and reorder signals purchasing can trust",
+      "Valuation aligned with POS, eCommerce, and distribution",
     ],
   },
 ];
@@ -134,10 +125,10 @@ const HrFeatures = () => {
     {/* Page Title */}
     <div className="text-center mb-6 md:mb-12 px-2">
       <h2 className="text-base sm:text-lg md:text-xl text-gray-500">
-        Key Features of ERP17 Mobile App
+        ERP17 Cloud Product Suite
       </h2>
       <p className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl text-[#141451] font-bold mt-1 md:mt-4 leading-snug">
-        Smart Workforce Management Designed for Every Sector
+        Modules from CRM to inventory — one platform for your business
       </p>
     </div>
 
@@ -146,12 +137,13 @@ const HrFeatures = () => {
       {features.map((feature, index) => {
         const Icon = FaIcons[feature.icon] || FaIcons.FaCircle;
         return (
-          <div
+          <Link
             key={index}
-            className="bg-white rounded-2xl p-3 sm:p-5 border border-gray-200  hover:border-sky-500 transition duration-300 flex flex-col"
+            href={feature.href}
+            className="group bg-white rounded-2xl p-3 sm:p-5 border border-gray-200 hover:border-sky-500 transition duration-300 flex flex-col h-full hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
           >
             <Icon className="text-3xl sm:text-4xl text-sky-500 mb-2 sm:mb-3" />
-            <h3 className="text-lg sm:text-xl font-semibold text-[#141451] mb-1 sm:mb-2">
+            <h3 className="text-lg sm:text-xl font-semibold text-[#141451] mb-1 sm:mb-2 group-hover:text-sky-700">
               {feature.name}
             </h3>
             <p className="text-sm sm:text-sm text-gray-600 mb-2 sm:mb-3">
@@ -162,7 +154,7 @@ const HrFeatures = () => {
                 <li key={i}>{point}</li>
               ))}
             </ul>
-          </div>
+          </Link>
         );
       })}
     </div>

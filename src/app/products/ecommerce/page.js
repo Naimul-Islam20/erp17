@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { primaryCtaClassName } from "@/constants/cta";
 import React from "react";
 import ProductImage from "@/components/ui/ProductImage";
 import { AiOutlineCheckCircle } from "react-icons/ai";
@@ -104,18 +106,12 @@ const EcommercePage = () => {
                 workflows—without juggling five different tools.
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
-                <button
-                  type="button"
-                  className="px-8 py-4 bg-orange-600 text-white font-bold rounded-2xl hover:bg-orange-700 shadow-xl shadow-orange-200 transition-all hover:scale-105 active:scale-95 text-sm md:text-base"
+                <Link
+                  href="/contact"
+                  className={primaryCtaClassName}
                 >
                   Contact Us
-                </button>
-                <button
-                  type="button"
-                  className="px-8 py-4 bg-white text-orange-600 font-bold rounded-2xl border-2 border-orange-100 hover:bg-orange-50 transition-all text-sm md:text-base"
-                >
-                  View Demo
-                </button>
+                </Link>
               </div>
             </div>
 

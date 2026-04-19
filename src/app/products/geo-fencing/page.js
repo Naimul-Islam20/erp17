@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-
+import { primaryCtaClassName } from "@/constants/cta";
 import React from "react";
 import ProductImage from "@/components/ui/ProductImage";
 import { AiOutlineCheckCircle } from "react-icons/ai";
@@ -81,12 +81,12 @@ export default function GeoFencingPage() {
                 Ensure your workforce is where they need to be. defining virtual boundaries and validating attendance locations in real-time with ERP17&apos;s advanced geo-fencing technology.
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
-                <button className="px-8 py-4 bg-emerald-600 text-white font-bold rounded-2xl hover:bg-emerald-700 shadow-xl shadow-emerald-200 transition-all hover:scale-105 active:scale-95 text-sm md:text-base">
-                  Start Monitoring
-                </button>
-                <button className="px-8 py-4 bg-white text-emerald-600 font-bold rounded-2xl border-2 border-emerald-100 hover:bg-emerald-50 transition-all text-sm md:text-base">
-                  View Demo
-                </button>
+                <Link
+                  href="/contact"
+                  className={primaryCtaClassName}
+                >
+                  Contact Us
+                </Link>
               </div>
             </div>
 

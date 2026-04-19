@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { primaryCtaClassName } from "@/constants/cta";
 import React from "react";
 import ProductImage from "@/components/ui/ProductImage";
 import { AiOutlineCheckCircle } from "react-icons/ai";
@@ -98,12 +100,12 @@ const Page = () => {
                 Manage employee attendance with the best Cloud-Based Management Software in Bangladesh. Real-time monitoring, geo-fencing, and biometric integration for your workforce.
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
-                <button className="px-8 py-4 bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-700 shadow-xl shadow-blue-200 transition-all hover:scale-105 active:scale-95 text-sm md:text-base">
+                <Link
+                  href="/contact"
+                  className={primaryCtaClassName}
+                >
                   Contact Us
-                </button>
-                <button className="px-8 py-4 bg-white text-blue-600 font-bold rounded-2xl border-2 border-blue-100 hover:bg-blue-50 transition-all text-sm md:text-base">
-                  View Demo
-                </button>
+                </Link>
               </div>
             </div>
 

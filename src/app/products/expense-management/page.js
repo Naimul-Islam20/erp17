@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { primaryCtaClassName } from "@/constants/cta";
 import React from "react";
 import ProductImage from "@/components/ui/ProductImage";
 import { AiOutlineCheckCircle } from "react-icons/ai";
@@ -91,12 +93,12 @@ const ExpenseManagementPage = () => {
                 Capture every penny with ERP17 Expense. Streamline claims, manage categories, and generate error-free reports right from your mobile device or the web.
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
-                <button className="px-8 py-4 bg-emerald-600 text-white font-bold rounded-2xl hover:bg-emerald-700 shadow-xl shadow-emerald-200 transition-all hover:scale-105 active:scale-95 text-sm md:text-base">
+                <Link
+                  href="/contact"
+                  className={primaryCtaClassName}
+                >
                   Contact Us
-                </button>
-                <button className="px-8 py-4 bg-white text-emerald-600 font-bold rounded-2xl border-2 border-emerald-100 hover:bg-emerald-50 transition-all text-sm md:text-base">
-                  View Demo
-                </button>
+                </Link>
               </div>
             </div>
 
