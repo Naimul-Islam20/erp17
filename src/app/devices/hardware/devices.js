@@ -8,169 +8,210 @@ import { AiOutlineCheckCircle } from "react-icons/ai";
 const allDevices = [
   {
     id: 1,
-    name: "ZKTeco SpeedFace-V5L",
+    name: "Tipsoi TC-03 (Exit Reader)",
     img: "/img/devices/D2.webp",
-    brand: "ZKTeco",
-    type: "Face",
+    brand: "Tipsoi",
+    type: "Exit Reader",
     details: [
-      "Face Capacity: Supports up to 6,000 face templates (standard)",
-      "Fingerprint Capacity: Comes with 6,000 standard, expandable to 10,000",
-      "Card Capacity: Can store up to 10,000 card templates",
-      "Palm Capacity (optional): Around 3,000 palm templates",
-      "Transaction Storage: 200,000 transaction logs",
+      "Series: Tipsoi",
+      "Model: TC-03",
+      "MRP: 3,000",
+      "Reseller Price: 2,000",
     ],
   },
   {
     id: 2,
-    name: "ZKTeco F18",
+    name: "Tipsoi TC-10 (RFID Card Reader)",
     img: "/img/devices/D3.webp",
-    brand: "ZKTeco",
-    type: "Fingerprint",
+    brand: "Tipsoi",
+    type: "RFID Card Reader",
     details: [
-      "Fingerprint Capacity: 3,000 templates",
-      "Card Capacity: 5,000 (optional)",
-      "Transaction Capacity: 30,000–100,000 logs",
-      "Connectivity: TCP/IP, RS-485, Wiegand, USB-host",
+      "Series: Tipsoi",
+      "Model: TC-10",
+      "MRP: 12,000",
+      "Reseller Price: 8,000",
     ],
   },
   {
     id: 3,
-    name: "ZKTeco K40",
+    name: "Tipsoi TF-80",
     img: "/img/devices/D4.webp",
-    brand: "ZKTeco",
-    type: "Fingerprint",
+    brand: "Tipsoi",
+    type: "Fingerprint Reader",
     details: [
-      "Fingerprint Capacity: ~1,000 templates",
-      "Transaction Capacity: ~80,000 logs",
-      "Connectivity: LAN, USB",
+      "Series: Tipsoi",
+      "Model: TF-80",
+      "MRP: 25,000",
+      "Reseller Price: 13,500",
     ],
   },
   {
     id: 4,
-    name: "ZKTeco K50-A",
+    name: "Tipsoi Fastface 5 Lite",
     img: "/img/devices/D5.webp",
-    brand: "ZKTeco",
-    type: "Fingerprint",
+    brand: "Tipsoi",
+    type: "Face",
     details: [
-      "Fingerprint Capacity: ~2,000 templates",
-      "Card Capacity: ~2,000 cards",
-      "Connectivity: LAN, USB",
+      "Series: Fast Face",
+      "Model: D-505",
+      "MRP: 32,000",
+      "Reseller Price: 24,000",
     ],
   },
   {
     id: 5,
-    name: "ZKTeco K90",
+    name: "Tipsoi Fastface 5",
     img: "/img/devices/D6.webp",
-    brand: "ZKTeco",
-    type: "Fingerprint",
+    brand: "Tipsoi",
+    type: "Face",
     details: [
-      "Fingerprint Capacity: 1,000 / 2,000 optional",
-      "Card Capacity: ~800–3,000",
-      "Transaction Capacity: 50,000–100,000 logs",
-      "Connectivity: LAN (TCP/IP), USB-host",
+      "Series: Fast Face",
+      "Model: D-510",
+      "MRP: 40,000",
+      "Reseller Price: 33,000",
     ],
   },
   {
     id: 6,
-    name: "ZKTeco F22",
+    name: "Tipsoi Fastface 5 Pro",
     img: "/img/devices/D7.webp",
-    brand: "ZKTeco",
-    type: "Fingerprint",
+    brand: "Tipsoi",
+    type: "Face",
     details: [
-      "Fingerprint Capacity: ~3,000 templates",
-      "Card Capacity: ~5,000 cards",
-      "Transaction Capacity: ~30,000 logs",
-      "Connectivity: Wi-Fi, LAN",
+      "Series: Fast Face",
+      "Model: D-530",
+      "MRP: 45,000",
+      "Reseller Price: 36,500",
     ],
   },
   {
     id: 7,
-    name: "ZKTeco MB460",
+    name: "Tipsoi Fastface 5 Pro FP",
     img: "/img/devices/D8.webp",
-    brand: "ZKTeco",
+    brand: "Tipsoi",
     type: "Face",
     details: [
-      "Face Capacity: ~1,500 templates",
-      "Fingerprint Capacity: ~2,000 templates",
-      "Card Capacity: ~5,000 cards",
-      "Transaction Capacity: ~100,000 logs",
-      "Connectivity: Wi-Fi, LAN",
+      "Series: Fast Face",
+      "Model: D-550",
+      "MRP: 52,000",
+      "Reseller Price: 42,000",
     ],
   },
   {
     id: 8,
-    name: "ZKTeco K50",
+    name: "Tipsoi Fastface 7",
     img: "/img/devices/D9.webp",
-    brand: "ZKTeco",
-    type: "Fingerprint",
+    brand: "Tipsoi",
+    type: "Face",
     details: [
-      "Fingerprint Capacity: ~1,000 templates",
-      "Card Capacity: ~1,000 cards",
-      "Transaction Capacity: ~80,000 logs",
-      "Connectivity: LAN, USB",
-      "Display: 2.8-inch TFT screen",
+      "Series: Fast Face",
+      "Model: D-710",
+      "MRP: 75,000",
+      "Reseller Price: 50,000",
     ],
   },
   {
     id: 9,
-    name: "ZKTeco K60",
+    name: "Tipsoi Fastface 7 Lite",
     img: "/img/devices/D10.webp",
-    brand: "ZKTeco",
-    type: "Fingerprint",
+    brand: "Tipsoi",
+    type: "Face",
     details: [
-      "Fingerprint Capacity: ~3,000 templates",
-      "Card Capacity: ~3,000 cards",
-      "Transaction Capacity: ~100,000 logs",
-      "Connectivity: LAN, USB (No Wi-Fi)",
-      "Battery Backup: Built-in backup battery",
-      "Display: 2.8″ TFT color screen",
+      "Series: Fast Face",
+      "Model: D-705",
+      "MRP: 55,000",
+      "Reseller Price: 40,000",
     ],
   },
   {
     id: 10,
-    name: "ZKTeco iClock9000-G",
+    name: "Tipsoi Fastface 8",
     img: "/img/devices/D11.webp",
-    brand: "ZKTeco",
-    type: "Fingerprint",
+    brand: "Tipsoi",
+    type: "Face",
     details: [
-      "Fingerprint Capacity: ~3,000 (upgradeable to 6,000)",
-      "Card Capacity: ~3,000 (upgradeable to 6,000)",
-      "Transaction Capacity: 200,000 logs",
-      "Connectivity: LAN, USB-Host; optional GPRS, Wi-Fi, 3G",
-      "Display: 2.8″ TFT screen",
-      "Battery Backup: 2,600 mAh built-in battery",
+      "Series: Fast Face",
+      "Model: D-830",
+      "MRP: 100,000",
+      "Reseller Price: 61,000",
     ],
   },
   {
     id: 11,
-    name: "ZKTeco MB20-VL",
+    name: "Tipsoi Fastface 8 Lite",
     img: "/img/devices/D12.webp",
-    brand: "ZKTeco",
+    brand: "Tipsoi",
     type: "Face",
     details: [
-      "Face Capacity: ~800 templates",
-      "Fingerprint Capacity: ~800 templates",
-      "Card Capacity: ~800 cards",
-      "Transaction Capacity: ~150,000 logs",
-      "Connectivity: TCP/IP, USB-Host, Wi-Fi (optional)",
-      "Display: 2.8″ TFT color screen",
-      "Optional Backup Battery: 5 V, ~1,900 mAh",
+      "Series: Fast Face",
+      "Model: D-805",
+      "MRP: 65,000",
+      "Reseller Price: 50,000",
     ],
   },
   {
     id: 12,
-    name: "ZKTeco uFace800",
+    name: "Tipsoi Fastface Go Lite",
     img: "/img/devices/D13.webp",
-    brand: "ZKTeco",
+    brand: "Tipsoi",
     type: "Face",
     details: [
-      "Face Capacity: ~3,000 templates",
-      "Fingerprint Capacity: ~4,000 templates",
-      "Card Capacity: ~10,000 cards (optional)",
-      "Transaction Capacity: ~100,000 logs",
-      "Connectivity: TCP/IP, USB-Host, Wi-Fi (optional)",
-      "Display: 4.3″ touch-screen TFT",
-      "Battery Backup: Optional 2,000 mAh (~4 hours operation)",
+      "Series: Fast Face",
+      "Model: D-505P",
+      "MRP: 42,000",
+      "Reseller Price: 34,500",
+    ],
+  },
+  {
+    id: 13,
+    name: "Tipsoi Fastface Go",
+    img: "/img/devices/D8.webp",
+    brand: "Tipsoi",
+    type: "Face",
+    details: [
+      "Series: Fast Face",
+      "Model: D-510P",
+      "MRP: 50,000",
+      "Reseller Price: 44,500",
+    ],
+  },
+  {
+    id: 14,
+    name: "Tipsoi Prompt P40",
+    img: "/img/devices/D3.webp",
+    brand: "Tipsoi",
+    type: "Prompt",
+    details: [
+      "Series: Prompt",
+      "Model: P-40",
+      "MRP: 12,000",
+      "Reseller Price: 10,000",
+    ],
+  },
+  {
+    id: 15,
+    name: "Tipsoi Prompt P310",
+    img: "/img/devices/D4.webp",
+    brand: "Tipsoi",
+    type: "Prompt",
+    details: [
+      "Series: Prompt",
+      "Model: P-310",
+      "MRP: 26,000",
+      "Reseller Price: 20,500",
+    ],
+  },
+  {
+    id: 16,
+    name: "Tipsoi Prompt P205",
+    img: "/img/devices/D5.webp",
+    brand: "Tipsoi",
+    type: "Prompt",
+    details: [
+      "Series: Prompt",
+      "Model: P-205",
+      "MRP: 16,000",
+      "Reseller Price: 13,500",
     ],
   },
 ];
@@ -195,7 +236,7 @@ export default function DevicesPage() {
               Supported Devices
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl leading-relaxed">
-              ERP17 currently supports the following ZKTeco devices, widely
+              ERP17 currently supports the following Tipsoi devices, widely
               used across factories, offices, retail stores, and educational
               institutions in Bangladesh. These models are fully compatible with:
             </p>
@@ -209,8 +250,7 @@ export default function DevicesPage() {
               className="text-sm border border-gray-300 rounded-lg p-2"
             >
               <option>All Brands</option>
-              <option>ZKTeco</option>
-              <option>OtherBrand</option>
+              <option>Tipsoi</option>
             </select>
 
             <select
@@ -219,9 +259,11 @@ export default function DevicesPage() {
               className="text-sm border border-gray-300 rounded-lg p-2"
             >
               <option>All Types</option>
+              <option>Exit Reader</option>
+              <option>RFID Card Reader</option>
+              <option>Fingerprint Reader</option>
               <option>Face</option>
-              <option>Fingerprint</option>
-              <option>Card</option>
+              <option>Prompt</option>
             </select>
           </div>
         </div>

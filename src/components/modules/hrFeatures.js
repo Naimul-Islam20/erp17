@@ -108,13 +108,16 @@ const HrFeatures = () => {
   return (
 <section className="py-10 md:py-16 bg-white">
   <div className="container">
-    {/* Page Title */}
-    <div className="text-center mb-6 md:mb-12 px-2">
-      <h2 className="text-base sm:text-lg md:text-xl text-gray-500">
-        ERP17 Cloud Product Suite
+    {/* Section title + description */}
+    <div className="text-center mb-6 md:mb-12 px-2 max-w-4xl mx-auto">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600">
+        The Power Behind Your Business Growth
       </h2>
-      <p className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl text-[#141451] font-bold mt-1 md:mt-4 leading-snug">
-        Accounts to Gamezone — finance, stock, retail, people, and more on one platform
+      <p className="text-sm sm:text-base md:text-lg text-gray-600 mt-4 md:mt-6 leading-relaxed">
+        ERP17 Cloud Solution provides a unified ecosystem that seamlessly integrates every department of your enterprise.
+        From real-time financial insights and automated inventory to streamlined HR and sales, our modules work together to
+        eliminate operational chaos. Experience the ultimate control needed to scale your business while enjoying a
+        hassle-free life.
       </p>
     </div>
 

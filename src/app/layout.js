@@ -15,15 +15,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "ERP17",
-  description: "Modern HR & Payroll Software in Bangladesh",
+  title: "ERP17 Cloud Solution",
+  description:
+    "ERP17 Cloud Solution — accounts, inventory, POS, HRM, CRM, eCommerce, and more on one platform for businesses in Bangladesh.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} overflow-x-hidden antialiased`}
       >
         <Header/>
         {children}

@@ -38,11 +38,14 @@ const HeroSection = () => {
           
           {/* Left Column - Text */}
           <div className="flex-1 space-y-8 text-center lg:text-left">
-          
+            <div className="flex justify-center lg:justify-start">
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs md:text-sm font-bold uppercase tracking-wider border border-sky-200/60">
+                ERP17 · Cloud Solution
+              </div>
+            </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight">
-              ERP17 Cloud Solution <br />
-              <span className=" text-blue-500">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-[1.12] tracking-tight">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600">
                 Smarter Business. Hassle-Free Life.
               </span>
             </h1>

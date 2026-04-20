@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import { GoChevronUp, GoChevronDown } from "react-icons/go";
 import * as BiIcons from "react-icons/bi";
 import * as FaIcons from "react-icons/fa";
@@ -16,69 +15,46 @@ function getIcon(iconName) {
 
 const MobileMenu = ({ isOpen, onClose, menus }) => {
   const [activeMenu, setActiveMenu] = useState(null);
-  const menuRef = useRef();
+  const menuList = Array.isArray(menus) ? menus : [];
 
-  // Close sidebar when clicking outside
+  // Prevent background page from horizontal/vertical scrolling while drawer is open.
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        onClose();
-      }
-    }
     if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "hidden";
     } else {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "";
     }
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [isOpen, onClose]);
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
-  // Close submenu when clicking outside of it (but still inside mobile menu)
+  // Reset expanded submenu when drawer closes
   useEffect(() => {
-    function handleSubmenuClickOutside(event) {
-      // Only proceed if a submenu is open
-      if (activeMenu === null) return;
-
-      // Check if click is inside the mobile menu but outside the active submenu
-      if (menuRef.current && menuRef.current.contains(event.target)) {
-        // Find the active submenu element
-        const activeSubmenu = event.target.closest('ul.pl-4.space-y-2');
-        const parentMenuButton = event.target.closest('[role="button"]');
-        
-        // If clicked outside the submenu and not on the parent menu button, close submenu
-        if (!activeSubmenu && !parentMenuButton) {
-          setActiveMenu(null);
-        }
-      }
+    if (!isOpen) {
+      setActiveMenu(null);
     }
-
-    if (isOpen && activeMenu !== null) {
-      document.addEventListener("mousedown", handleSubmenuClickOutside);
-    }
-    return () => document.removeEventListener("mousedown", handleSubmenuClickOutside);
-  }, [isOpen, activeMenu]);
+  }, [isOpen]);
 
   const toggleMenu = (id) => {
     setActiveMenu((prev) => (prev === id ? null : id));
   };
 
   return (
-    <div className="md:hidden">
-      {/* Overlay */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-black/30 z-40"
-          onClick={onClose}
-          aria-hidden="true"
-        />
-      )}
-
-      {/* Sidebar */}
+    <div className={`lg:hidden ${isOpen ? "pointer-events-auto" : "pointer-events-none"}`}>
       <div
-        ref={menuRef}
-        className={`fixed top-0 right-0 h-full w-4/5 max-w-xs bg-white shadow-lg z-50 transform transition-transform duration-300 ${
+        className={`fixed inset-0 z-[90] bg-black/30 transition-opacity duration-300 ${
+          isOpen ? "opacity-100" : "opacity-0"
+        }`}
+        onClick={onClose}
+        aria-hidden="true"
+      />
+
+      <div
+        id="mobile-side-menu"
+        className={`fixed inset-y-0 right-0 z-[100] flex h-screen w-[82vw] max-w-xs flex-col bg-white shadow-lg transition-transform duration-300 ease-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
-        } flex flex-col min-h-screen`}
+        }`}
       >
         {/* Header */}
         <div className="p-4 border-b border-gray-300 flex justify-between items-center">
@@ -94,8 +70,9 @@ const MobileMenu = ({ isOpen, onClose, menus }) => {
 
         {/* Menu Items */}
         <ul className="p-4 space-y-2 overflow-y-auto flex-1">
-          {menus.map((menu) => {
-            const hasChildren = menu.has_child;
+          {menuList.map((menu) => {
+            const hasChildren =
+              Boolean(menu?.has_child) && Array.isArray(menu?.children) && menu.children.length > 0;
 
             return (
               <li key={menu.id} className="border-b border-gray-300 pb-2">
@@ -111,22 +88,26 @@ const MobileMenu = ({ isOpen, onClose, menus }) => {
                       <span className="text-sm font-medium text-black uppercase">
                         {menu.menu_name}
                       </span>
-                      {activeMenu === menu.id ? <GoChevronUp /> : <GoChevronDown />}
+                      {activeMenu === menu.id ? (
+                        <GoChevronUp />
+                      ) : (
+                        <GoChevronDown />
+                      )}
                     </div>
 
                     {/* Dropdown children */}
-                    <ul 
+                    <ul
                       className={`pl-4 space-y-2 overflow-hidden transition-all duration-300 ease-in-out ${
-                        activeMenu === menu.id 
-                          ? 'max-h-[2000px] opacity-100 mt-2' 
-                          : 'max-h-0 opacity-0 mt-0'
+                        activeMenu === menu.id
+                          ? "max-h-[2000px] opacity-100 mt-2"
+                          : "max-h-0 opacity-0 mt-0"
                       }`}
                     >
-                      {menu.children.map((child) => {
+                      {menu.children?.map((child) => {
                         const ChildIcon = getIcon(child.menu_icon);
                         return (
                           <li key={child.id}>
-                            <Link
+                            <a
                               href={`/${child.menu_uid}`}
                               onClick={onClose}
                               className="flex items-start space-x-3 py-2 hover:bg-gray-100 rounded"
@@ -143,7 +124,7 @@ const MobileMenu = ({ isOpen, onClose, menus }) => {
                                   {child.description}
                                 </span>
                               </div>
-                            </Link>
+                            </a>
                           </li>
                         );
                       })}
@@ -151,13 +132,13 @@ const MobileMenu = ({ isOpen, onClose, menus }) => {
                   </>
                 ) : (
                   // Normal link
-                  <Link
+                  <a
                     href={`/${menu.menu_uid}`}
                     className="block text-sm text-gray-800 py-2 uppercase"
                     onClick={onClose}
                   >
                     {menu.menu_name}
-                  </Link>
+                  </a>
                 )}
               </li>
             );

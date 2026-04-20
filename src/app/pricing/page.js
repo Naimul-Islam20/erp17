@@ -1,175 +1,175 @@
 "use client";
 
-import Link from "next/link";
 import { primaryCtaClassName } from "@/constants/cta";
-import { AiOutlineCheckCircle } from "react-icons/ai";
-import { FaMapMarkedAlt, FaDrawPolygon, FaUsers, FaFingerprint, FaFolderOpen } from "react-icons/fa";
 
 export default function PricingPage() {
-  // Pricing Section
-  const pricingPlans = [
-    {
-      title: "Starter",
-      subtitle: "For small teams getting started.",
-      price: "BDT 1000 /month",
-      features: [
-        "Employees (Upto 20)",
-        "Attendance Management",
-        "Schedule Management",
-        "Leave Management",
-        "Payroll (Basic)",
-        "Mobile App",
-        "File Storage (500 MB)",
-        "Add-ons available",
-        "Online customer support (Within 4 business hours)",
-      ],
-    },
-    {
-      title: "Lite",
-      subtitle: "For growing businesses building momentum.",
-      price: "BDT 2000 /month",
-      features: [
-        "Starter Features +",
-        "Employees (Upto 50)",
-        "Payroll (Basic)",
-        "File Storage (1 GB)",
-        "Attendance Device Integration (1)",
-        "Add-ons available",
-        "Online customer support (Within 4 business hours)",
-      ],
-    },
-    {
-      title: "Standard",
-      subtitle: "For established teams scaling operations.",
-      price: "BDT 3500 /month",
-      features: [
-        "Lite Features +",
-        "Employees (Upto 100)",
-        "Asset Management",
-        "Payroll (Advance)",
-        "File Storage (2 GB)",
-        "Attendance Device Integration (2)",
-        "Add-ons available",
-        "Online customer support (Within 2 business hours)",
-      ],
-    },
-    {
-      title: "Enterprise",
-      subtitle: "For enterprises with advanced needs.",
-      price: " 100+ employees",
-      features: [
-        "100+ employees",
-        "Tailored solutions for large teams with advanced customization",
-        "Premium support",
-        "Integration with your existing systems",
-      ],
-    },
-  ];
-
-  // Add-ons Section
-  const addons = [
-    {
-      title: "Live Location Tracking",
-     
-      price: "70/user",
-      desc: "Track employees live through GPS to ensure accurate field attendance and real-time accountability.",
-      icon: <FaMapMarkedAlt className="w-8 h-8 text-sky-600 mx-auto mb-4" />,
-    },
-    {
-      title: "Geofencing",
-    
-      price: "10/user",
-      desc: "Track locations and ensure compliance with geofencing for accurate attendance.",
-      icon: <FaDrawPolygon className="w-8 h-8 text-green-600 mx-auto mb-4" />,
-    },
-    {
-      title: "Employees",
-     
-      price: "300/10 users",
-      desc: "Scale your workforce management by adding more employee profiles to your system.",
-      icon: <FaUsers className="w-8 h-8 text-purple-600 mx-auto mb-4" />,
-    },
-    {
-      title: "Attendance Device Integration",
-      
-      price: "200/device",
-      desc: "Integrate with additional devices to expand your HR system’s capabilities.",
-      icon: <FaFingerprint className="w-8 h-8 text-orange-600 mx-auto mb-4" />,
-    },
-    {
-      title: "File Storage",
-    
-      price: "500/GB",
-      desc: "Increase your storage capacity to securely manage more HR data and documents.",
-      icon: <FaFolderOpen className="w-8 h-8 text-pink-600 mx-auto mb-4" />,
-    },
-  ];
+  const moduleOptions = ["Full ERP", "HRM", "CRM", "POS", "ECOmmerce", "Accounts"];
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container text-center">
-        {/* Pricing Header */}
-        <h2 className="text-md tracking-widest text-gray-400 font-bold mb-4">Pricing</h2>
-        <p className="text-4xl font-semibold text-black mb-12">
-          Affordable Pricing for <span className="text-sky-600 tracking-wide ">ERP17</span> Software - <br />
-          Tailored for Your Business Needs
-        </p>
+    <section className="bg-gray-50 py-12 sm:py-14 md:py-20">
+      <div className="container">
+        <div className="mx-auto max-w-4xl">
+          <h1 className="text-center text-2xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 sm:text-3xl md:text-4xl">
+            Custom ERP Pricing for Your Business
+          </h1>
+          <p className="mx-auto mt-4 max-w-3xl text-center text-sm leading-7 text-slate-700 sm:mt-6 sm:text-base sm:leading-8 md:text-lg">
+            At ERP17, we understand that every enterprise has its own set of challenges and goals.
+            Instead of a one-size-fits-all price, we offer customized solutions designed specifically
+            for your operational needs. Share your requirements with us today, and let&apos;s build a
+            smarter, hassle-free future for your business together.
+          </p>
 
-        {/* Pricing Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-          {pricingPlans.map((plan, index) => (
-            <div
-              key={index}
-              className="bg-white border border-gray-300  rounded-xl p-6 flex flex-col  transition"
-            >
-              <h3 className="text-xl font-semibold mb-2">{plan.title}</h3>
-              <p className="text-gray-600 text-sm mb-2">{plan.subtitle}</p>
-              <p className="text-2xl font-bold text-sky-600 mb-6">{plan.price}</p>
+          <div className="mt-8 rounded-xl border border-slate-200 bg-slate-50/60 p-4 sm:p-5 md:mt-10 md:p-7">
+            <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Get a Quote</h2>
+            <form className="mt-5 grid grid-cols-1 gap-4 sm:mt-6 sm:gap-5 md:grid-cols-2">
+              <div>
+                <label htmlFor="name" className="mb-2 block text-sm font-semibold text-slate-700">
+                  Name
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="Enter your name"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-sky-500 sm:px-4 sm:py-3 sm:text-base"
+                />
+              </div>
 
-              <ul className="flex-1 text-left space-y-2 mb-6">
-                {plan.features.map((feature, i) => (
-                  <li key={i} className="text-gray-700 text-sm flex items-center gap-2">
-                    <AiOutlineCheckCircle className="w-5 h-5 text-sky-500 flex-shrink-0" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <p>Call for Price :+880 14 0400 8950</p>
+              <div>
+                <label
+                  htmlFor="designation"
+                  className="mb-2 block text-sm font-semibold text-slate-700"
+                >
+                  Designation
+                </label>
+                <select
+                  id="designation"
+                  name="designation"
+                  defaultValue="Owner"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-sky-500 sm:px-4 sm:py-3 sm:text-base"
+                >
+                  <option value="Owner">Owner</option>
+                  <option value="Manager">Manager</option>
+                </select>
+              </div>
 
-              <Link href="/contact" className={`${primaryCtaClassName} w-full`}>
-                Get Started
-              </Link>
-            </div>
-          ))}
-        </div>
+              <div>
+                <label
+                  htmlFor="companyName"
+                  className="mb-2 block text-sm font-semibold text-slate-700"
+                >
+                  Company Name
+                </label>
+                <input
+                  id="companyName"
+                  name="companyName"
+                  type="text"
+                  placeholder="Enter company name"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-sky-500 sm:px-4 sm:py-3 sm:text-base"
+                />
+              </div>
 
-        {/* Add-ons Section */}
-        <h3 className="text-3xl font-bold mb-6">Enhance your experience with Add-ons</h3>
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mt-10 text-center">
-          {addons.map((addon, idx) => (
-            <div
-  key={idx}
-  className="bg-white border border-gray-300 rounded-lg p-6 gap-3  flex flex-col items-center"
->
-  {/* Icon - fixed top */}
-  <div className="">{addon.icon}</div>
+              <div>
+                <label
+                  htmlFor="employeeCount"
+                  className="mb-2 block text-sm font-semibold text-slate-700"
+                >
+                  Approx. Number of Employees
+                </label>
+                <input
+                  id="employeeCount"
+                  name="employeeCount"
+                  type="number"
+                  min="1"
+                  placeholder="e.g. 120"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-sky-500 sm:px-4 sm:py-3 sm:text-base"
+                />
+              </div>
 
-  {/* Title & Subtitle */}
-  <h4 className="text-sm text-gray-600 font-semibold">{addon.title}</h4>
-  {addon.subtitle && <p className="text-gray-600 mb-2">{addon.subtitle}</p>}
+              <div className="md:col-span-2">
+                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                  Modules Needed
+                </label>
+                <div className="space-y-2 rounded-lg border border-slate-300 bg-white p-3 sm:p-4">
+                  {moduleOptions.map((module) => (
+                    <label key={module} className="flex items-center gap-2 px-1 py-1 text-sm text-slate-700">
+                      <input
+                        type="checkbox"
+                        name="modules"
+                        value={module}
+                        className="h-4 w-4 accent-sky-500"
+                      />
+                      <span>{module}</span>
+                    </label>
+                  ))}
+                </div>
+                <p className="mt-2 text-xs text-slate-500 sm:text-sm">
+                  You can select multiple modules.
+                </p>
+              </div>
 
-  {/* Price */}
-  {addon.price && (
-    <p className="text-gray-600 mb-2">
-      BDT <span className="text-sky-600 font-bold">{addon.price}</span>
-    </p>
-  )}
+              <div>
+                <label htmlFor="email" className="mb-2 block text-sm font-semibold text-slate-700">
+                  Email
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="name@company.com"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-sky-500 sm:px-4 sm:py-3 sm:text-base"
+                />
+              </div>
 
-  {/* Description */}
-  <p className="text-gray-600 text-sm">{addon.desc}</p>
-</div>
+              <div>
+                <label htmlFor="mobile" className="mb-2 block text-sm font-semibold text-slate-700">
+                  Mobile No.
+                </label>
+                <input
+                  id="mobile"
+                  name="mobile"
+                  type="tel"
+                  placeholder="+880..."
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-sky-500 sm:px-4 sm:py-3 sm:text-base"
+                />
+              </div>
 
-          ))}
+              <div className="md:col-span-2">
+                <label htmlFor="address" className="mb-2 block text-sm font-semibold text-slate-700">
+                  Address
+                </label>
+                <input
+                  id="address"
+                  name="address"
+                  type="text"
+                  placeholder="Enter address"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-sky-500 sm:px-4 sm:py-3 sm:text-base"
+                />
+              </div>
+
+              <div className="md:col-span-2">
+                <label
+                  htmlFor="description"
+                  className="mb-2 block text-sm font-semibold text-slate-700"
+                >
+                  Description
+                </label>
+                <textarea
+                  id="description"
+                  name="description"
+                  rows={5}
+                  placeholder="Share your requirements..."
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-sky-500 sm:px-4 sm:py-3 sm:text-base"
+                />
+              </div>
+
+              <div className="md:col-span-2">
+                <button type="button" className={`${primaryCtaClassName} w-full sm:w-auto`}>
+                  Get a Quote
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </section>

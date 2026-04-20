@@ -1,4 +1,5 @@
 import HeroSection from "@/components/modules/hero";
+import IndustriesWeEmpower from "@/components/modules/industriesWeEmpower";
 import HrInfo from "@/components/modules/hrInfo";
 import HrFeatures from "@/components/modules/hrFeatures";
 import HrApp from "@/components/modules/hr-app";
@@ -12,6 +13,7 @@ export default function Home() {
     <div >
       
         <HeroSection/>
+        <IndustriesWeEmpower />
         {/* <ClientsMarquee /> — full section (logos + Get Started / Contact) hidden per request */}
         
         <HrInfo/>

@@ -179,6 +179,14 @@
     "menu_name": "Contact",
     "menu_uid": "contact",
     "parent_id": 0,
+    "order_no": 7,
+    "menu_icon": null
+  },
+  {
+    "id": 42,
+    "menu_name": "About Us",
+    "menu_uid": "about-us",
+    "parent_id": 0,
     "order_no": 6,
     "menu_icon": null
   }
