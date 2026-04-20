@@ -59,13 +59,13 @@ export default function AboutUsPage() {
                 </span>
               </h1>
 
-              <p className="text-slate-600 text-base md:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              <p className="text-slate-600 text-sm leading-7 sm:text-base md:text-lg lg:text-xl [text-align:justify] [text-align-last:justify] w-full">
                 Founded with a mission to solve complex business challenges,
                 ERP17 is the result of years of industry experience and a
                 passion for empowering founders through intelligent automation.
               </p>
 
-              <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-2">
                 <Link href="/contact" className={primaryCtaClassName}>
                   Get Started
                 </Link>
@@ -87,7 +87,7 @@ export default function AboutUsPage() {
       </section>
 
       {/* --- THE BEGINNING & VISION --- */}
-      <section className="py-24 bg-white">
+      <section className="py-10 md:py-16 bg-white">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
             <div className="space-y-8">
@@ -98,7 +98,7 @@ export default function AboutUsPage() {
                 <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6">
                   9+ Years of Software Excellence
                 </h3>
-                <p className="text-lg text-slate-600 leading-relaxed">
+                <p className="text-lg text-slate-600 leading-relaxed [text-align:justify] [text-align-last:justify] w-full">
                   The journey of <strong>Muktodhara Technology Ltd.</strong>{" "}
                   began in 2017. With over 9 years of experience in the software
                   development industry, we have dedicated ourselves to solving
@@ -111,10 +111,10 @@ export default function AboutUsPage() {
                 <h4 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
                   <Lightbulb className="text-sky-500 w-6 h-6" /> Our Vision
                 </h4>
-                <p className="text-xl italic text-slate-700 leading-relaxed">
-                  "To ensure Founder's Freedom through the right use of
+                <p className="text-xl italic text-slate-700 leading-relaxed [text-align:justify] [text-align-last:justify] w-full">
+                  &quot;To ensure Founder&apos;s Freedom through the right use of
                   technology, so businesses grow through smart automation and
-                  founders enjoy a simple, worry-free life."
+                  founders enjoy a simple, worry-free life.&quot;
                 </p>
               </div>
             </div>
@@ -158,7 +158,7 @@ export default function AboutUsPage() {
       </section>
 
       {/* --- PAIN POINTS --- */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-10 md:py-16 bg-slate-50">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-sm font-bold text-sky-600 uppercase tracking-widest mb-4">
@@ -167,7 +167,7 @@ export default function AboutUsPage() {
             <h3 className="text-3xl md:text-5xl font-black text-slate-900 mb-6">
               The Challenges We Observed
             </h3>
-            <p className="text-lg text-slate-600">
+            <p className="text-lg text-slate-600 [text-align:justify] [text-align-last:justify] w-full">
               Throughout our journey, we realized that traditional, fragmented
               software often fails to provide a comprehensive solution for a
               growing enterprise.
@@ -207,7 +207,7 @@ export default function AboutUsPage() {
                 <h4 className="text-xl font-bold text-slate-900 mb-3">
                   {item.title}
                 </h4>
-                <p className="text-slate-600 leading-relaxed">{item.desc}</p>
+                <p className="text-slate-600 leading-relaxed [text-align:justify] [text-align-last:justify] w-full">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -215,7 +215,7 @@ export default function AboutUsPage() {
       </section>
 
       {/* --- BIRTH OF ERP17 - REDESIGNED MILESTONE --- */}
-      <section className="py-24 bg-white overflow-hidden">
+      <section className="py-10 md:py-16 bg-white overflow-hidden">
         <div className="container">
           <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
             {/* Left Side: Product Visual Mockup */}
@@ -247,12 +247,12 @@ export default function AboutUsPage() {
               </div>
 
               <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
-                <p className="font-semibold text-slate-900">
+                <p className="font-semibold text-slate-900 [text-align:justify] [text-align-last:justify] w-full">
                   Driven by the mission to eliminate real-world struggles, we
                   decided to build a platform that brings every aspect of a
                   business under one powerful dashboard.
                 </p>
-                <p>
+                <p className="[text-align:justify] [text-align-last:justify] w-full">
                   In 2023, our expert team commenced this ambitious project.
                   After rigorous development and testing, we successfully
                   launched <strong>ERP17 Cloud Solution</strong> - not just a
@@ -273,7 +273,7 @@ export default function AboutUsPage() {
       </section>
 
       {/* --- CORE PILLARS --- */}
-      <section className="py-24 bg-white">
+      <section className="py-10 md:py-16 bg-white">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-sm font-bold text-sky-600 uppercase tracking-widest mb-4">
@@ -282,8 +282,8 @@ export default function AboutUsPage() {
             <h3 className="text-3xl md:text-5xl font-black text-slate-900 mb-6">
               Our Core Pillars
             </h3>
-            <p className="text-lg text-slate-600">
-              We believe a founder's true role is to grow the business, not just
+            <p className="text-lg text-slate-600 [text-align:justify] [text-align-last:justify] w-full">
+              We believe a founder&apos;s true role is to grow the business, not just
               run it.
             </p>
           </div>
@@ -321,7 +321,7 @@ export default function AboutUsPage() {
                 <h4 className="text-lg font-bold text-slate-900 mb-3">
                   {pillar.title}
                 </h4>
-                <p className="text-sm text-slate-600 leading-relaxed">
+                <p className="text-sm text-slate-600 leading-relaxed [text-align:justify] [text-align-last:justify] w-full">
                   {pillar.desc}
                 </p>
               </div>
@@ -331,7 +331,7 @@ export default function AboutUsPage() {
       </section>
 
       {/* --- ACHIEVEMENTS & CTA COMBINED (NO BOX) --- */}
-      <section className="py-24 bg-white border-t border-slate-100">
+      <section className="py-10 md:py-16 bg-white border-t border-slate-100">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             {/* Left Side: Achievements & Social Proof */}
@@ -343,10 +343,10 @@ export default function AboutUsPage() {
                 <h3 className="text-3xl md:text-4xl font-black text-slate-900 mb-6 leading-tight">
                   Trusted by Reputed <br /> Organizations
                 </h3>
-                <p className="text-slate-600 text-lg leading-relaxed">
+                <p className="text-slate-600 text-lg leading-relaxed [text-align:justify] [text-align-last:justify] w-full">
                   Today, numerous reputed organizations rely on ERP17 Cloud
                   Solution to lead a hassle-free business. As a proud member of{" "}
-                  <strong>BASIS</strong> and the <strong>CCCI</strong>, we're
+                  <strong>BASIS</strong> and the <strong>CCCI</strong>, we&apos;re
                   committed to maintaining the highest standards of transparency
                   and quality in the IT sector.
                 </p>
@@ -376,9 +376,9 @@ export default function AboutUsPage() {
             <div className="p-10 md:p-14 bg-sky-50 rounded-[40px] border border-sky-100 flex flex-col justify-center text-center lg:text-left relative overflow-hidden">
               <div className="relative z-10 space-y-6">
                 <h3 className="text-3xl md:text-4xl font-black text-slate-900 leading-tight">
-                  Let's Build a Smarter <br /> Future Together
+                  Let&apos;s Build a Smarter <br /> Future Together
                 </h3>
-                <p className="text-slate-600 text-lg leading-relaxed">
+                <p className="text-slate-600 text-lg leading-relaxed [text-align:justify] [text-align-last:justify] w-full">
                   Transform your operations with one connected platform and give
                   your team the freedom to focus.
                 </p>
