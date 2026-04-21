@@ -110,7 +110,7 @@ const HrFeatures = () => {
   <div className="container">
     {/* Section title + description */}
     <div className="text-center mb-6 md:mb-12 px-2 max-w-4xl mx-auto">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] font-bold leading-tight text-[var(--secondary)]">
         The Power Behind Your Business Growth
       </h2>
       <p className="text-sm sm:text-base md:text-lg text-gray-600 mt-4 md:mt-6 leading-relaxed">
@@ -129,10 +129,10 @@ const HrFeatures = () => {
           <Link
             key={index}
             href={feature.href}
-            className="group bg-white rounded-2xl p-3 sm:p-5 border border-gray-200 hover:border-sky-500 transition duration-300 flex flex-col h-full hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
+            className="group bg-white rounded-2xl p-3 sm:p-5 border border-gray-200 hover:border-[var(--primary)] transition duration-300 flex flex-col h-full hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)]"
           >
-            <Icon className="text-3xl sm:text-4xl text-sky-500 mb-2 sm:mb-3" />
-            <h3 className="text-lg sm:text-xl font-semibold text-[#141451] mb-1 sm:mb-2 group-hover:text-sky-700">
+            <Icon className="text-3xl sm:text-4xl text-[var(--primary)] mb-2 sm:mb-3" />
+            <h3 className="text-lg sm:text-xl font-semibold text-[var(--secondary)] mb-1 sm:mb-2 group-hover:text-[var(--secondary)]">
               {feature.name}
             </h3>
             <p className="text-sm sm:text-sm text-gray-600 mb-2 sm:mb-3">

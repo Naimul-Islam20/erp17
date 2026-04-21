@@ -111,7 +111,7 @@ export default function Header() {
                     >
                       {hasChildren ? (
                         <div
-                          className="flex items-center cursor-pointer font-medium text-gray-800 hover:text-blue-600 uppercase"
+                          className="flex items-center cursor-pointer font-medium text-gray-800 hover:text-[var(--primary)] uppercase"
                           onClick={() =>
                             setOpenDropdown(
                               openDropdown === menu.id ? null : menu.id,
@@ -124,7 +124,7 @@ export default function Header() {
                       ) : (
                         <Link
                           href={`/${menu.menu_uid}`}
-                          className="font-medium text-gray-800 hover:text-blue-600 uppercase"
+                          className="font-medium text-gray-800 hover:text-[var(--primary)] uppercase"
                         >
                           {menu.menu_name}
                         </Link>
@@ -161,10 +161,12 @@ export default function Header() {
                                   className="flex items-start space-x-3 p-3 hover:bg-gray-100 rounded"
                                   onClick={() => setOpenDropdown(null)}
                                 >
-                                  <Icon
-                                    style={{ color: child.icon_color }}
-                                    className="mt-1 w-5 h-5"
-                                  />
+                                  <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center">
+                                    <Icon
+                                      style={{ color: child.icon_color }}
+                                      className="h-4 w-4"
+                                    />
+                                  </span>
                                   <div className="flex flex-col">
                                     <span className="font-medium">
                                       {child.menu_name}
@@ -197,7 +199,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setIsMobileOpen((prev) => !prev)}
-                className="text-3xl text-black"
+                className="text-3xl text-[var(--secondary)]"
                 aria-label="Open menu"
                 aria-expanded={isMobileOpen}
                 aria-controls="mobile-side-menu"

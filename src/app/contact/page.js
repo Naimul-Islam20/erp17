@@ -9,7 +9,7 @@ export default function ContactPage() {
       <div className="container">
         {/* Header Section */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-[#141451] mb-4">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-[var(--secondary)] mb-4">
             Contact Us
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -20,14 +20,14 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Contact Information */}
           <div className="space-y-8">
-            <h2 className="text-2xl font-bold text-[#141451]">Get in Touch</h2>
+            <h2 className="text-2xl font-bold text-[var(--secondary)]">Get in Touch</h2>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center shrink-0">
-                  <MapPin className="text-sky-600" />
+                <div className="w-12 h-12 bg-[var(--primary-soft)] rounded-full flex items-center justify-center shrink-0">
+                  <MapPin className="text-[var(--primary)]" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900">Office Address</h3>
+                  <h3 className="font-semibold text-[var(--secondary)]">Office Address</h3>
                   <p className="text-gray-600">
                     House 39 (Level 4), Road 8, Block k, <br />
                     Halishahar, Agrabad, Chattogram
@@ -36,22 +36,22 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center shrink-0">
-                  <Phone className="text-sky-600" />
+                <div className="w-12 h-12 bg-[var(--primary-soft)] rounded-full flex items-center justify-center shrink-0">
+                  <Phone className="text-[var(--primary)]" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900">Phone</h3>
+                  <h3 className="font-semibold text-[var(--secondary)]">Phone</h3>
                   <p className="text-gray-600">+880 17 1342 8432 (Sales)</p>
                   <p className="text-gray-600">+880 9606 881188 (Support)</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center shrink-0">
-                  <Mail className="text-sky-600" />
+                <div className="w-12 h-12 bg-[var(--primary-soft)] rounded-full flex items-center justify-center shrink-0">
+                  <Mail className="text-[var(--primary)]" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900">Email</h3>
+                  <h3 className="font-semibold text-[var(--secondary)]">Email</h3>
                   <p className="text-gray-600">biz.dev@erp17.com</p>
                 </div>
               </div>
@@ -68,7 +68,7 @@ export default function ContactPage() {
                     type="text"
                     id="name"
                     placeholder="Enter your name"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500 transition"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition"
                   />
                 </div>
                 <div className="space-y-2">
@@ -77,7 +77,7 @@ export default function ContactPage() {
                     type="email"
                     id="email"
                     placeholder="Enter your email"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500 transition"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition"
                   />
                 </div>
               </div>
@@ -87,7 +87,7 @@ export default function ContactPage() {
                   type="tel"
                   id="phone"
                   placeholder="Enter your phone number"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500 transition"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition"
                 />
               </div>
               <div className="space-y-2">
@@ -96,7 +96,7 @@ export default function ContactPage() {
                   type="text"
                   id="subject"
                   placeholder="Message subject"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500 transition"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition"
                 />
               </div>
               <div className="space-y-2">
@@ -105,12 +105,12 @@ export default function ContactPage() {
                   id="message"
                   rows="4"
                   placeholder="How can we help you?"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500 transition resize-none"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition resize-none"
                 ></textarea>
               </div>
               <button
                 type="submit"
-                className="w-full bg-sky-500 hover:bg-sky-600 text-white font-bold py-4 rounded-xl transition duration-300"
+                className="w-full bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white font-bold py-4 rounded-xl transition duration-300"
               >
                 Send Message
               </button>

@@ -58,7 +58,7 @@ const MobileMenu = ({ isOpen, onClose, menus }) => {
       >
         {/* Header */}
         <div className="p-4 border-b border-gray-300 flex justify-between items-center">
-          <h2 className="text-xl font-semibold text-black">Menu</h2>
+          <h2 className="text-xl font-semibold text-[var(--secondary)]">Menu</h2>
           <button
             onClick={onClose}
             className="text-2xl text-black"
@@ -85,7 +85,7 @@ const MobileMenu = ({ isOpen, onClose, menus }) => {
                       role="button"
                       aria-expanded={activeMenu === menu.id}
                     >
-                      <span className="text-sm font-medium text-black uppercase">
+                      <span className="text-sm font-medium text-[var(--secondary)] uppercase">
                         {menu.menu_name}
                       </span>
                       {activeMenu === menu.id ? (
@@ -112,12 +112,14 @@ const MobileMenu = ({ isOpen, onClose, menus }) => {
                               onClick={onClose}
                               className="flex items-start space-x-3 py-2 hover:bg-gray-100 rounded"
                             >
-                              <ChildIcon
-                                style={{ color: child.icon_color }}
-                                className="w-5 h-5 mt-1"
-                              />
+                              <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center">
+                                <ChildIcon
+                                  style={{ color: child.icon_color }}
+                                  className="h-4 w-4"
+                                />
+                              </span>
                               <div>
-                                <span className="block text-sm font-medium text-black">
+                                <span className="block text-sm font-medium text-[var(--secondary)]">
                                   {child.menu_name}
                                 </span>
                                 <span className="block text-xs text-gray-500">

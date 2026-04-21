@@ -148,13 +148,13 @@ function IndustryListBlock({ items, idPrefix }) {
           <div className="flex items-start gap-3 md:gap-4">
             <span
               aria-hidden="true"
-              className="mt-0.5 inline-flex h-8 w-8 md:h-9 md:w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-sky-100 to-blue-100 text-sky-700 ring-1 ring-sky-200"
+              className="mt-0.5 inline-flex h-8 w-8 md:h-9 md:w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--primary-soft)] text-[var(--primary)] ring-1 ring-[var(--primary-soft)]"
             >
               <IndustryIcon icon={item.icon} />
             </span>
 
             <div>
-              <h3 className="text-base md:text-lg font-bold text-slate-900">{item.title}</h3>
+              <h3 className="text-base md:text-lg font-bold text-[var(--secondary)]">{item.title}</h3>
               <p
                 lang="bn"
                 dir="ltr"
@@ -178,11 +178,11 @@ export default function IndustriesWeEmpower() {
   return (
     <section
       id="industries-we-empower"
-      className="py-12 md:py-20 bg-gradient-to-b from-sky-50/60 via-white to-white scroll-mt-20"
+      className="py-12 md:py-20 scroll-mt-20"
     >
       <div className="container">
         <header className="text-center mb-10 md:mb-12 px-2">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--secondary)]">
             Industries We Empower
           </h2>
         </header>

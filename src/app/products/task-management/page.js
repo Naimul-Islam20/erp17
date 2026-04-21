@@ -84,7 +84,7 @@ const TaskManagementPage = () => {
   return (
     <main className="bg-white">
       {/* Hero Section with Unique Background & Patterns */}
-      <section className="relative overflow-hidden bg-amber-50 pt-10 md:pt-12 pb-10 md:pb-24">
+      <section className="relative overflow-hidden pt-10 md:pt-12 pb-10 md:pb-24">
         
         {/* Background Decorative Elements */}
         {/* 1. Slanted Accent */}
@@ -118,9 +118,9 @@ const TaskManagementPage = () => {
                 <span className="w-2 h-2 rounded-full bg-amber-600 animate-ping"></span>
                 Task Management System
               </div>
-              <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-gray-900 leading-[1.1] tracking-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-[var(--secondary)] leading-[1.1] tracking-tight">
                 Streamline Your <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-500">
+                <span className="text-[var(--primary)]">
                   Workflow Efficiently
                 </span>
               </h1>
@@ -159,7 +159,7 @@ const TaskManagementPage = () => {
             <div key={idx} className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
               {/* Text Content */}
               <div className={`flex-1 space-y-6 text-center md:text-left order-2 ${sec.imgRight ? "md:order-1" : "md:order-2"}`}>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+                <h2 className="text-3xl md:text-4xl font-bold text-[var(--secondary)] leading-tight">
                   {sec.heading}
                 </h2>
                 <p className="text-gray-600 text-base md:text-lg leading-relaxed">

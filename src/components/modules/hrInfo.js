@@ -15,13 +15,6 @@ const Erp17Info = () => {
           
           {/* ✅ Left Column - Text */}
           <div className="text-center lg:text-left lg:ms-10 space-y-3 order-1">
-            <h2 className="text-sm sm:text-base font-bold text-gray-500 uppercase tracking-wide">
-              WHAT IS ERP17?
-            </h2>
-
-            <p className="text-xl sm:text-2xl lg:text-3xl mb-6 sm:mb-10 font-bold text-[#141451] leading-snug">
-              ERP17 – Modern HR & Payroll Software for Bangladeshi Businesses
-            </p>
             <div className="space-y-3 sm:space-y-4 text-left">
               {[
                 "Tired of paying your HR employees yet getting slow results? Rysenova simplifies and automates HR tasks offering the most advanced core HR software solution for businesses in Bangladesh.",
@@ -35,7 +28,7 @@ const Erp17Info = () => {
                   key={i}
                   className="flex text-xs sm:text-sm gap-3 text-gray-700 leading-relaxed items-start"
                 >
-                  <AiOutlineCheckCircle className="text-sky-500 w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 mt-0.5" />
+                  <AiOutlineCheckCircle className="text-[var(--primary)] w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 mt-0.5" />
                   <span>{text}</span>
                 </p>
               ))}

@@ -9,7 +9,7 @@ export default function PricingPage() {
     <section className="bg-gray-50 py-12 sm:py-14 md:py-20">
       <div className="container">
         <div className="mx-auto max-w-4xl">
-          <h1 className="text-center text-2xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 sm:text-3xl md:text-4xl">
+          <h1 className="text-center text-2xl font-bold leading-tight text-[var(--secondary)] sm:text-3xl md:text-4xl">
             Custom ERP Pricing for Your Business
           </h1>
           <p className="mx-auto mt-4 max-w-3xl text-center text-sm leading-7 text-slate-700 sm:mt-6 sm:text-base sm:leading-8 md:text-lg">
@@ -20,7 +20,7 @@ export default function PricingPage() {
           </p>
 
           <div className="mt-8 rounded-xl border border-slate-200 bg-slate-50/60 p-4 sm:p-5 md:mt-10 md:p-7">
-            <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Get a Quote</h2>
+            <h2 className="text-xl font-bold text-[var(--secondary)] sm:text-2xl">Get a Quote</h2>
             <form className="mt-5 grid grid-cols-1 gap-4 sm:mt-6 sm:gap-5 md:grid-cols-2">
               <div>
                 <label htmlFor="name" className="mb-2 block text-sm font-semibold text-slate-700">
@@ -31,7 +31,7 @@ export default function PricingPage() {
                   name="name"
                   type="text"
                   placeholder="Enter your name"
-                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-sky-500 sm:px-4 sm:py-3 sm:text-base"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-[var(--primary)] sm:px-4 sm:py-3 sm:text-base"
                 />
               </div>
 
@@ -46,7 +46,7 @@ export default function PricingPage() {
                   id="designation"
                   name="designation"
                   defaultValue="Owner"
-                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-sky-500 sm:px-4 sm:py-3 sm:text-base"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-[var(--primary)] sm:px-4 sm:py-3 sm:text-base"
                 >
                   <option value="Owner">Owner</option>
                   <option value="Manager">Manager</option>
@@ -65,7 +65,7 @@ export default function PricingPage() {
                   name="companyName"
                   type="text"
                   placeholder="Enter company name"
-                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-sky-500 sm:px-4 sm:py-3 sm:text-base"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-[var(--primary)] sm:px-4 sm:py-3 sm:text-base"
                 />
               </div>
 
@@ -82,7 +82,7 @@ export default function PricingPage() {
                   type="number"
                   min="1"
                   placeholder="e.g. 120"
-                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-sky-500 sm:px-4 sm:py-3 sm:text-base"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-[var(--primary)] sm:px-4 sm:py-3 sm:text-base"
                 />
               </div>
 
@@ -97,7 +97,7 @@ export default function PricingPage() {
                         type="checkbox"
                         name="modules"
                         value={module}
-                        className="h-4 w-4 accent-sky-500"
+                        className="h-4 w-4 accent-[var(--primary)]"
                       />
                       <span>{module}</span>
                     </label>
@@ -117,7 +117,7 @@ export default function PricingPage() {
                   name="email"
                   type="email"
                   placeholder="name@company.com"
-                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-sky-500 sm:px-4 sm:py-3 sm:text-base"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-[var(--primary)] sm:px-4 sm:py-3 sm:text-base"
                 />
               </div>
 
@@ -130,7 +130,7 @@ export default function PricingPage() {
                   name="mobile"
                   type="tel"
                   placeholder="+880..."
-                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-sky-500 sm:px-4 sm:py-3 sm:text-base"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-[var(--primary)] sm:px-4 sm:py-3 sm:text-base"
                 />
               </div>
 
@@ -143,7 +143,7 @@ export default function PricingPage() {
                   name="address"
                   type="text"
                   placeholder="Enter address"
-                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-sky-500 sm:px-4 sm:py-3 sm:text-base"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-[var(--primary)] sm:px-4 sm:py-3 sm:text-base"
                 />
               </div>
 
@@ -159,7 +159,7 @@ export default function PricingPage() {
                   name="description"
                   rows={5}
                   placeholder="Share your requirements..."
-                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-sky-500 sm:px-4 sm:py-3 sm:text-base"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-[var(--primary)] sm:px-4 sm:py-3 sm:text-base"
                 />
               </div>
 

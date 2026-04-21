@@ -232,7 +232,7 @@ export default function DevicesPage() {
         <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-12 gap-6">
           {/* Left Side */}
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-[var(--secondary)] mb-4">
               Supported Devices
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl leading-relaxed">
@@ -290,7 +290,7 @@ export default function DevicesPage() {
 
 
               {/* Title */}
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">
+              <h3 className="text-xl font-semibold text-[var(--secondary)] mb-4">
                 {device.name}
               </h3>
 
@@ -298,7 +298,7 @@ export default function DevicesPage() {
               <ul className="text-gray-700 text-base space-y-3 mb-6 flex-1">
                 {device.details.map((d, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <AiOutlineCheckCircle className="text-sky-500 text-lg w-6 h-6 mt-0.5" />
+                    <AiOutlineCheckCircle className="text-[var(--primary)] text-lg w-6 h-6 mt-0.5" />
                     <span className="text-sm">{d}</span>
                   </li>
                 ))}
@@ -309,7 +309,7 @@ export default function DevicesPage() {
   href="https://wa.me/8801XXXXXXXXX?"
   target="_blank"
   rel="noopener noreferrer"
-  className="mt-auto text-start w-full text-sky-600 font-medium"
+  className="mt-auto text-start w-full text-[var(--primary)] hover:text-[var(--primary-hover)] font-medium"
 >
   Contact Us — To Buy!
 </a>

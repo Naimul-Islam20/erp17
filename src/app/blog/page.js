@@ -12,8 +12,8 @@ export default function BlogPage() {
       <div className="container">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-[#141451] mb-6">
-            Our Insights & <span className="text-sky-500">Blog</span>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-[var(--secondary)] mb-6">
+            Our Insights & <span className="text-[var(--secondary)]">Blog</span>
           </h1>
           <p className="text-lg text-gray-600">
             Stay updated with the latest trends in HR management, payroll automation, and workplace productivity in Bangladesh.
@@ -36,7 +36,7 @@ export default function BlogPage() {
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-4 left-4">
-                  <span className="bg-sky-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                  <span className="bg-[var(--primary)] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                     {blog.category}
                   </span>
                 </div>
@@ -60,7 +60,7 @@ export default function BlogPage() {
                 </div>
 
                 <div className="h-[60px] mb-3">
-                  <h2 className="text-xl font-bold text-[#141451] line-clamp-2 group-hover:text-sky-600 transition-colors leading-snug">
+                  <h2 className="text-xl font-bold text-[var(--secondary)] line-clamp-2 group-hover:text-[var(--secondary)] transition-colors leading-snug">
                     <Link href={`/blog/${blog.slug}`}>
                       {blog.title}
                     </Link>
@@ -75,7 +75,7 @@ export default function BlogPage() {
 
                 <div className="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 bg-sky-100 rounded-full flex items-center justify-center text-sky-600 font-bold text-xs">
+                    <div className="w-8 h-8 bg-[var(--primary-soft)] rounded-full flex items-center justify-center text-[var(--primary)] font-bold text-xs">
                       {blog.author[0]}
                     </div>
                     <span className="text-sm font-medium text-gray-700">{blog.author}</span>
@@ -83,7 +83,7 @@ export default function BlogPage() {
                   
                   <Link 
                     href={`/blog/${blog.slug}`}
-                    className="text-sky-500 hover:text-sky-600 font-bold text-sm flex items-center gap-1 group/link"
+                    className="text-[var(--primary)] hover:text-[var(--primary-hover)] font-bold text-sm flex items-center gap-1 group/link"
                   >
                     Read More 
                     <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />

@@ -29,7 +29,7 @@ const HrApp = () => {
 
             {/* Headline + paragraph */}
             <div className="text-center lg:text-start">
-              <p className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-extrabold text-[#0f172a] mt-2 leading-snug">
+              <p className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-extrabold text-[var(--secondary)] mt-2 leading-snug">
                 ERP17 Mobile App
               </p>
               <p className="text-gray-700 text-base sm:text-lg mt-3">
@@ -45,7 +45,7 @@ const HrApp = () => {
                 "Tailored for Bangladeshi Businesses – Affordable and intuitive solutions crafted for local companies, small or large."
               ].map((item, index) => (
                 <div key={index} className="flex gap-3 bg-white p-3 sm:p-4 rounded-xl border border-gray-300">
-                  <AiOutlineCheckCircle  className="text-sky-500 w-5 h-5 sm:w-6 sm:h-6 mt-1 flex-shrink-0" />
+                  <AiOutlineCheckCircle  className="text-[var(--primary)] w-5 h-5 sm:w-6 sm:h-6 mt-1 flex-shrink-0" />
                   <p className="text-gray-700 text-sm sm:text-base">{item}</p>
                 </div>
               ))}

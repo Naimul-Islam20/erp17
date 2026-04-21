@@ -195,7 +195,7 @@ function FaqItem({ q, a }) {
         onClick={() => setOpen((s) => !s)}
         aria-expanded={open}
       >
-        <h3 className="font-semibold text-sm sm:text-base md:text-lg text-gray-950 leading-snug">{q}</h3>
+        <h3 className="font-semibold text-sm sm:text-base md:text-lg text-[var(--secondary)] leading-snug">{q}</h3>
         <ChevronDown
           className={`shrink-0 text-gray-800 transition-transform ${open ? "rotate-180" : "rotate-0"}`}
         />
@@ -223,7 +223,7 @@ export default function ERP17Faq() {
       {/* Header */}
       <section className="container pt-10 md:pt-16 pb-6 text-black text-center">
         <div className="space-y-4">
-          <h1 className="text-3xl md:text-5xl text-[#141451] font-extrabold tracking-tight">
+          <h1 className="text-3xl md:text-5xl text-[var(--secondary)] font-extrabold tracking-tight">
             FAQ
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
@@ -236,13 +236,13 @@ export default function ERP17Faq() {
             <div className="flex flex-row gap-2 justify-center">
               <a
                 href="tel:+8801713428432"
-                className="inline-flex items-center gap-1.5 rounded-xl px-2 sm:px-4 py-2 border border-sky-200 bg-white shadow hover:shadow-md transition text-[9px] sm:text-xs md:text-sm whitespace-nowrap"
+                className="inline-flex items-center gap-1.5 rounded-xl px-2 sm:px-4 py-2 border border-[var(--primary)] bg-white shadow hover:shadow-md transition text-[9px] sm:text-xs md:text-sm whitespace-nowrap"
               >
                 <Phone className="h-3 w-3 sm:h-4 sm:w-4" /> +880 17 1342 8432
               </a>
               <a
                 href="tel:+8809606881188"
-                className="inline-flex items-center gap-1.5 rounded-xl px-2 sm:px-4 py-2 border border-sky-200 bg-white shadow hover:shadow-md transition text-[9px] sm:text-xs md:text-sm whitespace-nowrap"
+                className="inline-flex items-center gap-1.5 rounded-xl px-2 sm:px-4 py-2 border border-[var(--primary)] bg-white shadow hover:shadow-md transition text-[9px] sm:text-xs md:text-sm whitespace-nowrap"
               >
                 <Phone className="h-3 w-3 sm:h-4 sm:w-4" /> Support: +880 9606 881188
               </a>

@@ -12,10 +12,10 @@ export default function HardwarePage() {
         
         {/* Left Column - Text */}
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[var(--secondary)] mb-4">
             Supported Devices
           </h2>
-          <h3 className="text-xl md:text-2xl text-gray-700 mb-6">
+          <h3 className="text-xl md:text-2xl text-[var(--secondary)] mb-6">
             Works Seamlessly with Top Attendance Machines in Bangladesh
           </h3>
           <p className="text-gray-600 leading-relaxed">
