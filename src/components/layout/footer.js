@@ -130,21 +130,13 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-gray-800 py-8 bg-[#0a0a2b]">
-        <div className="container flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="container flex items-center justify-center text-center">
           <p className="text-sm text-gray-500">
             © {new Date().getFullYear()} ERP17. All rights reserved. | Developed by{' '}
             <Link href="https://muktodhara.com" className="text-gray-400 hover:text-[var(--primary)] transition-colors font-medium">
               Muktodhara Technology Limited
             </Link>
           </p>
-          <div className="flex gap-8">
-            <Link href="/privacy-policy" className="text-xs text-gray-500 hover:text-[var(--primary)] transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/terms-of-service" className="text-xs text-gray-500 hover:text-[var(--primary)] transition-colors">
-              Terms of Service
-            </Link>
-          </div>
         </div>
       </div>
     </footer>
