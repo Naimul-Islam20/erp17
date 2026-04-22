@@ -3,8 +3,17 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FaLinkedinIn, FaFacebookF, FaInstagram, FaYoutube, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
+import menus from "@/data/menus";
 
 export default function Footer() {
+  const menuList = Array.isArray(menus) ? menus : [];
+  const productsMenu = menuList.find((menu) => menu.menu_uid === "products");
+  const devicesMenu = menuList.find((menu) => menu.menu_uid === "devices");
+  const staticMenus = menuList.filter((menu) => !menu.has_child);
+  const productChildren = productsMenu?.children || [];
+  const primaryProductLinks = productChildren.slice(0, 6);
+  const moreProductLinks = productChildren.slice(6);
+
   return (
     <footer className="bg-[#0f0f3d] text-gray-300">
       {/* Main Footer Content */}
@@ -39,72 +48,58 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Column 2: Solutions */}
+            {/* Column 2: Products */}
             <div className="text-center md:text-left">
               <h3 className="text-white text-lg font-bold mb-8 relative inline-block">
-                Solutions
+                Products
                 <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 w-8 h-1 bg-[var(--primary)] rounded-full"></span>
               </h3>
               <ul className="space-y-4">
-                {[
-                  { name: "Attendance Management", href: "/products/attendance-management" },
-                  { name: "Payroll Software", href: "/products/payroll" },
-                  { name: "Shift Management", href: "/products/shift-management" },
-                  { name: "Leave Management", href: "/products/leaves-management" },
-                  { name: "Tax Management", href: "/products/tax-management" },
-                  { name: "Expense Tracking", href: "/products/expense-management" },
-                ].map((item) => (
-                  <li key={item.name}>
-                    <Link href={item.href} className="text-sm hover:text-[var(--primary)] hover:translate-x-1 inline-block transition-all">
-                      {item.name}
+                {primaryProductLinks.map((item) => (
+                  <li key={item.id}>
+                    <Link href={`/${item.menu_uid}`} className="text-sm hover:text-[var(--primary)] hover:translate-x-1 inline-block transition-all">
+                      {item.menu_name}
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Column 3: Features */}
+            {/* Column 3: Devices + More Products */}
             <div className="text-center md:text-left">
               <h3 className="text-white text-lg font-bold mb-8 relative inline-block">
-                Features
+                Devices + More
                 <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 w-8 h-1 bg-[var(--primary)] rounded-full"></span>
               </h3>
               <ul className="space-y-4">
-                {[
-                  { name: "Employee Tracking", href: "/products/employee-tracking" },
-                  { name: "Task Management", href: "/products/task-management" },
-                  { name: "Digital Notice Board", href: "/products/digital-notice-board" },
-                  { name: "Face Recognition", href: "/products/face-recognition" },
-                  { name: "Security & Access", href: "/products/security" },
-                  { name: "Push Notifications", href: "/products/notifications" },
-                ].map((item) => (
-                  <li key={item.name}>
-                    <Link href={item.href} className="text-sm hover:text-[var(--primary)] hover:translate-x-1 inline-block transition-all">
-                      {item.name}
+                {(devicesMenu?.children || []).map((item) => (
+                  <li key={item.id}>
+                    <Link href={`/${item.menu_uid}`} className="text-sm hover:text-[var(--primary)] hover:translate-x-1 inline-block transition-all">
+                      {item.menu_name}
+                    </Link>
+                  </li>
+                ))}
+                {moreProductLinks.map((item) => (
+                  <li key={item.id}>
+                    <Link href={`/${item.menu_uid}`} className="text-sm hover:text-[var(--primary)] hover:translate-x-1 inline-block transition-all">
+                      {item.menu_name}
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Column 4: Company */}
+            {/* Column 4: Pages */}
             <div className="text-center md:text-left">
               <h3 className="text-white text-lg font-bold mb-8 relative inline-block">
-                Company
+                Pages
                 <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 w-8 h-1 bg-[var(--primary)] rounded-full"></span>
               </h3>
               <ul className="space-y-4">
-                {[
-                  { name: "About Us", href: "/about" },
-                  { name: "Our Pricing", href: "/pricing" },
-                  { name: "Official Blog", href: "/blog" },
-                  { name: "Contact Support", href: "/contact" },
-                  { name: "Message from MD", href: "/about/message-from-md" },
-                  { name: "Career", href: "/career" },
-                ].map((item) => (
-                  <li key={item.name}>
-                    <Link href={item.href} className="text-sm hover:text-[var(--primary)] hover:translate-x-1 inline-block transition-all">
-                      {item.name}
+                {staticMenus.map((item) => (
+                  <li key={item.id}>
+                    <Link href={`/${item.menu_uid}`} className="text-sm hover:text-[var(--primary)] hover:translate-x-1 inline-block transition-all">
+                      {item.menu_name}
                     </Link>
                   </li>
                 ))}

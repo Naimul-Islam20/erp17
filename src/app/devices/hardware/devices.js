@@ -9,7 +9,7 @@ const allDevices = [
   {
     id: 1,
     name: "Tipsoi TC-03 (Exit Reader)",
-    img: "/img/devices/D2.webp",
+    img: "/tipsoi/Tipsoi TC-03 (Exit Reader).png",
     brand: "Tipsoi",
     type: "Exit Reader",
     details: [
@@ -22,7 +22,7 @@ const allDevices = [
   {
     id: 2,
     name: "Tipsoi TC-10 (RFID Card Reader)",
-    img: "/img/devices/D3.webp",
+    img: "/tipsoi/Tipsoi TC-10 (RFID Card Reader).png",
     brand: "Tipsoi",
     type: "RFID Card Reader",
     details: [
@@ -35,7 +35,7 @@ const allDevices = [
   {
     id: 3,
     name: "Tipsoi TF-80",
-    img: "/img/devices/D4.webp",
+    img: "/tipsoi/Tipsoi TF-80.png",
     brand: "Tipsoi",
     type: "Fingerprint Reader",
     details: [
@@ -48,7 +48,7 @@ const allDevices = [
   {
     id: 4,
     name: "Tipsoi Fastface 5 Lite",
-    img: "/img/devices/D5.webp",
+    img: "/tipsoi/Tipsoi Fastface 5 Lite.png",
     brand: "Tipsoi",
     type: "Face",
     details: [
@@ -61,7 +61,7 @@ const allDevices = [
   {
     id: 5,
     name: "Tipsoi Fastface 5",
-    img: "/img/devices/D6.webp",
+    img: "/tipsoi/Tipsoi Fastface 5.png",
     brand: "Tipsoi",
     type: "Face",
     details: [
@@ -74,7 +74,7 @@ const allDevices = [
   {
     id: 6,
     name: "Tipsoi Fastface 5 Pro",
-    img: "/img/devices/D7.webp",
+    img: "/tipsoi/Tipsoi Fastface 5 Pro.png",
     brand: "Tipsoi",
     type: "Face",
     details: [
@@ -87,7 +87,7 @@ const allDevices = [
   {
     id: 7,
     name: "Tipsoi Fastface 5 Pro FP",
-    img: "/img/devices/D8.webp",
+    img: "/tipsoi/Tipsoi Fastface 5 Pro FP.png",
     brand: "Tipsoi",
     type: "Face",
     details: [
@@ -100,7 +100,7 @@ const allDevices = [
   {
     id: 8,
     name: "Tipsoi Fastface 7",
-    img: "/img/devices/D9.webp",
+    img: "/tipsoi/Tipsoi Fastface 7.png",
     brand: "Tipsoi",
     type: "Face",
     details: [
@@ -113,7 +113,7 @@ const allDevices = [
   {
     id: 9,
     name: "Tipsoi Fastface 7 Lite",
-    img: "/img/devices/D10.webp",
+    img: "/tipsoi/Tipsoi Fastface 7 Lite.png",
     brand: "Tipsoi",
     type: "Face",
     details: [
@@ -126,7 +126,7 @@ const allDevices = [
   {
     id: 10,
     name: "Tipsoi Fastface 8",
-    img: "/img/devices/D11.webp",
+    img: "/tipsoi/Tipsoi Fastface 8.png",
     brand: "Tipsoi",
     type: "Face",
     details: [
@@ -139,7 +139,7 @@ const allDevices = [
   {
     id: 11,
     name: "Tipsoi Fastface 8 Lite",
-    img: "/img/devices/D12.webp",
+    img: "/tipsoi/Tipsoi Fastface 8 Lite.png",
     brand: "Tipsoi",
     type: "Face",
     details: [
@@ -152,7 +152,7 @@ const allDevices = [
   {
     id: 12,
     name: "Tipsoi Fastface Go Lite",
-    img: "/img/devices/D13.webp",
+    img: "/tipsoi/Tipsoi Fastface Go Lite.png",
     brand: "Tipsoi",
     type: "Face",
     details: [
@@ -165,7 +165,7 @@ const allDevices = [
   {
     id: 13,
     name: "Tipsoi Fastface Go",
-    img: "/img/devices/D8.webp",
+    img: "/tipsoi/Tipsoi Fastface Go.png",
     brand: "Tipsoi",
     type: "Face",
     details: [
@@ -178,7 +178,7 @@ const allDevices = [
   {
     id: 14,
     name: "Tipsoi Prompt P40",
-    img: "/img/devices/D3.webp",
+    img: "/tipsoi/Tipsoi Prompt P40.png",
     brand: "Tipsoi",
     type: "Prompt",
     details: [
@@ -191,7 +191,7 @@ const allDevices = [
   {
     id: 15,
     name: "Tipsoi Prompt P310",
-    img: "/img/devices/D4.webp",
+    img: "/tipsoi/Tipsoi Prompt P310.png",
     brand: "Tipsoi",
     type: "Prompt",
     details: [
@@ -204,7 +204,7 @@ const allDevices = [
   {
     id: 16,
     name: "Tipsoi Prompt P205",
-    img: "/img/devices/D5.webp",
+    img: "/tipsoi/Tipsoi Prompt P205.png",
     brand: "Tipsoi",
     type: "Prompt",
     details: [
@@ -218,6 +218,11 @@ const allDevices = [
 export default function DevicesPage() {
   const [brand, setBrand] = useState("All Brands");
   const [type, setType] = useState("All Types");
+  const [failedImages, setFailedImages] = useState({});
+
+  const markImageAsFailed = (deviceId) => {
+    setFailedImages((prev) => ({ ...prev, [deviceId]: true }));
+  };
 
   const filteredDevices = allDevices.filter((device) => {
     const brandMatch = brand === "All Brands" || device.brand === brand;
@@ -270,22 +275,31 @@ export default function DevicesPage() {
 
         {/* Devices Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {filteredDevices.map((device) => (
+          {filteredDevices.map((device) => {
+            const imageUnavailable = !device.img || failedImages[device.id];
+
+            return (
             <div
               key={device.id}
               className="border border-gray-300 rounded-xl shadow-sm  transition flex flex-col p-6"
             >
             {/* Image */}
-{/* Image */}
-<div className="flex justify-center mb-6">
-  <Image
-    src={device.img}
-    alt={device.name}
-    width={250}
-    height={200}
-    className="rounded-lg w-full max-w-[250px] max-h-[200px] object-contain"
-  />
-</div>
+            <div className="flex justify-center mb-6">
+              {imageUnavailable ? (
+                <div className="rounded-lg w-full max-w-[250px] h-[200px]   flex items-center justify-center">
+                  <span className="text-xl md:text-2xl font-semibold text-[var(--secondary)] text-center px-3">{device.name}</span>
+                </div>
+              ) : (
+                <Image
+                  src={device.img}
+                  alt={device.name}
+                  width={250}
+                  height={200}
+                  className="rounded-lg w-full max-w-[250px] max-h-[200px] object-contain"
+                  onError={() => markImageAsFailed(device.id)}
+                />
+              )}
+            </div>
 
 
 
@@ -315,7 +329,7 @@ export default function DevicesPage() {
 </a>
 
             </div>
-          ))}
+          )})}
         </div>
       </div>
     </section>

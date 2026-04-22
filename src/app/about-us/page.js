@@ -282,7 +282,7 @@ export default function AboutUsPage() {
             <h3 className="text-3xl md:text-5xl font-black text-[var(--secondary)] mb-6">
               Our Core Pillars
             </h3>
-            <p className="text-lg text-slate-600 [text-align:justify] [text-align-last:justify] w-full">
+            <p className="text-lg text-slate-600  w-full">
               We believe a founder&apos;s true role is to grow the business, not just
               run it.
             </p>
@@ -321,7 +321,7 @@ export default function AboutUsPage() {
                 <h4 className="text-lg font-bold text-[var(--secondary)] mb-3">
                   {pillar.title}
                 </h4>
-                <p className="text-sm text-slate-600 leading-relaxed [text-align:justify] [text-align-last:justify] w-full">
+                <p className="text-sm text-slate-600 leading-relaxed  w-full">
                   {pillar.desc}
                 </p>
               </div>

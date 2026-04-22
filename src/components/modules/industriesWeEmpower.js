@@ -140,41 +140,7 @@ function IndustryIcon({ icon }) {
   );
 }
 
-function IndustryListBlock({ items, idPrefix }) {
-  return (
-    <div className="divide-y divide-slate-200">
-      {items.map((item, index) => (
-        <div key={`${idPrefix}-${index}`} className="py-5 md:py-6 first:pt-4 last:pb-4">
-          <div className="flex items-start gap-3 md:gap-4">
-            <span
-              aria-hidden="true"
-              className="mt-0.5 inline-flex h-8 w-8 md:h-9 md:w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--primary-soft)] text-[var(--primary)] ring-1 ring-[var(--primary-soft)]"
-            >
-              <IndustryIcon icon={item.icon} />
-            </span>
-
-            <div>
-              <h3 className="text-base md:text-lg font-bold text-[var(--secondary)]">{item.title}</h3>
-              <p
-                lang="bn"
-                dir="ltr"
-                className={`${notoBengali.className} mt-2 text-[15px] md:text-[17px] text-slate-700 leading-[1.85]`}
-              >
-                {item.descriptionBn}
-              </p>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 export default function IndustriesWeEmpower() {
-  const mid = Math.ceil(industries.length / 2);
-  const leftCol = industries.slice(0, mid);
-  const rightCol = industries.slice(mid);
-
   return (
     <section
       id="industries-we-empower"
@@ -187,15 +153,25 @@ export default function IndustriesWeEmpower() {
           </h2>
         </header>
 
-        <div className="mx-auto w-full max-w-7xl rounded-2xl border border-slate-200 bg-white px-5 py-2 md:px-8 md:py-4 shadow-sm">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:divide-x md:divide-slate-200">
-            <div className="md:pr-6">
-              <IndustryListBlock items={leftCol} idPrefix="ind-l" />
-            </div>
-            <div className="md:pl-6">
-              <IndustryListBlock items={rightCol} idPrefix="ind-r" />
-            </div>
-          </div>
+        <div className="flex flex-wrap justify-center gap-4">
+          {industries.map((item, index) => (
+            <article
+              key={`${item.icon}-${index}`}
+              className="w-full md:w-[calc(50%-0.5rem)] xl:w-[calc(25%-0.75rem)] p-3 rounded-2xl bg-white border border-slate-200 flex flex-col items-center text-center shadow-sm"
+            >
+              <div className="w-14 h-14 bg-[var(--primary-soft)] text-[var(--primary)] rounded-full flex items-center justify-center mb-6">
+                <IndustryIcon icon={item.icon} />
+              </div>
+              <h3 className="text-lg font-bold text-[var(--secondary)] mb-3">{item.title}</h3>
+              <p
+                lang="bn"
+                dir="ltr"
+                className={`${notoBengali.className} text-sm text-slate-600 leading-relaxed w-full`}
+              >
+                {item.descriptionBn}
+              </p>
+            </article>
+          ))}
         </div>
       </div>
     </section>

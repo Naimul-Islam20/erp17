@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
+import ConsultationPopup from "@/components/layout/ConsultationPopup";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} overflow-x-hidden antialiased`}
       >
         <Header/>
+        <ConsultationPopup />
         {children}
         <Footer/>
         <WhatsAppButton />
