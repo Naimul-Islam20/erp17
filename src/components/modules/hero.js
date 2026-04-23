@@ -49,7 +49,7 @@ const HeroSection = () => {
               <span className="text-[var(--primary)]">Hassle-Free Life.</span>
             </h1>
 
-            <p className="text-gray-600 text-base md:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p className="text-gray-600 text-base md:text-xl leading-relaxed w-full max-w-full lg:max-w-3xl mx-auto lg:mx-0 text-justify">
               Empower your enterprise with intelligent automation that drives growth while eliminating operational stress. ERP17 Cloud Solution streamlines your entire workflow, allowing you to focus on the big picture without the daily headaches. Experience the perfect harmony of professional excellence and a truly hassle-free life.
             </p>
 

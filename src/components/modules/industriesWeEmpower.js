@@ -157,7 +157,7 @@ export default function IndustriesWeEmpower() {
           {industries.map((item, index) => (
             <article
               key={`${item.icon}-${index}`}
-              className="w-full md:w-[calc(50%-0.5rem)] xl:w-[calc(25%-0.75rem)] p-3 rounded-2xl bg-white border border-slate-200 flex flex-col items-center text-center shadow-sm"
+              className="w-full md:w-[calc(50%-0.5rem)] xl:w-[calc(25%-0.75rem)] p-6 rounded-2xl bg-white border border-slate-200 flex flex-col items-center text-center shadow-sm"
             >
               <div className="w-14 h-14 bg-[var(--primary-soft)] text-[var(--primary)] rounded-full flex items-center justify-center mb-6">
                 <IndustryIcon icon={item.icon} />
