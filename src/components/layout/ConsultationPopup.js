@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 export default function ConsultationPopup() {
@@ -72,7 +73,10 @@ export default function ConsultationPopup() {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[120] flex items-center justify-center bg-black/60 backdrop-blur-sm p-2 sm:p-4">
+    <div
+      className="fixed inset-0 z-[120] flex items-center justify-center bg-black/60 backdrop-blur-sm p-2 sm:p-4"
+      onClick={dismissPopup}
+    >
       {toast.visible ? (
         <div className="fixed top-[96px] right-5 z-[130] animate-[slideInRight_.35s_ease-out]">
           <div
@@ -87,7 +91,8 @@ export default function ConsultationPopup() {
               <button
                 type="button"
                 onClick={() => setToast((prev) => ({ ...prev, visible: false }))}
-                className="text-slate-400 hover:text-slate-700 transition text-base leading-none"
+                className="!text-red-500 hover:!text-red-700 transition text-lg font-bold leading-none bg-white border border-red-500 rounded-full w-6 h-6 inline-flex items-center justify-center"
+                style={{ color: "#ef4444" }}
                 aria-label="Close notification"
               >
                 ×
@@ -96,18 +101,30 @@ export default function ConsultationPopup() {
           </div>
         </div>
       ) : null}
-      <div className="relative w-full max-w-5xl max-h-[92vh] overflow-y-auto rounded-2xl sm:rounded-3xl border border-slate-200 bg-white shadow-2xl">
+      <div
+        className="relative w-full max-w-5xl max-h-[92vh] overflow-y-auto rounded-2xl sm:rounded-3xl border border-slate-200 bg-white shadow-2xl"
+        onClick={(event) => event.stopPropagation()}
+      >
         <button
           type="button"
           onClick={dismissPopup}
           aria-label="Close consultation form"
-          className="absolute right-2.5 top-2.5 sm:right-3 sm:top-3 z-10 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-white/90 md:bg-gray-500 text-lg text-white transition hover:bg-gray-400 "
+          className="absolute right-2.5 top-2.5 sm:right-3 sm:top-3 z-10 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-white border border-red-500 text-lg font-bold text-red-500 transition hover:bg-red-50 hover:text-red-700"
+          style={{ color: "#ef4444" }}
         >
           ×
         </button>
 
         <div className="grid md:grid-cols-12">
           <div className="bg-gradient-to-br from-[var(--primary)] to-[var(--primary-hover)] p-5 sm:p-7 md:col-span-6 md:p-10 flex flex-col items-center justify-center text-center min-h-[180px] sm:min-h-[220px]">
+            <Image
+              src="/logo.jpeg"
+              alt="ERP17 Logo"
+              width={140}
+              height={40}
+              className="relative -top-6 mb-4 h-auto w-[120px] sm:w-[140px]"
+              priority
+            />
             <p className="text-[11px] uppercase tracking-[0.2em] text-white/85 font-semibold">
               Free Expert Session
             </p>
