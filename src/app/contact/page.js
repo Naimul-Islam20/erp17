@@ -1,11 +1,90 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function ContactPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [toast, setToast] = useState({ visible: false, type: "", message: "" });
+
+  const showToast = (type, message) => {
+    setToast({ visible: true, type, message });
+    window.setTimeout(() => {
+      setToast((prev) => ({ ...prev, visible: false }));
+    }, 3500);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formElement = event.currentTarget;
+    setIsSubmitting(true);
+
+    const formData = new FormData(formElement);
+    const payload = {
+      full_name: String(formData.get("full_name") || ""),
+      email: String(formData.get("email") || ""),
+      phone: String(formData.get("phone") || ""),
+      subject: String(formData.get("subject") || ""),
+      message: String(formData.get("message") || ""),
+    };
+
+    try {
+      const response = await fetch("http://127.0.0.1:8000/api/contact-messages", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        const errorBody = await response.text();
+        throw new Error(errorBody || "Failed to send message.");
+      }
+
+      showToast("success", "Your message has been sent successfully.");
+      formElement.reset();
+    } catch (error) {
+      const errorMessage =
+        error instanceof Error ? error.message : "Could not send the message. Please try again.";
+      showToast("error", errorMessage);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <main className="py-10 md:py-16 bg-gray-50">
+      {toast.visible ? (
+        <div className="fixed top-[96px] right-5 z-[130] animate-[slideInRight_.35s_ease-out]">
+          <div
+            className={`min-w-[260px] max-w-sm rounded-xl border px-3.5 py-4 shadow-lg ${
+              toast.type === "success"
+                ? "border border-green-500 bg-white"
+                : "border border-red-500 bg-white"
+            }`}
+          >
+            <div className="flex items-center gap-2.5">
+              <p
+                className={`flex-1 text-sm leading-5 ${
+                  toast.type === "success" ? "text-green-700" : "text-red-700"
+                }`}
+              >
+                {toast.message}
+              </p>
+              <button
+                type="button"
+                onClick={() => setToast((prev) => ({ ...prev, visible: false }))}
+                className="text-slate-400 hover:text-slate-700 transition text-base leading-none"
+                aria-label="Close notification"
+              >
+                ×
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
       <div className="container">
         {/* Header Section */}
         <div className="text-center mb-12">
@@ -60,13 +139,15 @@ export default function ContactPage() {
 
           {/* Contact Form */}
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium text-gray-700">Full Name</label>
                   <input
                     type="text"
                     id="name"
+                    name="full_name"
+                    required
                     placeholder="Enter your name"
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition"
                   />
@@ -76,6 +157,8 @@ export default function ContactPage() {
                   <input
                     type="email"
                     id="email"
+                    name="email"
+                    required
                     placeholder="Enter your email"
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition"
                   />
@@ -86,6 +169,8 @@ export default function ContactPage() {
                 <input
                   type="tel"
                   id="phone"
+                  name="phone"
+                  required
                   placeholder="Enter your phone number"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition"
                 />
@@ -95,6 +180,8 @@ export default function ContactPage() {
                 <input
                   type="text"
                   id="subject"
+                  name="subject"
+                  required
                   placeholder="Message subject"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition"
                 />
@@ -103,6 +190,8 @@ export default function ContactPage() {
                 <label htmlFor="message" className="text-sm font-medium text-gray-700">Message</label>
                 <textarea
                   id="message"
+                  name="message"
+                  required
                   rows="4"
                   placeholder="How can we help you?"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition resize-none"
@@ -110,9 +199,10 @@ export default function ContactPage() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white font-bold py-4 rounded-xl transition duration-300"
+                disabled={isSubmitting}
+                className="w-full bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white font-bold py-4 rounded-xl transition duration-300 disabled:opacity-60"
               >
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </button>
             </form>
           </div>
