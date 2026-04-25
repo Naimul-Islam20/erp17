@@ -42,18 +42,11 @@ export default function Header() {
   // Click outside listener (desktop dropdown)
   useEffect(() => {
     function handleClickOutside(event) {
-      if (openDropdown !== null) {
-        // Find if click is on a menu item or within the dropdown
-        const clickedMenuItem = event.target.closest("li.relative");
-        const clickedDropdown = event.target.closest('[class*="shadow-lg"]');
-
-        // If clicked on the dropdown content itself, don't close
-        if (clickedDropdown) {
-          return;
+      if (openDropdown !== null && navRef.current) {
+        // Only close when clicking fully outside the desktop nav area.
+        if (!navRef.current.contains(event.target)) {
+          setOpenDropdown(null);
         }
-
-        // If clicked on a different menu item or anywhere else, close the dropdown
-        setOpenDropdown(null);
       }
     }
 

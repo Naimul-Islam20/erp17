@@ -243,7 +243,7 @@ const InventoryDetailsPage = () => {
           <section className="reveal space-y-1.5 pt-6">
             <h3 className="text-2xl font-black text-[var(--secondary)]">Success Snapshot</h3>
             <p className="text-lg text-black leading-relaxed text-justify">
-              "After implementing ERP17 Inventory Management Software, we reduced stock mismatch by 85%, improved procurement planning, and cut inventory holding costs significantly. Our warehouse and sales teams now work with complete synchronization."
+              &quot;After implementing ERP17 Inventory Management Software, we reduced stock mismatch by 85%, improved procurement planning, and cut inventory holding costs significantly. Our warehouse and sales teams now work with complete synchronization.&quot;
             </p>
           </section>
 

@@ -92,7 +92,7 @@ export default function AccountsDetailsPage() {
             <div className="flex-1 space-y-4 order-1 lg:order-2">
               <h2 className="text-3xl font-black text-[var(--secondary)] leading-tight">Account Management Software</h2>
               <p className="text-lg leading-relaxed text-black font-medium text-justify">
-                Managing your company's finances doesn't have to be complicated or time-consuming. At ERP17, we empower businesses with a modern, intuitive Account Management Software that streamlines financial operations, automates complex accounting processes, and delivers real-time insights for smarter decision-making. Designed for businesses of any size, our software is your all-in-one solution for financial management, compliance, and growth.
+                Managing your company&apos;s finances doesn&apos;t have to be complicated or time-consuming. At ERP17, we empower businesses with a modern, intuitive Account Management Software that streamlines financial operations, automates complex accounting processes, and delivers real-time insights for smarter decision-making. Designed for businesses of any size, our software is your all-in-one solution for financial management, compliance, and growth.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 pt-1">
@@ -120,7 +120,7 @@ export default function AccountsDetailsPage() {
           <section className="space-y-2 pt-4">
             <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-wide">Why Choose Our Account Management Software?</h2>
             <p className="text-lg leading-relaxed text-black font-medium text-justify">
-              Traditional manual accounting is often slow, error-prone, and resource-intensive. Our Account Management Software is built to simplify bookkeeping, boost productivity, and ensure compliance with regulatory requirements. It's cloud-based, secure, and easy to use-giving you and your team confidence in your financial data at all times.
+              Traditional manual accounting is often slow, error-prone, and resource-intensive. Our Account Management Software is built to simplify bookkeeping, boost productivity, and ensure compliance with regulatory requirements. It&apos;s cloud-based, secure, and easy to use-giving you and your team confidence in your financial data at all times.
               <br />
               <br />
               From daily transactions to annual audits, our solution makes accounting efficient, transparent, and reliable.
@@ -198,7 +198,7 @@ export default function AccountsDetailsPage() {
           <section className="space-y-1.5 pt-6">
             <h3 className="text-2xl font-black text-[var(--secondary)]">Success Story</h3>
             <p className="text-lg text-black leading-relaxed text-justify">
-              &quot;After switching to ERP17&apos; Account Management Software, our invoicing time reduced by 60%, and financial reporting became 100% accurate. We now have better control over our cash flow and compliance.&quot;- A leading retail company.
+              &quot;After switching to ERP17&apos;s Account Management Software, our invoicing time reduced by 60%, and financial reporting became 100% accurate. We now have better control over our cash flow and compliance.&quot;- A leading retail company.
             </p>
           </section>
 
