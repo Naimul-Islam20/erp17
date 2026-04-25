@@ -136,36 +136,11 @@
   {
     "id": 36,
     "menu_name": "Devices",
-    "menu_uid": "devices",
+    "menu_uid": "devices/hardware",
     "parent_id": 0,
     "order_no": 3,
     "menu_icon": null,
-    "has_child": 1,
-    "children": [
-     {
-  "id": 37,
-  "menu_name": "Hardware",
-  "menu_uid": "devices/hardware",
-  "parent_id": 36,
-  "order_no": 1,
-  "menu_icon": "FaMicrochip",
-  "icon_color": "#3B82F6",
-  "description": "Supported devices",
-  "has_child": 0
-},
-{
-  "id": 38,
-  "menu_name": "Brochure",
-  "menu_uid": "brochure",
-  "parent_id": 36,
-  "order_no": 2,
-  "menu_icon": "BiBook",
-  "icon_color": "#10B981",
-  "description": "Know more about Rysenova",
-  "has_child": 0
-}
-
-    ]
+    "has_child": 0
   },
   {
     "id": 39,

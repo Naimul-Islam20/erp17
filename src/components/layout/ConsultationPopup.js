@@ -138,7 +138,8 @@ export default function ConsultationPopup() {
               Share your details.
             </h2>
             <p className="mt-1 sm:mt-2 text-sm md:text-base leading-6 sm:leading-7 text-black">
-              We will help you 10X to grow you Business
+              We will help you{" "}
+              <span className="text-[var(--secondary)] font-bold text-base md:text-lg">10X to Grow</span> your Business
             </p>
           </div>
 
