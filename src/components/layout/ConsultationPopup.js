@@ -81,16 +81,22 @@ export default function ConsultationPopup() {
         <div className="fixed top-[96px] right-5 z-[130] animate-[slideInRight_.35s_ease-out]">
           <div
             className={`min-w-[260px] max-w-sm rounded-xl border px-3.5 py-4 shadow-lg ${
-              toast.type === "success" ? "border border-green-500 bg-white" : "border border-red-500 bg-white"
+              toast.type === "success"
+                ? "border border-green-500 bg-white"
+                : "border border-red-500 bg-white"
             }`}
           >
             <div className="flex items-center gap-2.5">
-              <p className={`flex-1 text-sm leading-5 ${toast.type === "success" ? "text-green-700" : "text-red-700"}`}>
+              <p
+                className={`flex-1 text-sm leading-5 ${toast.type === "success" ? "text-green-700" : "text-red-700"}`}
+              >
                 {toast.message}
               </p>
               <button
                 type="button"
-                onClick={() => setToast((prev) => ({ ...prev, visible: false }))}
+                onClick={() =>
+                  setToast((prev) => ({ ...prev, visible: false }))
+                }
                 className="!text-red-500 hover:!text-red-700 transition text-lg font-bold leading-none bg-white border border-red-500 rounded-full w-6 h-6 inline-flex items-center justify-center"
                 style={{ color: "#ef4444" }}
                 aria-label="Close notification"
@@ -126,19 +132,25 @@ export default function ConsultationPopup() {
               priority
             />
             <p className="text-[11px] uppercase tracking-[0.2em] text-white/85 font-semibold">
-              Free Expert Session
+              ERP17 Cloud Solution
             </p>
             <h2 className="mt-2 text-xl sm:text-2xl md:text-4xl font-bold text-[var(--secondary)]">
-              Get Free Consultation
+              Share your details.
             </h2>
             <p className="mt-3 sm:mt-4 text-sm md:text-base leading-6 sm:leading-7 text-black">
-              Share your details. Our team will contact you with a suitable plan for your business.
+              We will help you 10X to grow you Business
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="p-5 sm:p-7 md:col-span-6 md:p-10 space-y-4 sm:space-y-4.5">
+          <form
+            onSubmit={handleSubmit}
+            className="p-5 sm:p-7 md:col-span-6 md:p-10 space-y-4 sm:space-y-4.5"
+          >
             <div>
-              <label htmlFor="consultation-name" className="mb-1 hidden text-sm font-medium text-slate-700 sm:block">
+              <label
+                htmlFor="consultation-name"
+                className="mb-1 hidden text-sm font-medium text-slate-700 sm:block"
+              >
                 Name:
               </label>
               <input
@@ -152,7 +164,10 @@ export default function ConsultationPopup() {
             </div>
 
             <div>
-              <label htmlFor="consultation-company" className="mb-1 hidden text-sm font-medium text-slate-700 sm:block">
+              <label
+                htmlFor="consultation-company"
+                className="mb-1 hidden text-sm font-medium text-slate-700 sm:block"
+              >
                 Company Name:
               </label>
               <input
@@ -166,7 +181,10 @@ export default function ConsultationPopup() {
             </div>
 
             <div>
-              <label htmlFor="consultation-designation" className="mb-1 hidden text-sm font-medium text-slate-700 sm:block">
+              <label
+                htmlFor="consultation-designation"
+                className="mb-1 hidden text-sm font-medium text-slate-700 sm:block"
+              >
                 Designamtion:
               </label>
               <input
@@ -181,7 +199,10 @@ export default function ConsultationPopup() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="consultation-mobile" className="mb-1 hidden text-sm font-medium text-slate-700 sm:block">
+                <label
+                  htmlFor="consultation-mobile"
+                  className="mb-1 hidden text-sm font-medium text-slate-700 sm:block"
+                >
                   Mobile:
                 </label>
                 <input
@@ -194,7 +215,10 @@ export default function ConsultationPopup() {
                 />
               </div>
               <div>
-                <label htmlFor="consultation-email" className="mb-1 hidden text-sm font-medium text-slate-700 sm:block">
+                <label
+                  htmlFor="consultation-email"
+                  className="mb-1 hidden text-sm font-medium text-slate-700 sm:block"
+                >
                   Email:
                 </label>
                 <input

@@ -66,7 +66,7 @@ const HeroSection = () => {
           <div className="flex-1 w-full relative">
             <div className="relative z-10">
               <Image
-                src="/img/home/hero-image-1.png"
+                src="/one-touch-community.jpeg"
                 alt="HR Software Illustration"
                 width={700}
                 height={500}

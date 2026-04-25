@@ -9,28 +9,24 @@ export default function HardwarePage() {
   return (
     <section className="bg-white py-16">
       <div className=" container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        
         {/* Left Column - Text */}
         <div>
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--secondary)] mb-4">
-            Supported Devices
+            Seamless Attendance Management with Tipsai & ERP17
           </h2>
-          <h3 className="text-xl md:text-2xl text-[var(--secondary)] mb-6">
-            Works Seamlessly with Top Attendance Machines in Bangladesh
-          </h3>
+          
           <p className="text-gray-600 leading-relaxed">
-            ERP17 is a leading biometric attendance software in Bangladesh 
-            that works out of the box with the most popular fingerprint and 
-            face recognition attendance devices. Whether your team uses ZKTeco 
-            terminals or hybrid setups, our platform supports both real-time 
-            syncing over IP and offline Biotime database integration. 
+            Elevate your workplace efficiency with Tipsai fingerprint devices,
+            the premium hardware partner perfectly integrated with ERP17 Cloud
+            Solution. Featuring a sleek, modern design and high-performance
+            sensors, Tipsai ensures rapid and accurate attendance tracking. Its
+            seamless real-time data synchronization with our software completely
+            automates your HR and Payroll processes, eliminating manual errors
+            and saving valuable time. Experience the perfect synergy of style
+              and technology, designed to deliver on our promise of a <span className="font-bold text-[var(--secondary)]">"Smarter
+              Business, Hassle-Free Life."</span>
           </p>
-          <p className="text-gray-600 leading-relaxed mt-4">
-            With ERP17, you no longer need manual CSV exports or third-party 
-            syncing software. Every device log is automatically pushed into our 
-            cloud system, enabling accurate shift tracking, late mark detection, 
-            and automated payroll calculations.
-          </p>
+         
         </div>
 
         {/* Right Column - Image */}
@@ -40,11 +36,11 @@ export default function HardwarePage() {
             alt="Attendance Device"
             width={500}
             height={400}
-            className="rounded-xl shadow-lg"
+            className="rounded-xl "
           />
         </div>
       </div>
-      <DevicesPage/>
+      <DevicesPage />
     </section>
   );
 }
