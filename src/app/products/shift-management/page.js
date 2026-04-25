@@ -123,7 +123,7 @@ const ShiftManagementPage = () => {
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-[var(--secondary)] leading-[1.1] tracking-tight">
                 Optimize Your <br />
-                <span className="text-[var(--primary)]">
+                <span className="text-[var(--secondary)]">
                   Employee Scheduling
                 </span>
               </h1>

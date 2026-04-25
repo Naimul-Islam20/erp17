@@ -128,16 +128,16 @@ export default function ConsultationPopup() {
               alt="ERP17 Logo"
               width={140}
               height={40}
-              className="relative -top-6 mb-4 h-auto w-[120px] sm:w-[140px]"
+              className="relative -top-3 sm:-top-6 mb-1 sm:mb-4 h-auto w-[96px] sm:w-[140px]"
               priority
             />
             <p className="text-[11px] uppercase tracking-[0.2em] text-white/85 font-semibold">
               ERP17 Cloud Solution
             </p>
-            <h2 className="mt-2 text-xl sm:text-2xl md:text-4xl font-bold text-[var(--secondary)]">
+            <h2 className="mt-1 sm:mt-2 text-xl sm:text-2xl md:text-4xl font-bold text-[var(--secondary)]">
               Share your details.
             </h2>
-            <p className="mt-3 sm:mt-4 text-sm md:text-base leading-6 sm:leading-7 text-black">
+            <p className="mt-1 sm:mt-2 text-sm md:text-base leading-6 sm:leading-7 text-black">
               We will help you 10X to grow you Business
             </p>
           </div>

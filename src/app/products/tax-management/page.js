@@ -128,7 +128,7 @@ const TaxManagementPage = () => {
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-[var(--secondary)] leading-[1.1] tracking-tight">
                 Effortless <br />
-                <span className="text-[var(--primary)]">
+                <span className="text-[var(--secondary)]">
                   Tax Management
                 </span>
               </h1>

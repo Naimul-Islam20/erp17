@@ -105,7 +105,7 @@ const EmployeeLeavePage = () => {
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-[var(--secondary)] leading-[1.1] tracking-tight">
                 Seamless <br />
-                <span className="text-[var(--primary)]">
+                <span className="text-[var(--secondary)]">
                   Leave Tracking
                 </span>
               </h1>

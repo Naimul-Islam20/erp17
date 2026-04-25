@@ -1,153 +1,213 @@
-"use client";
-
-import Link from "next/link";
-import { primaryCtaClassName } from "@/constants/cta";
 import React from "react";
-import ProductImage from "@/components/ui/ProductImage";
-import { AiOutlineCheckCircle } from "react-icons/ai";
+import Link from "next/link";
+import Image from "next/image";
+import { FaCheck } from "react-icons/fa";
 
-const gamezoneSections = [
+export const metadata = {
+  title: "Gamezone Management Software | ERP17",
+  description:
+    "Gamified engagement and operations platform with quests, leaderboards, rewards, attendance challenges, and performance analytics for modern teams.",
+};
+
+const features = [
   {
-    heading: "Quests & challenges",
-    subText:
-      "Turn everyday work into clear missions—onboarding tasks, compliance modules, or sales sprints—with XP when people finish on time.",
-    list: [
-      "Attach quests to ERP17 workflows so progress updates automatically.",
-      "Time-bound challenges for teams with optional leaderboards.",
-      "HR sets rules; employees see a simple game-style checklist.",
-    ],
-    img: "/img/products/gamezone/quests.svg",
-    imgRight: false,
+    id: "1. Quest & Challenge Builder",
+    desc: "Create engaging tasks, missions, and achievement-based workflows for employees, teams, or customers. Build one-time or recurring challenges with deadlines and scoring rules.",
+    benefits: ["Custom mission templates", "Recurring challenge automation", "Goal-based progress tracking"],
   },
   {
-    heading: "Leaderboards & recognition",
-    subText:
-      "Healthy competition: show top contributors by points, streaks, or completed quests—without exposing sensitive payroll data.",
-    list: [
-      "Filter by department, site, or role for fair comparisons.",
-      "Seasonal resets so new joiners can climb the board too.",
-      "Export snapshots for town-hall slides or newsletters.",
-    ],
-    img: "/img/products/gamezone/rewards.svg",
-    imgRight: true,
+    id: "2. Points, XP & Reward Engine",
+    desc: "Assign points and experience (XP) for completed tasks, attendance consistency, sales milestones, and training completion. Configure reward tiers and redemption policies.",
+    benefits: ["Motivation through gamification", "Flexible reward policies", "Auto point assignment logic"],
   },
   {
-    heading: "Rewards & redemption",
-    subText:
-      "Let people spend earned points on perks your company approves—time off, vouchers, or branded swag—tracked in one ledger.",
-    list: [
-      "Approval queue for redemptions above a threshold.",
-      "Budget caps per team or quarter to keep spend predictable.",
-      "Audit trail: who earned, who spent, when it was approved.",
-    ],
-    img: "/img/products/gamezone/quests.svg",
-    imgRight: false,
+    id: "3. Leaderboards & Rankings",
+    desc: "Boost performance with real-time leaderboards by team, department, branch, or campaign. Encourage healthy competition while maintaining transparency.",
+    benefits: ["Real-time rank updates", "Department-wise competition", "Seasonal leaderboard reset"],
+  },
+  {
+    id: "4. Badge & Achievement System",
+    desc: "Issue digital badges for milestones like punctuality, top sales, process compliance, and customer service excellence.",
+    benefits: ["Recognition culture", "Milestone-based achievements", "Shareable internal profiles"],
+  },
+  {
+    id: "5. Performance-linked Gamification",
+    desc: "Connect game mechanics with KPIs such as attendance, sales, lead conversion, or support resolution. Turn routine work into measurable engagement.",
+    benefits: ["KPI-driven engagement", "Higher task completion rates", "Improved accountability"],
+  },
+  {
+    id: "6. Event & Tournament Management",
+    desc: "Run short-term campaigns, tournaments, and seasonal events with defined scorecards, time windows, and reward pools.",
+    benefits: ["Campaign-based participation", "Auto winner declaration", "Event analytics and reporting"],
+  },
+  {
+    id: "7. Team Collaboration Challenges",
+    desc: "Launch group missions that require collaboration instead of individual competition. Perfect for cross-functional teamwork and culture building.",
+    benefits: ["Improved team collaboration", "Shared goals and outcomes", "Cross-team engagement"],
+  },
+  {
+    id: "8. Notifications & Engagement Triggers",
+    desc: "Send automated push/email/SMS notifications for challenge launches, score updates, reward unlocks, and rank changes.",
+    benefits: ["Timely engagement prompts", "Higher participation rate", "Smart trigger-based communication"],
+  },
+  {
+    id: "9. Insights, Reports & Behavior Analytics",
+    desc: "Track participation, completion ratios, high performers, inactive users, and reward utilization. Use dashboards to continuously optimize engagement strategy.",
+    benefits: ["Participation heatmaps", "Actionable behavior analytics", "Exportable engagement reports"],
+  },
+  {
+    id: "10. Secure Role-based Admin Controls",
+    desc: "Control who can create campaigns, approve rewards, view reports, and manage configurations through role-based permissions and audit logs.",
+    benefits: ["Secure governance model", "Controlled admin access", "Audit-ready activity history"],
   },
 ];
 
-const GamezonePage = () => {
+export default function GamezoneDetailsPage() {
   return (
-    <main className="bg-white">
-      <section className="relative overflow-hidden pt-10 md:pt-14 pb-10 md:pb-20 text-[var(--secondary)]">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-[var(--primary-soft)]/70 -skew-x-12 transform origin-top-right translate-x-1/4 hidden md:block" />
-        <div
-          className="absolute top-10 left-10 w-32 h-32 opacity-20 hidden md:block"
-          style={{
-            backgroundImage: "radial-gradient(var(--primary) 1.5px, transparent 1.5px)",
-            backgroundSize: "15px 15px",
-          }}
-        />
-        <div className="absolute -top-20 -left-20 w-64 h-64 bg-[var(--primary-soft)]/60 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute top-1/2 -right-20 w-80 h-80 bg-[var(--primary-soft)]/40 rounded-full blur-3xl" />
+    <main className="min-h-screen bg-white pt-24 pb-12">
+      <div className="container max-w-5xl mx-auto px-4">
+        <nav className="flex gap-2 text-sm text-black mb-6">
+          <Link href="/" className="hover:text-[var(--primary)] transition-colors hover:underline">
+            Home
+          </Link>
+          <span>/</span>
+          <span className="text-[var(--secondary)] font-bold">Gamezone Management Software</span>
+        </nav>
 
-        <div className="absolute top-0 right-0 p-8 opacity-20 hidden lg:block">
-          <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M0 100C0 44.7715 44.7715 0 100 0C155.228 0 200 44.7715 200 100C200 155.228 155.228 200 100 200C44.7715 200 0 155.228 0 100Z"
-              fill="url(#paint0_linear_gz)"
-            />
-            <defs>
-              <linearGradient id="paint0_linear_gz" x1="100" y1="0" x2="100" y2="200" gradientUnits="userSpaceOnUse">
-                <stop stopColor="var(--primary)" />
-                <stop offset="1" stopColor="var(--primary)" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
+        <div className="space-y-8 text-black">
+          <section>
+            <h1 className="text-3xl md:text-5xl font-black text-[var(--secondary)] mb-3 leading-tight">Gamezone Management Software</h1>
+            <p className="text-lg md:text-xl font-bold">
+              Gamified engagement and operations platform with quests, leaderboards, rewards, attendance challenges, and performance analytics for modern teams.
+            </p>
+          </section>
 
-        <div className="container relative z-10">
-          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
-            <div className="flex-1 space-y-6 text-center md:text-left">
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-[var(--primary-soft)] text-[var(--primary)] text-xs md:text-sm font-bold uppercase tracking-wider border border-[var(--primary-soft)]">
-                ERP17 · Gamezone
+          <section className="flex flex-col lg:flex-row gap-8 items-stretch">
+            <div className="flex-1 w-full order-2 lg:order-1 lg:max-h-[500px]">
+              <div className="overflow-hidden h-full rounded-xl">
+                <Image src="/img/products/gamezone/hero.svg" alt="Gamezone Software Visual" width={800} height={600} className="w-full h-full object-cover" />
               </div>
-              <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold leading-[1.1] tracking-tight text-[var(--secondary)]">
-                Work that feels <br />
-                <span className="text-[var(--primary)]">
-                  worth playing
-                </span>
-              </h1>
-              <p className="text-gray-600 text-base md:text-xl leading-relaxed max-w-2xl mx-auto md:mx-0">
-                Gamezone layers quests, XP, badges, and rewards on top of ERP17—so culture and completion rates improve without
-                extra spreadsheets.
+            </div>
+
+            <div className="flex-1 space-y-4 order-1 lg:order-2">
+              <h2 className="text-3xl font-black text-[var(--secondary)] leading-tight">Make Work More Engaging and Measurable</h2>
+              <p className="text-lg leading-relaxed text-black font-medium text-justify">
+                ERP17 Gamezone platform transforms routine activities into goal-driven, reward-based experiences. From HR engagement to sales motivation, you can build a culture where performance is visible, participation is exciting, and outcomes are measurable. Whether your focus is productivity, teamwork, or retention, Gamezone helps you drive behavior change at scale with real-time gamification.
               </p>
-              <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
-                <Link
-                  href="/contact"
-                  className={primaryCtaClassName}
-                >
-                  Contact Us
-                </Link>
-              </div>
-            </div>
-            <div className="flex-1 w-full relative">
-              <ProductImage
-                src="/img/products/gamezone/hero.svg"
-                alt="Gamezone dashboard with quests and leaderboard"
-                width={600}
-                height={400}
-                className="w-full h-auto rounded-2xl ring-2 ring-[var(--primary-soft)]"
-                priority
-              />
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <section className="py-20 bg-slate-50">
-        <div className="container space-y-24 md:space-y-32">
-          {gamezoneSections.map((sec, idx) => (
-            <div key={idx} className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
-              <div
-                className={`flex-1 space-y-6 text-center md:text-left order-2 ${
-                  sec.imgRight ? "md:order-1" : "md:order-2"
-                }`}
-              >
-                <h2 className="text-3xl md:text-4xl font-bold text-[var(--secondary)] leading-tight">{sec.heading}</h2>
-                <p className="text-gray-600 text-base md:text-lg leading-relaxed">{sec.subText}</p>
-                <div className="grid gap-4 pt-2">
-                  {sec.list.map((item, i) => (
-                    <div
-                      key={i}
-                      className="flex items-start gap-4 bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
-                    >
-                      <div className="bg-[var(--primary-soft)] p-1 rounded-full flex-shrink-0 mt-1">
-                        <AiOutlineCheckCircle className="text-[var(--primary)] w-5 h-5 md:w-6 md:h-6" />
-                      </div>
-                      <p className="text-gray-700 text-sm md:text-base font-medium">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className={`flex-1 w-full order-1 ${sec.imgRight ? "md:order-2" : "md:order-1"}`}>
-                <ProductImage src={sec.img} alt={sec.heading} width={500} height={400} className="w-full h-auto rounded-2xl" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 pt-1">
+                {[
+                  "Quest Builder",
+                  "XP & Rewards",
+                  "Live Leaderboards",
+                  "Badge System",
+                  "KPI Gamification",
+                  "Tournaments",
+                  "Team Challenges",
+                  "Smart Notifications",
+                  "Engagement Analytics",
+                  "Secure Admin Control",
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-2.5 text-base font-bold text-black uppercase tracking-tight">
+                    <FaCheck className="text-[var(--primary)] flex-shrink-0 text-[10px]" />
+                    {item}
+                  </div>
+                ))}
               </div>
             </div>
-          ))}
+          </section>
+
+          <section className="space-y-2 pt-4">
+            <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-wide">Why Choose Gamezone?</h2>
+            <p className="text-lg leading-relaxed text-black font-medium text-justify">
+              Teams perform better when goals are visible, progress is rewarded, and achievements are recognized. Gamezone helps organizations improve consistency, accountability, and morale by combining game mechanics with real business workflows.
+              <br />
+              <br />
+              Instead of chasing reminders manually, you can automate motivation through points, badges, and leaderboard-driven engagement.
+            </p>
+          </section>
+
+          <section className="space-y-8 pt-4">
+            <h2 className="text-3xl font-black text-[var(--secondary)] inline-block">Core Modules & Features</h2>
+
+            <div className="space-y-12">
+              {features.map((feature) => (
+                <div key={feature.id} className="space-y-1.5">
+                  <h3 className="text-2xl font-black text-[var(--secondary)]">{feature.id}</h3>
+                  <p className="text-lg text-black leading-relaxed text-justify">{feature.desc}</p>
+                  <p className="font-black uppercase text-[10px] tracking-widest mt-2 opacity-60">Key Benefits:</p>
+                  <ul className="space-y-1 pt-0.5">
+                    {feature.benefits.map((b) => (
+                      <li key={b} className="flex items-start gap-2.5 text-black font-bold text-base">
+                        <FaCheck className="text-[var(--primary)] text-[10px] mt-1 flex-shrink-0" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="space-y-3 pt-6">
+            <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-tight">Best Fit For</h2>
+            <p className="text-lg font-medium text-black">This solution is ideal for:</p>
+            <div className="space-y-1.5 text-base font-bold text-black">
+              {[
+                "Sales and marketing teams",
+                "HR and people operations",
+                "Call centers and support desks",
+                "Retail and multi-branch operations",
+                "Training and onboarding programs",
+                "Corporate culture and engagement initiatives",
+              ].map((industry) => (
+                <div key={industry} className="flex items-center gap-2.5">
+                  <FaCheck className="text-[var(--primary)] flex-shrink-0 text-[10px]" />
+                  {industry}
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="space-y-2 pt-6">
+            <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-tight">Security & Data Integrity</h2>
+            <p className="text-lg leading-relaxed text-black text-justify">
+              Gamezone uses secure access controls, role-based permissions, and complete action logs to ensure your engagement data remains trustworthy and protected.
+            </p>
+          </section>
+
+          <section className="space-y-4 pt-6">
+            <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-tight">Why ERP17?</h2>
+            <ul className="space-y-1.5">
+              {[
+                "Fast setup with customizable rules",
+                "Scalable for startups to enterprise teams",
+                "Seamless integration with ERP, HRM, and CRM",
+                "Bangla and English interface support",
+                "Dedicated implementation and support team",
+              ].map((text) => (
+                <li key={text} className="flex items-center gap-2.5 text-lg font-bold text-black">
+                  <FaCheck className="text-[var(--primary)] flex-shrink-0 text-xs" />
+                  {text}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="space-y-1.5 pt-6">
+            <h3 className="text-2xl font-black text-[var(--secondary)]">Success Snapshot</h3>
+            <p className="text-lg text-black leading-relaxed text-justify">
+              &quot;After deploying Gamezone, our monthly task completion rate increased by 38% and internal participation in training programs more than doubled. Team motivation is now visible and measurable in real time.&quot;
+            </p>
+          </section>
+
+          <section className="space-y-2 pt-8">
+            <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-tight">Ready to Gamify Your Team Performance?</h2>
+            <p className="text-lg font-medium text-black">Turn goals into engaging challenges and build a high-performance culture with Gamezone.</p>
+            <p className="text-lg font-medium text-black">Contact ERP17 today for a free demo or consultation.</p>
+          </section>
         </div>
-      </section>
+      </div>
     </main>
   );
-};
-
-export default GamezonePage;
+}

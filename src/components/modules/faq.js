@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, ChevronDown, Phone, Mail } from "lucide-react";
+import { MessageCircle, ChevronDown } from "lucide-react";
 
 const faqs = [
   {
@@ -226,35 +226,6 @@ export default function ERP17Faq() {
           <h1 className="text-3xl md:text-5xl text-[var(--secondary)] font-extrabold tracking-tight">
             FAQ
           </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Still have questions? Contact our team and we’ll respond fast.
-          </p>
-
-          {/* Contact CTA */}
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-3 pt-2">
-            {/* First 2 phone numbers on the same line for mobile, and part of the main row for desktop */}
-            <div className="flex flex-row gap-2 justify-center">
-              <a
-                href="tel:+8801713428432"
-                className="inline-flex items-center gap-1.5 rounded-xl px-2 sm:px-4 py-2 border border-[var(--primary)] bg-white shadow hover:shadow-md transition text-[9px] sm:text-xs md:text-sm whitespace-nowrap"
-              >
-                <Phone className="h-3 w-3 sm:h-4 sm:w-4" /> +880 17 1342 8432
-              </a>
-              <a
-                href="tel:+8809606881188"
-                className="inline-flex items-center gap-1.5 rounded-xl px-2 sm:px-4 py-2 border border-[var(--primary)] bg-white shadow hover:shadow-md transition text-[9px] sm:text-xs md:text-sm whitespace-nowrap"
-              >
-                <Phone className="h-3 w-3 sm:h-4 sm:w-4" /> Support: +880 9606 881188
-              </a>
-            </div>
-            {/* Email on its own line on mobile, but side-by-side on desktop */}
-            <a
-              href="mailto:hello@erp17.com"
-              className="inline-flex items-center gap-1.5 rounded-xl px-4 py-2 border border-gray-200 bg-white shadow hover:shadow-md transition text-[9px] sm:text-xs md:text-sm whitespace-nowrap"
-            >
-              <Mail className="h-3 w-3 sm:h-4 sm:w-4" /> hello@erp17.com
-            </a>
-          </div>
         </div>
       </section>
 

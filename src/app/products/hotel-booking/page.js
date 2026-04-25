@@ -1,179 +1,213 @@
-"use client";
-
-import Link from "next/link";
-import { primaryCtaClassName } from "@/constants/cta";
 import React from "react";
-import ProductImage from "@/components/ui/ProductImage";
-import { AiOutlineCheckCircle } from "react-icons/ai";
+import Link from "next/link";
+import Image from "next/image";
+import { FaCheck } from "react-icons/fa";
 
-const hotelSections = [
+export const metadata = {
+  title: "Hotel Booking Management Software | ERP17",
+  description:
+    "Complete hotel and resort booking software for reservations, room inventory, front desk operations, billing, guest management, and revenue analytics.",
+};
+
+const features = [
   {
-    heading: "Rooms, rates & restrictions",
-    subText:
-      "Define room types, rack and seasonal rates, extra beds, and minimum stays—ERP17 keeps pricing consistent across channels.",
-    list: [
-      "Weekend vs weekday pricing and blackout dates for holidays or events.",
-      "Per-room amenities and photos so guests know exactly what they book.",
-      "Tax and service charge templates applied to folios automatically.",
-    ],
-    img: "/img/products/hotel-booking/calendar.svg",
-    imgRight: false,
+    id: "1. Reservation & Booking Engine",
+    desc: "Manage direct, OTA, phone, and walk-in bookings from one unified dashboard. Prevent overbooking with real-time room availability and instant status sync.",
+    benefits: ["Centralized booking calendar", "Real-time availability updates", "No double-booking conflicts"],
   },
   {
-    heading: "Reservations & calendar",
-    subText:
-      "Front desk and online bookings land in one calendar with drag-to-assign and instant availability checks.",
-    list: [
-      "Walk-in, phone, website, and OTA reservations normalized into one timeline.",
-      "No double-booking: room-night locks the moment a reservation is confirmed.",
-      "Group blocks and corporate allotments with deposit tracking.",
-    ],
-    img: "/img/products/hotel-booking/hero.svg",
-    imgRight: true,
+    id: "2. Front Desk Operations",
+    desc: "Handle check-in, check-out, room upgrades, extensions, and guest requests quickly through a front-desk optimized interface.",
+    benefits: ["Faster check-in/out flow", "Live room status updates", "Reduced manual entry errors"],
   },
   {
-    heading: "Guests & stay experience",
-    subText:
-      "From check-in to checkout—profiles, preferences, and housekeeping status linked to each reservation.",
-    list: [
-      "Digital registration cards and ID capture where regulations allow.",
-      "Housekeeping boards tied to occupied/vacant rooms and do-not-disturb flags.",
-      "Post-stay feedback requests to improve ratings and repeat visits.",
-    ],
-    img: "/img/products/hotel-booking/guest.svg",
-    imgRight: false,
+    id: "3. Room & Inventory Management",
+    desc: "Control room categories, rates, occupancy, housekeeping status, and maintenance blocks from one place.",
+    benefits: ["Room-type wise pricing", "Housekeeping and maintenance tracking", "Optimized room utilization"],
+  },
+  {
+    id: "4. Dynamic Pricing & Revenue Control",
+    desc: "Set seasonal rates, weekend pricing, event-based surcharges, and promotional discounts to maximize occupancy and revenue.",
+    benefits: ["Flexible pricing rules", "Higher RevPAR potential", "Automated rate updates"],
+  },
+  {
+    id: "5. Guest Profile & CRM",
+    desc: "Build detailed guest profiles including stay history, preferences, and special requests for personalized service.",
+    benefits: ["Personalized guest experience", "Repeat guest tracking", "Improved retention and satisfaction"],
+  },
+  {
+    id: "6. Billing, Folio & Payments",
+    desc: "Generate guest folios with room charges, food bills, services, taxes, and discounts. Support split payments and multiple payment channels.",
+    benefits: ["Accurate guest billing", "Multi-mode payment support", "Faster settlement at checkout"],
+  },
+  {
+    id: "7. Housekeeping & Task Assignment",
+    desc: "Assign cleaning and room readiness tasks to housekeeping teams with live status visibility.",
+    benefits: ["Faster room turnover", "Task-level accountability", "Real-time housekeeping dashboard"],
+  },
+  {
+    id: "8. Multi-Property Management",
+    desc: "Operate multiple hotels, resorts, or properties from one cloud platform while keeping branch-level controls.",
+    benefits: ["Centralized command panel", "Property-wise comparison reports", "Standardized operations"],
+  },
+  {
+    id: "9. Reports & Business Analytics",
+    desc: "Get occupancy, ADR, RevPAR, booking source, cancellation trend, and revenue analytics in real time.",
+    benefits: ["Data-driven pricing decisions", "Performance tracking by period", "Exportable audit-ready reports"],
+  },
+  {
+    id: "10. Security & Access Control",
+    desc: "Secure sensitive guest and financial data through role-based permissions, audit logs, and encrypted cloud storage.",
+    benefits: ["Controlled staff access", "Improved compliance posture", "Reliable data protection"],
   },
 ];
 
-const HotelBookingPage = () => {
+export default function HotelBookingDetailsPage() {
   return (
-    <main className="bg-white">
-      <section className="relative overflow-hidden pt-10 md:pt-14 pb-10 md:pb-20">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-[var(--primary-soft)]/70 -skew-x-12 transform origin-top-right translate-x-1/4 hidden md:block" />
-        <div
-          className="absolute top-10 left-10 w-32 h-32 opacity-20 hidden md:block"
-          style={{
-            backgroundImage: "radial-gradient(var(--primary) 1.5px, transparent 1.5px)",
-            backgroundSize: "15px 15px",
-          }}
-        />
-        <div
-          className="absolute bottom-20 right-1/2 w-48 h-48 opacity-10 hidden md:block"
-          style={{
-            backgroundImage: "radial-gradient(var(--primary) 2px, transparent 2px)",
-            backgroundSize: "20px 20px",
-          }}
-        />
-        <div className="absolute -top-20 -left-20 w-64 h-64 bg-[var(--primary-soft)]/60 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute top-1/2 -right-20 w-80 h-80 bg-[var(--primary-soft)]/30 rounded-full blur-3xl" />
+    <main className="min-h-screen bg-white pt-24 pb-12">
+      <div className="container max-w-5xl mx-auto px-4">
+        <nav className="flex gap-2 text-sm text-black mb-6">
+          <Link href="/" className="hover:text-[var(--primary)] transition-colors hover:underline">
+            Home
+          </Link>
+          <span>/</span>
+          <span className="text-[var(--secondary)] font-bold">Hotel Booking Management Software</span>
+        </nav>
 
-        <div className="absolute top-0 right-0 p-8 opacity-10 hidden lg:block">
-          <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M0 100C0 44.7715 44.7715 0 100 0C155.228 0 200 44.7715 200 100C200 155.228 155.228 200 100 200C44.7715 200 0 155.228 0 100Z"
-              fill="url(#paint0_linear_hotel)"
-            />
-            <defs>
-              <linearGradient
-                id="paint0_linear_hotel"
-                x1="100"
-                y1="0"
-                x2="100"
-                y2="200"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stopColor="var(--primary)" />
-                <stop offset="1" stopColor="var(--primary)" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
+        <div className="space-y-8 text-black">
+          <section>
+            <h1 className="text-3xl md:text-5xl font-black text-[var(--secondary)] mb-3 leading-tight">Hotel Booking Management Software</h1>
+            <p className="text-lg md:text-xl font-bold">
+              Complete hotel and resort booking software for reservations, room inventory, front desk operations, billing, guest management, and revenue analytics.
+            </p>
+          </section>
 
-        <div className="container relative z-10">
-          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
-            <div className="flex-1 space-y-6 text-center md:text-left">
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-[var(--primary-soft)] text-[var(--primary)] text-xs md:text-sm font-bold uppercase tracking-wider mb-2">
-                ERP17 · Hotel Booking
+          <section className="flex flex-col lg:flex-row gap-8 items-stretch">
+            <div className="flex-1 w-full order-2 lg:order-1 lg:max-h-[500px]">
+              <div className="overflow-hidden h-full rounded-xl">
+                <Image src="/img/products/hotel-booking/hero.svg" alt="Hotel Booking Software Visual" width={800} height={600} className="w-full h-full object-cover" />
               </div>
-              <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-[var(--secondary)] leading-[1.1] tracking-tight">
-                Rooms &amp; revenue <br />
-                <span className="text-[var(--primary)]">
-                  under one booking engine
-                </span>
-              </h1>
-              <p className="text-gray-600 text-base md:text-xl leading-relaxed max-w-2xl mx-auto md:mx-0">
-                Operate front desk, direct bookings, and guest journeys on ERP17 Cloud—built for hotels, resorts, and
-                serviced apartments that need clarity, not clutter.
+            </div>
+
+            <div className="flex-1 space-y-4 order-1 lg:order-2">
+              <h2 className="text-3xl font-black text-[var(--secondary)] leading-tight">Run Hospitality Operations with Confidence</h2>
+              <p className="text-lg leading-relaxed text-black font-medium text-justify">
+                ERP17 provides an intelligent Hotel Booking Management platform designed for hotels, resorts, serviced apartments, and guest houses. From booking confirmation to final checkout, every guest touchpoint is digitized for speed, accuracy, and better service quality. Our cloud-based system helps you reduce operational friction, improve occupancy planning, and grow revenue with real-time business visibility.
               </p>
-              <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
-                <Link
-                  href="/contact"
-                  className={primaryCtaClassName}
-                >
-                  Contact Us
-                </Link>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 pt-1">
+                {[
+                  "Reservation Control",
+                  "Front Desk Management",
+                  "Room Inventory",
+                  "Dynamic Pricing",
+                  "Guest CRM",
+                  "Folio & Billing",
+                  "Housekeeping Tasks",
+                  "Multi-Property Access",
+                  "Live Analytics",
+                  "Secure Role Control",
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-2.5 text-base font-bold text-black uppercase tracking-tight">
+                    <FaCheck className="text-[var(--primary)] flex-shrink-0 text-[10px]" />
+                    {item}
+                  </div>
+                ))}
               </div>
             </div>
+          </section>
 
-            <div className="flex-1 w-full relative">
-              <div className="relative z-10">
-                <ProductImage
-                  src="/img/products/hotel-booking/hero.svg"
-                  alt="Hotel booking illustration"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto object-cover rounded-2xl"
-                  priority
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+          <section className="space-y-2 pt-4">
+            <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-wide">Why Choose Our Hotel Booking Solution?</h2>
+            <p className="text-lg leading-relaxed text-black font-medium text-justify">
+              Hospitality businesses need precision, speed, and guest-first workflows. Our platform combines reservation, room management, billing, and reporting in one ecosystem so your team can focus more on service and less on manual coordination.
+              <br />
+              <br />
+              It helps reduce booking errors, improves operational visibility, and enables better decision-making across every property.
+            </p>
+          </section>
 
-      <section className="py-20 bg-white">
-        <div className="container space-y-24 md:space-y-32">
-          {hotelSections.map((sec, idx) => (
-            <div key={idx} className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
-              <div
-                className={`flex-1 space-y-6 text-center md:text-left order-2 ${
-                  sec.imgRight ? "md:order-1" : "md:order-2"
-                }`}
-              >
-                <h2 className="text-3xl md:text-4xl font-bold text-[var(--secondary)] leading-tight">{sec.heading}</h2>
-                <p className="text-gray-600 text-base md:text-lg leading-relaxed">{sec.subText}</p>
-                <div className="grid gap-4 pt-2">
-                  {sec.list.map((item, i) => (
-                    <div
-                      key={i}
-                      className="flex items-start gap-4 bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
-                    >
-                      <div className="bg-[var(--primary-soft)] p-1 rounded-full flex-shrink-0 mt-1">
-                        <AiOutlineCheckCircle className="text-[var(--primary)] w-5 h-5 md:w-6 md:h-6" />
-                      </div>
-                      <p className="text-gray-700 text-sm md:text-base font-medium">{item}</p>
-                    </div>
-                  ))}
+          <section className="space-y-8 pt-4">
+            <h2 className="text-3xl font-black text-[var(--secondary)] inline-block">Core Modules & Features</h2>
+
+            <div className="space-y-12">
+              {features.map((feature) => (
+                <div key={feature.id} className="space-y-1.5">
+                  <h3 className="text-2xl font-black text-[var(--secondary)]">{feature.id}</h3>
+                  <p className="text-lg text-black leading-relaxed text-justify">{feature.desc}</p>
+                  <p className="font-black uppercase text-[10px] tracking-widest mt-2 opacity-60">Key Benefits:</p>
+                  <ul className="space-y-1 pt-0.5">
+                    {feature.benefits.map((b) => (
+                      <li key={b} className="flex items-start gap-2.5 text-black font-bold text-base">
+                        <FaCheck className="text-[var(--primary)] text-[10px] mt-1 flex-shrink-0" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
-
-              <div className={`flex-1 w-full order-1 ${sec.imgRight ? "md:order-2" : "md:order-1"}`}>
-                <div className="w-full">
-                  <ProductImage
-                    src={sec.img}
-                    alt={sec.heading}
-                    width={500}
-                    height={400}
-                    className="w-full h-auto object-cover rounded-2xl"
-                  />
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
+          </section>
+
+          <section className="space-y-3 pt-6">
+            <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-tight">Best Fit For</h2>
+            <p className="text-lg font-medium text-black">This solution is ideal for:</p>
+            <div className="space-y-1.5 text-base font-bold text-black">
+              {[
+                "Hotels and resorts",
+                "Boutique properties and guest houses",
+                "Serviced apartments",
+                "Business and transit hotels",
+                "Multi-property hospitality groups",
+                "Hostels and lodging chains",
+              ].map((industry) => (
+                <div key={industry} className="flex items-center gap-2.5">
+                  <FaCheck className="text-[var(--primary)] flex-shrink-0 text-[10px]" />
+                  {industry}
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="space-y-2 pt-6">
+            <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-tight">Security & Compliance</h2>
+            <p className="text-lg leading-relaxed text-black text-justify">
+              We secure reservation and guest data with role-based controls, encrypted storage, activity logs, and reliable backups to support operational continuity and compliance.
+            </p>
+          </section>
+
+          <section className="space-y-4 pt-6">
+            <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-tight">Why ERP17?</h2>
+            <ul className="space-y-1.5">
+              {[
+                "Hospitality-ready UI for front desk teams",
+                "Scalable for single to multi-property operations",
+                "Bangla and English support available",
+                "Seamless integration with POS, Accounts, and ERP workflows",
+                "Dedicated onboarding and support team",
+              ].map((text) => (
+                <li key={text} className="flex items-center gap-2.5 text-lg font-bold text-black">
+                  <FaCheck className="text-[var(--primary)] flex-shrink-0 text-xs" />
+                  {text}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="space-y-1.5 pt-6">
+            <h3 className="text-2xl font-black text-[var(--secondary)]">Success Snapshot</h3>
+            <p className="text-lg text-black leading-relaxed text-justify">
+              &quot;After switching to ERP17 Hotel Booking platform, we reduced check-in delays by 35% and improved occupancy planning through real-time room intelligence and centralized reservation control.&quot;
+            </p>
+          </section>
+
+          <section className="space-y-2 pt-8">
+            <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-tight">Ready to Modernize Your Property Operations?</h2>
+            <p className="text-lg font-medium text-black">Deliver better guest experiences with a booking and operations platform built for hospitality growth.</p>
+            <p className="text-lg font-medium text-black">Contact ERP17 today for a free demo or consultation.</p>
+          </section>
         </div>
-      </section>
+      </div>
     </main>
   );
-};
-
-export default HotelBookingPage;
+}

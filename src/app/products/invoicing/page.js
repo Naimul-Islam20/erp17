@@ -1,172 +1,213 @@
-"use client";
-
-import Link from "next/link";
-import { primaryCtaClassName } from "@/constants/cta";
 import React from "react";
-import ProductImage from "@/components/ui/ProductImage";
-import { AiOutlineCheckCircle } from "react-icons/ai";
+import Link from "next/link";
+import Image from "next/image";
+import { FaCheck } from "react-icons/fa";
 
-const sections = [
+export const metadata = {
+  title: "Invoicing Management Software | ERP17",
+  description:
+    "Smart invoicing solution for quotation, billing, tax handling, payment collection, receivable tracking, and financial reporting with complete automation.",
+};
+
+const features = [
   {
-    heading: "Quotes to invoices",
-    subText:
-      "Send branded quotes, convert winners to invoices in a click, and keep line items, taxes, and discounts consistent end to end.",
-    list: [
-      "Version history when customers negotiate scope or price.",
-      "Deposit and milestone billing patterns without retyping lines.",
-      "PDF and email delivery from the same document record.",
-    ],
-    img: "/img/products/invoicing/quotes.svg",
-    imgRight: false,
+    id: "1. Quotation to Invoice Workflow",
+    desc: "Create professional quotations and convert approved quotes into invoices instantly. Keep item details, tax rules, and discounts consistent without re-entry.",
+    benefits: ["Faster quote-to-cash cycle", "Reduced manual billing errors", "Version-controlled quotation history"],
   },
   {
-    heading: "Taxes & compliance-ready detail",
-    subText:
-      "Configure VAT or other regimes per jurisdiction; ERP17 Invoicing keeps tax bases clear for filing and audits.",
-    list: [
-      "Per-line tax codes with totals rolled up on the invoice face.",
-      "Credit notes and partial reversals tied to the original bill.",
-      "Customer statements that show open, overdue, and paid balances.",
-    ],
-    img: "/img/products/invoicing/payments.svg",
-    imgRight: true,
+    id: "2. Smart Invoice Generation",
+    desc: "Generate branded invoices with customer info, itemized lines, tax calculations, and payment terms in seconds.",
+    benefits: ["Professional invoice templates", "One-click invoice generation", "Custom numbering and branding"],
   },
   {
-    heading: "Payments & reminders",
-    subText:
-      "Record bank transfers, cards, or cash against invoices and nudge customers automatically when due dates pass.",
-    list: [
-      "Payment links or references where your gateway supports them.",
-      "Aging buckets your collections team can work from daily.",
-      "Sync with Accounts so cash application stays in one system.",
-    ],
-    img: "/img/products/invoicing/quotes.svg",
-    imgRight: false,
+    id: "3. Tax & Compliance Handling",
+    desc: "Configure VAT/GST and local tax rules per item or service type. Ensure every invoice follows compliance-ready formats.",
+    benefits: ["Accurate tax calculation", "Compliance-ready documentation", "Easy audit support"],
+  },
+  {
+    id: "4. Payment Tracking & Collection",
+    desc: "Track full, partial, and overdue payments in real time. Monitor collection status and reduce receivable delays with smart reminders.",
+    benefits: ["Real-time payment updates", "Partial payment support", "Automated collection follow-ups"],
+  },
+  {
+    id: "5. Credit Notes & Adjustments",
+    desc: "Issue credit notes, debit notes, and invoice adjustments linked directly to original billing documents.",
+    benefits: ["Structured return/refund handling", "Accurate customer balance updates", "Transparent adjustment logs"],
+  },
+  {
+    id: "6. Customer Statement Management",
+    desc: "Generate customer-wise account statements including open, overdue, and settled transactions.",
+    benefits: ["Clear receivable visibility", "Improved customer communication", "Faster settlement reconciliation"],
+  },
+  {
+    id: "7. Recurring Invoicing",
+    desc: "Automate recurring invoices for subscriptions, retainers, and service contracts with configurable frequency.",
+    benefits: ["No missed recurring bills", "Consistent monthly cash flow", "Reduced repetitive work"],
+  },
+  {
+    id: "8. Multi-Currency & Multi-Branch Billing",
+    desc: "Manage invoicing across multiple currencies and branches from one platform with branch-wise controls.",
+    benefits: ["Branch-level invoice management", "Currency-wise reporting", "Centralized billing governance"],
+  },
+  {
+    id: "9. Invoicing Analytics & Reports",
+    desc: "Access invoice aging, collection trends, tax summaries, and billing performance insights from live dashboards.",
+    benefits: ["Collection performance insights", "Better cash flow planning", "Exportable reports (PDF/Excel)"],
+  },
+  {
+    id: "10. Integration with ERP & Accounts",
+    desc: "Sync invoices, payments, and receivables directly with Accounts, Inventory, and CRM for seamless end-to-end operations.",
+    benefits: ["Unified financial workflow", "No duplicate data entry", "Real-time accounting alignment"],
   },
 ];
 
-const InvoicingPage = () => {
+export default function InvoicingDetailsPage() {
   return (
-    <main className="bg-white">
-      <section className="relative overflow-hidden pt-10 md:pt-14 pb-10 md:pb-20">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-[var(--primary-soft)]/70 -skew-x-12 transform origin-top-right translate-x-1/4 hidden md:block" />
-        <div
-          className="absolute top-10 left-10 w-32 h-32 opacity-20 hidden md:block"
-          style={{
-            backgroundImage: "radial-gradient(var(--primary) 1.5px, transparent 1.5px)",
-            backgroundSize: "15px 15px",
-          }}
-        />
-        <div className="absolute -top-20 -left-20 w-64 h-64 bg-[var(--primary-soft)]/60 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute top-1/2 -right-20 w-80 h-80 bg-[var(--primary-soft)]/40 rounded-full blur-3xl" />
+    <main className="min-h-screen bg-white pt-24 pb-12">
+      <div className="container max-w-5xl mx-auto px-4">
+        <nav className="flex gap-2 text-sm text-black mb-6">
+          <Link href="/" className="hover:text-[var(--primary)] transition-colors hover:underline">
+            Home
+          </Link>
+          <span>/</span>
+          <span className="text-[var(--secondary)] font-bold">Invoicing Management Software</span>
+        </nav>
 
-        <div className="absolute top-0 right-0 p-8 opacity-10 hidden lg:block">
-          <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M0 100C0 44.7715 44.7715 0 100 0C155.228 0 200 44.7715 200 100C200 155.228 155.228 200 100 200C44.7715 200 0 155.228 0 100Z"
-              fill="url(#paint0_linear_invoicing)"
-            />
-            <defs>
-              <linearGradient
-                id="paint0_linear_invoicing"
-                x1="100"
-                y1="0"
-                x2="100"
-                y2="200"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stopColor="var(--primary)" />
-                <stop offset="1" stopColor="var(--primary)" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
+        <div className="space-y-8 text-black">
+          <section>
+            <h1 className="text-3xl md:text-5xl font-black text-[var(--secondary)] mb-3 leading-tight">Invoicing Management Software</h1>
+            <p className="text-lg md:text-xl font-bold">
+              Smart invoicing solution for quotation, billing, tax handling, payment collection, receivable tracking, and financial reporting with complete automation.
+            </p>
+          </section>
 
-        <div className="container relative z-10">
-          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
-            <div className="flex-1 space-y-6 text-center md:text-left">
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-[var(--primary-soft)] text-[var(--primary)] text-xs md:text-sm font-bold uppercase tracking-wider mb-2">
-                ERP17 · Invoicing
+          <section className="flex flex-col lg:flex-row gap-8 items-stretch">
+            <div className="flex-1 w-full order-2 lg:order-1 lg:max-h-[500px]">
+              <div className="overflow-hidden h-full rounded-xl">
+                <Image src="/img/products/invoicing/hero.svg" alt="Invoicing Software Visual" width={800} height={600} className="w-full h-full object-cover" />
               </div>
-              <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-[var(--secondary)] leading-[1.1] tracking-tight">
-                Bill faster, <br />
-                <span className="text-[var(--primary)]">
-                  collect with confidence
-                </span>
-              </h1>
-              <p className="text-gray-600 text-base md:text-xl leading-relaxed max-w-2xl mx-auto md:mx-0">
-                Professional invoices, clear taxes, and payment tracking on ERP17 Cloud—aligned with inventory and accounts
-                so revenue recognition stays clean.
+            </div>
+
+            <div className="flex-1 space-y-4 order-1 lg:order-2">
+              <h2 className="text-3xl font-black text-[var(--secondary)] leading-tight">Accelerate Billing and Improve Collections</h2>
+              <p className="text-lg leading-relaxed text-black font-medium text-justify">
+                ERP17 Invoicing platform helps businesses simplify the full billing lifecycle - from quotation to collection. Our system ensures every invoice is accurate, tax-compliant, and payment-trackable while reducing manual work and delays. Whether you are a service company, distributor, or multi-branch enterprise, this solution gives you complete billing control and better receivable management.
               </p>
-              <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
-                <Link
-                  href="/contact"
-                  className={primaryCtaClassName}
-                >
-                  Contact Us
-                </Link>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 pt-1">
+                {[
+                  "Quote to Invoice",
+                  "Smart Billing",
+                  "Tax Automation",
+                  "Payment Tracking",
+                  "Credit Notes",
+                  "Customer Statements",
+                  "Recurring Billing",
+                  "Multi-Branch Billing",
+                  "Invoice Analytics",
+                  "ERP Integration",
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-2.5 text-base font-bold text-black uppercase tracking-tight">
+                    <FaCheck className="text-[var(--primary)] flex-shrink-0 text-[10px]" />
+                    {item}
+                  </div>
+                ))}
               </div>
             </div>
+          </section>
 
-            <div className="flex-1 w-full relative">
-              <div className="relative z-10">
-                <ProductImage
-                  src="/img/products/invoicing/hero.svg"
-                  alt="Invoicing and billing illustration"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto object-cover rounded-2xl"
-                  priority
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+          <section className="space-y-2 pt-4">
+            <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-wide">Why Choose Our Invoicing Solution?</h2>
+            <p className="text-lg leading-relaxed text-black font-medium text-justify">
+              Manual invoicing and disconnected payment tracking often lead to delays, errors, and cash flow pressure. Our invoicing software centralizes billing, receivable monitoring, and tax calculations in one system.
+              <br />
+              <br />
+              This gives your finance and operations teams better visibility, faster collections, and cleaner records for reporting and compliance.
+            </p>
+          </section>
 
-      <section className="py-20 bg-white">
-        <div className="container space-y-24 md:space-y-32">
-          {sections.map((sec, idx) => (
-            <div key={idx} className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
-              <div
-                className={`flex-1 space-y-6 text-center md:text-left order-2 ${
-                  sec.imgRight ? "md:order-1" : "md:order-2"
-                }`}
-              >
-                <h2 className="text-3xl md:text-4xl font-bold text-[var(--secondary)] leading-tight">{sec.heading}</h2>
-                <p className="text-gray-600 text-base md:text-lg leading-relaxed">{sec.subText}</p>
-                <div className="grid gap-4 pt-2">
-                  {sec.list.map((item, i) => (
-                    <div
-                      key={i}
-                      className="flex items-start gap-4 bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
-                    >
-                      <div className="bg-[var(--primary-soft)] p-1 rounded-full flex-shrink-0 mt-1">
-                        <AiOutlineCheckCircle className="text-[var(--primary)] w-5 h-5 md:w-6 md:h-6" />
-                      </div>
-                      <p className="text-gray-700 text-sm md:text-base font-medium">{item}</p>
-                    </div>
-                  ))}
+          <section className="space-y-8 pt-4">
+            <h2 className="text-3xl font-black text-[var(--secondary)] inline-block">Core Modules & Features</h2>
+
+            <div className="space-y-12">
+              {features.map((feature) => (
+                <div key={feature.id} className="space-y-1.5">
+                  <h3 className="text-2xl font-black text-[var(--secondary)]">{feature.id}</h3>
+                  <p className="text-lg text-black leading-relaxed text-justify">{feature.desc}</p>
+                  <p className="font-black uppercase text-[10px] tracking-widest mt-2 opacity-60">Key Benefits:</p>
+                  <ul className="space-y-1 pt-0.5">
+                    {feature.benefits.map((b) => (
+                      <li key={b} className="flex items-start gap-2.5 text-black font-bold text-base">
+                        <FaCheck className="text-[var(--primary)] text-[10px] mt-1 flex-shrink-0" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
-
-              <div className={`flex-1 w-full order-1 ${sec.imgRight ? "md:order-2" : "md:order-1"}`}>
-                <div className="w-full">
-                  <ProductImage
-                    src={sec.img}
-                    alt={sec.heading}
-                    width={500}
-                    height={400}
-                    className="w-full h-auto object-cover rounded-2xl"
-                  />
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
+          </section>
+
+          <section className="space-y-3 pt-6">
+            <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-tight">Best Fit For</h2>
+            <p className="text-lg font-medium text-black">This software is ideal for:</p>
+            <div className="space-y-1.5 text-base font-bold text-black">
+              {[
+                "Service and consulting firms",
+                "Wholesale and distribution companies",
+                "Retail and eCommerce businesses",
+                "Subscription-based businesses",
+                "Manufacturing operations",
+                "Multi-branch organizations",
+              ].map((industry) => (
+                <div key={industry} className="flex items-center gap-2.5">
+                  <FaCheck className="text-[var(--primary)] flex-shrink-0 text-[10px]" />
+                  {industry}
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="space-y-2 pt-6">
+            <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-tight">Security & Compliance</h2>
+            <p className="text-lg leading-relaxed text-black text-justify">
+              We secure invoice and payment data with role-based access controls, encrypted storage, detailed logs, and reliable backups to support compliance and audit readiness.
+            </p>
+          </section>
+
+          <section className="space-y-4 pt-6">
+            <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-tight">Why ERP17?</h2>
+            <ul className="space-y-1.5">
+              {[
+                "Simple and fast billing interface",
+                "Flexible for small to enterprise operations",
+                "Bangla and English support available",
+                "Seamless Accounts, ERP, and CRM integration",
+                "Dedicated onboarding and support team",
+              ].map((text) => (
+                <li key={text} className="flex items-center gap-2.5 text-lg font-bold text-black">
+                  <FaCheck className="text-[var(--primary)] flex-shrink-0 text-xs" />
+                  {text}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="space-y-1.5 pt-6">
+            <h3 className="text-2xl font-black text-[var(--secondary)]">Success Snapshot</h3>
+            <p className="text-lg text-black leading-relaxed text-justify">
+              &quot;After deploying ERP17 Invoicing, our billing cycle reduced by 50% and overdue collections improved significantly through real-time receivable tracking and automated reminders.&quot;
+            </p>
+          </section>
+
+          <section className="space-y-2 pt-8">
+            <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-tight">Ready to Modernize Your Billing Workflow?</h2>
+            <p className="text-lg font-medium text-black">Automate invoicing, improve collections, and gain clear financial visibility from one platform.</p>
+            <p className="text-lg font-medium text-black">Contact ERP17 today for a free demo or consultation.</p>
+          </section>
         </div>
-      </section>
+      </div>
     </main>
   );
-};
-
-export default InvoicingPage;
+}

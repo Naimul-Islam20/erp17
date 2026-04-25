@@ -1,153 +1,213 @@
-"use client";
-
-import Link from "next/link";
-import { primaryCtaClassName } from "@/constants/cta";
 import React from "react";
-import ProductImage from "@/components/ui/ProductImage";
-import { AiOutlineCheckCircle } from "react-icons/ai";
+import Link from "next/link";
+import Image from "next/image";
+import { FaCheck } from "react-icons/fa";
 
-const distributionSections = [
+export const metadata = {
+  title: "Distribution Management Software | ERP17",
+  description:
+    "End-to-end distribution software for warehouse control, route planning, dealer management, stock transfer, delivery tracking, and channel analytics.",
+};
+
+const features = [
   {
-    heading: "Stock transfers & dealers",
-    subText:
-      "Move stock between depots, hubs, and dealer points with delivery notes, pricing tiers, and credit limits enforced in ERP17.",
-    list: [
-      "Transfer in transit with expected receipt and variance capture.",
-      "Primary / secondary pricing for modern trade vs wholesale.",
-      "Credit days and outstanding visible before dispatch is approved.",
-    ],
-    img: "/img/products/distribution/route.svg",
-    imgRight: false,
+    id: "1. Dealer & Channel Management",
+    desc: "Manage distributors, dealers, retailers, and channel partners from one centralized platform. Configure pricing tiers, territory rules, and credit policies per partner.",
+    benefits: ["Dealer-wise pricing and limits", "Territory and channel segmentation", "Improved partner visibility"],
   },
   {
-    heading: "Routes, vans & POD",
-    subText:
-      "Plan beat routes, load vans, and capture proof-of-delivery—signature, photo, or OTP—so disputes drop sharply.",
-    list: [
-      "Driver mobile view with today’s drops sorted by distance or time slot.",
-      "Partial delivery and returnable empties (crates, bottles) tracked.",
-      "GPS breadcrumbs optional for high-value loads.",
-    ],
-    img: "/img/products/distribution/warehouse.svg",
-    imgRight: true,
+    id: "2. Stock Transfer & Replenishment",
+    desc: "Move inventory across warehouses, depots, and branch points with real-time tracking. Automate replenishment triggers based on stock movement and demand.",
+    benefits: ["Real-time transfer status", "Auto replenishment workflow", "Reduced stock-out risk"],
   },
   {
-    heading: "Warehouse & compliance",
-    subText:
-      "GRN against PO, batch and expiry, cycle counts, and quarantine—same item master your POS and eCommerce already use.",
-    list: [
-      "Batch recall drill-down: which dealer received which lot.",
-      "Integration-ready export for auditors or parent company reports.",
-      "Low-stock rules per channel so production or import can react early.",
-    ],
-    img: "/img/products/distribution/route.svg",
-    imgRight: false,
+    id: "3. Warehouse Operations",
+    desc: "Handle goods receive, put-away, picking, dispatch, and returns with clear transaction logs and operational traceability.",
+    benefits: ["Faster warehouse throughput", "Accurate inward/outward records", "Reduced operational errors"],
+  },
+  {
+    id: "4. Route Planning & Delivery Scheduling",
+    desc: "Optimize delivery routes for vans and field teams using route planning tools. Schedule deliveries by time slot, area, and vehicle capacity.",
+    benefits: ["Lower delivery cost", "Better route efficiency", "On-time distribution performance"],
+  },
+  {
+    id: "5. Proof of Delivery (POD)",
+    desc: "Capture delivery confirmation via signature, OTP, or digital acknowledgment. Keep delivery proof records linked with invoices and dispatch notes.",
+    benefits: ["Delivery dispute reduction", "Verified handover records", "Complete dispatch audit trail"],
+  },
+  {
+    id: "6. Batch, Expiry & Lot Tracking",
+    desc: "Track products by batch or lot with expiry visibility for regulated and FMCG industries. Ensure first-expiry-first-out (FEFO) compliance where needed.",
+    benefits: ["Batch-level traceability", "Expiry risk control", "Compliance support for regulated goods"],
+  },
+  {
+    id: "7. Mobile Distribution App",
+    desc: "Enable field sales and delivery teams with mobile access for order capture, stock updates, payment collection, and live reporting.",
+    benefits: ["Field productivity boost", "Real-time order sync", "Instant visibility from the ground"],
+  },
+  {
+    id: "8. Returns & Reverse Logistics",
+    desc: "Manage return flows for damaged, expired, or unsold goods. Track reverse movement and credit adjustments with clear approval processes.",
+    benefits: ["Structured return workflow", "Faster credit note processing", "Reduced reconciliation delays"],
+  },
+  {
+    id: "9. Billing, Collections & Credit Control",
+    desc: "Generate invoices, track receivables, and monitor overdue balances by dealer or route. Strengthen cash flow with better collection discipline.",
+    benefits: ["Dealer-wise outstanding control", "Automated due tracking", "Improved collection efficiency"],
+  },
+  {
+    id: "10. Distribution Analytics & BI",
+    desc: "Get actionable insights on route performance, SKU movement, fill rates, dealer sales, and delivery turnaround from real-time dashboards.",
+    benefits: ["Channel-wise performance insights", "Data-driven inventory decisions", "Exportable management reports"],
   },
 ];
 
-const DistributionPage = () => {
+export default function DistributionDetailsPage() {
   return (
-    <main className="bg-white">
-      <section className="relative overflow-hidden pt-10 md:pt-14 pb-10 md:pb-20">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-[var(--primary-soft)]/60 -skew-x-12 transform origin-top-right translate-x-1/4 hidden md:block" />
-        <div
-          className="absolute top-10 left-10 w-32 h-32 opacity-20 hidden md:block"
-          style={{
-            backgroundImage: "radial-gradient(var(--primary) 1.5px, transparent 1.5px)",
-            backgroundSize: "15px 15px",
-          }}
-        />
-        <div className="absolute -top-20 -left-20 w-64 h-64 bg-[var(--primary-soft)]/40 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute top-1/2 -right-20 w-80 h-80 bg-[var(--primary-soft)]/30 rounded-full blur-3xl" />
+    <main className="min-h-screen bg-white pt-24 pb-12">
+      <div className="container max-w-5xl mx-auto px-4">
+        <nav className="flex gap-2 text-sm text-black mb-6">
+          <Link href="/" className="hover:text-[var(--primary)] transition-colors hover:underline">
+            Home
+          </Link>
+          <span>/</span>
+          <span className="text-[var(--secondary)] font-bold">Distribution Management Software</span>
+        </nav>
 
-        <div className="absolute top-0 right-0 p-8 opacity-10 hidden lg:block">
-          <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M0 100C0 44.7715 44.7715 0 100 0C155.228 0 200 44.7715 200 100C200 155.228 155.228 200 100 200C44.7715 200 0 155.228 0 100Z"
-              fill="url(#paint0_linear_dist)"
-            />
-            <defs>
-              <linearGradient id="paint0_linear_dist" x1="100" y1="0" x2="100" y2="200" gradientUnits="userSpaceOnUse">
-                <stop stopColor="var(--primary)" />
-                <stop offset="1" stopColor="var(--primary)" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
+        <div className="space-y-8 text-black">
+          <section>
+            <h1 className="text-3xl md:text-5xl font-black text-[var(--secondary)] mb-3 leading-tight">Distribution Management Software</h1>
+            <p className="text-lg md:text-xl font-bold">
+              End-to-end distribution software for warehouse control, route planning, dealer management, stock transfer, delivery tracking, and channel analytics.
+            </p>
+          </section>
 
-        <div className="container relative z-10">
-          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
-            <div className="flex-1 space-y-6 text-center md:text-left">
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-[var(--primary-soft)] text-[var(--primary)] text-xs md:text-sm font-bold uppercase tracking-wider">
-                ERP17 · Distribution
+          <section className="flex flex-col lg:flex-row gap-8 items-stretch">
+            <div className="flex-1 w-full order-2 lg:order-1 lg:max-h-[500px]">
+              <div className="overflow-hidden h-full rounded-xl">
+                <Image src="/img/products/distribution/hero.svg" alt="Distribution Software Visual" width={800} height={600} className="w-full h-full object-cover" />
               </div>
-              <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-[var(--secondary)] leading-[1.1] tracking-tight">
-                Depot to dealer <br />
-                <span className="text-[var(--primary)]">
-                  in one supply chain view
-                </span>
-              </h1>
-              <p className="text-gray-600 text-base md:text-xl leading-relaxed max-w-2xl mx-auto md:mx-0">
-                Coordinate warehouses, fleet, and channel stock on ERP17 Cloud—fewer phone calls, fewer stock-outs, and faster
-                cash recovery from the field.
+            </div>
+
+            <div className="flex-1 space-y-4 order-1 lg:order-2">
+              <h2 className="text-3xl font-black text-[var(--secondary)] leading-tight">Control Your Supply Chain from Depot to Dealer</h2>
+              <p className="text-lg leading-relaxed text-black font-medium text-justify">
+                ERP17 Distribution Management Software helps businesses streamline product flow across warehouses, routes, and channels. Whether you manage FMCG, pharmaceuticals, wholesale, or multi-branch distribution, our system ensures stock visibility, delivery efficiency, and stronger channel control. Reduce manual coordination, prevent leakage, and improve cash recovery with one integrated platform.
               </p>
-              <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
-                <Link
-                  href="/contact"
-                  className={primaryCtaClassName}
-                >
-                  Contact Us
-                </Link>
-              </div>
-            </div>
-            <div className="flex-1 w-full relative">
-              <ProductImage
-                src="/img/products/distribution/hero.svg"
-                alt="Distribution transfer and dealer overview"
-                width={600}
-                height={400}
-                className="w-full h-auto rounded-2xl"
-                priority
-              />
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <section className="py-20 bg-slate-50">
-        <div className="container space-y-24 md:space-y-32">
-          {distributionSections.map((sec, idx) => (
-            <div key={idx} className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
-              <div
-                className={`flex-1 space-y-6 text-center md:text-left order-2 ${
-                  sec.imgRight ? "md:order-1" : "md:order-2"
-                }`}
-              >
-                <h2 className="text-3xl md:text-4xl font-bold text-[var(--secondary)] leading-tight">{sec.heading}</h2>
-                <p className="text-gray-600 text-base md:text-lg leading-relaxed">{sec.subText}</p>
-                <div className="grid gap-4 pt-2">
-                  {sec.list.map((item, i) => (
-                    <div
-                      key={i}
-                      className="flex items-start gap-4 bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
-                    >
-                      <div className="bg-[var(--primary-soft)] p-1 rounded-full flex-shrink-0 mt-1">
-                        <AiOutlineCheckCircle className="text-[var(--primary)] w-5 h-5 md:w-6 md:h-6" />
-                      </div>
-                      <p className="text-gray-700 text-sm md:text-base font-medium">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className={`flex-1 w-full order-1 ${sec.imgRight ? "md:order-2" : "md:order-1"}`}>
-                <ProductImage src={sec.img} alt={sec.heading} width={500} height={400} className="w-full h-auto rounded-2xl" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 pt-1">
+                {[
+                  "Dealer Management",
+                  "Stock Transfer",
+                  "Warehouse Ops",
+                  "Route Planning",
+                  "POD Tracking",
+                  "Batch & Expiry",
+                  "Mobile Distribution",
+                  "Reverse Logistics",
+                  "Credit Control",
+                  "Live Analytics",
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-2.5 text-base font-bold text-black uppercase tracking-tight">
+                    <FaCheck className="text-[var(--primary)] flex-shrink-0 text-[10px]" />
+                    {item}
+                  </div>
+                ))}
               </div>
             </div>
-          ))}
+          </section>
+
+          <section className="space-y-2 pt-4">
+            <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-wide">Why Choose Our Distribution Solution?</h2>
+            <p className="text-lg leading-relaxed text-black font-medium text-justify">
+              Distribution businesses often struggle with fragmented systems, delayed stock updates, and weak route-level visibility. Our platform unifies inventory, delivery, partner billing, and collections into one connected workflow.
+              <br />
+              <br />
+              This helps teams reduce operational delays, improve service levels, and scale distribution confidently.
+            </p>
+          </section>
+
+          <section className="space-y-8 pt-4">
+            <h2 className="text-3xl font-black text-[var(--secondary)] inline-block">Core Modules & Features</h2>
+
+            <div className="space-y-12">
+              {features.map((feature) => (
+                <div key={feature.id} className="space-y-1.5">
+                  <h3 className="text-2xl font-black text-[var(--secondary)]">{feature.id}</h3>
+                  <p className="text-lg text-black leading-relaxed text-justify">{feature.desc}</p>
+                  <p className="font-black uppercase text-[10px] tracking-widest mt-2 opacity-60">Key Benefits:</p>
+                  <ul className="space-y-1 pt-0.5">
+                    {feature.benefits.map((b) => (
+                      <li key={b} className="flex items-start gap-2.5 text-black font-bold text-base">
+                        <FaCheck className="text-[var(--primary)] text-[10px] mt-1 flex-shrink-0" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="space-y-3 pt-6">
+            <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-tight">Best Fit For</h2>
+            <p className="text-lg font-medium text-black">This software is ideal for:</p>
+            <div className="space-y-1.5 text-base font-bold text-black">
+              {[
+                "FMCG and consumer goods distributors",
+                "Pharmaceutical and healthcare distribution",
+                "Food and beverage supply networks",
+                "Electronics and hardware distributors",
+                "Wholesale and trade channels",
+                "Multi-warehouse logistics businesses",
+              ].map((industry) => (
+                <div key={industry} className="flex items-center gap-2.5">
+                  <FaCheck className="text-[var(--primary)] flex-shrink-0 text-[10px]" />
+                  {industry}
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="space-y-2 pt-6">
+            <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-tight">Security & Reliability</h2>
+            <p className="text-lg leading-relaxed text-black text-justify">
+              Our distribution platform uses secure access controls, role-based permissions, complete transaction logs, and cloud backups to protect mission-critical supply chain data.
+            </p>
+          </section>
+
+          <section className="space-y-4 pt-6">
+            <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-tight">Why ERP17?</h2>
+            <ul className="space-y-1.5">
+              {[
+                "Built for real-world distribution complexity",
+                "Scalable across territories and channels",
+                "Bangla and English support available",
+                "Integrated with ERP, Accounts, POS, and CRM modules",
+                "Dedicated onboarding and support team",
+              ].map((text) => (
+                <li key={text} className="flex items-center gap-2.5 text-lg font-bold text-black">
+                  <FaCheck className="text-[var(--primary)] flex-shrink-0 text-xs" />
+                  {text}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="space-y-1.5 pt-6">
+            <h3 className="text-2xl font-black text-[var(--secondary)]">Success Snapshot</h3>
+            <p className="text-lg text-black leading-relaxed text-justify">
+              &quot;By implementing ERP17 Distribution platform, we reduced delivery disputes by 42% and improved dealer fulfillment consistency through real-time route, stock, and POD visibility.&quot;
+            </p>
+          </section>
+
+          <section className="space-y-2 pt-8">
+            <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-tight">Ready to Optimize Your Distribution Network?</h2>
+            <p className="text-lg font-medium text-black">Unify warehouse, route, and channel operations in one intelligent distribution platform.</p>
+            <p className="text-lg font-medium text-black">Contact ERP17 today for a free demo or consultation.</p>
+          </section>
         </div>
-      </section>
+      </div>
     </main>
   );
-};
-
-export default DistributionPage;
+}

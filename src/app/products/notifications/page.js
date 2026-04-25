@@ -74,7 +74,7 @@ const NotificationsPage = () => {
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-[var(--secondary)] leading-[1.1] tracking-tight">
                 Instant Alerts & <br />
-                <span className="text-[var(--primary)]">
+                <span className="text-[var(--secondary)]">
                   Real-time Updates
                 </span>
               </h1>

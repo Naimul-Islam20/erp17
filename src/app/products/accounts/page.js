@@ -1,172 +1,214 @@
-"use client";
-
-import Link from "next/link";
-import { primaryCtaClassName } from "@/constants/cta";
 import React from "react";
-import ProductImage from "@/components/ui/ProductImage";
-import { AiOutlineCheckCircle } from "react-icons/ai";
+import Link from "next/link";
+import Image from "next/image";
+import { FaCheck } from "react-icons/fa";
 
-const sections = [
+export const metadata = {
+  title: "Account Management Software | ERP17",
+  description:
+    "Powerful accounting software for managing invoices, expenses, billing, payments, financial reports, and budgeting with accuracy and automation.",
+};
+
+const features = [
   {
-    heading: "General ledger & journals",
-    subText:
-      "Post double-entry journals with clear audit trails; period close checks help finance teams stay compliant without losing speed.",
-    list: [
-      "Chart of accounts you can extend by branch, cost center, or project.",
-      "Recurring journals and templates for month-end accruals.",
-      "Role-based approval before sensitive postings go live.",
-    ],
-    img: "/img/products/accounts/ledger.svg",
-    imgRight: false,
+    id: "1. Comprehensive Ledger Management",
+    desc: "Maintain an organized, digital ledger of all your business's financial transactions. Effortlessly track debits, credits, journal entries, and balances for every account.",
+    benefits: ["Automated double-entry bookkeeping", "Easy reconciliation and error detection", "Quick access to all account histories"],
   },
   {
-    heading: "Bank & cash visibility",
-    subText:
-      "Import statements, match payments to invoices, and spot unreconciled lines early—so your cash position is always trustworthy.",
-    list: [
-      "Multi-bank and multi-currency support with clear FX handling.",
-      "Suggested matches reduce manual ticking on long statements.",
-      "Exception lists for finance to review in one queue.",
-    ],
-    img: "/img/products/accounts/reports.svg",
-    imgRight: true,
+    id: "2. Invoicing and Billing",
+    desc: "Create professional invoices and bills in seconds. Customize templates with your branding, set recurring invoices, and automate payment reminders to improve your cash flow.",
+    benefits: ["Faster billing and payments", "Reduce late payments with reminders", "GST/VAT and discount integration"],
   },
   {
-    heading: "Reporting that leadership reads",
-    subText:
-      "Trial balance, P&amp;L, balance sheet, and cash flow views roll up from the same ledger ERP17 already uses for operations.",
-    list: [
-      "Drill from summary lines to underlying vouchers when questions arise.",
-      "Export-friendly layouts for auditors and banks.",
-      "Optional dashboards for budget vs actual by department.",
-    ],
-    img: "/img/products/accounts/ledger.svg",
-    imgRight: false,
+    id: "3. Expense & Income Tracking",
+    desc: "Record and categorize all expenses and income with just a few clicks. Get detailed breakdowns and visual reports to see exactly where your money is going.",
+    benefits: ["Clear financial visibility", "Budget control and forecasting", "Prevents overspending"],
+  },
+  {
+    id: "4. Bank Reconciliation",
+    desc: "Easily reconcile your bank statements with system records. Identify discrepancies, match transactions, and ensure your books are always accurate and up to date.",
+    benefits: ["Saves hours of manual checking", "Reduces errors and fraud risk", "Simple matching interface"],
+  },
+  {
+    id: "5. Multi-Currency Support",
+    desc: "Transact and report in multiple currencies-ideal for businesses dealing with global clients and suppliers.",
+    benefits: ["Real-time currency conversion", "Supports international business", "Accurate reporting for all regions"],
+  },
+  {
+    id: "6. Tax Management",
+    desc: "Automate tax calculations and prepare returns for VAT, GST, or local taxes. Stay compliant with changing regulations and never miss a tax deadline.",
+    benefits: ["Automated tax calculation", "Tax report generation", "Avoid costly penalties"],
+  },
+  {
+    id: "7. Financial Reporting & Analytics",
+    desc: "Access a wide range of real-time reports, including balance sheets, profit and loss statements, cash flow analysis, and custom analytics. Visual dashboards make data interpretation easy for everyone.",
+    benefits: ["Informed decision-making", "Audit-ready statements", "Export to Excel, PDF, etc."],
+  },
+  {
+    id: "8. Integrated Payment Solutions",
+    desc: "Receive and record payments through multiple channels-bank transfer, cash, cheque, or digital wallet. Seamless integration with payment gateways improves collection efficiency.",
+    benefits: ["Instant payment updates", "Fewer manual entries", "Better cash management"],
+  },
+  {
+    id: "9. Role-Based User Access",
+    desc: "Assign roles and set permissions for team members. Keep sensitive financial data secure and ensure accountability with audit logs.",
+    benefits: ["Enhanced data privacy", "Prevent unauthorized access", "Track changes and user activity"],
+  },
+  {
+    id: "10. Mobile & Cloud Access",
+    desc: "Access your accounting system from anywhere, at any time, using your mobile device or desktop. Enjoy automatic updates and data backups with robust cloud hosting.",
+    benefits: ["Work remotely and collaborate", "Automatic software upgrades", "Safe, encrypted cloud storage"],
   },
 ];
 
-const AccountsPage = () => {
+export default function AccountsDetailsPage() {
   return (
-    <main className="bg-white">
-      <section className="relative overflow-hidden pt-10 md:pt-14 pb-10 md:pb-20">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-[var(--primary-soft)]/60 -skew-x-12 transform origin-top-right translate-x-1/4 hidden md:block" />
-        <div
-          className="absolute top-10 left-10 w-32 h-32 opacity-20 hidden md:block"
-          style={{
-            backgroundImage: "radial-gradient(var(--primary) 1.5px, transparent 1.5px)",
-            backgroundSize: "15px 15px",
-          }}
-        />
-        <div className="absolute -top-20 -left-20 w-64 h-64 bg-[var(--primary-soft)]/40 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute top-1/2 -right-20 w-80 h-80 bg-[var(--primary-soft)]/30 rounded-full blur-3xl" />
+    <main className="min-h-screen bg-white pt-24 pb-12">
+      <div className="container max-w-5xl mx-auto px-4">
+        <nav className="flex gap-2 text-sm text-black mb-6">
+          <Link href="/" className="hover:text-[var(--primary)] transition-colors hover:underline">
+            Home
+          </Link>
+          <span>/</span>
+          <span className="text-[var(--secondary)] font-bold">Account Management Software</span>
+        </nav>
 
-        <div className="absolute top-0 right-0 p-8 opacity-10 hidden lg:block">
-          <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M0 100C0 44.7715 44.7715 0 100 0C155.228 0 200 44.7715 200 100C200 155.228 155.228 200 100 200C44.7715 200 0 155.228 0 100Z"
-              fill="url(#paint0_linear_accounts)"
-            />
-            <defs>
-              <linearGradient
-                id="paint0_linear_accounts"
-                x1="100"
-                y1="0"
-                x2="100"
-                y2="200"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stopColor="var(--primary)" />
-                <stop offset="1" stopColor="var(--primary)" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
+        <div className="space-y-8 text-black">
+          <section>
+            <h1 className="text-3xl md:text-5xl font-black text-[var(--secondary)] mb-3 leading-tight">Account Management Software</h1>
+            <p className="text-lg md:text-xl font-bold">
+              Powerful accounting software for managing invoices, expenses, billing, payments, financial reports, and budgeting with accuracy and automation.
+            </p>
+          </section>
 
-        <div className="container relative z-10">
-          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
-            <div className="flex-1 space-y-6 text-center md:text-left">
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-[var(--primary-soft)] text-[var(--primary)] text-xs md:text-sm font-bold uppercase tracking-wider mb-2">
-                ERP17 · Accounts
+          <section className="flex flex-col lg:flex-row gap-8 items-stretch">
+            <div className="flex-1 w-full order-2 lg:order-1 lg:max-h-[500px]">
+              <div className="overflow-hidden h-full rounded-xl">
+                <Image src="/img/products/accounts/hero.svg" alt="Account Management Software Visual" width={800} height={600} className="w-full h-full object-cover" />
               </div>
-              <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-[var(--secondary)] leading-[1.1] tracking-tight">
-                Books that stay <br />
-                <span className="text-[var(--primary)]">
-                  accurate in the cloud
-                </span>
-              </h1>
-              <p className="text-gray-600 text-base md:text-xl leading-relaxed max-w-2xl mx-auto md:mx-0">
-                ERP17 Accounts connects your ledger to sales, purchasing, and payroll—so finance closes faster with fewer
-                spreadsheets and a single source of truth.
+            </div>
+
+            <div className="flex-1 space-y-4 order-1 lg:order-2">
+              <h2 className="text-3xl font-black text-[var(--secondary)] leading-tight">Account Management Software</h2>
+              <p className="text-lg leading-relaxed text-black font-medium text-justify">
+                Managing your company's finances doesn't have to be complicated or time-consuming. At ERP17, we empower businesses with a modern, intuitive Account Management Software that streamlines financial operations, automates complex accounting processes, and delivers real-time insights for smarter decision-making. Designed for businesses of any size, our software is your all-in-one solution for financial management, compliance, and growth.
               </p>
-              <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
-                <Link
-                  href="/contact"
-                  className={primaryCtaClassName}
-                >
-                  Contact Us
-                </Link>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 pt-1">
+                {[
+                  "Ledger Management",
+                  "Invoicing and Billing",
+                  "Expense & Income",
+                  "Bank Reconciliation",
+                  "Multi-Currency",
+                  "Tax Management",
+                  "Reporting & Analytics",
+                  "Integrated Payment",
+                  "Role-Based User",
+                  "Mobile Access",
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-2.5 text-base font-bold text-black uppercase tracking-tight">
+                    <FaCheck className="text-[var(--primary)] flex-shrink-0 text-[10px]" />
+                    {item}
+                  </div>
+                ))}
               </div>
             </div>
+          </section>
 
-            <div className="flex-1 w-full relative">
-              <div className="relative z-10">
-                <ProductImage
-                  src="/img/products/accounts/hero.svg"
-                  alt="Accounts and ledger illustration"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto object-cover rounded-2xl"
-                  priority
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+          <section className="space-y-2 pt-4">
+            <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-wide">Why Choose Our Account Management Software?</h2>
+            <p className="text-lg leading-relaxed text-black font-medium text-justify">
+              Traditional manual accounting is often slow, error-prone, and resource-intensive. Our Account Management Software is built to simplify bookkeeping, boost productivity, and ensure compliance with regulatory requirements. It's cloud-based, secure, and easy to use-giving you and your team confidence in your financial data at all times.
+              <br />
+              <br />
+              From daily transactions to annual audits, our solution makes accounting efficient, transparent, and reliable.
+            </p>
+          </section>
 
-      <section className="py-20 bg-white">
-        <div className="container space-y-24 md:space-y-32">
-          {sections.map((sec, idx) => (
-            <div key={idx} className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
-              <div
-                className={`flex-1 space-y-6 text-center md:text-left order-2 ${
-                  sec.imgRight ? "md:order-1" : "md:order-2"
-                }`}
-              >
-                <h2 className="text-3xl md:text-4xl font-bold text-[var(--secondary)] leading-tight">{sec.heading}</h2>
-                <p className="text-gray-600 text-base md:text-lg leading-relaxed">{sec.subText}</p>
-                <div className="grid gap-4 pt-2">
-                  {sec.list.map((item, i) => (
-                    <div
-                      key={i}
-                      className="flex items-start gap-4 bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
-                    >
-                      <div className="bg-[var(--primary-soft)] p-1 rounded-full flex-shrink-0 mt-1">
-                        <AiOutlineCheckCircle className="text-[var(--primary)] w-5 h-5 md:w-6 md:h-6" />
-                      </div>
-                      <p className="text-gray-700 text-sm md:text-base font-medium">{item}</p>
-                    </div>
-                  ))}
+          <section className="space-y-8 pt-4">
+            <h2 className="text-3xl font-black text-[var(--secondary)] inline-block">Key Features</h2>
+
+            <div className="space-y-12">
+              {features.map((feature) => (
+                <div key={feature.id} className="space-y-1.5">
+                  <h3 className="text-2xl font-black text-[var(--secondary)]">{feature.id}</h3>
+                  <p className="text-lg text-black leading-relaxed text-justify">{feature.desc}</p>
+                  <p className="font-black uppercase text-[10px] tracking-widest mt-2 opacity-60">Benefits:</p>
+                  <ul className="space-y-1 pt-0.5">
+                    {feature.benefits.map((b) => (
+                      <li key={b} className="flex items-start gap-2.5 text-black font-bold text-base">
+                        <FaCheck className="text-[var(--primary)] text-[10px] mt-1 flex-shrink-0" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
-
-              <div className={`flex-1 w-full order-1 ${sec.imgRight ? "md:order-2" : "md:order-1"}`}>
-                <div className="w-full">
-                  <ProductImage
-                    src={sec.img}
-                    alt={sec.heading}
-                    width={500}
-                    height={400}
-                    className="w-full h-auto object-cover rounded-2xl"
-                  />
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
+          </section>
+
+          <section className="space-y-2 pt-6">
+            <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-tight">Data Security and Compliance</h2>
+            <p className="text-lg leading-relaxed text-black text-justify">
+              Our Account Management Software employs the latest security protocols including SSL encryption, multi-factor authentication, and regular backups. Stay compliant with industry standards and local regulations, ensuring your financial data is always safe and protected.
+            </p>
+          </section>
+
+          <section className="space-y-3 pt-6">
+            <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-tight">Who Is It For?</h2>
+            <p className="text-lg font-medium text-black">Our software is trusted by:</p>
+            <div className="space-y-1.5 text-base font-bold text-black">
+              {[
+                "SMEs and large enterprises",
+                "Retailers and wholesalers",
+                "Service providers",
+                "Manufacturers",
+                "Non-profits and associations",
+                "Educational institutions",
+              ].map((industry) => (
+                <div key={industry} className="flex items-center gap-2.5">
+                  <FaCheck className="text-[var(--primary)] flex-shrink-0 text-[10px]" />
+                  {industry}
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="space-y-4 pt-6">
+            <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-tight">Why Businesses Prefer Us</h2>
+            <ul className="space-y-1.5">
+              {[
+                "User-friendly Interface: Minimal training required",
+                "Customization: Adaptable to unique workflows",
+                "Local Language Support: English and Bangla available",
+                "Seamless Integration: Works with ERP, CRM, HRM, and POS",
+                "Dedicated Support: 24/7 assistance from our expert team",
+                "Affordable Pricing: Flexible plans for every budget",
+              ].map((text) => (
+                <li key={text} className="flex items-center gap-2.5 text-lg font-bold text-black">
+                  <FaCheck className="text-[var(--primary)] flex-shrink-0 text-xs" />
+                  {text}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="space-y-1.5 pt-6">
+            <h3 className="text-2xl font-black text-[var(--secondary)]">Success Story</h3>
+            <p className="text-lg text-black leading-relaxed text-justify">
+              &quot;After switching to ERP17&apos; Account Management Software, our invoicing time reduced by 60%, and financial reporting became 100% accurate. We now have better control over our cash flow and compliance.&quot;- A leading retail company.
+            </p>
+          </section>
+
+          <section className="space-y-2 pt-8">
+            <h2 className="text-3xl font-black text-[var(--secondary)] uppercase tracking-tight">Get Started With Smart Accounting</h2>
+            <p className="text-lg font-medium text-black">Take the hassle out of accounting and focus on what matters-growing your business.</p>
+            <p className="text-lg font-medium text-black">Contact ERP17 today for a free demo or consultation.</p>
+          </section>
         </div>
-      </section>
+      </div>
     </main>
   );
-};
-
-export default AccountsPage;
+}
