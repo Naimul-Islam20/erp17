@@ -23,8 +23,8 @@ export default function HardwarePage() {
             seamless real-time data synchronization with our software completely
             automates your HR and Payroll processes, eliminating manual errors
             and saving valuable time. Experience the perfect synergy of style
-              and technology, designed to deliver on our promise of a <span className="font-bold text-[var(--secondary)]">"Smarter
-              Business, Hassle-Free Life."</span>
+              and technology, designed to deliver on our promise of a <span className="font-bold text-[var(--secondary)]">&quot;Smarter
+              Business, Hassle-Free Life.&quot;</span>
           </p>
          
         </div>
