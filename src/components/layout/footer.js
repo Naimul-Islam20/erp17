@@ -11,9 +11,19 @@ export default function Footer() {
   const devicesMenu = menuList.find(
     (menu) => menu.menu_uid === "devices" || menu.menu_uid === "devices/hardware" || menu.menu_name === "Devices",
   );
-  const productChildren = productsMenu?.children || [];
-  const primaryProductLinks = productChildren.slice(0, 6);
-  const moreProductLinks = productChildren.slice(6);
+  const solutionLinks = [
+    { name: "HRM & Payroll", href: "/products/hrm" },
+    { name: "CRM", href: "/products/crm" },
+    { name: "Accounts", href: "/products/accounts" },
+    { name: "Inventory", href: "/products/inventory" },
+    { name: "Point of Sale", href: "/products/point-of-sale" },
+    { name: "eCommerce", href: "/products/ecommerce" },
+    { name: "Invoiceing", href: "/products/invoicing" },
+  ];
+  const solutionUids = new Set(solutionLinks.map((item) => item.href.replace(/^\//, "")));
+  const moreProductLinks = (productsMenu?.children || []).filter(
+    (item) => !solutionUids.has(item.menu_uid),
+  );
   const quickLinks = [
     { name: "Blog", href: "/blog" },
     { name: "Education", href: "/education" },
@@ -25,7 +35,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#0f0f3d] text-gray-300">
       {/* Main Footer Content */}
-      <div className="pt-20 pb-12">
+      <div className="pt-8 pb-6 md:pt-20 md:pb-12">
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
             
@@ -65,86 +75,107 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Column 2: Products */}
-            <div className="text-left">
-              <h3 className="text-white text-lg font-bold mb-8 relative inline-block">
-                Products
-                <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 w-8 h-1 bg-[var(--primary)] rounded-full"></span>
-              </h3>
-              <ul className="space-y-4">
-                {primaryProductLinks.map((item) => (
-                  <li key={item.id}>
-                    <Link href={`/${item.menu_uid}`} className="text-sm hover:text-[var(--primary)] hover:translate-x-1 inline-block transition-all">
-                      {item.menu_name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {/* Right-side 3 columns block */}
+            <div className="col-span-2 md:col-span-2 lg:col-span-3 lg:col-start-2">
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* Column 2 + 3: Solutions and Devices + More */}
+                <div className="col-span-2 lg:col-span-2 text-left">
+                  <div className="grid grid-cols-2 gap-8">
+                    <div>
+                      <h3 className="text-white text-lg font-bold mb-8 relative inline-block">
+                        Solutions
+                        <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 w-8 h-1 bg-[var(--primary)] rounded-full"></span>
+                      </h3>
+                      <ul className="space-y-4">
+                        {solutionLinks.map((item) => (
+                          <li key={item.name}>
+                            <Link href={item.href} className="text-sm hover:text-[var(--primary)] hover:translate-x-1 inline-block transition-all">
+                              {item.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
 
-            {/* Column 3: Devices + More Products */}
-            <div className="text-left">
-              <h3 className="text-white text-lg font-bold mb-8 relative inline-block">
-                Devices + More
-                <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 w-8 h-1 bg-[var(--primary)] rounded-full"></span>
-              </h3>
-              <ul className="space-y-4">
-                {devicesMenu ? (
-                  <li key={devicesMenu.id}>
-                    <Link
-                      href={`/${devicesMenu.menu_uid}`}
-                      className="text-sm hover:text-[var(--primary)] hover:translate-x-1 inline-block transition-all"
-                    >
-                      {devicesMenu.menu_name}
-                    </Link>
-                  </li>
-                ) : null}
-                {moreProductLinks.map((item) => (
-                  <li key={item.id}>
-                    <Link href={`/${item.menu_uid}`} className="text-sm hover:text-[var(--primary)] hover:translate-x-1 inline-block transition-all">
-                      {item.menu_name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Column 4: Pages + Socials */}
-            <div className="col-span-2 md:col-span-1 text-left">
-              <div className="grid grid-cols-2 md:grid-cols-1 gap-8 md:gap-0">
-                <div>
-                  <h3 className="text-white text-lg font-bold mb-8 relative inline-block">
-                    Pages
-                    <span className="absolute -bottom-2 left-0 w-8 h-1 bg-[var(--primary)] rounded-full"></span>
-                  </h3>
-                  <ul className="space-y-4">
-                    {quickLinks.map((item) => (
-                      <li key={item.name}>
-                        <Link href={item.href} className="text-sm hover:text-[var(--primary)] hover:translate-x-1 inline-block transition-all">
-                          {item.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="md:mt-8 md:pt-8 md:border-t md:border-gray-800 flex flex-col items-start text-left">
-                  <h4 className="text-white text-sm font-bold mb-4">Follow Our Socials</h4>
-                  <div className="flex gap-3 justify-start">
-                    {[
-                      { icon: <FaLinkedinIn />, href: "#" },
-                      { icon: <FaFacebookF />, href: "#" },
-                      { icon: <FaInstagram />, href: "#" },
-                      { icon: <FaYoutube />, href: "#" },
-                    ].map((social, idx) => (
-                      <Link
-                        key={idx}
-                        href={social.href}
-                        className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-xs hover:bg-[var(--primary)] hover:text-white transition-all shadow-sm"
-                      >
-                        {social.icon}
-                      </Link>
-                    ))}
+                    <div>
+                      <h3 className="text-white text-lg font-bold mb-8 relative inline-block">
+                        Devices + More
+                        <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 w-8 h-1 bg-[var(--primary)] rounded-full"></span>
+                      </h3>
+                      <ul className="space-y-4">
+                        {devicesMenu ? (
+                          <li key={devicesMenu.id}>
+                            <Link
+                              href={`/${devicesMenu.menu_uid}`}
+                              className="text-sm hover:text-[var(--primary)] hover:translate-x-1 inline-block transition-all"
+                            >
+                              {devicesMenu.menu_name}
+                            </Link>
+                          </li>
+                        ) : null}
+                        {moreProductLinks.map((item) => (
+                          <li key={item.id}>
+                            <Link
+                              href={`/${item.menu_uid}`}
+                              className="text-sm hover:text-[var(--primary)] hover:translate-x-1 inline-block transition-all"
+                            >
+                              {item.menu_name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
+                </div>
+
+                {/* Column 4: Pages + Socials */}
+                <div className="col-span-2 md:col-span-2 lg:col-span-1 text-left">
+                  <div className="grid grid-cols-2 md:grid-cols-1 gap-8 md:gap-0">
+                    <div>
+                      <h3 className="text-white text-lg font-bold mb-8 relative inline-block">
+                        Pages
+                        <span className="absolute -bottom-2 left-0 w-8 h-1 bg-[var(--primary)] rounded-full"></span>
+                      </h3>
+                      <ul className="space-y-4">
+                        {quickLinks.map((item) => (
+                          <li key={item.name}>
+                            <Link href={item.href} className="text-sm hover:text-[var(--primary)] hover:translate-x-1 inline-block transition-all">
+                              {item.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="md:mt-8 md:pt-8 md:border-t md:border-gray-800 flex flex-col items-start text-left">
+                      <h4 className="text-white text-sm font-bold mb-4">Follow Our Socials</h4>
+                      <div className="flex gap-3 justify-start">
+                        {[
+                          { icon: <FaLinkedinIn />, href: "#" },
+                          { icon: <FaFacebookF />, href: "#" },
+                          { icon: <FaInstagram />, href: "#" },
+                          { icon: <FaYoutube />, href: "#" },
+                        ].map((social, idx) => (
+                          <Link
+                            key={idx}
+                            href={social.href}
+                            className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-xs hover:bg-[var(--primary)] hover:text-white transition-all shadow-sm"
+                          >
+                            {social.icon}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="col-span-2 md:col-span-2 lg:col-span-3 mt-0 md:mt-2">
+                  <Image
+                    src="/payment.png"
+                    alt="ERP17 Solutions banner"
+                    width={1200}
+                    height={220}
+                    className="w-full h-20 sm:h-24 object-contain object-left opacity-90"
+                  />
                 </div>
               </div>
             </div>

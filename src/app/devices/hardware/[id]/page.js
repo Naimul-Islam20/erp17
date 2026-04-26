@@ -4,12 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useState } from "react";
-import { allDevices, DEVICE_PRICE_MAP } from "../devices";
+import { allDevices, DEVICE_PRICE_MAP, getDeviceSlug } from "../devices";
 
 export default function DeviceDetailsPage() {
   const params = useParams();
-  const deviceId = Number(params?.id);
-  const device = allDevices.find((item) => item.id === deviceId);
+  const deviceSlug = String(params?.id || "");
+  const device = allDevices.find((item) => getDeviceSlug(item.name) === deviceSlug);
   const [imageModalOpen, setImageModalOpen] = useState(false);
 
   if (!device) {
@@ -17,7 +17,10 @@ export default function DeviceDetailsPage() {
       <section className="bg-white py-16">
         <div className="container">
           <p className="text-lg text-slate-700 mb-4">Device not found.</p>
-          <Link href="/devices/hardware" className="text-[var(--primary)] font-semibold hover:text-[var(--primary-hover)]">
+          <Link
+            href="/devices"
+            className="text-[var(--primary)] font-semibold hover:text-[var(--primary-hover)]"
+          >
             Back to Hardware
           </Link>
         </div>
@@ -46,7 +49,9 @@ export default function DeviceDetailsPage() {
   }, []);
 
   const getLabelValue = (labelName) => {
-    const found = groupedDetails.find((item) => item.label.toLowerCase() === labelName.toLowerCase());
+    const found = groupedDetails.find(
+      (item) => item.label.toLowerCase() === labelName.toLowerCase(),
+    );
     if (!found || found.values.length === 0) return "";
     return found.values[0];
   };
@@ -87,11 +92,17 @@ export default function DeviceDetailsPage() {
   const quickDetailsText = featureGroup?.values?.slice(0, 2).join(" • ") || "";
   const featureList = featureGroup?.values || [];
 
+  const whatsappNumber = "8801982211000";
+  const orderWhatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(`Hello ERP17, I want to order this device: ${device.name}`)}`;
+
   return (
     <section className="bg-white py-14 md:py-16">
       <div className="container">
         <div className="mb-6">
-          <Link href="/devices/hardware" className="text-[var(--primary)] font-semibold hover:text-[var(--primary-hover)]">
+          <Link
+            href="/devices"
+            className="text-[var(--primary)] font-semibold hover:text-[var(--primary-hover)]"
+          >
             ← Back to Hardware
           </Link>
         </div>
@@ -129,8 +140,13 @@ export default function DeviceDetailsPage() {
             {topSummary.length > 0 ? (
               <ul className="space-y-2 mt-6 mb-5">
                 {topSummary.map((item) => (
-                  <li key={item.label} className="grid grid-cols-[140px_12px_minmax(0,1fr)] items-start text-sm">
-                    <span className="font-semibold text-[var(--secondary)]">{item.label}</span>
+                  <li
+                    key={item.label}
+                    className="grid grid-cols-[140px_12px_minmax(0,1fr)] items-start text-sm"
+                  >
+                    <span className="font-semibold text-[var(--secondary)]">
+                      {item.label}
+                    </span>
                     <span className="text-center text-slate-500">:</span>
                     <span className="text-slate-700">{item.value}</span>
                   </li>
@@ -139,12 +155,14 @@ export default function DeviceDetailsPage() {
             ) : null}
 
             <div className="mt-3 flex flex-wrap items-baseline gap-2">
-              <span className="text-xl text-slate-900 font-semibold">{priceText}</span>
+              <span className="text-xl text-slate-900 font-semibold">
+                {priceText}
+              </span>
             </div>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
               <a
-                href="https://wa.me/8801XXXXXXXXX?"
+                href={orderWhatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full rounded-full border border-[var(--primary)] bg-[var(--primary)] py-3.5 text-sm font-semibold text-white transition hover:bg-[var(--primary-hover)] sm:w-auto sm:min-w-[180px] sm:px-8 text-center"
@@ -152,7 +170,7 @@ export default function DeviceDetailsPage() {
                 Order
               </a>
               <Link
-                href="/devices/hardware"
+                href="/devices"
                 className="w-full rounded-full border border-slate-200 bg-white py-3.5 text-sm font-semibold text-slate-900 transition hover:bg-slate-50 sm:w-auto sm:min-w-[180px] sm:px-8 text-center"
               >
                 Back
@@ -161,7 +179,9 @@ export default function DeviceDetailsPage() {
 
             {featureList.length > 0 ? (
               <div className="mt-6">
-                <h3 className="text-base font-semibold text-[var(--secondary)] mb-2">Feature and Performance</h3>
+                <h3 className="text-base font-semibold text-[var(--secondary)] mb-2">
+                  Feature and Performance
+                </h3>
                 <ul className="list-disc pl-5 space-y-1 text-sm text-slate-700">
                   {featureList.map((feature, idx) => (
                     <li key={`feature-${idx}`}>{feature}</li>
@@ -173,13 +193,20 @@ export default function DeviceDetailsPage() {
         </div>
 
         <div className="mt-8">
-          <h2 className="text-xl md:text-2xl font-bold text-[var(--secondary)] mb-4">Details</h2>
+          <h2 className="text-xl md:text-2xl font-bold text-[var(--secondary)] mb-4">
+            Details
+          </h2>
           <ul className="divide-y divide-slate-100 border border-slate-200 rounded-xl overflow-hidden">
             {bottomDetails.map((group, idx) => (
-              <li key={`${group.label}-${idx}`} className="px-4 py-2 text-sm leading-6 odd:bg-[var(--primary-soft)]/30 even:bg-white">
+              <li
+                key={`${group.label}-${idx}`}
+                className="px-4 py-2 text-sm leading-6 odd:bg-[var(--primary-soft)]/30 even:bg-white"
+              >
                 {group.values.length > 0 ? (
                   <div className="grid grid-cols-[160px_12px_minmax(0,1fr)] items-start gap-1">
-                    <span className="font-semibold text-[var(--secondary)]">{group.label}</span>
+                    <span className="font-semibold text-[var(--secondary)]">
+                      {group.label}
+                    </span>
                     <span className="text-center text-slate-500">:</span>
                     <div className="text-slate-700 space-y-1">
                       {group.values.map((value, valueIdx) => (
@@ -197,9 +224,15 @@ export default function DeviceDetailsPage() {
       </div>
 
       {imageModalOpen ? (
-        <div className="fixed inset-0 z-[80] bg-black/90" onClick={() => setImageModalOpen(false)}>
+        <div
+          className="fixed inset-0 z-[80] bg-black/90"
+          onClick={() => setImageModalOpen(false)}
+        >
           <div className="relative flex h-full w-full items-center justify-center p-4 sm:p-8">
-            <div className="relative w-full overflow-hidden sm:h-[82vh] sm:w-auto sm:max-w-[92vw]" onClick={(event) => event.stopPropagation()}>
+            <div
+              className="relative w-full overflow-hidden sm:h-[82vh] sm:w-auto sm:max-w-[92vw]"
+              onClick={(event) => event.stopPropagation()}
+            >
               <Image
                 src={device.img}
                 alt={`${device.name} full view`}

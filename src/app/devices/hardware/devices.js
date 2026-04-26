@@ -396,74 +396,6 @@ export const allDevices = [
     ],
   },
   {
-    id: 8,
-    name: "Tipsoi Fastface 7",
-    img: "/tipsoi/Tipsoi Fastface 7.png",
-    brand: "Tipsoi",
-    type: "Face",
-    details: [
-      "Feature and Performance: Industrial-grade design",
-      "Feature and Performance: Stable performance and smooth lines",
-      "Feature and Performance: Live face detection",
-      "Feature and Performance: Anti-backlight",
-      "Feature and Performance: Recognition speed is less than 0.2 s",
-      "Feature and Performance: 99.99% recognition accuracy",
-      "Brand: Tipsoi Fastface 7",
-      "Model: D 710",
-      "Authentication Method: Face, Card",
-      "Country of Origin: Bangladesh",
-      "Dimension (without support): 219mm x 113mm x 23mm",
-      "CPU: Dual Core ARM Cortex-A7",
-      "RAM: 1 GB",
-      "ROM: 8 GB",
-      "OS: Linux",
-      "Display: 7-inch IPS full-view LCD touchscreen",
-      "Display Resolution: 1024*600",
-      "Language: English",
-      "Face Capacity: 30,000",
-      "Card Capacity: 30,000",
-      "Log Capacity: 2,00,000",
-      "Camera: Dual IR, RGB camera sensor",
-      "Camera Resolution: 1920 (V) * 1080 (H)",
-      "Infrared Light: Yes",
-      "WDR: 120dB",
-      "Shutter Type: Electronic Rolling Shutter",
-      "Live Face Detection: Yes (0.3 - 1.5m) (Configurable on device)",
-      "FAR/FRR for Face Recognition: 0.001/ 1(%)",
-      "Matching Speed: <=0.2 sec",
-      "Intelligent Update: Yes",
-      "Face Recognition Mode: 1:1, 1:N",
-      "RFID Card: 125 Khz RFID card, Standard MIFARE Card, 13.56 MHz",
-      "Interface: Relay, Wiegand input/output, RS232, RS485",
-      "Communication: WiFi, LAN, TCP/IP",
-      "Relay Output: Yes",
-      "Door Sensor: Yes",
-      "Exit Door input: Yes",
-      "Alarm Key: Yes",
-      "Alarm Door: Yes",
-      "Voice Output: Yes",
-      "Clock RTC: Yes",
-      "Power: DC 12V/2A",
-      "Power Consumption: Max. 15W",
-      "Temperature: -40C to +60C",
-      "Working humidity: 10% to 90%",
-      "Certificates: CE, FCE",
-      "Protection grade: IP65",
-      "API Functionalities: JSON data format (Lightweight REST API)",
-      "API Functionalities: Push/Pull dual data transfer Mechanism",
-      "API Functionalities: Customer platform Database ID can be used as Inovace Platform User ID to map between the two platforms",
-      "API Functionalities: Central/Single API for any number of devices, with devices or projects separated by API tokens",
-      "API Functionalities: Chunk-wise data transfer facility for optimized user-end data processing",
-      "Cloud Platform: Cloud-based web panel for device management",
-      "Cloud Platform: Central database management from multiple locations",
-      "Cloud Platform: Real-time Immediate Data",
-      "Cloud Platform: High data security and privacy are ensured by end-to-end encryption",
-      "Cloud Platform: Easy one-time enrollment",
-      "Cloud Platform: Bulk user profile creation with an Excel file",
-      "Cloud Platform: Device data cloning to another device",
-    ],
-  },
-  {
     id: 9,
     name: "Tipsoi Fastface 7 Lite",
     img: "/tipsoi/Tipsoi Fastface 7 Lite.png",
@@ -955,6 +887,14 @@ export const allDevices = [
     ],
   },
 ];
+
+export const getDeviceSlug = (deviceName = "") =>
+  String(deviceName)
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
 export default function DevicesPage() {
   const [brand, setBrand] = useState("All Brands");
   const [type, setType] = useState("All Types");
@@ -1028,6 +968,13 @@ export default function DevicesPage() {
     ].filter(Boolean);
   };
 
+  const whatsappNumber = "8801982211000";
+
+  const getOrderWhatsappUrl = (deviceName) => {
+    const message = `Hello ERP17, I want to order this device: ${deviceName}`;
+    return `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`;
+  };
+
   return (
     <section className="bg-white py-16">
       <div className="  container">
@@ -1080,10 +1027,12 @@ export default function DevicesPage() {
               className="border border-gray-300 rounded-xl shadow-sm transition flex flex-col overflow-hidden"
             >
             {/* Image */}
-            <div className="flex justify-center px-4 pt-5 mb-5">
+            <Link href={`/devices/${getDeviceSlug(device.name)}`} className="flex justify-center px-4 pt-5 mb-5">
               {imageUnavailable ? (
-                <div className="rounded-lg w-full max-w-[250px] h-[200px]   flex items-center justify-center">
-                  <span className="text-xl md:text-2xl font-semibold text-[var(--secondary)] text-center px-3">{device.name}</span>
+                <div className="rounded-lg w-full max-w-[250px] h-[200px] flex items-center justify-center">
+                  <span className="text-xl md:text-2xl font-semibold text-[var(--secondary)] text-center px-3">
+                    {device.name}
+                  </span>
                 </div>
               ) : (
                 <Image
@@ -1095,13 +1044,18 @@ export default function DevicesPage() {
                   onError={() => markImageAsFailed(device.id)}
                 />
               )}
-            </div>
+            </Link>
 
 
 
               {/* Title */}
               <h3 className="px-4 text-xl font-semibold text-[var(--secondary)] mb-4">
-                {device.name}
+                <Link
+                  href={`/devices/${getDeviceSlug(device.name)}`}
+                  className="hover:text-[var(--primary)] transition-colors"
+                >
+                  {device.name}
+                </Link>
               </h3>
 
               <p className="px-4 text-base font-semibold text-[var(--primary)] mb-4">{priceLabel}</p>
@@ -1118,7 +1072,7 @@ export default function DevicesPage() {
 
               <div className="mt-auto px-4 pb-5 grid grid-cols-2 gap-3">
                 <a
-                  href="https://wa.me/8801XXXXXXXXX?"
+                  href={getOrderWhatsappUrl(device.name)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-lg border border-[var(--primary)] bg-[var(--primary)] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[var(--primary-hover)]"
@@ -1126,7 +1080,7 @@ export default function DevicesPage() {
                   Order
                 </a>
                 <Link
-                  href={`/devices/hardware/${device.id}`}
+                  href={`/devices/${getDeviceSlug(device.name)}`}
                   className="inline-flex items-center justify-center rounded-lg border border-[var(--primary)] px-4 py-2.5 text-sm font-semibold text-[var(--primary)] transition hover:bg-[var(--primary-soft)]"
                 >
                   Details

@@ -6,7 +6,7 @@ import { primaryCtaClassName } from "@/constants/cta";
 
 const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden pt-5 md:pt-12 pb-8 md:pb-28 flex items-center">
+    <section className="relative overflow-hidden pt-0 md:pt-12 pb-8 md:pb-28 flex items-center">
       
       {/* Background Decorative Elements */}
       {/* 1. Slanted Accent */}
@@ -33,7 +33,20 @@ const HeroSection = () => {
         </svg>
       </div>
 
-      <div className="container relative z-10">
+      <div className="w-full relative z-10">
+        {/* Mobile full-width image (outside container constraints) */}
+        <div className="md:hidden w-full mb-4">
+          <Image
+            src="/img/one-touch-community.jpeg"
+            alt="HR Software Illustration"
+            width={700}
+            height={500}
+            className="w-full h-auto object-cover"
+            priority
+          />
+        </div>
+
+        <div className="container">
         <div className="flex flex-col lg:flex-row items-center gap-5 md:gap-16">
           
           {/* Left Column - Text */}
@@ -63,7 +76,7 @@ const HeroSection = () => {
           </div>
 
           {/* Right Column - Image */}
-          <div className="order-1 lg:order-2 flex-1 w-full relative">
+          <div className="order-1 lg:order-2 flex-1 w-full relative hidden md:block">
             <div className="relative z-10">
               <Image
                 src="/img/one-touch-community.jpeg"
@@ -76,6 +89,7 @@ const HeroSection = () => {
             </div>
           </div>
 
+        </div>
         </div>
       </div>
     </section>

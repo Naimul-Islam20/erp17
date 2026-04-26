@@ -136,7 +136,7 @@
   {
     "id": 36,
     "menu_name": "Devices",
-    "menu_uid": "devices/hardware",
+    "menu_uid": "devices",
     "parent_id": 0,
     "order_no": 3,
     "menu_icon": null,
