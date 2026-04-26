@@ -126,7 +126,7 @@ const PayrollPage = () => {
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
                 <ProductImage 
-                  src="/img/products/payroll/PS1.png"
+                  src="/img/products/payroll.png"
                   alt="Payroll Software Illustration"
                   width={600}
                   height={400}

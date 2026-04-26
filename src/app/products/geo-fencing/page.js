@@ -93,7 +93,7 @@ export default function GeoFencingPage() {
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
                 <ProductImage 
-                  src="/img/products/tracking/ET1.png"
+                  src="/img/products/geo-fencing.png"
                   alt="Geo-fencing Illustration"
                   width={600}
                   height={400}

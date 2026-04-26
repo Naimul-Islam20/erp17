@@ -119,7 +119,7 @@ const FaceRecognitionPage = () => {
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
                 <ProductImage
-                  src="/img/products/face/face1.png"
+                  src="/img/products/face-recognition.png"
                   alt="Face Recognition Attendance"
                   width={600}
                   height={400}

@@ -140,7 +140,7 @@ const TaskManagementPage = () => {
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
                 <ProductImage
-                  src="/img/products/task/task1.png"
+                  src="/img/products/task-management.png"
                   alt="Task Management Illustration"
                   width={600}
                   height={400}

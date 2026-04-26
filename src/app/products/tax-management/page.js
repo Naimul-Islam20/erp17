@@ -147,7 +147,7 @@ const TaxManagementPage = () => {
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
                 <ProductImage
-                  src="/img/products/tax/TM1.png"
+                  src="/img/products/tax-management.png"
                   alt="Tax Management Illustration"
                   width={600}
                   height={400}

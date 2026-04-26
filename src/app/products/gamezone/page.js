@@ -85,7 +85,7 @@ export default function GamezoneDetailsPage() {
           <section className="flex flex-col lg:flex-row gap-8 items-stretch">
             <div className="flex-1 w-full order-2 lg:order-1 lg:max-h-[500px]">
               <div className="overflow-hidden h-full rounded-xl">
-                <Image src="/img/products/gamezone/hero.svg" alt="Gamezone Software Visual" width={800} height={600} className="w-full h-full object-cover" />
+                <Image src="/img/products/game.png" alt="Gamezone Software Visual" width={800} height={600} className="w-full h-full object-cover" />
               </div>
             </div>
 

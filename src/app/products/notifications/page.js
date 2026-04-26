@@ -94,7 +94,7 @@ const NotificationsPage = () => {
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
                 <ProductImage
-                  src="/img/products/notifications/N1.png"
+                  src="/img/products/notifications.png"
                   alt="Notifications Illustration"
                   width={600}
                   height={400}

@@ -135,7 +135,7 @@ const SecurityPage = () => {
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
                 <ProductImage 
-                  src="/img/products/security/S1.png"
+                  src="/img/products/security.png"
                   alt="Security Software Illustration"
                   width={600}
                   height={400}

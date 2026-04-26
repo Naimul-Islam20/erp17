@@ -93,7 +93,7 @@ const DigitalNoticeBoardPage = () => {
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
                 <ProductImage
-                  src="/img/products/digital/DN1.svg"
+                  src="/img/products/digital-notice-board.png"
                   alt="Digital Notice Board Illustration"
                   width={600}
                   height={400}

@@ -142,7 +142,7 @@ const ShiftManagementPage = () => {
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
                 <ProductImage
-                  src="/img/products/shift/SM1.png"
+                  src="/img/products/shift-management.png"
                   alt="Shift Management Illustration"
                   width={600}
                   height={400}

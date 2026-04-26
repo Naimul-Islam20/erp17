@@ -88,7 +88,7 @@ export default function HRMDetailsPage() {
             <div className="flex-1 w-full order-2 lg:order-1 lg:max-h-[500px]">
               <div className="h-full rounded-xl overflow-hidden">
                 <Image
-                  src="/img/products/employee-manege/EM1.svg"
+                  src="/img/products/hrm.png"
                   alt="HRM Software Visual"
                   width={800}
                   height={600}

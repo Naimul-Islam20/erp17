@@ -125,7 +125,7 @@ const EmployeeLeavePage = () => {
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
                 <ProductImage 
-                  src="/img/products/employee/EL1.webp"
+                  src="/img/products/leaves-management.png"
                   alt="Employee Leave Management Illustration"
                   width={600}
                   height={400}

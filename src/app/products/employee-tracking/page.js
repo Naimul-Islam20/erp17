@@ -104,7 +104,7 @@ const EmployeeMonitoringPage = () => {
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
                 <ProductImage 
-                  src="/img/products/tracking/ET1.png"
+                  src="/img/products/employee-tracking.png"
                   alt="Employee Monitoring Illustration"
                   width={600}
                   height={400}

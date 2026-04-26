@@ -105,7 +105,7 @@ const ExpenseManagementPage = () => {
             <div className="flex-1 w-full relative">
               <div className="relative z-10">
                 <ProductImage
-                  src="/img/products/expense/EM1.png"
+                  src="/img/products/expense-management.png"
                   alt="Expense Management Illustration"
                   width={600}
                   height={400}

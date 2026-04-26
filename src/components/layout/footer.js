@@ -8,7 +8,9 @@ import menus from "@/data/menus";
 export default function Footer() {
   const menuList = Array.isArray(menus) ? menus : [];
   const productsMenu = menuList.find((menu) => menu.menu_uid === "products");
-  const devicesMenu = menuList.find((menu) => menu.menu_uid === "devices");
+  const devicesMenu = menuList.find(
+    (menu) => menu.menu_uid === "devices" || menu.menu_uid === "devices/hardware" || menu.menu_name === "Devices",
+  );
   const staticMenus = menuList.filter((menu) => !menu.has_child);
   const productChildren = productsMenu?.children || [];
   const primaryProductLinks = productChildren.slice(0, 6);
@@ -72,13 +74,16 @@ export default function Footer() {
                 <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 w-8 h-1 bg-[var(--primary)] rounded-full"></span>
               </h3>
               <ul className="space-y-4">
-                {(devicesMenu?.children || []).map((item) => (
-                  <li key={item.id}>
-                    <Link href={`/${item.menu_uid}`} className="text-sm hover:text-[var(--primary)] hover:translate-x-1 inline-block transition-all">
-                      {item.menu_name}
+                {devicesMenu ? (
+                  <li key={devicesMenu.id}>
+                    <Link
+                      href={`/${devicesMenu.menu_uid}`}
+                      className="text-sm hover:text-[var(--primary)] hover:translate-x-1 inline-block transition-all"
+                    >
+                      {devicesMenu.menu_name}
                     </Link>
                   </li>
-                ))}
+                ) : null}
                 {moreProductLinks.map((item) => (
                   <li key={item.id}>
                     <Link href={`/${item.menu_uid}`} className="text-sm hover:text-[var(--primary)] hover:translate-x-1 inline-block transition-all">

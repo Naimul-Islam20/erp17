@@ -1036,13 +1036,9 @@ export default function DevicesPage() {
           {/* Left Side */}
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-[var(--secondary)] mb-4">
-              Supported Devices
+              Our Devices
             </h2>
-            <p className="text-gray-600 text-lg max-w-2xl leading-relaxed">
-              ERP17 currently supports the following Tipsoi devices, widely
-              used across factories, offices, retail stores, and educational
-              institutions in Bangladesh. These models are fully compatible with:
-            </p>
+           
           </div>
 
           {/* Right Side - Filters */}

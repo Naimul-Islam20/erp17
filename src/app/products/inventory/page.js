@@ -128,7 +128,7 @@ const InventoryDetailsPage = () => {
             <div className="flex-1 w-full order-2 lg:order-1 lg:max-h-[500px]">
               <div className="overflow-hidden h-full">
                 <Image
-                  src="/img/products/inventory/hero.svg"
+                  src="/img/products/inventory.png"
                   alt="Inventory Management Visual"
                   width={800}
                   height={600}

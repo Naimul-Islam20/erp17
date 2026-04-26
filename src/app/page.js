@@ -2,7 +2,6 @@ import HeroSection from "@/components/modules/hero";
 import IndustriesWeEmpower from "@/components/modules/industriesWeEmpower";
 import HrFeatures from "@/components/modules/hrFeatures";
 import HrApp from "@/components/modules/hr-app";
-import HrAppB from "@/components/modules/hr-appB";
 import Erp17CloudSolution from "@/components/modules/erp17CloudSolution";
 import Faq from "@/components/modules/faq";
 // import MarqueeSlider from "@/components/modules/clients/client";
@@ -18,7 +17,6 @@ export default function Home() {
         
         <HrFeatures/>
         <HrApp/>
-        <HrAppB/>
         <Erp17CloudSolution />
         <Faq/>
      

@@ -32,7 +32,7 @@ export default function HardwarePage() {
         {/* Right Column - Image */}
         <div className="flex justify-center lg:justify-end">
           <Image
-            src="/tipsoi.png"
+            src="/devices.jpeg"
             alt="Attendance Device"
             width={600}
             height={500}
