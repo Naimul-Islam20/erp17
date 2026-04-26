@@ -27,10 +27,10 @@ export default function Footer() {
       {/* Main Footer Content */}
       <div className="pt-20 pb-12">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
             
             {/* Column 1: Brand & Contact */}
-            <div className="space-y-8 flex flex-col items-center md:items-start text-center md:text-left">
+            <div className="col-span-2 md:col-span-1 space-y-8 flex flex-col items-start text-left">
               <Link href="/" className="inline-block">
                 <Image src="/logo.jpeg" alt="ERP17 Logo" width={140} height={40} className="brightness-200" />
               </Link>
@@ -40,23 +40,23 @@ export default function Footer() {
                 simplify operations. Our mission is simple: Smarter Business. Hassle-Free Life.
               </p>
               <div className="space-y-4 w-full">
-                <div className="flex items-start justify-center md:justify-start gap-3 text-center md:text-left mx-auto md:mx-0 max-w-[280px] sm:max-w-none">
+                <div className="flex items-start justify-start gap-3 text-left mx-0 max-w-[280px] sm:max-w-none">
                   <FaMapMarkerAlt className="text-[var(--primary)] mt-1 flex-shrink-0" />
                   <p className="text-sm">
                     Dhaka Office: 820 Makkah Tower(9th Floor) West Shewrapara, Mirpur, Dhaka-1216 Bangladesh
                   </p>
                 </div>
-                <div className="flex items-start justify-center md:justify-start gap-3 text-center md:text-left mx-auto md:mx-0 max-w-[280px] sm:max-w-none">
+                <div className="flex items-start justify-start gap-3 text-left mx-0 max-w-[280px] sm:max-w-none">
                   <FaMapMarkerAlt className="text-[var(--primary)] mt-1 flex-shrink-0" />
                   <p className="text-sm">
                     Chittagong Office: House#13, Road#3, Block-K, Halishahar, Chittagong. Bangladesh
                   </p>
                 </div>
-                <div className="flex items-center justify-center md:justify-start gap-3">
+                <div className="flex items-center justify-start gap-3">
                   <FaPhoneAlt className="text-[var(--primary)] flex-shrink-0" />
                   <p className="text-sm">Phone: 8801982211000, 8801752711277</p>
                 </div>
-                <div className="flex items-center justify-center md:justify-start gap-3">
+                <div className="flex items-center justify-start gap-3">
                   <FaEnvelope className="text-[var(--primary)] flex-shrink-0" />
                   <Link href="mailto:support@erp17.com" className="text-sm hover:text-[var(--primary)] transition-colors">
                     Email: support@erp17.com
@@ -66,7 +66,7 @@ export default function Footer() {
             </div>
 
             {/* Column 2: Products */}
-            <div className="text-center md:text-left">
+            <div className="text-left">
               <h3 className="text-white text-lg font-bold mb-8 relative inline-block">
                 Products
                 <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 w-8 h-1 bg-[var(--primary)] rounded-full"></span>
@@ -83,7 +83,7 @@ export default function Footer() {
             </div>
 
             {/* Column 3: Devices + More Products */}
-            <div className="text-center md:text-left">
+            <div className="text-left">
               <h3 className="text-white text-lg font-bold mb-8 relative inline-block">
                 Devices + More
                 <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 w-8 h-1 bg-[var(--primary)] rounded-full"></span>
@@ -109,38 +109,42 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Column 4: Pages */}
-            <div className="text-center md:text-left">
-              <h3 className="text-white text-lg font-bold mb-8 relative inline-block">
-                Pages
-                <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 w-8 h-1 bg-[var(--primary)] rounded-full"></span>
-              </h3>
-              <ul className="space-y-4">
-                {quickLinks.map((item) => (
-                  <li key={item.name}>
-                    <Link href={item.href} className="text-sm hover:text-[var(--primary)] hover:translate-x-1 inline-block transition-all">
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-8 pt-8 border-t border-gray-800 flex flex-col items-center md:items-start text-center md:text-left">
-                <h4 className="text-white text-sm font-bold mb-4">Follow Our Socials</h4>
-                <div className="flex gap-3 justify-center md:justify-start">
-                  {[
-                    { icon: <FaLinkedinIn />, href: "#" },
-                    { icon: <FaFacebookF />, href: "#" },
-                    { icon: <FaInstagram />, href: "#" },
-                    { icon: <FaYoutube />, href: "#" },
-                  ].map((social, idx) => (
-                    <Link 
-                      key={idx} 
-                      href={social.href} 
-                      className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-xs hover:bg-[var(--primary)] hover:text-white transition-all shadow-sm"
-                    >
-                      {social.icon}
-                    </Link>
-                  ))}
+            {/* Column 4: Pages + Socials */}
+            <div className="col-span-2 md:col-span-1 text-left">
+              <div className="grid grid-cols-2 md:grid-cols-1 gap-8 md:gap-0">
+                <div>
+                  <h3 className="text-white text-lg font-bold mb-8 relative inline-block">
+                    Pages
+                    <span className="absolute -bottom-2 left-0 w-8 h-1 bg-[var(--primary)] rounded-full"></span>
+                  </h3>
+                  <ul className="space-y-4">
+                    {quickLinks.map((item) => (
+                      <li key={item.name}>
+                        <Link href={item.href} className="text-sm hover:text-[var(--primary)] hover:translate-x-1 inline-block transition-all">
+                          {item.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="md:mt-8 md:pt-8 md:border-t md:border-gray-800 flex flex-col items-start text-left">
+                  <h4 className="text-white text-sm font-bold mb-4">Follow Our Socials</h4>
+                  <div className="flex gap-3 justify-start">
+                    {[
+                      { icon: <FaLinkedinIn />, href: "#" },
+                      { icon: <FaFacebookF />, href: "#" },
+                      { icon: <FaInstagram />, href: "#" },
+                      { icon: <FaYoutube />, href: "#" },
+                    ].map((social, idx) => (
+                      <Link
+                        key={idx}
+                        href={social.href}
+                        className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-xs hover:bg-[var(--primary)] hover:text-white transition-all shadow-sm"
+                      >
+                        {social.icon}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
