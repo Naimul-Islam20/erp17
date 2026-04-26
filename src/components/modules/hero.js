@@ -70,6 +70,12 @@ const HeroSection = () => {
               <Link href="/contact" className={primaryCtaClassName}>
                 Get Started
               </Link>
+              <Link
+                href="/devices"
+                className="inline-flex items-center justify-center rounded-full border border-[var(--secondary)] px-6 py-3 text-sm font-semibold text-[var(--secondary)] transition hover:bg-[var(--primary-soft)]"
+              >
+                Devices
+              </Link>
             </div>
 
            
