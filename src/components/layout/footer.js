@@ -11,10 +11,16 @@ export default function Footer() {
   const devicesMenu = menuList.find(
     (menu) => menu.menu_uid === "devices" || menu.menu_uid === "devices/hardware" || menu.menu_name === "Devices",
   );
-  const staticMenus = menuList.filter((menu) => !menu.has_child);
   const productChildren = productsMenu?.children || [];
   const primaryProductLinks = productChildren.slice(0, 6);
   const moreProductLinks = productChildren.slice(6);
+  const quickLinks = [
+    { name: "Blog", href: "/blog" },
+    { name: "Education", href: "/education" },
+    { name: "Newsletter", href: "/newsletter" },
+    { name: "Privecy Policy", href: "/privacy-policy" },
+    { name: "Terms Condition", href: "/terms-condition" },
+  ];
 
   return (
     <footer className="bg-[#0f0f3d] text-gray-300">
@@ -29,23 +35,32 @@ export default function Footer() {
                 <Image src="/logo.jpeg" alt="ERP17 Logo" width={140} height={40} className="brightness-200" />
               </Link>
               <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-                The most advanced and comprehensive HR & Payroll management system in Bangladesh. 
-                Trusted by hundreds of leading businesses nationwide.
+                ERP17 Cloud Solution is a leading business management platform empowering enterprises with seamless automation.
+                With a legacy of serving 1,000+ businesses over 9 years, we specialize in delivering integrated tools that
+                simplify operations. Our mission is simple: Smarter Business. Hassle-Free Life.
               </p>
               <div className="space-y-4 w-full">
                 <div className="flex items-start justify-center md:justify-start gap-3 text-center md:text-left mx-auto md:mx-0 max-w-[280px] sm:max-w-none">
                   <FaMapMarkerAlt className="text-[var(--primary)] mt-1 flex-shrink-0" />
-                  <p className="text-sm">House 39 (Level 4), Road 8, Block k, Halishahar, Aghrabad, Chattogram</p>
+                  <p className="text-sm">
+                    Dhaka Office: 820 Makkah Tower(9th Floor) West Shewrapara, Mirpur, Dhaka-1216 Bangladesh
+                  </p>
                 </div>
-                <div className="flex items-center justify-center md:justify-start gap-3">
-                  <FaEnvelope className="text-[var(--primary)] flex-shrink-0" />
-                  <Link href="mailto:biz.dev@erp17.com" className="text-sm hover:text-[var(--primary)] transition-colors">
-                    biz.dev@erp17.com
-                  </Link>
+                <div className="flex items-start justify-center md:justify-start gap-3 text-center md:text-left mx-auto md:mx-0 max-w-[280px] sm:max-w-none">
+                  <FaMapMarkerAlt className="text-[var(--primary)] mt-1 flex-shrink-0" />
+                  <p className="text-sm">
+                    Chittagong Office: House#13, Road#3, Block-K, Halishahar, Chittagong. Bangladesh
+                  </p>
                 </div>
                 <div className="flex items-center justify-center md:justify-start gap-3">
                   <FaPhoneAlt className="text-[var(--primary)] flex-shrink-0" />
-                  <p className="text-sm">+880 17 1342 8432 (Sales)</p>
+                  <p className="text-sm">Phone: 8801982211000, 8801752711277</p>
+                </div>
+                <div className="flex items-center justify-center md:justify-start gap-3">
+                  <FaEnvelope className="text-[var(--primary)] flex-shrink-0" />
+                  <Link href="mailto:support@erp17.com" className="text-sm hover:text-[var(--primary)] transition-colors">
+                    Email: support@erp17.com
+                  </Link>
                 </div>
               </div>
             </div>
@@ -101,10 +116,10 @@ export default function Footer() {
                 <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 w-8 h-1 bg-[var(--primary)] rounded-full"></span>
               </h3>
               <ul className="space-y-4">
-                {staticMenus.map((item) => (
-                  <li key={item.id}>
-                    <Link href={`/${item.menu_uid}`} className="text-sm hover:text-[var(--primary)] hover:translate-x-1 inline-block transition-all">
-                      {item.menu_name}
+                {quickLinks.map((item) => (
+                  <li key={item.name}>
+                    <Link href={item.href} className="text-sm hover:text-[var(--primary)] hover:translate-x-1 inline-block transition-all">
+                      {item.name}
                     </Link>
                   </li>
                 ))}

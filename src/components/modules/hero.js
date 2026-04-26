@@ -6,7 +6,7 @@ import { primaryCtaClassName } from "@/constants/cta";
 
 const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden pt-8 md:pt-12 pb-16 md:pb-28 flex items-center">
+    <section className="relative overflow-hidden pt-5 md:pt-12 pb-8 md:pb-28 flex items-center">
       
       {/* Background Decorative Elements */}
       {/* 1. Slanted Accent */}
@@ -34,10 +34,10 @@ const HeroSection = () => {
       </div>
 
       <div className="container relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-10 md:gap-16">
+        <div className="flex flex-col lg:flex-row items-center gap-5 md:gap-16">
           
           {/* Left Column - Text */}
-          <div className="flex-1 space-y-8 text-center lg:text-left">
+          <div className="order-2 lg:order-1 flex-1 space-y-8 text-center lg:text-left">
             <div className="flex justify-center lg:justify-start">
               <div className="inline-flex items-center px-3 py-1 rounded-full text-[var(--primary)] text-xs md:text-sm font-bold uppercase tracking-wider border border-[var(--primary-soft)]">
                 ERP17 · Cloud Solution
@@ -63,7 +63,7 @@ const HeroSection = () => {
           </div>
 
           {/* Right Column - Image */}
-          <div className="flex-1 w-full relative">
+          <div className="order-1 lg:order-2 flex-1 w-full relative">
             <div className="relative z-10">
               <Image
                 src="/img/one-touch-community.jpeg"

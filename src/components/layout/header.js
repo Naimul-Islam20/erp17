@@ -24,7 +24,9 @@ export default function Header() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false); // 🔹 scroll state
   const navRef = useRef(null);
-  const menuList = Array.isArray(menus) ? menus : [];
+  const menuList = Array.isArray(menus)
+    ? menus.filter((menu) => menu.menu_uid !== "blog")
+    : [];
 
   // 🔹 Detect scroll
   useEffect(() => {

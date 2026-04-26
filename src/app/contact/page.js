@@ -101,16 +101,25 @@ export default function ContactPage() {
           <div className="space-y-8">
             <h2 className="text-2xl font-bold text-[var(--secondary)]">Get in Touch</h2>
             <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[var(--primary-soft)] rounded-full flex items-center justify-center shrink-0">
-                  <MapPin className="text-[var(--primary)]" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-[var(--secondary)]">Office Address</h3>
-                  <p className="text-gray-600">
-                    House 39 (Level 4), Road 8, Block k, <br />
-                    Halishahar, Agrabad, Chattogram
-                  </p>
+              <div>
+                <h3 className="font-semibold text-[var(--secondary)] mb-3">Office Address</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-[var(--primary-soft)] rounded-full flex items-center justify-center shrink-0">
+                      <MapPin className="text-[var(--primary)]" />
+                    </div>
+                    <p className="text-gray-600">
+                      Dhaka Office: 820 Makkah Tower(9th Floor) West Shewrapara, Mirpur, Dhaka-1216 Bangladesh
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-[var(--primary-soft)] rounded-full flex items-center justify-center shrink-0">
+                      <MapPin className="text-[var(--primary)]" />
+                    </div>
+                    <p className="text-gray-600">
+                      Chittagong Office: House#13, Road#3, Block-K, Halishahar, Chittagong. Bangladesh
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -120,8 +129,8 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-[var(--secondary)]">Phone</h3>
-                  <p className="text-gray-600">+880 17 1342 8432 (Sales)</p>
-                  <p className="text-gray-600">+880 9606 881188 (Support)</p>
+                  <p className="text-gray-600">8801982211000</p>
+                  <p className="text-gray-600">8801752711277</p>
                 </div>
               </div>
 
@@ -131,7 +140,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-[var(--secondary)]">Email</h3>
-                  <p className="text-gray-600">biz.dev@erp17.com</p>
+                  <p className="text-gray-600">support@erp17.com</p>
                 </div>
               </div>
             </div>

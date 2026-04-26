@@ -106,10 +106,10 @@ const features = [
 
 const HrFeatures = () => {
   return (
-<section className="py-10 md:py-16 bg-white">
+<section className="py-5 md:py-16 bg-white">
   <div className="container">
     {/* Section title + description */}
-    <div className="text-center mb-6 md:mb-12 px-2 max-w-4xl mx-auto">
+    <div className="text-center mb-4 md:mb-12 px-2 max-w-4xl mx-auto">
       <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] font-bold leading-tight text-[var(--secondary)]">
         The Power Behind Your Business Growth
       </h2>

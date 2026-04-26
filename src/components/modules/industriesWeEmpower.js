@@ -144,10 +144,10 @@ export default function IndustriesWeEmpower() {
   return (
     <section
       id="industries-we-empower"
-      className="py-12 md:py-20 scroll-mt-20"
+      className="py-6 md:py-20 scroll-mt-20"
     >
       <div className="container">
-        <header className="text-center mb-10 md:mb-12 px-2">
+        <header className="text-center mb-5 md:mb-12 px-2">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--secondary)]">
             Industries We Empower
           </h2>

@@ -35,7 +35,7 @@ const pillars = [
 
 export default function Erp17CloudSolution() {
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-white py-6 md:py-24">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center max-w-3xl mx-auto">
           <p className="text-xs tracking-widest uppercase text-[var(--primary)] font-semibold">
@@ -57,7 +57,7 @@ export default function Erp17CloudSolution() {
           </p>
         </div>
 
-        <div className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+        <div className="mt-6 md:mt-14 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {pillars.map((pillar) => (
             <article
               key={pillar.title}

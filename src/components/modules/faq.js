@@ -7,180 +7,142 @@ import { MessageCircle, ChevronDown } from "lucide-react";
 const faqs = [
   {
     id: 1,
-    question: "How will my business benefit from ERP17's HR Software?",
+    question: "How will my business benefit from ERP17 Cloud Solution?",
     answer: (
-      <div className="space-y-3">
+      <div>
         <p>
-          ERP17 streamlines HR operations for businesses in Bangladesh. It boosts
-          efficiency, reduces manual admin work, and helps you stay compliant with local
-          labor laws.
-        </p>
-        <p>
-          The platform automates payroll, attendance, and employee management so your
-          team can focus on strategic growth. It also provides actionable insights so
-          everyone can work smarter together.
+          ERP17 brings your entire business operations—including Accounts, Inventory, HR,
+          and Sales—under one centralized dashboard. By eliminating data silos and
+          automating manual tasks, it provides real-time insights for faster decision-making.
+          Ultimately, ERP17 grants you the &quot;Freedom to Scale&quot; while ensuring a
+          &quot;Hassle-Free Life.&quot;
         </p>
       </div>
     ),
   },
   {
     id: 2,
-    question: "What does ERP17 HR Software do?",
+    question: "How much does ERP17 Cloud Solution cost?",
     answer: (
       <div>
-        <p>ERP17 is an all‑in‑one HRIS & HRM platform to automate your HR processes.</p>
-        <ul className="list-disc pl-5 mt-3 space-y-1">
-          <li>Attendance management</li>
-          <li>Shift & leave management</li>
-          <li>Payroll & tax management</li>
-          <li>Expense management</li>
-          <li>Employee management & tracking</li>
-          <li>Tasks management</li>
-          <li>Digital noticeboard & notifications</li>
-          <li>Face recognition attendance</li>
-          <li>And more</li>
-        </ul>
+        <p>
+          Our pricing is designed to be affordable and scalable. Based on your business size
+          and specific requirements, you can start using ERP17 with a minimal one-time
+          installation charge and a very reasonable monthly subscription fee. This flexible
+          approach ensures that you only pay for the value and scale you need.
+        </p>
       </div>
     ),
   },
   {
     id: 3,
-    question: "Does ERP17's HR Software support payroll?",
+    question: "Can I see a demo or presentation of ERP17 Cloud Solution?",
     answer: (
-      <div className="space-y-3">
+      <div>
         <p>
-          Yes. ERP17 includes a complete payroll engine with salary structures,
-          allowances, deductions, and automated tax calculations.
+          Absolutely! We highly encourage you to experience the power of ERP17 firsthand.
+          You can easily schedule a free, personalized live demo with our experts by clicking
+          the &quot;Get a Quote&quot; or &quot;Request a Demo&quot; button on our website.
         </p>
-        <p>Generate payslips, process payroll cycles, and export reports in clicks.</p>
       </div>
     ),
   },
   {
     id: 4,
-    question: "How do I choose the best HR software in Bangladesh?",
+    question: "Can ERP17 be customized to fit my organization's needs?",
     answer: (
-      <div className="space-y-3">
+      <div>
         <p>
-          Start by mapping your HR needs (payroll, attendance, self‑service, cloud
-          access), then match solutions to your company size and industry.
-        </p>
-        <p>
-          ERP17 offers flexible modules and pricing so you pay for what you need and
-          scale as you grow.
+          Yes. While ERP17 comes as a highly comprehensive ecosystem out-of-the-box, we
+          understand that every industry has unique operational flows. Our dedicated
+          development team can tailor modules, reporting structures, and specific features
+          to perfectly align with your business model.
         </p>
       </div>
     ),
   },
   {
     id: 5,
-    question: "Is ERP17 the best HR software in Bangladesh?",
+    question: "Is ERP17 cloud-based?",
     answer: (
       <div>
         <p>
-          ERP17 is trusted for comprehensive HR & payroll features, a user‑friendly
-          interface, and compliance‑focused workflows—making it a top choice for
-          organizations in Bangladesh.
+          Yes, ERP17 is a 100% cloud-based architecture. You can securely manage and
+          monitor your business from anywhere in the world using any internet-connected
+          device. Furthermore, our system features advanced offline-sync capabilities,
+          ensuring your critical operations like POS billing never stop, even during internet
+          outages.
         </p>
       </div>
     ),
   },
   {
     id: 6,
-    question: "Is ERP17 suitable for small businesses?",
+    question: "How does ERP17 ensure the security of my data?",
     answer: (
       <div>
         <p>
-          Absolutely. ERP17 serves startups, SMEs, and large enterprises with packages
-          tailored to team size and budget.
+          Corporate data security is our highest priority. ERP17 utilizes high-level data
+          encryption, automated daily backups, and Role-Based Access Control (RBAC). Your
+          data is hosted on premium, high-performance servers, ensuring it remains strictly
+          confidential and protected from unauthorized access.
         </p>
       </div>
     ),
   },
   {
     id: 7,
-    question: "How much does ERP17 HR Software cost?",
+    question: "Do you provide support and maintenance?",
     answer: (
-      <div className="space-y-2">
-        <p>Pricing varies by organization size:</p>
-        <ul className="list-disc pl-5 space-y-1">
-          <li><span className="font-medium">Tiny:</span> 1 – 25 Employees</li>
-          <li><span className="font-medium">Small:</span> 26 – 50 Employees</li>
-          <li><span className="font-medium">Mid:</span> 51 – 100 Employees</li>
-          <li><span className="font-medium">Large:</span> 100+ Employees</li>
-        </ul>
-        <p>Check our packages for full details.</p>
+      <div>
+        <p>
+          Yes, our monthly service includes comprehensive technical support and routine
+          maintenance. You will receive dedicated assistance, bug fixes, and continuous
+          software updates so your business runs smoothly without any technical
+          interruptions.
+        </p>
       </div>
     ),
   },
   {
     id: 8,
-    question: "Can I see a demo of ERP17?",
+    question: "Do you have a mobile app?",
     answer: (
       <div>
         <p>
-          Of course! Request a call at <span className="font-semibold">+880 17 1342 8432</span>
-          or schedule a meeting—our team will gladly show you around.
+          ERP17 is built with a highly responsive, mobile-first design, meaning you can
+          seamlessly operate the full dashboard via any mobile browser. Additionally, we
+          provide dedicated mobile applications for specific field operations (like delivery
+          tracking or management overviews) upon client request.
         </p>
       </div>
     ),
   },
   {
     id: 9,
-    question: "Can ERP17 be customized to fit my organization’s needs?",
+    question: "Does ERP17 integrate with hardware like attendance machines?",
     answer: (
       <div>
         <p>
-          Yes. ERP17 is highly customizable. Tell us your processes and we’ll tailor the
-          workflows to match. Send us an email and we’ll get back ASAP.
+          Yes, ERP17 is fully compatible with premium biometric hardware, including Tipsai
+          fingerprint devices. This allows for real-time attendance synchronization directly
+          into your HRM and Payroll modules, completely automating your workforce
+          management.
         </p>
       </div>
     ),
   },
   {
     id: 10,
-    question: "Is ERP17 cloud‑based?",
+    question: "How long does it take to implement ERP17 in my company?",
     answer: (
       <div>
         <p>
-          Yes. ERP17 is a secure, cloud‑based HR solution with automatic updates and
-          enterprise‑grade infrastructure.
+          Implementation time depends on your business size and the level of customization
+          required. However, for standard setups, our deployment is incredibly swift. We
+          also provide comprehensive employee training and data migration support to ensure
+          a seamless transition with zero operational downtime.
         </p>
-      </div>
-    ),
-  },
-  {
-    id: 11,
-    question: "How does ERP17 ensure security of employee data?",
-    answer: (
-      <div className="ps-5">
-        <p>
-          We prioritize security with strong encryption, role‑based access, and robust
-          cloud controls. We also provide free setup and core HR data upload to ensure a
-          smooth go‑live.
-        </p>
-      </div>
-    ),
-  },
-  {
-    id: 12,
-    question: "Do you provide support?",
-    answer: (
-      <div className="space-y-2">
-        <p>
-          Yes. Our professional support team provides onboarding, training, and ongoing
-          help when you need it.
-        </p>
-        <p>Support hotline: <span className="font-semibold">+880 9606 881188</span></p>
-      </div>
-    ),
-  },
-  {
-    id: 13,
-    question: "Do you have a mobile app?",
-    answer: (
-      <div>
-        <p>Yes. ERP17 is available on both Android and iOS for on‑the‑go HR.</p>
       </div>
     ),
   },
@@ -219,9 +181,9 @@ function FaqItem({ q, a }) {
 
 export default function ERP17Faq() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="bg-white">
       {/* Header */}
-      <section className="container pt-10 md:pt-16 pb-6 text-black text-center">
+      <section className="container pt-5 md:pt-16 pb-4 text-black text-center">
         <div className="space-y-4">
           <h1 className="text-3xl md:text-5xl text-[var(--secondary)] font-extrabold tracking-tight">
             FAQ
@@ -230,7 +192,7 @@ export default function ERP17Faq() {
       </section>
 
       {/* FAQ Grid */}
-      <section className="container pb-10 md:pb-16 grid grid-cols-1 gap-3">
+      <section className="container pb-6 md:pb-16 grid grid-cols-1 gap-3">
         {faqs.map((f) => (
           <FaqItem key={f.id} q={f.question} a={f.answer} />
         ))}
