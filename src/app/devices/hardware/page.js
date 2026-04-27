@@ -36,7 +36,7 @@ export default function HardwarePage() {
             alt="Attendance Device"
             width={600}
             height={500}
-            className="rounded-xl "
+            className="rounded-xl h-[320px] w-auto md:h-[380px] lg:h-[430px]"
           />
         </div>
       </div>

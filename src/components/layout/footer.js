@@ -48,7 +48,7 @@ export default function Footer() {
                   className="brightness-200"
                 />
               </Link>
-              <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+              <p className="text-gray-400 text-sm text-justify leading-relaxed max-w-xs">
                 ERP17 Cloud Solution is a leading business management platform
                 empowering enterprises with seamless automation. With a legacy
                 of serving 1,000+ businesses over 9 years, we specialize in
