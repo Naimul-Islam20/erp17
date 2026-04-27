@@ -911,24 +911,13 @@ export default function DevicesPage() {
   });
 
   const getPriceLabel = (device) => {
-    const reseller = device.details.find((item) => item.startsWith("Reseller Price:"));
     const mrp = device.details.find((item) => item.startsWith("MRP:"));
-    const resellerValue = reseller?.split(":").slice(1).join(":").trim();
     const mrpValue = mrp?.split(":").slice(1).join(":").trim();
     const fallbackPrice = DEVICE_PRICE_MAP[device.id];
     const fallbackMrp = fallbackPrice?.mrp;
-    const fallbackReseller = fallbackPrice?.reseller;
     const finalMrp = mrpValue || fallbackMrp;
-    const finalReseller = resellerValue || fallbackReseller;
-
-    if (finalReseller && finalMrp) {
-      return `MRP ${finalMrp} | Reseller ${finalReseller}`;
-    }
-    if (finalReseller) {
-      return `Reseller ${finalReseller}`;
-    }
     if (finalMrp) {
-      return `MRP ${finalMrp}`;
+      return `Price ${finalMrp}`;
     }
     return "Price on request";
   };
@@ -1058,7 +1047,7 @@ export default function DevicesPage() {
                 </Link>
               </h3>
 
-              <p className="px-4 text-base font-semibold text-[var(--primary)] mb-4">{priceLabel}</p>
+              <p className="px-4 text-lg font-semibold text-black mb-4">{priceLabel}</p>
 
               {keySpecs.length > 0 ? (
                 <ul className="px-4 mb-4 space-y-1.5">

@@ -93,9 +93,7 @@ export default function ClientsMarquee() {
         {/* Buttons always side by side */}
         <div className="container flex justify-center items-center flex-wrap gap-4 sm:gap-8 md:gap-12 mt-12 md:mt-16">
           {/* Get Started */}
-          <Link href="/contact" className={primaryCtaInlineFlexClassName}>
-            Get Started
-            <FaArrowRight size={16} className="sm:size-5" />
+          <Link href="/pricing" className={primaryCtaInlineFlexClassName}>Get a Quote<FaArrowRight size={16} className="sm:size-5" />
           </Link>
 
           <Link href="/contact" className={secondaryOutlineCtaClassName}>

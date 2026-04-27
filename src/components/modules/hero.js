@@ -67,15 +67,7 @@ const HeroSection = () => {
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
-              <Link href="/contact" className={primaryCtaClassName}>
-                Get Started
-              </Link>
-              <Link
-                href="/devices"
-                className="inline-flex items-center justify-center rounded-full border border-[var(--secondary)] px-6 py-3 text-sm font-semibold text-[var(--secondary)] transition hover:bg-[var(--primary-soft)]"
-              >
-                Devices
-              </Link>
+              <Link href="/pricing" className={primaryCtaClassName}>Get a Quote</Link>
             </div>
 
            

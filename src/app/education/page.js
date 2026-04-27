@@ -35,14 +35,30 @@ export default function EducationPage() {
           <span className="text-[var(--secondary)] font-bold">Education</span>
         </nav>
 
-        <section className="text-center max-w-3xl mx-auto mb-10">
-          <h1 className="text-3xl md:text-5xl font-black text-[var(--secondary)] mb-3">Tutorial Videos</h1>
-          <p className="text-gray-600 text-base md:text-lg">
-            Learn ERP17 step by step. Click and watch the training videos below.
-          </p>
+        <section className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div className="text-left max-w-3xl">
+            <h1 className="text-3xl md:text-5xl font-black text-[var(--secondary)] mb-3">Tutorial Videos</h1>
+            <p className="text-gray-600 text-base md:text-lg">
+              Learn ERP17 step by step. Click and watch the training videos below.
+            </p>
+          </div>
+
+          <form className="flex w-full lg:w-auto lg:min-w-[440px] gap-2">
+            <input
+              type="text"
+              placeholder="Search tutorial videos..."
+              className="w-full rounded-xl border border-gray-300 px-4 py-2.5 outline-none focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary-soft)]"
+            />
+            <button
+              type="button"
+              className="rounded-xl bg-[var(--primary)] px-5 py-2.5 font-semibold text-white transition-colors hover:bg-[var(--primary-hover)]"
+            >
+              Search
+            </button>
+          </form>
         </section>
 
-        <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {tutorials.map((video) => (
             <article key={video.title} className="rounded-2xl border border-gray-200 overflow-hidden bg-white">
               <div className="aspect-video">

@@ -57,14 +57,9 @@ export default function DeviceDetailsPage() {
   };
 
   const priceMrp = getLabelValue("MRP");
-  const priceReseller = getLabelValue("Reseller Price");
   const fallbackPrice = DEVICE_PRICE_MAP[device.id];
   const finalMrp = priceMrp || fallbackPrice?.mrp || "";
-  const finalReseller = priceReseller || fallbackPrice?.reseller || "";
-  const priceText =
-    finalMrp && finalReseller
-      ? `MRP ${finalMrp} | Reseller ${finalReseller}`
-      : finalMrp || finalReseller || "Price on request";
+  const priceText = finalMrp ? `Price ${finalMrp}` : "Price on request";
 
   const topSummaryLabels = ["Brand", "Model", "Type", "Authentication Method"];
   const topSummary = topSummaryLabels
@@ -155,26 +150,20 @@ export default function DeviceDetailsPage() {
             ) : null}
 
             <div className="mt-3 flex flex-wrap items-baseline gap-2">
-              <span className="text-xl text-slate-900 font-semibold">
+              <span className="text-2xl text-black font-semibold">
                 {priceText}
               </span>
             </div>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="mt-8">
               <a
                 href={orderWhatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full rounded-full border border-[var(--primary)] bg-[var(--primary)] py-3.5 text-sm font-semibold text-white transition hover:bg-[var(--primary-hover)] sm:w-auto sm:min-w-[180px] sm:px-8 text-center"
+                className="inline-flex w-full md:max-w-[360px] items-center justify-center rounded-full border border-[var(--primary)] bg-[var(--primary)] py-3.5 text-sm font-semibold text-white transition hover:bg-[var(--primary-hover)]"
               >
                 Order
               </a>
-              <Link
-                href="/devices"
-                className="w-full rounded-full border border-slate-200 bg-white py-3.5 text-sm font-semibold text-slate-900 transition hover:bg-slate-50 sm:w-auto sm:min-w-[180px] sm:px-8 text-center"
-              >
-                Back
-              </Link>
             </div>
 
             {featureList.length > 0 ? (

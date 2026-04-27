@@ -80,7 +80,7 @@ export default function Header() {
               <Link href="/">
                 <div className="w-20 md:w-[120px]">
                   <Image
-                    src="/logo.jpeg"
+                    src="/ERP17-header.png"
                     alt="ERP17 Logo"
                     width={120}
                     height={40}
@@ -183,9 +183,7 @@ export default function Header() {
 
               {/* Get Started button */}
               <div className="ml-6">
-                <Link href="/contact" className={primaryCtaClassName}>
-                  Get Started
-                </Link>
+                <Link href="/pricing" className={primaryCtaClassName}>Get a Quote</Link>
               </div>
             </div>
 
