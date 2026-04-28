@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { buildApiUrl } from "@/lib/api-config";
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -29,7 +30,7 @@ export default function ContactPage() {
     };
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/contact-messages", {
+      const response = await fetch(buildApiUrl("/contact-messages"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

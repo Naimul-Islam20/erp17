@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { buildApiUrl } from "@/lib/api-config";
 
 export default function ConsultationPopup() {
   const pathname = usePathname();
@@ -40,7 +41,7 @@ export default function ConsultationPopup() {
     };
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/expert-sessions", {
+      const response = await fetch(buildApiUrl("/expert-sessions"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

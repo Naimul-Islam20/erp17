@@ -1,4 +1,4 @@
-const NEWSLETTER_API_URL = "http://127.0.0.1:8000/api/newsletters";
+import { buildApiUrl } from "@/lib/api-config";
 
 export function slugifyTitle(title = "") {
   return title
@@ -23,7 +23,7 @@ function normalizeNewsletter(item) {
 }
 
 export async function getNewsletters() {
-  const response = await fetch(NEWSLETTER_API_URL, {
+  const response = await fetch(buildApiUrl("/newsletters"), {
     cache: "no-store",
   });
 

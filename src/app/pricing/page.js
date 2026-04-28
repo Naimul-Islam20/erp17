@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { primaryCtaClassName } from "@/constants/cta";
+import { buildApiUrl } from "@/lib/api-config";
 
 export default function PricingPage() {
   const moduleOptions = [
@@ -47,7 +48,7 @@ export default function PricingPage() {
     }
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/quote-requests", {
+      const response = await fetch(buildApiUrl("/quote-requests"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
