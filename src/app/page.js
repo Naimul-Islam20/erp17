@@ -23,7 +23,7 @@ export default function Home() {
             alt="ERP17 business growth banner"
             width={1920}
             height={480}
-            className="w-full h-auto object-cover"
+            className="w-full  mx-auto h-auto object-cover"
             priority={false}
           />
         </div>
