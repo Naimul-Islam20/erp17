@@ -105,7 +105,7 @@ export default function Footer() {
 
                 {/* Column 4: Contact + Socials */}
                 <div className="col-span-2 md:col-span-2 lg:col-span-1 text-left">
-                  <div className="grid grid-cols-2 md:grid-cols-1 gap-8 md:gap-0">
+                  <div className="grid grid-cols-1 md:grid-cols-1 gap-8 md:gap-0">
                     <div>
                       <h3 className="text-white text-lg font-bold mb-8 relative inline-block">
                         Location
@@ -114,11 +114,17 @@ export default function Footer() {
                       <div className="space-y-3 text-sm text-gray-300">
                         <div className="flex items-start gap-2.5">
                           <FaMapMarkerAlt className="text-[var(--primary)] mt-1 flex-shrink-0" />
-                          <p>Dhaka Office: 820 Makkah Tower(9th Floor) West Shewrapara, Mirpur, Dhaka-1216 Bangladesh</p>
+                          <p>
+                            Dhaka Office: 820 Makkah Tower(9th Floor) West
+                            Shewrapara, Mirpur, Dhaka-1216 Bangladesh
+                          </p>
                         </div>
                         <div className="flex items-start gap-2.5">
                           <FaMapMarkerAlt className="text-[var(--primary)] mt-1 flex-shrink-0" />
-                          <p>Chittagong Office: House#13, Road#3, Block-K, Halishahar, Chittagong. Bangladesh</p>
+                          <p>
+                            Chittagong Office: House#13, Road#3, Block-K,
+                            Halishahar, Chittagong. Bangladesh
+                          </p>
                         </div>
                         <div className="flex items-start gap-2.5">
                           <FaPhoneAlt className="text-[var(--primary)] mt-1 flex-shrink-0" />
@@ -137,7 +143,7 @@ export default function Footer() {
                       <div className="flex gap-3 justify-start">
                         {[
                           { icon: <FaLinkedinIn />, href: "#" },
-                          { icon: <FaFacebookF />, href: "#" },
+                          { icon: <FaFacebookF />, href: "https://www.facebook.com/muktodharalimited" },
                           { icon: <FaInstagram />, href: "#" },
                           { icon: <FaYoutube />, href: "#" },
                         ].map((social, idx) => (
@@ -153,7 +159,6 @@ export default function Footer() {
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
 
@@ -163,7 +168,7 @@ export default function Footer() {
                 alt="ERP17 Solutions banner"
                 width={1600}
                 height={240}
-                className="w-full h-20 sm:h-24 md:h-28 object-cover opacity-90"
+                className="w-full h-auto md:h-28 object-contain md:object-cover opacity-90"
               />
             </div>
           </div>

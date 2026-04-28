@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "slug": "erp17-cloud-solution-product-update-q2-2026",
+    "title": "ERP17 Cloud Solution Product Update - Q2 2026",
+    "date": "2026-04-12",
+    "readTime": "4 min read",
+    "category": "Product Update",
+    "image": "/img/home/Banner.svg",
+    "summary": "Major improvements in Accounts, Inventory automation, and role-based dashboard performance for enterprise users.",
+    "author": "ERP17 Product Team",
+    "tags": ["Accounts", "Inventory", "Dashboard"],
+    "content": [
+      "ERP17 Cloud Solution Q2 2026 release introduces several improvements across core modules to help teams work faster with less manual effort.",
+      "The Accounts module now offers faster voucher processing and cleaner financial reporting views for finance teams handling high transaction volume.",
+      "Inventory workflows have been improved with better automation support, helping businesses reduce repetitive stock actions and improve operational accuracy.",
+      "Role-based dashboards now load faster and surface more relevant insights for each department, making day-to-day decision making easier for enterprise users."
+    ]
+  },
+  {
+    "id": 2,
+    "slug": "how-erp17-reduces-manual-work-across-departments",
+    "title": "How ERP17 Reduces Manual Work Across Departments",
+    "date": "2026-03-24",
+    "readTime": "5 min read",
+    "category": "Operations",
+    "image": "/img/home/Banner.svg",
+    "summary": "A practical guide on automating HR, Sales, and reporting workflows using ERP17 integrated modules.",
+    "author": "ERP17 Operations Desk",
+    "tags": ["HR", "Sales", "Automation"],
+    "content": [
+      "ERP17 helps reduce manual work by connecting HR, Sales, Accounts, and reporting into a single workflow across the business.",
+      "HR teams can automate attendance, leave, and payroll-related tasks so routine processes take less time and generate fewer errors.",
+      "Sales teams can manage leads, quotations, orders, and invoicing from one place, improving coordination between teams and reducing duplicate work.",
+      "Management can access live reports instantly instead of preparing data manually, which supports faster and more transparent decision making."
+    ]
+  },
+  {
+    "id": 3,
+    "slug": "new-tutorial-series-erp17-mobile-operations",
+    "title": "New Tutorial Series: ERP17 Mobile Operations",
+    "date": "2026-02-15",
+    "readTime": "3 min read",
+    "category": "Education",
+    "image": "/img/home/Banner.svg",
+    "summary": "Step-by-step learning resources for ESS app, management dashboard app, and customer portal usage.",
+    "author": "ERP17 Training Team",
+    "tags": ["ESS", "Mobile App", "Training"],
+    "content": [
+      "ERP17 has launched a new tutorial series focused on helping users get more value from its mobile-first tools.",
+      "The training materials include practical guides for the ESS app, management dashboard app, and customer portal, making adoption easier for both employees and managers.",
+      "Each tutorial is designed in a step-by-step format so users can quickly understand navigation, daily workflows, and key actions without long onboarding delays.",
+      "This initiative supports faster implementation and helps organizations improve usage consistency across teams."
+    ]
+  },
+  {
+    "id": 4,
+    "slug": "security-and-compliance-bulletin",
+    "title": "Security & Compliance Bulletin",
+    "date": "2026-01-22",
+    "readTime": "4 min read",
+    "category": "Security",
+    "image": "/img/home/Banner.svg",
+    "summary": "Latest updates on ERP17 data encryption, backups, access controls, and best practices for secure deployment.",
+    "author": "ERP17 Security Team",
+    "tags": ["Security", "Compliance", "Backups"],
+    "content": [
+      "ERP17 continues to strengthen platform security with updated practices covering encryption, backups, user permissions, and deployment hygiene.",
+      "The latest bulletin highlights better access control planning for teams, helping organizations reduce risk by assigning permissions more accurately.",
+      "It also reinforces backup and recovery best practices so customer data remains protected and recoverable during operational incidents.",
+      "These updates help businesses align with stronger compliance expectations while maintaining secure day-to-day ERP operations."
+    ]
+  }
+]
