@@ -12,6 +12,7 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import menus from "@/data/menus";
+import { openConsultationFromLogo } from "@/lib/consultation-popup";
 
 export default function Footer() {
   const solutionLinks = [
@@ -39,13 +40,13 @@ export default function Footer() {
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
             {/* Column 1: Brand & Contact */}
             <div className="col-span-2 md:col-span-1 space-y-8 flex flex-col items-start text-left">
-              <Link href="/" className="inline-block">
+              <Link href="/" className="inline-block" onClick={openConsultationFromLogo}>
                 <Image
-                  src="/ERP17-footer.png"
+                  src="/ERP_logo.png"
                   alt="ERP17 Logo"
-                  width={140}
-                  height={40}
-                  className="brightness-200"
+                  width={160}
+                  height={37}
+                  className="h-auto w-[140px] md:w-[160px]"
                 />
               </Link>
               <p className="text-gray-400 text-sm text-justify leading-relaxed max-w-xs">

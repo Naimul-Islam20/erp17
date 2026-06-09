@@ -143,14 +143,14 @@
     "has_child": 0
   },
   {
-    "id": 39,
-    "menu_name": "Pricing",
-    "menu_uid": "pricing",
+    "id": 43,
+    "menu_name": "Plans",
+    "menu_uid": "plans",
     "parent_id": 0,
     "order_no": 4,
-    "menu_icon": null
-    
-  }, 
+    "menu_icon": null,
+    "has_child": 0
+  },
    {
     "id": 40,
     "menu_name": "Blog",
@@ -165,7 +165,7 @@
     "menu_name": "Contact",
     "menu_uid": "contact",
     "parent_id": 0,
-    "order_no": 7,
+    "order_no": 8,
     "menu_icon": null
   },
   {
@@ -173,7 +173,7 @@
     "menu_name": "About Us",
     "menu_uid": "about-us",
     "parent_id": 0,
-    "order_no": 6,
+    "order_no": 7,
     "menu_icon": null
   }
 ]

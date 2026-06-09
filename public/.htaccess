@@ -1,0 +1,36 @@
+# Next.js static export (`output: "export"`) on cPanel — Apache / LiteSpeed
+# Fixes: refresh on /devices/... details → 404 (needs trailing slash → …/index.html)
+
+Options -Indexes
+DirectoryIndex index.html
+
+<IfModule mod_mime.c>
+  AddType application/javascript .js
+  AddType text/css .css
+  AddType application/json .json
+  AddType font/woff2 .woff2
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # If the site is in a subfolder, set e.g. RewriteBase /folder/
+  RewriteBase /
+
+  # Pass through existing files, _next assets, and static extensions (prevents broken JS/CSS)
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d [OR]
+  RewriteCond %{REQUEST_URI} ^/_next/ [OR]
+  RewriteCond %{REQUEST_URI} \.(js|css|png|jpe?g|gif|webp|svg|ico|woff2?|ttf|eot|json|txt|map)$
+  RewriteRule ^ - [L]
+
+  # A) Folder exists on disk but URL has no trailing slash → redirect to …/
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteRule ^(.*)$ /$1/ [R=301,L]
+
+  # B) Not found as file, but …/index.html exists → redirect to …/
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}/index.html -f
+  RewriteRule ^(.*)$ /$1/ [R=301,L]
+</IfModule>

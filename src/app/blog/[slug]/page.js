@@ -1,15 +1,24 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useParams } from "next/navigation";
-import { Calendar, User, Clock, ChevronLeft, Share2, Facebook, Twitter, Linkedin } from "lucide-react";
+import {
+  Calendar,
+  User,
+  Clock,
+  ChevronLeft,
+  Share2,
+  Facebook,
+  Twitter,
+  Linkedin,
+} from "lucide-react";
 import blogsData from "@/data/blogs.json";
 
-export default function BlogDetailsPage() {
-  const params = useParams();
-  const slug = params.slug;
+export function generateStaticParams() {
+  return blogsData.map((blog) => ({ slug: blog.slug }));
+}
+
+export default async function BlogDetailsPage({ params }) {
+  const { slug } = await params;
 
   const blog = blogsData.find((b) => b.slug === slug);
 
@@ -17,7 +26,10 @@ export default function BlogDetailsPage() {
     return (
       <div className="pt-40 pb-20 text-center">
         <h2 className="text-2xl font-bold">Blog not found</h2>
-        <Link href="/blog" className="text-sky-500 hover:underline mt-4 inline-block">
+        <Link
+          href="/blog"
+          className="text-sky-500 hover:underline mt-4 inline-block"
+        >
           Back to Blog
         </Link>
       </div>
@@ -31,11 +43,14 @@ export default function BlogDetailsPage() {
     <main className="py-10 md:py-16 bg-white min-h-screen">
       {/* Header / Breadcrumb */}
       <div className="container mb-8">
-        <Link 
-          href="/blog" 
+        <Link
+          href="/blog"
           className="inline-flex items-center gap-2 text-gray-500 hover:text-sky-500 transition-colors font-medium group"
         >
-          <ChevronLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
+          <ChevronLeft
+            size={20}
+            className="group-hover:-translate-x-1 transition-transform"
+          />
           Back to Blog
         </Link>
       </div>
@@ -58,7 +73,9 @@ export default function BlogDetailsPage() {
                   {blog.author[0]}
                 </div>
                 <div>
-                  <p className="font-bold text-gray-900 leading-none">{blog.author}</p>
+                  <p className="font-bold text-gray-900 leading-none">
+                    {blog.author}
+                  </p>
                   <p className="text-xs mt-1">Author</p>
                 </div>
               </div>
@@ -77,7 +94,9 @@ export default function BlogDetailsPage() {
                 <span>{blog.readTime}</span>
               </div>
               <div className="ml-auto flex items-center gap-3">
-                <span className="text-xs font-bold uppercase tracking-wider hidden sm:inline">Share:</span>
+                <span className="text-xs font-bold uppercase tracking-wider hidden sm:inline">
+                  Share:
+                </span>
                 <div className="flex gap-2">
                   <button className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center hover:bg-sky-500 hover:text-white transition-all text-gray-400">
                     <Facebook size={16} />
@@ -109,41 +128,68 @@ export default function BlogDetailsPage() {
             <p className="text-xl font-medium text-[#141451] mb-8 leading-relaxed italic border-l-4 border-sky-500 pl-6">
               {blog.excerpt}
             </p>
-            
+
             <p className="mb-6">
-              Effective HR management is the backbone of any successful organization. In the dynamic business environment of Bangladesh, staying ahead with digital solutions like ERP17 is no longer a luxury but a necessity. Companies are moving away from manual spreadsheets and paperwork to integrated systems that handle everything from recruitment to payroll.
+              Effective HR management is the backbone of any successful
+              organization. In the dynamic business environment of Bangladesh,
+              staying ahead with digital solutions like ERP17 is no longer a
+              luxury but a necessity. Companies are moving away from manual
+              spreadsheets and paperwork to integrated systems that handle
+              everything from recruitment to payroll.
             </p>
 
-            <h3 className="text-2xl font-bold text-[#141451] mt-10 mb-4">Why Digital HR Matters</h3>
+            <h3 className="text-2xl font-bold text-[#141451] mt-10 mb-4">
+              Why Digital HR Matters
+            </h3>
             <p className="mb-6">
-              When processes are automated, HR teams can focus on what really matters—the people. For instance, automated attendance tracking with geofencing ensures that employees are where they need to be, while automated payroll reduces the monthly administrative burden by up to 70%.
+              When processes are automated, HR teams can focus on what really
+              matters—the people. For instance, automated attendance tracking
+              with geofencing ensures that employees are where they need to be,
+              while automated payroll reduces the monthly administrative burden
+              by up to 70%.
             </p>
 
             <div className="bg-sky-50 p-8 rounded-2xl mb-10">
-              <h4 className="text-xl font-bold text-[#141451] mb-3 text-sky-700">Key Benefits of Modern HR Systems:</h4>
+              <h4 className="text-xl font-bold text-[#141451] mb-3 text-sky-700">
+                Key Benefits of Modern HR Systems:
+              </h4>
               <ul className="list-disc pl-6 space-y-2 text-gray-700">
                 <li>Reduced human errors in payroll calculations.</li>
                 <li>Better transparency in leave and attendance management.</li>
                 <li>Enhanced security for confidential employee data.</li>
-                <li>Real-time reporting and analytics for better decision-making.</li>
+                <li>
+                  Real-time reporting and analytics for better decision-making.
+                </li>
               </ul>
             </div>
 
             <p className="mb-6">
-              As we look toward the future, the integration of AI and machine learning in HR processes will further revolutionize how we manage talent. From predicting employee burnout to identifying the best candidates through data-driven recruitment, the possibilities are endless.
+              As we look toward the future, the integration of AI and machine
+              learning in HR processes will further revolutionize how we manage
+              talent. From predicting employee burnout to identifying the best
+              candidates through data-driven recruitment, the possibilities are
+              endless.
             </p>
 
             <p>
-              In conclusion, embracing a comprehensive HR and payroll solution like ERP17 allows Bangladeshi companies to scale efficiently while maintaining a happy, productive workforce.
+              In conclusion, embracing a comprehensive HR and payroll solution
+              like ERP17 allows Bangladeshi companies to scale efficiently while
+              maintaining a happy, productive workforce.
             </p>
           </div>
 
           {/* Related Posts */}
           <div className="pt-16 border-t border-gray-100">
-            <h3 className="text-2xl font-bold text-[#141451] mb-8">Related Articles</h3>
+            <h3 className="text-2xl font-bold text-[#141451] mb-8">
+              Related Articles
+            </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {relatedPosts.map((post) => (
-                <Link href={`/blog/${post.slug}`} key={post.id} className="group">
+                <Link
+                  href={`/blog/${post.slug}`}
+                  key={post.id}
+                  className="group"
+                >
                   <div className="relative h-40 rounded-xl overflow-hidden mb-4">
                     <Image
                       src={post.image}

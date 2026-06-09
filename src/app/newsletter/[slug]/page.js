@@ -1,122 +1,100 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Calendar, ChevronLeft } from "lucide-react";
+import { notFound } from "next/navigation";
+import { ChevronLeft } from "lucide-react";
 import { getNewsletters } from "@/lib/newsletters";
+import { formatNewsletterDate } from "@/lib/newsletters-core";
+import NewsletterBody from "@/components/newsletter/NewsletterBody";
+import NewsletterListItem from "@/components/newsletter/NewsletterListItem";
+import NewsletterPageShell from "@/components/newsletter/NewsletterPageShell";
+import { getNewsletterCategories } from "@/data/newsletterNav";
+
+export async function generateStaticParams() {
+  const newsletterItems = await getNewsletters().catch(() => []);
+  return newsletterItems.map((item) => ({ slug: item.slug }));
+}
+
+function displayTitle(title = "") {
+  return title.replace(/^(\[[^\]]+\]|\([^)]+\))\s*/i, "").trim() || title;
+}
 
 export default async function NewsletterDetailsPage({ params }) {
+  const { slug } = await params;
   const newsletterItems = await getNewsletters();
-  const slug = params.slug;
+  const categories = getNewsletterCategories(newsletterItems);
 
   const newsletter = newsletterItems.find((item) => item.slug === slug);
 
   if (!newsletter) {
-    return (
-      <div className="pt-40 pb-20 text-center">
-        <h2 className="text-2xl font-bold">Newsletter not found</h2>
-        <Link href="/newsletter" className="text-sky-500 hover:underline mt-4 inline-block">
-          Back to Newsletter
-        </Link>
-      </div>
-    );
+    notFound();
   }
 
   const relatedNewsletters = newsletterItems
     .filter((item) => item.id !== newsletter.id)
     .slice(0, 3);
 
+  const formattedDate = formatNewsletterDate(newsletter);
+
   return (
-    <main className="py-8 md:py-16 bg-white min-h-screen">
-      <div className="container mb-6 md:mb-8">
-        <Link
-          href="/newsletter"
-          className="inline-flex items-center gap-2 text-gray-500 hover:text-sky-500 transition-colors font-medium group"
+    <main className="min-h-screen bg-white py-8 md:py-12">
+      <div className="container max-w-5xl">
+        <NewsletterPageShell
+          categories={categories}
+          activeCategories={newsletter.categories || []}
         >
-          <ChevronLeft
-            size={20}
-            className="group-hover:-translate-x-1 transition-transform"
-          />
-          Back to Newsletter
-        </Link>
-      </div>
+          <article>
+            <Link
+              href="/newsletter"
+              className="inline-flex items-center gap-1 text-sm text-black mb-6"
+            >
+              <ChevronLeft size={16} />
+              All News
+            </Link>
 
-      <article className="container">
-        <div className="mb-6 md:mb-8 w-full max-w-4xl">
-          <span className="bg-sky-100 text-sky-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">
-            {newsletter.category}
-          </span>
-          <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-[#141451] leading-tight mb-5 md:mb-6">
-            {newsletter.title}
-          </h1>
-
-          <div className="flex items-center text-sm text-gray-500 border-y border-gray-100 py-4 md:py-6">
-            <div className="flex items-center gap-2">
-              <Calendar size={18} className="text-sky-500" />
-              <span>
-                {new Date(newsletter.date).toLocaleDateString("en-US", {
-                  month: "long",
-                  day: "numeric",
-                  year: "numeric",
-                })}
-              </span>
+            <div className="flex flex-wrap items-center gap-2 mb-3">
+              {formattedDate ? (
+                <p className="text-sm text-black">{formattedDate}</p>
+              ) : null}
+              {newsletter.category ? (
+                <span className="rounded-full bg-[var(--primary-soft)] px-2.5 py-0.5 text-xs font-semibold text-[var(--primary)]">
+                  {newsletter.category}
+                </span>
+              ) : null}
             </div>
-          </div>
-        </div>
 
-        <div className="relative h-[220px] sm:h-[260px] md:h-[420px] w-full max-w-4xl rounded-2xl overflow-hidden mb-5 md:mb-6">
-          <Image
-            src={newsletter.image}
-            alt={newsletter.title}
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
+            <h1 className="text-2xl md:text-3xl font-bold text-black leading-snug">
+              {displayTitle(newsletter.title)}
+            </h1>
 
-        <div className="w-full max-w-4xl">
-        
+            {newsletter.image ? (
+              <div className="mt-6 max-w-3xl">
+                <Image
+                  src={newsletter.image}
+                  alt={displayTitle(newsletter.title)}
+                  width={768}
+                  height={432}
+                  className="w-full h-auto rounded-xl border border-slate-200 object-cover"
+                />
+              </div>
+            ) : null}
 
-          <div className="space-y-5 md:space-y-6 text-gray-700 leading-relaxed text-justify text-base md:text-lg break-words whitespace-normal">
-            <p className="break-words whitespace-normal">
-              {newsletter.description || "Details will be available soon."}
-            </p>
-          </div>
+            <NewsletterBody
+              content={newsletter.content || newsletter.description}
+            />
 
-        </div>
-
-        <div className="pt-10 md:pt-16 border-t border-gray-100 mt-10 md:mt-16 w-full max-w-4xl">
-          <h3 className="text-xl md:text-2xl font-bold text-[#141451] mb-6 md:mb-8">
-            Related Newsletters
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {relatedNewsletters.map((item) => (
-              <Link
-                href={`/newsletter/${item.slug}`}
-                key={item.id}
-                className="group"
-              >
-                <div className="relative h-40 rounded-xl overflow-hidden mb-4">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <h4 className="font-bold text-[#141451] group-hover:text-sky-500 transition-colors line-clamp-2 leading-tight">
-                  {item.title}
-                </h4>
-                <p className="text-xs text-gray-500 mt-2">
-                  {new Date(item.date).toLocaleDateString("en-US", {
-                    month: "short",
-                    day: "numeric",
-                    year: "numeric",
-                  })}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </article>
+            {relatedNewsletters.length > 0 ? (
+              <div className="mt-12 pt-8 border-t border-slate-200">
+                <h2 className="text-sm font-semibold text-black mb-4">
+                  More updates
+                </h2>
+                {relatedNewsletters.map((item) => (
+                  <NewsletterListItem key={item.id} item={item} compact />
+                ))}
+              </div>
+            ) : null}
+          </article>
+        </NewsletterPageShell>
+      </div>
     </main>
   );
 }

@@ -66,7 +66,7 @@ export default function AboutUsPage() {
               </p>
 
               <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-2">
-                <Link href="/pricing" className={primaryCtaClassName}>Get a Quote</Link>
+                <Link href="/get-quote" className={primaryCtaClassName}>Get a Quote</Link>
               </div>
             </div>
 
@@ -381,7 +381,7 @@ export default function AboutUsPage() {
                   your team the freedom to focus.
                 </p>
                 <div className="pt-4">
-                  <Link href="/pricing" className={primaryCtaClassName}>Get a Quote</Link>
+                  <Link href="/get-quote" className={primaryCtaClassName}>Get a Quote</Link>
                 </div>
               </div>
 

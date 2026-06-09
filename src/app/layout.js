@@ -15,10 +15,54 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://erp17.com";
+
 export const metadata = {
-  title: "ERP17 Cloud Solution",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "ERP17 Cloud Solution",
+    template: "%s | ERP17",
+  },
   description:
     "ERP17 Cloud Solution — accounts, inventory, POS, HRM, CRM, eCommerce, and more on one platform for businesses in Bangladesh.",
+  keywords: [
+    "ERP17",
+    "ERP Bangladesh",
+    "cloud ERP",
+    "inventory software",
+    "HRM",
+    "POS",
+  ],
+  applicationName: "ERP17",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "/",
+    siteName: "ERP17 Cloud Solution",
+    title: "ERP17 Cloud Solution",
+    description:
+      "Accounts, inventory, POS, HRM, CRM, eCommerce, and more on one platform for businesses in Bangladesh.",
+    images: [
+      {
+        url: "/ERP_logo.png",
+        width: 2364,
+        height: 548,
+        alt: "ERP17 Cloud Solution",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ERP17 Cloud Solution",
+    description:
+      "Accounts, inventory, POS, HRM, CRM, eCommerce, and more on one platform for businesses in Bangladesh.",
+    images: ["/ERP_logo.png"],
+  },
+  icons: {
+    icon: [{ url: "/ERP_logo.png", type: "image/png" }],
+    apple: [{ url: "/ERP_logo.png" }],
+  },
 };
 
 export default function RootLayout({ children }) {

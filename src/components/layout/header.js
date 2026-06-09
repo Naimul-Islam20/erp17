@@ -10,6 +10,7 @@ import * as BiIcons from "react-icons/bi";
 import * as FaIcons from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
 import MobileMenu from "@/components/layout/mobileMenu";
+import { openConsultationFromLogo } from "@/lib/consultation-popup";
 
 // 🔹 Dynamic Icon Resolver
 function getIcon(iconName) {
@@ -77,10 +78,10 @@ export default function Header() {
           <div className="flex h-[88px] items-center justify-between">
             {/* Logo */}
             <div className="flex items-center">
-              <Link href="/">
+              <Link href="/" onClick={openConsultationFromLogo}>
                 <div className="w-20 md:w-[120px]">
                   <Image
-                    src="/ERP17-header.png"
+                    src="/ERP_logo.png"
                     alt="ERP17 Logo"
                     width={120}
                     height={40}
@@ -183,7 +184,7 @@ export default function Header() {
 
               {/* Get Started button */}
               <div className="ml-6">
-                <Link href="/pricing" className={primaryCtaClassName}>Get a Quote</Link>
+                <Link href="/get-quote" className={primaryCtaClassName}>Get a Quote</Link>
               </div>
             </div>
 

@@ -5,9 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "dev:turbo": "next dev --turbopack",
-    "build": "next build",
-    "build:turbo": "next build --turbopack",
-    "start": "next start",
+    "build": "next build && node scripts/verify-static-export.mjs",
+    "build:pack": "npm run build && node scripts/pack-deploy.mjs",
+    "build:turbo": "next build --turbopack && node scripts/verify-static-export.mjs",
+    "preview": "npx --yes serve out -l 3000",
+    "start": "npx --yes serve out -l 3000",
     "lint": "eslint"
   },
   "dependencies": {

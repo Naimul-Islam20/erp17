@@ -1,21 +1,82 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { buildApiUrl } from "@/lib/api-config";
+import {
+  CONSULTATION_OPEN_EVENT,
+  CONSULTATION_OPEN_FLAG,
+  isConsultationSuppressed,
+  markConsultationSubmitted,
+} from "@/lib/consultation-popup";
+
+const LEGACY_DISMISS_KEY = "erp17-consultation-dismissed";
+const OPEN_DELAY_MS = 600;
 
 export default function ConsultationPopup() {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(true);
+  const dismissedPathsRef = useRef(new Set());
+  const [isOpen, setIsOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [toast, setToast] = useState({ visible: false, type: "", message: "" });
 
   useEffect(() => {
-    setIsOpen(true);
+    try {
+      sessionStorage.removeItem(LEGACY_DISMISS_KEY);
+    } catch {
+      // ignore storage errors (private mode, etc.)
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleOpenRequest = () => {
+      if (isConsultationSuppressed()) return;
+      dismissedPathsRef.current.delete(pathname);
+      setIsOpen(true);
+    };
+
+    window.addEventListener(CONSULTATION_OPEN_EVENT, handleOpenRequest);
+    return () =>
+      window.removeEventListener(CONSULTATION_OPEN_EVENT, handleOpenRequest);
+  }, [pathname]);
+
+  useEffect(() => {
+    setIsOpen(false);
+
+    if (isConsultationSuppressed()) {
+      return;
+    }
+
+    let forceOpen = false;
+    try {
+      if (sessionStorage.getItem(CONSULTATION_OPEN_FLAG) === "1") {
+        sessionStorage.removeItem(CONSULTATION_OPEN_FLAG);
+        forceOpen = true;
+      }
+    } catch {
+      // ignore storage errors (private mode, etc.)
+    }
+
+    if (!forceOpen && dismissedPathsRef.current.has(pathname)) {
+      return;
+    }
+
+    if (forceOpen) {
+      dismissedPathsRef.current.delete(pathname);
+    }
+
+    const timer = window.setTimeout(() => {
+      if (forceOpen || !dismissedPathsRef.current.has(pathname)) {
+        setIsOpen(true);
+      }
+    }, OPEN_DELAY_MS);
+
+    return () => window.clearTimeout(timer);
   }, [pathname]);
 
   const dismissPopup = () => {
+    dismissedPathsRef.current.add(pathname);
     setIsOpen(false);
   };
 
@@ -53,25 +114,39 @@ export default function ConsultationPopup() {
       const responseBody = await response.json().catch(() => ({}));
 
       if (!response.ok) {
-        const firstError = responseBody?.errors ? Object.values(responseBody.errors)[0]?.[0] : "";
-        throw new Error(firstError || responseBody?.message || "Failed to submit expert session request.");
+        const firstError = responseBody?.errors
+          ? Object.values(responseBody.errors)[0]?.[0]
+          : "";
+        throw new Error(
+          firstError ||
+            responseBody?.message ||
+            "Failed to submit expert session request.",
+        );
       }
 
-      showToast("success", responseBody?.message || "Request submitted successfully.");
+      markConsultationSubmitted();
+      showToast(
+        "success",
+        responseBody?.message || "Request submitted successfully.",
+      );
       formElement.reset();
       window.setTimeout(() => {
-        dismissPopup();
+        setIsOpen(false);
       }, 700);
     } catch (error) {
       const errorMessage =
-        error instanceof Error ? error.message : "Could not submit request. Please try again.";
+        error instanceof Error
+          ? error.message
+          : "Could not submit request. Please try again.";
       showToast("error", errorMessage);
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  if (!isOpen) return null;
+  if (!isOpen) {
+    return null;
+  }
 
   return (
     <div
@@ -125,7 +200,7 @@ export default function ConsultationPopup() {
         <div className="grid md:grid-cols-12">
           <div className="bg-gradient-to-br from-[var(--primary)] to-[var(--primary-hover)] p-5 sm:p-7 md:col-span-6 md:p-10 flex flex-col items-center justify-center text-center min-h-[180px] sm:min-h-[220px]">
             <Image
-              src="/logo.jpeg"
+              src="/ERP_logo.png"
               alt="ERP17 Logo"
               width={140}
               height={40}
@@ -140,7 +215,10 @@ export default function ConsultationPopup() {
             </h2>
             <p className="mt-1 sm:mt-2 text-sm md:text-base leading-6 sm:leading-7 text-black">
               We will help you{" "}
-              <span className="text-[var(--secondary)] font-bold text-base md:text-lg">10X to Grow</span> your Business
+              <span className="text-[var(--secondary)] font-bold text-base md:text-lg">
+                10X to Grow
+              </span>{" "}
+              your Business
             </p>
           </div>
 
