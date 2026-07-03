@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/naimulislam/Desktop/clone/e/erp17/src/app/layout\":[\"static/media/22a5144ee8d83bca-s.p.woff2\",\"static/media/7d4881bb7e1bf84d-s.p.woff2\"],\"/Users/naimulislam/Desktop/clone/e/erp17/src/app/page\":[\"static/media/a3a053d5ba3eaf5e-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"

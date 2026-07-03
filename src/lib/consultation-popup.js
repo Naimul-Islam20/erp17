@@ -1,6 +1,5 @@
-export const CONSULTATION_OPEN_EVENT = "erp17:open-consultation";
-export const CONSULTATION_OPEN_FLAG = "erp17-open-consultation";
 export const CONSULTATION_SUBMITTED_KEY = "erp17-consultation-submitted-at";
+export const CONSULTATION_NEXT_OPEN_AT_KEY = "erp17-consultation-next-open-at";
 
 const TWENTY_FOUR_HOURS_MS = 24 * 60 * 60 * 1000;
 
@@ -22,22 +21,33 @@ export function markConsultationSubmitted() {
   } catch {
     // ignore storage errors (private mode, etc.)
   }
+
+  clearConsultationNextOpenAt();
 }
 
-export function openConsultationFromLogo() {
-  if (isConsultationSuppressed()) {
-    return;
-  }
-
+export function getConsultationNextOpenAt() {
   try {
-    sessionStorage.setItem(CONSULTATION_OPEN_FLAG, "1");
+    const nextOpenAt = Number(
+      sessionStorage.getItem(CONSULTATION_NEXT_OPEN_AT_KEY) || 0,
+    );
+    return Number.isFinite(nextOpenAt) ? nextOpenAt : 0;
+  } catch {
+    return 0;
+  }
+}
+
+export function setConsultationNextOpenAt(timestamp) {
+  try {
+    sessionStorage.setItem(CONSULTATION_NEXT_OPEN_AT_KEY, String(timestamp));
   } catch {
     // ignore storage errors (private mode, etc.)
   }
+}
 
-  const normalizedPath =
-    window.location.pathname.replace(/\/$/, "") || "/";
-  if (normalizedPath === "/") {
-    window.dispatchEvent(new CustomEvent(CONSULTATION_OPEN_EVENT));
+export function clearConsultationNextOpenAt() {
+  try {
+    sessionStorage.removeItem(CONSULTATION_NEXT_OPEN_AT_KEY);
+  } catch {
+    // ignore storage errors (private mode, etc.)
   }
 }

@@ -1,9 +1,9 @@
-// app/hrFeatures.js
 "use client";
 
-import React from "react";
 import Link from "next/link";
+import { ArrowRight, Check } from "lucide-react";
 import * as FaIcons from "react-icons/fa";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 const features = [
   {
@@ -104,52 +104,82 @@ const features = [
   },
 ];
 
+function FeaturePoint({ text }) {
+  const colonIndex = text.indexOf(":");
+  const label = colonIndex > -1 ? text.slice(0, colonIndex + 1) : text;
+  const detail = colonIndex > -1 ? text.slice(colonIndex + 1).trim() : "";
+
+  return (
+    <li className="flex gap-2.5">
+      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--primary-soft)]/60">
+        <Check className="h-3 w-3 text-[var(--primary)]" strokeWidth={3} />
+      </span>
+      <span className="text-sm leading-relaxed text-slate-600">
+        <span className="font-semibold text-slate-700">{label}</span>
+        {detail ? ` ${detail}` : null}
+      </span>
+    </li>
+  );
+}
+
 const HrFeatures = () => {
   return (
-<section className="py-5 md:py-16 bg-white">
-  <div className="container">
-    {/* Section title + description */}
-    <div className="text-center mb-4 md:mb-12 px-2 max-w-4xl mx-auto">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] font-bold leading-tight text-[var(--secondary)]">
-        The Power Behind Your Business Growth
-      </h2>
-      <p className="text-sm sm:text-base md:text-lg text-gray-600 mt-4 md:mt-6 leading-relaxed">
-        ERP17 Cloud Solution provides a unified ecosystem that seamlessly integrates every department of your enterprise.
-        From real-time financial insights and automated inventory to streamlined HR and sales, our modules work together to
-        eliminate operational chaos. Experience the ultimate control needed to scale your business while enjoying a
-        hassle-free life.
-      </p>
-    </div>
+    <section className="relative overflow-hidden bg-gradient-to-b from-slate-50/80 to-white py-8 md:py-12">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.35]"
+        aria-hidden
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 1px 1px, #e2e8f0 1px, transparent 0)",
+          backgroundSize: "28px 28px",
+        }}
+      />
 
-    {/* Features Grid */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
-      {features.map((feature, index) => {
-        const Icon = FaIcons[feature.icon] || FaIcons.FaCircle;
-        return (
-          <Link
-            key={index}
-            href={feature.href}
-            className="group bg-white rounded-2xl p-3 sm:p-5 border border-gray-200 hover:border-[var(--primary)] transition duration-300 flex flex-col h-full hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)]"
-          >
-            <Icon className="text-3xl sm:text-4xl text-[var(--primary)] mb-2 sm:mb-3" />
-            <h3 className="text-lg sm:text-xl font-semibold text-[var(--secondary)] mb-1 sm:mb-2 group-hover:text-[var(--secondary)]">
-              {feature.name}
-            </h3>
-            <p className="text-sm sm:text-sm text-gray-600 mb-2 sm:mb-3">
-              {feature.desc}
-            </p>
-            <ul className="text-sm sm:text-sm text-gray-700 list-disc pl-5 space-y-1">
-              {feature.points.map((point, i) => (
-                <li key={i}>{point}</li>
-              ))}
-            </ul>
-          </Link>
-        );
-      })}
-    </div>
-  </div>
-</section>
+      <div className="container relative">
+        <SectionHeader
+          eyebrow="Modules"
+          title="The Power Behind Your Business Growth"
+          description="ERP17 Cloud Solution provides a unified ecosystem that seamlessly integrates every department of your enterprise. From real-time financial insights and automated inventory to streamlined HR and sales, our modules work together to eliminate operational chaos. Experience the ultimate control needed to scale your business while enjoying a hassle-free life."
+          className="max-w-4xl"
+        />
 
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+          {features.map((feature) => {
+            const Icon = FaIcons[feature.icon] || FaIcons.FaCircle;
+            return (
+              <Link
+                key={feature.href}
+                href={feature.href}
+                className="flex h-full flex-col rounded-2xl border border-slate-200/90 bg-white p-5 shadow-[0_1px_3px_rgba(15,23,42,0.04)] sm:p-6 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)] md:rounded-3xl"
+              >
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--primary-soft)] to-white text-[var(--primary)] ring-1 ring-[var(--primary-soft)]">
+                  <Icon className="text-2xl" />
+                </div>
+
+                <h3 className="text-lg font-bold leading-snug text-[var(--secondary)] sm:text-xl">
+                  {feature.name}
+                </h3>
+
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                  {feature.desc}
+                </p>
+
+                <ul className="mt-4 flex-1 space-y-3 border-t border-slate-100 pt-4">
+                  {feature.points.map((point) => (
+                    <FeaturePoint key={point} text={point} />
+                  ))}
+                </ul>
+
+                <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-semibold text-[var(--primary)]">
+                  Learn more
+                  <ArrowRight className="h-4 w-4" />
+                </span>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+    </section>
   );
 };
 

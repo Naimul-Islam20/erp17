@@ -1,93 +1,119 @@
 "use client";
-import React from "react";
+
 import Image from "next/image";
 import Link from "next/link";
-import { primaryCtaClassName } from "@/constants/cta";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import {
+  primaryCtaClassName,
+  secondaryOutlineCtaClassName,
+} from "@/constants/cta";
+
+const highlights = [
+  "Built for Bangladesh businesses — VAT & local compliance",
+  "Cloud-based — access anywhere, scale anytime",
+];
+
+const stats = [
+  { value: "1,000+", label: "Businesses served" },
+  { value: "9+", label: "Years of experience" },
+  { value: "20+", label: "Integrated modules" },
+];
 
 const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden pt-0 md:pt-12 pb-8 md:pb-28 flex items-center">
-      
-      {/* Background Decorative Elements */}
-      {/* 1. Slanted Accent */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-[var(--primary-soft)]/70 -skew-x-12 transform origin-top-right translate-x-1/4 hidden md:block" />
-      
-      {/* 2. Dot Pattern */}
-      <div className="absolute top-10 left-10 w-32 h-32 opacity-20 hidden md:block" style={{ backgroundImage: 'radial-gradient(var(--primary) 1.5px, transparent 1.5px)', backgroundSize: '15px 15px' }}></div>
-      <div className="absolute bottom-20 right-1/2 w-48 h-48 opacity-10 hidden md:block" style={{ backgroundImage: 'radial-gradient(var(--primary) 2px, transparent 2px)', backgroundSize: '20px 20px' }}></div>
-      
-      {/* 3. Floating Orb/Circles */}
-      <div className="absolute -top-20 -left-20 w-64 h-64 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute top-1/2 -right-20 w-80 h-80 rounded-full blur-3xl"></div>
+    <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-white pt-6 pb-10 md:pt-10 md:pb-14">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.35]"
+        aria-hidden
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 20% 20%, var(--primary-soft) 0%, transparent 42%), radial-gradient(circle at 80% 0%, rgba(59,161,0,0.08) 0%, transparent 35%)",
+        }}
+      />
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        aria-hidden
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, #000 1px, transparent 1px), linear-gradient(to bottom, #000 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
+        }}
+      />
 
-      {/* 4. Abstract SVG Shape */}
-      <div className="absolute top-0 right-0 p-8 opacity-10 hidden lg:block">
-        <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 100C0 44.7715 44.7715 0 100 0C155.228 0 200 44.7715 200 100C200 155.228 155.228 200 100 200C44.7715 200 0 155.228 0 100Z" fill="url(#paint0_linear_home)" />
-          <defs>
-            <linearGradient id="paint0_linear_home" x1="100" y1="0" x2="100" y2="200" gradientUnits="userSpaceOnUse">
-              <stop stopColor="var(--primary)" />
-              <stop offset="1" stopColor="var(--primary)" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-
-      <div className="w-full relative z-10">
-        {/* Mobile full-width image (outside container constraints) */}
-        <div className="md:hidden w-full mb-4">
-          <Image
-            src="/img/one-touch-community.jpeg"
-            alt="HR Software Illustration"
-            width={700}
-            height={500}
-            className="w-full h-auto object-cover"
-            priority
-          />
-        </div>
-
-        <div className="container">
-        <div className="flex flex-col lg:flex-row items-center gap-5 md:gap-16">
-          
-          {/* Left Column - Text */}
-          <div className="order-2 lg:order-1 flex-1 space-y-8 text-center lg:text-left">
+      <div className="container relative z-10">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <div className="order-1 space-y-7 text-center lg:text-left">
             <div className="flex justify-center lg:justify-start">
-              <div className="inline-flex items-center px-3 py-1 rounded-full text-[var(--primary)] text-xs md:text-sm font-bold uppercase tracking-wider border border-[var(--primary-soft)]">
-                ERP17 · Cloud Solution
-              </div>
+              <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-600 shadow-sm">
+                <span className="h-2 w-2 rounded-full bg-[var(--primary)]" />
+                ERP17 Cloud Solution
+              </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-[1.12] tracking-tight">
-              <span className="text-[var(--secondary)]">Smarter Business.</span>{" "}
-              <span className="text-[var(--primary)]">Hassle-Free Life.</span>
+            <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight text-[var(--secondary)] sm:text-5xl md:text-6xl">
+              Simplify Operations.
+              <span className="mt-2 block text-[var(--primary)]">
+                Accelerate Growth.
+              </span>
             </h1>
 
-            <p className="text-gray-600 text-base md:text-xl leading-relaxed w-full max-w-full lg:max-w-3xl mx-auto lg:mx-0 text-justify">
-              Empower your enterprise with intelligent automation that drives growth while eliminating operational stress. ERP17 Cloud Solution streamlines your entire workflow, allowing you to focus on the big picture without the daily headaches. Experience the perfect harmony of professional excellence and a truly hassle-free life.
+            <p className="mx-auto max-w-xl text-base leading-relaxed text-slate-600 md:text-lg lg:mx-0">
+              Empower your enterprise with intelligent automation that drives
+              growth while eliminating operational stress. One cloud platform
+              for finance, people, inventory, and sales.
             </p>
 
-            <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
-              <Link href="/get-quote" className={primaryCtaClassName}>Get a Quote</Link>
-            </div>
+            <ul className="mx-auto max-w-xl space-y-3 text-left lg:mx-0">
+              {highlights.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-sm text-slate-700 md:text-base">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[var(--primary)]" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
 
-           
+            <div className="flex flex-wrap items-center justify-center gap-3 pt-2 lg:justify-start">
+              <Link href="/get-quote" className={primaryCtaClassName}>
+                Get a Quote
+              </Link>
+              <Link
+                href="/plans"
+                className={`${secondaryOutlineCtaClassName} group`}
+              >
+                View Plans
+                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+              </Link>
+            </div>
           </div>
 
-          {/* Right Column - Image */}
-          <div className="order-1 lg:order-2 flex-1 w-full relative hidden md:block">
-            <div className="relative z-10">
-              <Image
-                src="/img/one-touch-community.jpeg"
-                alt="HR Software Illustration"
-                width={700}
-                height={500}
-                className="w-full h-auto object-cover"
-                priority
-              />
+          <div className="order-2 lg:order-2">
+            <div className="relative mx-auto max-w-xl pb-6 lg:max-w-none lg:pb-8">
+              <div className="absolute -inset-4 hidden rounded-[2rem] bg-gradient-to-br from-[var(--primary-soft)]/80 to-transparent blur-2xl md:block" />
+              <div className="relative overflow-hidden rounded-xl md:rounded-3xl md:border md:border-slate-200/80 md:bg-white md:p-3 md:shadow-xl md:shadow-slate-200/60">
+                <Image
+                  src="/img/one-touch-community.jpeg"
+                  alt="ERP17 business management dashboard"
+                  width={700}
+                  height={500}
+                  className="h-auto w-full rounded-xl object-cover md:rounded-2xl"
+                  priority
+                />
+              </div>
+
+              <div className="absolute -bottom-2 left-3 right-3 grid grid-cols-3 gap-2 rounded-2xl border border-slate-200 bg-white/95 p-3 shadow-lg backdrop-blur sm:left-5 sm:right-5 sm:gap-3 sm:p-4 md:-bottom-3 md:left-6 md:right-6 md:gap-4">
+                {stats.map((stat) => (
+                  <div key={stat.label} className="text-center">
+                    <p className="text-base font-bold text-[var(--secondary)] sm:text-xl md:text-2xl">
+                      {stat.value}
+                    </p>
+                    <p className="mt-0.5 text-[10px] leading-snug text-slate-500 sm:text-xs md:text-sm">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-
-        </div>
         </div>
       </div>
     </section>

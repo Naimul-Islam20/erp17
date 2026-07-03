@@ -4,13 +4,13 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { primaryCtaClassName } from "@/constants/cta";
+import { FOOTER_LOGO_SRC, SITE_LOGO_ALT } from "@/constants/brand";
 import menus from "@/data/menus";
 import { BiChevronDown, BiCircle } from "react-icons/bi";
 import * as BiIcons from "react-icons/bi";
 import * as FaIcons from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
 import MobileMenu from "@/components/layout/mobileMenu";
-import { openConsultationFromLogo } from "@/lib/consultation-popup";
 
 // 🔹 Dynamic Icon Resolver
 function getIcon(iconName) {
@@ -75,18 +75,18 @@ export default function Header() {
         className="sticky top-0 left-0 w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm"
       >
         <div className="container">
-          <div className="flex h-[88px] items-center justify-between">
+          <div className="flex h-14 items-center justify-between md:h-[72px] lg:h-[88px]">
             {/* Logo */}
             <div className="flex items-center">
-              <Link href="/" onClick={openConsultationFromLogo}>
-                <div className="w-20 md:w-[120px]">
+              <Link href="/">
+                <div className="w-[108px] md:w-[140px] lg:w-[160px]">
                   <Image
-                    src="/ERP_logo.png"
-                    alt="ERP17 Logo"
-                    width={120}
-                    height={40}
+                    src={FOOTER_LOGO_SRC}
+                    alt={SITE_LOGO_ALT}
+                    width={340}
+                    height={76}
                     priority
-                    className="w-full h-auto"
+                    className="h-auto w-full object-contain"
                   />
                 </div>
               </Link>
@@ -131,11 +131,11 @@ export default function Header() {
                           className={`
     ${
       childCount > 10
-        ? "fixed text-gray-800 top-[88px] left-0 right-0 mx-auto w-[90vw] max-w-[1600px] bg-white shadow-lg border border-gray-300 z-50 p-6 max-h-[80vh] overflow-y-auto overscroll-contain"
-        : "absolute top-full mt-8 text-gray-800 bg-white shadow-lg border border-gray-300 z-50 p-6 " +
+        ? "fixed top-14 md:top-[72px] lg:top-[88px] left-0 right-0 mx-auto w-[90vw] max-w-[1600px] rounded-b-2xl border border-slate-200 bg-white text-gray-800 z-50 p-5 max-h-[80vh] overflow-y-auto overscroll-contain"
+        : "absolute top-full mt-6 rounded-b-2xl border border-slate-200 bg-white text-gray-800 z-50 p-5 " +
           (childCount > 5
-            ? "left-1/2 transform text-gray-800 -translate-x-1/2 min-w-[700px]"
-            : "left-1/2 transform text-gray-800 -translate-x-1/2 min-w-[280px]")
+            ? "left-1/2 -translate-x-1/2 min-w-[720px]"
+            : "left-1/2 -translate-x-1/2 min-w-[360px]")
     }
   `}
                         >
@@ -154,20 +154,19 @@ export default function Header() {
                                 <Link
                                   key={child.id}
                                   href={`/${child.menu_uid}`}
-                                  className="flex items-start space-x-3 p-3 hover:bg-gray-100 rounded"
+                                  className="flex items-start gap-3 px-3 py-3 transition-colors duration-200 hover:bg-slate-50"
                                   onClick={() => setOpenDropdown(null)}
                                 >
-                                  <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center">
+                                  <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--primary-soft)]/55 text-[var(--primary)]">
                                     <Icon
-                                      style={{ color: child.icon_color }}
                                       className="h-4 w-4"
                                     />
                                   </span>
-                                  <div className="flex flex-col">
-                                    <span className="font-medium">
+                                  <div className="min-w-0 flex-1">
+                                    <span className="block text-sm font-semibold text-[var(--secondary)]">
                                       {child.menu_name}
                                     </span>
-                                    <span className="text-[11px] mt-1 text-gray-500">
+                                    <span className="mt-1 block text-xs leading-5 text-slate-500">
                                       {child.description}
                                     </span>
                                   </div>

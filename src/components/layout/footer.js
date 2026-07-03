@@ -2,185 +2,242 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { FOOTER_LOGO_SRC, SITE_LOGO_ALT } from "@/constants/brand";
 import {
-  FaLinkedinIn,
-  FaFacebookF,
-  FaInstagram,
-  FaYoutube,
-  FaEnvelope,
-  FaPhoneAlt,
-  FaMapMarkerAlt,
-} from "react-icons/fa";
-import menus from "@/data/menus";
-import { openConsultationFromLogo } from "@/lib/consultation-popup";
+  Facebook,
+  Instagram,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+  Youtube,
+} from "lucide-react";
+
+const solutionLinks = [
+  { name: "HRM & Payroll", href: "/products/hrm" },
+  { name: "CRM", href: "/products/crm" },
+  { name: "Accounts", href: "/products/accounts" },
+  { name: "Inventory", href: "/products/inventory" },
+  { name: "Point of Sale", href: "/products/point-of-sale" },
+  { name: "eCommerce", href: "/products/ecommerce" },
+  { name: "Invoiceing", href: "/products/invoicing" },
+];
+
+const quickLinks = [
+  { name: "Blog", href: "/blog" },
+  { name: "Education", href: "/education" },
+  { name: "Newsletter", href: "/newsletter" },
+  { name: "Privecy Policy", href: "/privacy-policy" },
+  { name: "Terms Condition", href: "/terms-condition" },
+];
+
+const socialLinks = [
+  { icon: Linkedin, href: "#", label: "LinkedIn" },
+  {
+    icon: Facebook,
+    href: "https://www.facebook.com/muktodharalimited",
+    label: "Facebook",
+  },
+  { icon: Instagram, href: "#", label: "Instagram" },
+  { icon: Youtube, href: "#", label: "YouTube" },
+];
+
+function FooterHeading({ children }) {
+  return (
+    <h3 className="mb-5 text-sm font-bold uppercase tracking-[0.14em] text-white">
+      {children}
+      <span className="mt-2 block h-0.5 w-8 rounded-full bg-[var(--primary)]" />
+    </h3>
+  );
+}
+
+function FooterLink({ href, children }) {
+  return (
+    <Link
+      href={href}
+      className="text-sm text-slate-400 transition-colors hover:text-[var(--primary)]"
+    >
+      {children}
+    </Link>
+  );
+}
 
 export default function Footer() {
-  const solutionLinks = [
-    { name: "HRM & Payroll", href: "/products/hrm" },
-    { name: "CRM", href: "/products/crm" },
-    { name: "Accounts", href: "/products/accounts" },
-    { name: "Inventory", href: "/products/inventory" },
-    { name: "Point of Sale", href: "/products/point-of-sale" },
-    { name: "eCommerce", href: "/products/ecommerce" },
-    { name: "Invoiceing", href: "/products/invoicing" },
-  ];
-  const quickLinks = [
-    { name: "Blog", href: "/blog" },
-    { name: "Education", href: "/education" },
-    { name: "Newsletter", href: "/newsletter" },
-    { name: "Privecy Policy", href: "/privacy-policy" },
-    { name: "Terms Condition", href: "/terms-condition" },
-  ];
-
   return (
-    <footer className="bg-[#0f0f3d] text-gray-300">
-      {/* Main Footer Content */}
-      <div className="pt-8 pb-6 md:pt-20 md:pb-12">
-        <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
-            {/* Column 1: Brand & Contact */}
-            <div className="col-span-2 md:col-span-1 space-y-8 flex flex-col items-start text-left">
-              <Link href="/" className="inline-block" onClick={openConsultationFromLogo}>
-                <Image
-                  src="/ERP_logo.png"
-                  alt="ERP17 Logo"
-                  width={160}
-                  height={37}
-                  className="h-auto w-[140px] md:w-[160px]"
-                />
-              </Link>
-              <p className="text-gray-400 text-sm text-justify leading-relaxed max-w-xs">
-                ERP17 Cloud Solution is a leading business management platform
-                empowering enterprises with seamless automation. With a legacy
-                of serving 1,000+ businesses over 9 years, we specialize in
-                delivering integrated tools that simplify operations. Our
-                mission is simple: Smarter Business. Hassle-Free Life.
-              </p>
-            </div>
+    <footer className="relative overflow-hidden bg-slate-950 text-slate-300">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.07]"
+        aria-hidden
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0)",
+          backgroundSize: "24px 24px",
+        }}
+      />
+      <div
+        className="pointer-events-none absolute -top-24 left-1/2 h-48 w-[600px] -translate-x-1/2 rounded-full bg-[var(--primary)]/20 blur-3xl"
+        aria-hidden
+      />
 
-            {/* Right-side 3 columns block */}
-            <div className="col-span-2 md:col-span-2 lg:col-span-3 lg:col-start-2">
-              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {/* Column 2 + 3: Solutions and Devices + More */}
-                <div className="col-span-2 lg:col-span-2 text-left">
-                  <div className="grid grid-cols-2 gap-8">
-                    <div>
-                      <h3 className="text-white text-lg font-bold mb-8 relative inline-block">
-                        Solutions
-                        <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 w-8 h-1 bg-[var(--primary)] rounded-full"></span>
-                      </h3>
-                      <ul className="space-y-4">
-                        {solutionLinks.map((item) => (
-                          <li key={item.name}>
-                            <Link
-                              href={item.href}
-                              className="text-sm hover:text-[var(--primary)] hover:translate-x-1 inline-block transition-all"
-                            >
-                              {item.name}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h3 className="text-white text-lg font-bold mb-8 relative inline-block">
-                        Pages
-                        <span className="absolute -bottom-2 left-0 w-8 h-1 bg-[var(--primary)] rounded-full"></span>
-                      </h3>
-                      <ul className="space-y-4">
-                        {quickLinks.map((item) => (
-                          <li key={item.name}>
-                            <Link
-                              href={item.href}
-                              className="text-sm hover:text-[var(--primary)] hover:translate-x-1 inline-block transition-all"
-                            >
-                              {item.name}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Column 4: Contact + Socials */}
-                <div className="col-span-2 md:col-span-2 lg:col-span-1 text-left">
-                  <div className="grid grid-cols-1 md:grid-cols-1 gap-8 md:gap-0">
-                    <div>
-                      <h3 className="text-white text-lg font-bold mb-8 relative inline-block">
-                        Location
-                        <span className="absolute -bottom-2 left-0 w-8 h-1 bg-[var(--primary)] rounded-full"></span>
-                      </h3>
-                      <div className="space-y-3 text-sm text-gray-300">
-                        <div className="flex items-start gap-2.5">
-                          <FaMapMarkerAlt className="text-[var(--primary)] mt-1 flex-shrink-0" />
-                          <p>
-                            Dhaka Office: 820 Makkah Tower(9th Floor) West
-                            Shewrapara, Mirpur, Dhaka-1216 Bangladesh
-                          </p>
-                        </div>
-                        <div className="flex items-start gap-2.5">
-                          <FaMapMarkerAlt className="text-[var(--primary)] mt-1 flex-shrink-0" />
-                          <p>
-                            Chittagong Office: House#13, Road#3, Block-K,
-                            Halishahar, Chittagong. Bangladesh
-                          </p>
-                        </div>
-                        <div className="flex items-start gap-2.5">
-                          <FaPhoneAlt className="text-[var(--primary)] mt-1 flex-shrink-0" />
-                          <p>Phone: 8801982211000, 8801752711277</p>
-                        </div>
-                        <div className="flex items-start gap-2.5">
-                          <FaEnvelope className="text-[var(--primary)] mt-1 flex-shrink-0" />
-                          <p>Email: support@erp17.com</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="md:mt-8 md:pt-8 md:border-t md:border-gray-800 flex flex-col items-start text-left">
-                      <h4 className="text-white text-sm font-bold mb-4">
-                        Follow Our Socials
-                      </h4>
-                      <div className="flex gap-3 justify-start">
-                        {[
-                          { icon: <FaLinkedinIn />, href: "#" },
-                          { icon: <FaFacebookF />, href: "https://www.facebook.com/muktodharalimited" },
-                          { icon: <FaInstagram />, href: "#" },
-                          { icon: <FaYoutube />, href: "#" },
-                        ].map((social, idx) => (
-                          <Link
-                            key={idx}
-                            href={social.href}
-                            className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-xs hover:bg-[var(--primary)] hover:text-white transition-all shadow-sm"
-                          >
-                            {social.icon}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-span-2 md:col-span-2 lg:col-span-4 mt-0 md:mt-2">
+      <div className="container relative pt-10 pb-8 md:pt-14 md:pb-10">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-8">
+          {/* Brand */}
+          <div className="lg:col-span-4">
+            <Link
+              href="/"
+              className="inline-block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)]"
+            >
               <Image
-                src="/payment.png"
-                alt="ERP17 Solutions banner"
-                width={1600}
-                height={240}
-                className="w-full h-auto md:h-28 object-contain md:object-cover opacity-90"
+                src={FOOTER_LOGO_SRC}
+                alt={SITE_LOGO_ALT}
+                width={340}
+                height={76}
+                className="h-auto w-[140px] object-contain md:w-[155px]"
               />
+            </Link>
+            <p className="mt-3 max-w-sm text-sm leading-relaxed text-slate-400">
+              ERP17 Cloud Solution is a leading business management platform
+              empowering enterprises with seamless automation. With a legacy of
+              serving 1,000+ businesses over 9 years, we specialize in
+              delivering integrated tools that simplify operations. Our mission
+              is simple: Smarter Business. Hassle-Free Life.
+            </p>
+            <p className="mt-2 text-sm font-semibold text-[var(--primary)]">
+              Simplify Operations. Accelerate Growth.
+            </p>
+          </div>
+
+          {/* Solutions + Pages */}
+          <div className="grid grid-cols-2 gap-6 lg:col-span-4 lg:gap-8">
+            <div>
+              <FooterHeading>Solutions</FooterHeading>
+              <ul className="space-y-3">
+                {solutionLinks.map((item) => (
+                  <li key={item.name}>
+                    <FooterLink href={item.href}>{item.name}</FooterLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <FooterHeading>Pages</FooterHeading>
+              <ul className="space-y-3">
+                {quickLinks.map((item) => (
+                  <li key={item.name}>
+                    <FooterLink href={item.href}>{item.name}</FooterLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Contact */}
+          <div className="lg:col-span-4">
+            <FooterHeading>Location</FooterHeading>
+            <ul className="space-y-4 text-sm text-slate-400">
+              <li className="flex gap-3">
+                <MapPin
+                  className="mt-0.5 h-4 w-4 shrink-0 text-[var(--primary)]"
+                  strokeWidth={2.2}
+                />
+                <span>
+                  <span className="font-medium text-slate-300">
+                    Dhaka Office:
+                  </span>{" "}
+                  820 Makkah Tower(9th Floor) West Shewrapara, Mirpur,
+                  Dhaka-1216 Bangladesh
+                </span>
+              </li>
+              <li className="flex gap-3">
+                <MapPin
+                  className="mt-0.5 h-4 w-4 shrink-0 text-[var(--primary)]"
+                  strokeWidth={2.2}
+                />
+                <span>
+                  <span className="font-medium text-slate-300">
+                    Chittagong Office:
+                  </span>{" "}
+                  House#13, Road#3, Block-K, Halishahar, Chittagong. Bangladesh
+                </span>
+              </li>
+              <li className="flex gap-3">
+                <Phone
+                  className="mt-0.5 h-4 w-4 shrink-0 text-[var(--primary)]"
+                  strokeWidth={2.2}
+                />
+                <span>
+                  <span className="font-medium text-slate-300">Phone:</span>{" "}
+                  <a
+                    href="tel:+8801982211000"
+                    className="hover:text-[var(--primary)]"
+                  >
+                    8801982211000
+                  </a>
+                  ,{" "}
+                  <a
+                    href="tel:+8801752711277"
+                    className="hover:text-[var(--primary)]"
+                  >
+                    8801752711277
+                  </a>
+                </span>
+              </li>
+              <li className="flex gap-3">
+                <Mail
+                  className="mt-0.5 h-4 w-4 shrink-0 text-[var(--primary)]"
+                  strokeWidth={2.2}
+                />
+                <span>
+                  <span className="font-medium text-slate-300">Email:</span>{" "}
+                  <a
+                    href="mailto:support@erp17.com"
+                    className="hover:text-[var(--primary)]"
+                  >
+                    support@erp17.com
+                  </a>
+                </span>
+              </li>
+            </ul>
+
+            <div className="mt-8 border-t border-white/10 pt-6">
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-slate-300">
+                Follow Our Socials
+              </p>
+              <div className="flex flex-wrap gap-2.5">
+                {socialLinks.map((social) => {
+                  const Icon = social.icon;
+                  return (
+                    <Link
+                      key={social.label}
+                      href={social.href}
+                      aria-label={social.label}
+                      className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-slate-300 transition-colors hover:border-[var(--primary)]/40 hover:bg-[var(--primary)] hover:text-white"
+                    >
+                      <Icon className="h-4 w-4" strokeWidth={2} />
+                    </Link>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
+
+        <div className="mt-10 md:mt-12">
+          <Image
+            src="/payment.png"
+            alt="Accepted payment methods"
+            width={1600}
+            height={240}
+            className="h-auto w-full object-contain opacity-95"
+          />
+        </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-gray-800 py-8 bg-[#0a0a2b]">
-        <div className="container flex items-center justify-center text-center">
-          <p className="text-sm text-gray-500">
-            ©️ 2026, ERP17 Cloud Solution. All Rights Reserved.
+      <div className="relative border-t border-white/10 bg-black/20 py-5">
+        <div className="container text-center">
+          <p className="text-sm text-slate-500">
+            © 2026, ERP17 Cloud Solution. All Rights Reserved.
           </p>
         </div>
       </div>

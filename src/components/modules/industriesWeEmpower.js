@@ -18,6 +18,7 @@ import {
   UtensilsCrossed,
   Wrench,
 } from "lucide-react";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 const notoBengali = Noto_Sans_Bengali({
   subsets: ["bengali"],
@@ -135,41 +136,49 @@ function IndustryIcon({ icon }) {
   };
   const Icon = icons[icon] ?? Building2;
 
-  return (
-    <Icon className="h-4 w-4 md:h-5 md:w-5" strokeWidth={2} />
-  );
+  return <Icon className="h-5 w-5" strokeWidth={2} />;
 }
 
 export default function IndustriesWeEmpower() {
   return (
     <section
       id="industries-we-empower"
-      className="py-6 md:py-20 scroll-mt-20"
+      className="scroll-mt-20 bg-slate-50 py-8 md:py-12"
     >
       <div className="container">
-        <header className="text-center mb-5 md:mb-12 px-2">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--secondary)]">
-            Industries We Empower
-          </h2>
-        </header>
+        <SectionHeader
+          eyebrow="Industries"
+          title="Industries We Empower"
+          description="From manufacturing floors to retail chains — ERP17 adapts to the way your sector operates."
+        />
 
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {industries.map((item, index) => (
             <article
               key={`${item.icon}-${index}`}
-              className="w-full md:w-[calc(50%-0.5rem)] xl:w-[calc(25%-0.75rem)] p-6 rounded-2xl bg-white border border-slate-200 flex flex-col items-center text-center shadow-sm"
+              className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-5"
             >
-              <div className="w-14 h-14 bg-[var(--primary-soft)] text-[var(--primary)] rounded-full flex items-center justify-center mb-6">
-                <IndustryIcon icon={item.icon} />
+              <div
+                className="absolute left-0 top-0 h-full w-1 bg-[var(--primary)]/70"
+                aria-hidden
+              />
+              <div className="flex h-full flex-col pl-1">
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[var(--primary-soft)] text-[var(--primary)]">
+                    <IndustryIcon icon={item.icon} />
+                  </div>
+                  <h3 className="min-w-0 text-base font-bold leading-snug text-[var(--secondary)]">
+                    {item.title}
+                  </h3>
+                </div>
+                <p
+                  lang="bn"
+                  dir="ltr"
+                  className={`${notoBengali.className} mt-4 text-sm leading-relaxed text-slate-600`}
+                >
+                  {item.descriptionBn}
+                </p>
               </div>
-              <h3 className="text-lg font-bold text-[var(--secondary)] mb-3">{item.title}</h3>
-              <p
-                lang="bn"
-                dir="ltr"
-                className={`${notoBengali.className} text-sm text-slate-600 leading-relaxed w-full`}
-              >
-                {item.descriptionBn}
-              </p>
             </article>
           ))}
         </div>

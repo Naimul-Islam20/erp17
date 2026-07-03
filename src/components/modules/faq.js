@@ -151,7 +151,7 @@ const faqs = [
 function FaqItem({ q, a }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border border-gray-300 bg-white text-blue rounded-2xl overflow-hidden   transition">
+    <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
       <button
         className="w-full flex items-center justify-between gap-4 p-5 text-left"
         onClick={() => setOpen((s) => !s)}
@@ -181,18 +181,22 @@ function FaqItem({ q, a }) {
 
 export default function ERP17Faq() {
   return (
-    <div className="bg-white">
-      {/* Header */}
-      <section className="container pt-5 md:pt-16 pb-4 text-black text-center">
-        <div className="space-y-4">
-          <h1 className="text-3xl md:text-5xl text-[var(--secondary)] font-extrabold tracking-tight">
-            FAQ
-          </h1>
+    <div className="bg-white pb-8 md:pb-12">
+      <section className="container pt-6 md:pt-10">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--primary)]">
+            Support
+          </p>
+          <h2 className="mt-3 text-3xl font-bold text-[var(--secondary)] md:text-4xl">
+            Frequently Asked Questions
+          </h2>
+          <p className="mt-4 text-slate-600">
+            Everything you need to know about ERP17 Cloud Solution.
+          </p>
         </div>
       </section>
 
-      {/* FAQ Grid */}
-      <section className="container pb-6 md:pb-16 grid grid-cols-1 gap-3">
+      <section className="container mt-6 grid max-w-4xl grid-cols-1 gap-3 md:mt-8">
         {faqs.map((f) => (
           <FaqItem key={f.id} q={f.question} a={f.answer} />
         ))}

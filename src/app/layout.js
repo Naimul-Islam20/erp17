@@ -4,6 +4,12 @@ import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import ConsultationPopup from "@/components/layout/ConsultationPopup";
+import {
+  SITE_LOGO_ALT,
+  SITE_LOGO_HEIGHT,
+  SITE_LOGO_SRC,
+  SITE_LOGO_WIDTH,
+} from "@/constants/brand";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,10 +51,10 @@ export const metadata = {
       "Accounts, inventory, POS, HRM, CRM, eCommerce, and more on one platform for businesses in Bangladesh.",
     images: [
       {
-        url: "/ERP_logo.png",
-        width: 2364,
-        height: 548,
-        alt: "ERP17 Cloud Solution",
+        url: SITE_LOGO_SRC,
+        width: SITE_LOGO_WIDTH,
+        height: SITE_LOGO_HEIGHT,
+        alt: SITE_LOGO_ALT,
       },
     ],
   },
@@ -57,11 +63,11 @@ export const metadata = {
     title: "ERP17 Cloud Solution",
     description:
       "Accounts, inventory, POS, HRM, CRM, eCommerce, and more on one platform for businesses in Bangladesh.",
-    images: ["/ERP_logo.png"],
+    images: [SITE_LOGO_SRC],
   },
   icons: {
-    icon: [{ url: "/ERP_logo.png", type: "image/png" }],
-    apple: [{ url: "/ERP_logo.png" }],
+    icon: [{ url: SITE_LOGO_SRC, type: "image/png" }],
+    apple: [{ url: SITE_LOGO_SRC }],
   },
 };
 

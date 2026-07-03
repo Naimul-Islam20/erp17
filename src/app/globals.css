@@ -4,10 +4,10 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --primary: #e9a70e;
-  --primary-hover: #ecc00d;
-  --primary-soft: #f7f0d8;
-  --secondary: #1e1e6d;
+  --primary: #3ba100;
+  --primary-hover: #5abe20;
+  --primary-soft: #cdf2b7;
+  --secondary: #54575a;
 }
 
 @theme inline {
@@ -27,7 +27,13 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    var(--font-geist-sans),
+    system-ui,
+    -apple-system,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -64,7 +70,7 @@ body {
 
 @media (min-width: 1536px) {
   .container {
-    max-width: 1440px;
+    max-width: 1320px;
   }
 }
 

@@ -2,24 +2,39 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
+import SiteLogo from "@/components/brand/SiteLogo";
 import { buildApiUrl } from "@/lib/api-config";
 import {
-  CONSULTATION_OPEN_EVENT,
-  CONSULTATION_OPEN_FLAG,
+  clearConsultationNextOpenAt,
+  getConsultationNextOpenAt,
   isConsultationSuppressed,
   markConsultationSubmitted,
+  setConsultationNextOpenAt,
 } from "@/lib/consultation-popup";
 
 const LEGACY_DISMISS_KEY = "erp17-consultation-dismissed";
-const OPEN_DELAY_MS = 600;
+const INITIAL_OPEN_DELAY_MS = 10 * 1000;
+const REOPEN_DELAY_MS = 3 * 60 * 1000;
 
 export default function ConsultationPopup() {
   const pathname = usePathname();
-  const dismissedPathsRef = useRef(new Set());
+  const openTimerRef = useRef(null);
+  const toastTimerRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [toast, setToast] = useState({ visible: false, type: "", message: "" });
+
+  const schedulePopupOpen = (openAt) => {
+    if (openTimerRef.current) {
+      window.clearTimeout(openTimerRef.current);
+    }
+
+    openTimerRef.current = window.setTimeout(() => {
+      clearConsultationNextOpenAt();
+      setIsOpen(true);
+      openTimerRef.current = null;
+    }, Math.max(openAt - Date.now(), 0));
+  };
 
   useEffect(() => {
     try {
@@ -30,62 +45,63 @@ export default function ConsultationPopup() {
   }, []);
 
   useEffect(() => {
-    const handleOpenRequest = () => {
-      if (isConsultationSuppressed()) return;
-      dismissedPathsRef.current.delete(pathname);
-      setIsOpen(true);
-    };
+    if (openTimerRef.current) {
+      window.clearTimeout(openTimerRef.current);
+      openTimerRef.current = null;
+    }
 
-    window.addEventListener(CONSULTATION_OPEN_EVENT, handleOpenRequest);
-    return () =>
-      window.removeEventListener(CONSULTATION_OPEN_EVENT, handleOpenRequest);
-  }, [pathname]);
-
-  useEffect(() => {
     setIsOpen(false);
 
     if (isConsultationSuppressed()) {
       return;
     }
 
-    let forceOpen = false;
-    try {
-      if (sessionStorage.getItem(CONSULTATION_OPEN_FLAG) === "1") {
-        sessionStorage.removeItem(CONSULTATION_OPEN_FLAG);
-        forceOpen = true;
+    const now = Date.now();
+    let nextOpenAt = getConsultationNextOpenAt();
+
+    if (!nextOpenAt) {
+      nextOpenAt = now + INITIAL_OPEN_DELAY_MS;
+      setConsultationNextOpenAt(nextOpenAt);
+    }
+
+    schedulePopupOpen(nextOpenAt <= now ? now : nextOpenAt);
+
+    return () => {
+      if (openTimerRef.current) {
+        window.clearTimeout(openTimerRef.current);
+        openTimerRef.current = null;
       }
-    } catch {
-      // ignore storage errors (private mode, etc.)
-    }
-
-    if (!forceOpen && dismissedPathsRef.current.has(pathname)) {
-      return;
-    }
-
-    if (forceOpen) {
-      dismissedPathsRef.current.delete(pathname);
-    }
-
-    const timer = window.setTimeout(() => {
-      if (forceOpen || !dismissedPathsRef.current.has(pathname)) {
-        setIsOpen(true);
-      }
-    }, OPEN_DELAY_MS);
-
-    return () => window.clearTimeout(timer);
+    };
   }, [pathname]);
 
   const dismissPopup = () => {
-    dismissedPathsRef.current.add(pathname);
+    const reopenAt = Date.now() + REOPEN_DELAY_MS;
+    setConsultationNextOpenAt(reopenAt);
+    schedulePopupOpen(reopenAt);
     setIsOpen(false);
   };
 
   const showToast = (type, message) => {
+    if (toastTimerRef.current) {
+      window.clearTimeout(toastTimerRef.current);
+    }
+
     setToast({ visible: true, type, message });
-    window.setTimeout(() => {
+    toastTimerRef.current = window.setTimeout(() => {
       setToast((prev) => ({ ...prev, visible: false }));
     }, 3500);
   };
+
+  useEffect(() => {
+    return () => {
+      if (openTimerRef.current) {
+        window.clearTimeout(openTimerRef.current);
+      }
+      if (toastTimerRef.current) {
+        window.clearTimeout(toastTimerRef.current);
+      }
+    };
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -199,13 +215,9 @@ export default function ConsultationPopup() {
 
         <div className="grid md:grid-cols-12">
           <div className="bg-gradient-to-br from-[var(--primary)] to-[var(--primary-hover)] p-5 sm:p-7 md:col-span-6 md:p-10 flex flex-col items-center justify-center text-center min-h-[180px] sm:min-h-[220px]">
-            <Image
-              src="/ERP_logo.png"
-              alt="ERP17 Logo"
-              width={140}
-              height={40}
-              className="relative -top-3 sm:-top-6 mb-1 sm:mb-4 h-auto w-[96px] sm:w-[140px]"
+            <SiteLogo
               priority
+              className="relative -top-3 sm:-top-6 mb-1 sm:mb-4 h-auto w-[96px] sm:w-[140px]"
             />
             <p className="text-[11px] uppercase tracking-[0.2em] text-white/85 font-semibold">
               ERP17 Cloud Solution

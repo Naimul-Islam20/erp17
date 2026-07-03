@@ -56,7 +56,7 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="py-10 md:py-16 bg-gray-50">
+    <main className="bg-gray-50 pt-10 md:pt-16">
       {toast.visible ? (
         <div className="fixed top-[96px] right-5 z-[130] animate-[slideInRight_.35s_ease-out]">
           <div
@@ -220,7 +220,7 @@ export default function ContactPage() {
       </div>
 
       {/* Map Section - Full Width */}
-      <div className="mt-16 h-[450px] w-full border-t border-b border-gray-100">
+      <div className="mt-16 h-[450px] w-full border-t border-gray-100">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.165416248358!2d91.79157267566735!3d22.347318841193356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd9184285b54d%3A0x6b44a8fc37812546!2sAgrabad%2C%20Chattogram!5e0!3m2!1sen!2sbd!4v1708064500000!5m2!1sen!2sbd"
           width="100%"

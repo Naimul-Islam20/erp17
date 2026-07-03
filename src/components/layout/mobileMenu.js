@@ -110,19 +110,18 @@ const MobileMenu = ({ isOpen, onClose, menus }) => {
                             <a
                               href={`/${child.menu_uid}`}
                               onClick={onClose}
-                              className="flex items-start space-x-3 py-2 hover:bg-gray-100 rounded"
+                              className="flex items-start gap-3 rounded-xl px-3 py-3 transition-colors duration-200 hover:bg-slate-50"
                             >
-                              <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center">
+                              <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--primary-soft)]/55 text-[var(--primary)]">
                                 <ChildIcon
-                                  style={{ color: child.icon_color }}
                                   className="h-4 w-4"
                                 />
                               </span>
-                              <div>
-                                <span className="block text-sm font-medium text-[var(--secondary)]">
+                              <div className="min-w-0 flex-1">
+                                <span className="block text-sm font-semibold text-[var(--secondary)]">
                                   {child.menu_name}
                                 </span>
-                                <span className="block text-xs text-gray-500">
+                                <span className="mt-1 block text-xs leading-5 text-slate-500">
                                   {child.description}
                                 </span>
                               </div>
