@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Calendar, User, Clock, ArrowRight } from "lucide-react";
+import { Calendar, ArrowRight } from "lucide-react";
 import blogsData from "@/data/blogs.json";
 
 export default function BlogPage() {
@@ -53,10 +53,6 @@ export default function BlogPage() {
                       year: "numeric",
                     })}
                   </div>
-                  <div className="flex items-center gap-1">
-                    <Clock size={14} />
-                    {blog.readTime}
-                  </div>
                 </div>
 
                 <div className="h-[60px] mb-3">
@@ -73,14 +69,7 @@ export default function BlogPage() {
                   </p>
                 </div>
 
-                <div className="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 bg-[var(--primary-soft)] rounded-full flex items-center justify-center text-[var(--primary)] font-bold text-xs">
-                      {blog.author[0]}
-                    </div>
-                    <span className="text-sm font-medium text-gray-700">{blog.author}</span>
-                  </div>
-                  
+                <div className="flex items-center justify-start pt-4 border-t border-gray-100 mt-auto">
                   <Link 
                     href={`/blog/${blog.slug}`}
                     className="text-[var(--primary)] hover:text-[var(--primary-hover)] font-bold text-sm flex items-center gap-1 group/link"

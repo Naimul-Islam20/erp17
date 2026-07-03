@@ -3353,6 +3353,12 @@
   .justify-center {
     justify-content: center;
   }
+  .justify-end {
+    justify-content: flex-end;
+  }
+  .justify-start {
+    justify-content: flex-start;
+  }
   .gap-1 {
     gap: calc(var(--spacing) * 1);
   }
@@ -4765,6 +4771,20 @@
         --tw-translate-x: calc(var(--spacing) * 1);
         translate: var(--tw-translate-x) var(--tw-translate-y);
       }
+    }
+  }
+  .marker\:text-\[var\(--primary\)\] {
+    & *::marker {
+      color: var(--primary);
+    }
+    &::marker {
+      color: var(--primary);
+    }
+    & *::-webkit-details-marker {
+      color: var(--primary);
+    }
+    &::-webkit-details-marker {
+      color: var(--primary);
     }
   }
   .selection\:bg-\[var\(--primary-soft\)\] {
@@ -6260,9 +6280,25 @@
       border-radius: var(--radius-xl);
     }
   }
+  .lg\:border-l {
+    @media (width >= 64rem) {
+      border-left-style: var(--tw-border-style);
+      border-left-width: 1px;
+    }
+  }
+  .lg\:border-slate-200 {
+    @media (width >= 64rem) {
+      border-color: var(--color-slate-200);
+    }
+  }
   .lg\:pb-8 {
     @media (width >= 64rem) {
       padding-bottom: calc(var(--spacing) * 8);
+    }
+  }
+  .lg\:pl-8 {
+    @media (width >= 64rem) {
+      padding-left: calc(var(--spacing) * 8);
     }
   }
   .lg\:text-left {

@@ -1,9 +1,8 @@
 {
-  "/education/page": "app/education/page.js",
-  "/blog/page": "app/blog/page.js",
   "/blog/[slug]/page": "app/blog/[slug]/page.js",
-  "/products/hrm/page": "app/products/hrm/page.js",
+  "/terms-condition/page": "app/terms-condition/page.js",
+  "/blog/page": "app/blog/page.js",
   "/page": "app/page.js",
-  "/products/gamezone/page": "app/products/gamezone/page.js",
-  "/newsletter/page": "app/newsletter/page.js"
+  "/products/hrm/page": "app/products/hrm/page.js",
+  "/plans/page": "app/plans/page.js"
 }
