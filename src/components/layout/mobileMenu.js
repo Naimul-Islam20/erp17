@@ -69,18 +69,18 @@ const MobileMenu = ({ isOpen, onClose, menus }) => {
         </div>
 
         {/* Menu Items */}
-        <ul className="p-4 space-y-2 overflow-y-auto flex-1">
+        <ul className="p-4 space-y-1.5 overflow-y-auto flex-1">
           {menuList.map((menu) => {
             const hasChildren =
               Boolean(menu?.has_child) && Array.isArray(menu?.children) && menu.children.length > 0;
 
             return (
-              <li key={menu.id} className="border-b border-gray-300 pb-2">
+              <li key={menu.id} className="border-b border-gray-300 pb-1.5">
                 {hasChildren ? (
                   <>
                     {/* Parent menu (no icon) */}
                     <div
-                      className="flex justify-between items-center cursor-pointer py-2"
+                      className="flex cursor-pointer items-center justify-between py-1.5"
                       onClick={() => toggleMenu(menu.id)}
                       role="button"
                       aria-expanded={activeMenu === menu.id}
@@ -97,9 +97,9 @@ const MobileMenu = ({ isOpen, onClose, menus }) => {
 
                     {/* Dropdown children */}
                     <ul
-                      className={`pl-4 space-y-2 overflow-hidden transition-all duration-300 ease-in-out ${
+                      className={`pl-4 space-y-1.5 overflow-hidden transition-all duration-300 ease-in-out ${
                         activeMenu === menu.id
-                          ? "max-h-[2000px] opacity-100 mt-2"
+                          ? "mt-1.5 max-h-[2000px] opacity-100"
                           : "max-h-0 opacity-0 mt-0"
                       }`}
                     >
@@ -110,7 +110,7 @@ const MobileMenu = ({ isOpen, onClose, menus }) => {
                             <a
                               href={`/${child.menu_uid}`}
                               onClick={onClose}
-                              className="flex items-start gap-3 rounded-xl px-3 py-3 transition-colors duration-200 hover:bg-slate-50"
+                              className="flex items-start gap-2.5 rounded-xl px-2.5 py-2.5 transition-colors duration-200 hover:bg-slate-50"
                             >
                               <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--primary-soft)]/55 text-[var(--primary)]">
                                 <ChildIcon

@@ -152,17 +152,13 @@ export default function IndustriesWeEmpower() {
           description="From manufacturing floors to retail chains — ERP17 adapts to the way your sector operates."
         />
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:auto-rows-fr sm:grid-cols-2 xl:grid-cols-4">
           {industries.map((item, index) => (
             <article
               key={`${item.icon}-${index}`}
-              className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-5"
+              className="relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-white px-4 pt-4 pb-3"
             >
-              <div
-                className="absolute left-0 top-0 h-full w-1 bg-[var(--primary)]/70"
-                aria-hidden
-              />
-              <div className="flex h-full flex-col pl-1">
+              <div className="flex h-full flex-col gap-y-3">
                 <div className="flex items-center gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[var(--primary-soft)] text-[var(--primary)]">
                     <IndustryIcon icon={item.icon} />
@@ -174,7 +170,7 @@ export default function IndustriesWeEmpower() {
                 <p
                   lang="bn"
                   dir="ltr"
-                  className={`${notoBengali.className} mt-4 text-sm leading-relaxed text-slate-600`}
+                  className={`${notoBengali.className} text-sm leading-relaxed text-slate-600`}
                 >
                   {item.descriptionBn}
                 </p>

@@ -150,7 +150,7 @@ const HrFeatures = () => {
               <Link
                 key={feature.href}
                 href={feature.href}
-                className="flex h-full flex-col rounded-2xl border border-slate-200/90 bg-white p-5 shadow-[0_1px_3px_rgba(15,23,42,0.04)] sm:p-6 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)] md:rounded-3xl"
+                className="flex h-full flex-col rounded-2xl border border-slate-200/90 bg-white p-4 shadow-[0_1px_3px_rgba(15,23,42,0.04)] sm:p-5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)] md:rounded-3xl"
               >
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--primary-soft)] to-white text-[var(--primary)] ring-1 ring-[var(--primary-soft)]">
                   <Icon className="text-2xl" />

@@ -93,8 +93,8 @@ export default function Header() {
             </div>
 
             {/* 🔹 Desktop Menu */}
-            <div className="hidden lg:flex items-center space-x-6">
-              <ul className="flex space-x-6">
+            <div className="hidden lg:flex items-center space-x-5">
+              <ul className="flex space-x-5">
                 {menuList.map((menu) => {
                   const childCount = menu.children?.length || 0;
                   const hasChildren =
@@ -131,8 +131,8 @@ export default function Header() {
                           className={`
     ${
       childCount > 10
-        ? "fixed top-14 md:top-[72px] lg:top-[88px] left-0 right-0 mx-auto w-[90vw] max-w-[1600px] rounded-b-2xl border border-slate-200 bg-white text-gray-800 z-50 p-5 max-h-[80vh] overflow-y-auto overscroll-contain"
-        : "absolute top-full mt-6 rounded-b-2xl border border-slate-200 bg-white text-gray-800 z-50 p-5 " +
+        ? "fixed top-14 md:top-[72px] lg:top-[88px] left-0 right-0 mx-auto w-[90vw] max-w-[1600px] rounded-b-2xl border border-slate-200 bg-white text-gray-800 shadow-[0_16px_30px_rgba(15,23,42,0.10)] z-50 p-4 max-h-[80vh] overflow-y-auto overscroll-contain"
+        : "absolute top-full mt-4 rounded-b-2xl border border-slate-200 bg-white text-gray-800 shadow-[0_16px_30px_rgba(15,23,42,0.10)] z-50 p-4 " +
           (childCount > 5
             ? "left-1/2 -translate-x-1/2 min-w-[720px]"
             : "left-1/2 -translate-x-1/2 min-w-[360px]")
@@ -140,7 +140,7 @@ export default function Header() {
   `}
                         >
                           <div
-                            className={`grid gap-4 ${
+                            className={`grid gap-2.5 ${
                               childCount > 10
                                 ? "grid-cols-3"
                                 : childCount > 5
@@ -154,7 +154,7 @@ export default function Header() {
                                 <Link
                                   key={child.id}
                                   href={`/${child.menu_uid}`}
-                                  className="flex items-start gap-3 px-3 py-3 transition-colors duration-200 hover:bg-slate-50"
+                                  className="flex items-start gap-2.5 px-2.5 py-2.5 transition-colors duration-200 hover:bg-slate-50"
                                   onClick={() => setOpenDropdown(null)}
                                 >
                                   <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--primary-soft)]/55 text-[var(--primary)]">
@@ -182,7 +182,7 @@ export default function Header() {
               </ul>
 
               {/* Get Started button */}
-              <div className="ml-6">
+              <div className="ml-5">
                 <Link href="/get-quote" className={primaryCtaClassName}>Get a Quote</Link>
               </div>
             </div>
