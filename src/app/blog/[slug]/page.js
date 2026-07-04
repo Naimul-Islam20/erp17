@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar, ChevronLeft } from "lucide-react";
+import RelatedArticlesSidebar from "@/components/blog/RelatedArticlesSidebar";
 import blogsData from "@/data/blogs.json";
 
 export function generateStaticParams() {
@@ -34,8 +35,8 @@ export default async function BlogDetailsPage({ params }) {
     );
   }
 
-  // Related posts (excluding current)
-  const relatedPosts = blogsData.filter((b) => b.id !== blog.id).slice(0, 3);
+  const relatedPosts = blogsData.filter((b) => b.id !== blog.id);
+  const categories = [...new Set(relatedPosts.map((post) => post.category))];
 
   return (
     <main className="min-h-screen bg-white py-10 md:py-16">
@@ -48,19 +49,25 @@ export default async function BlogDetailsPage({ params }) {
           Back to Blog
         </Link>
 
-        <section>
-          <span className="inline-flex rounded-full bg-[var(--primary-soft)]/40 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--primary)]">
-            {blog.category}
-          </span>
-          <h1 className="mt-4 text-3xl font-extrabold leading-tight text-[var(--secondary)] md:text-5xl">
-            {blog.title}
-          </h1>
-        </section>
-
-        <section className="mt-8 grid gap-12 lg:grid-cols-12">
+        <section className="mt-2 grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-8">
+            <div>
+              <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                <span className="inline-flex rounded-full bg-[var(--primary-soft)]/40 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--primary)]">
+                  {blog.category}
+                </span>
+                <p className="inline-flex items-center gap-2 text-sm font-medium text-slate-500">
+                  <Calendar className="h-4 w-4 text-[var(--primary)]" />
+                  {formatBlogDate(blog.date)}
+                </p>
+              </div>
+              <h1 className="mt-4 text-3xl font-extrabold leading-tight text-[var(--secondary)] md:text-5xl">
+                {blog.title}
+              </h1>
+            </div>
+
             <div className="overflow-hidden rounded-2xl">
-              <div className="relative h-[260px] w-full md:h-[420px]">
+              <div className="relative mt-8 h-[260px] w-full md:h-[420px]">
                 <Image
                   src={blog.image}
                   alt={blog.title}
@@ -124,64 +131,10 @@ export default async function BlogDetailsPage({ params }) {
           </div>
 
           <aside className="lg:col-span-4 lg:border-l lg:border-slate-200 lg:pl-8">
-            <div className="lg:sticky lg:top-28">
-              <div className="rounded-2xl border border-slate-200 bg-white p-5">
-                <h3 className="text-lg font-bold text-[var(--secondary)]">
-                  Article Details
-                </h3>
-                <div className="mt-5 space-y-4 text-sm text-slate-600">
-                  <div>
-                    <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">
-                      <Calendar className="h-3.5 w-3.5 text-[var(--primary)]" />
-                      Published
-                    </p>
-                    <p className="mt-1 font-medium text-[var(--secondary)]">
-                      {formatBlogDate(blog.date)}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">
-                      Category
-                    </p>
-                    <p className="mt-1 font-medium text-[var(--secondary)]">
-                      {blog.category}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-8">
-                <h3 className="text-2xl font-bold text-[var(--secondary)]">
-                  Related Articles
-                </h3>
-              </div>
-              <div className="mt-6 space-y-5">
-                {relatedPosts.map((post) => (
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    key={post.id}
-                    className="group block overflow-hidden rounded-2xl border border-slate-200 bg-white"
-                  >
-                    <div className="relative h-44 overflow-hidden">
-                      <Image
-                        src={post.image}
-                        alt={post.title}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="p-5">
-                      <h4 className="line-clamp-2 text-lg font-bold leading-tight text-[var(--secondary)]">
-                        {post.title}
-                      </h4>
-                      <p className="mt-2 text-xs text-slate-500">
-                        {formatBlogDate(post.date)}
-                      </p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
+            <RelatedArticlesSidebar
+              posts={relatedPosts}
+              categories={categories}
+            />
           </aside>
         </section>
       </article>

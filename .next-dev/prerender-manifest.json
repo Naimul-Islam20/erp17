@@ -1,1 +1,11 @@
-{"version":4,"routes":{"/blog/future-of-hr-management-bangladesh":{},"/blog/maximizing-productivity-automated-payroll":{},"/blog/navigating-bangladesh-labor-law-2024":{},"/blog/employee-engagement-remote-work":{},"/blog/impact-of-ai-on-recruitment":{},"/blog/building-modern-workplace-culture":{}},"dynamicRoutes":{"/blog/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/blog/[slug]","routeRegex":"^\\/blog\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"781502c7255f24ee6fb2133cff66a8f6","previewModeSigningKey":"b372baa7f4a90df38f2d6475123da0f85d89120e4f6718e8132f1338bbbb90d5","previewModeEncryptionKey":"523d2404bf21013142f71c920c048957896385466cfb8514ab2e4b36490dd3af"}}
+{
+  "version": 4,
+  "routes": {},
+  "dynamicRoutes": {},
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "0bad3a70a73dad3c375a8becb08848b4",
+    "previewModeSigningKey": "8c4e9bb7f26fdc0983b3c1c6740bc096cbe53ce735f9438547e106ccae5f04d3",
+    "previewModeEncryptionKey": "1c977319887882740b726a3b2665d143e6f58a97149c41b55add47704f6b9115"
+  }
+}

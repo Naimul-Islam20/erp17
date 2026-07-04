@@ -1,8 +1,4 @@
 {
-  "/blog/[slug]/page": "app/blog/[slug]/page.js",
-  "/terms-condition/page": "app/terms-condition/page.js",
-  "/blog/page": "app/blog/page.js",
   "/page": "app/page.js",
-  "/products/hrm/page": "app/products/hrm/page.js",
-  "/plans/page": "app/plans/page.js"
+  "/devices/page": "app/devices/page.js"
 }
