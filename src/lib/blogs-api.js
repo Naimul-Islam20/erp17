@@ -22,7 +22,7 @@ function pickFeaturedImage(blog) {
   return (
     blog.blocks?.find((block) => block.type === "image")?.image_url ||
     blog.image ||
-    "/website.png"
+    "/Website.png"
   );
 }
 
@@ -32,7 +32,7 @@ function mapStaticBlog(blog) {
     slug: String(blog.id),
     title: blog.title || "",
     category: blog.category || "General",
-    image: blog.image || "/website.png",
+    image: blog.image || "/Website.png",
     excerpt: blog.excerpt || "",
     date: blog.date || new Date().toISOString(),
     blocksCount: 0,
@@ -45,7 +45,7 @@ function mapStaticBlogDetails(blog) {
     slug: String(blog.id),
     title: blog.title || "",
     category: blog.category || "General",
-    image: blog.image || "/website.png",
+    image: blog.image || "/Website.png",
     excerpt: blog.excerpt || "",
     date: blog.date || new Date().toISOString(),
     blocks: blog.content
