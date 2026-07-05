@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import { getNewsletters } from "@/lib/newsletters";
 import NewsletterNewsContent from "@/components/newsletter/NewsletterNewsContent";
 import { getNewsletterCategories } from "@/data/newsletterNav";
@@ -15,9 +14,7 @@ export default async function NewsletterPage() {
   return (
     <main className="min-h-screen bg-white py-8 md:py-12">
       <div className="container max-w-5xl">
-        <Suspense fallback={<p className="text-black text-sm">Loading…</p>}>
-          <NewsletterNewsContent items={newsletterItems} categories={categories} />
-        </Suspense>
+        <NewsletterNewsContent items={newsletterItems} categories={categories} />
       </div>
     </main>
   );

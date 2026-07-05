@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { FOOTER_LOGO_SRC, SITE_LOGO_ALT } from "@/constants/brand";
+import { SITE_LOGO_ALT, SITE_LOGO_SRC } from "@/constants/brand";
 import {
   Facebook,
   Instagram,
@@ -55,7 +55,7 @@ function FooterLink({ href, children }) {
   return (
     <Link
       href={href}
-      className="text-sm text-slate-400 transition-colors hover:text-[var(--primary)]"
+      className="text-sm text-white/75 transition-colors hover:text-[var(--primary)]"
     >
       {children}
     </Link>
@@ -64,7 +64,7 @@ function FooterLink({ href, children }) {
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-slate-950 text-slate-300">
+    <footer className="relative overflow-hidden bg-slate-950 text-white/80">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.07]"
         aria-hidden
@@ -88,14 +88,14 @@ export default function Footer() {
               className="inline-block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)]"
             >
               <Image
-                src={FOOTER_LOGO_SRC}
+                src={SITE_LOGO_SRC}
                 alt={SITE_LOGO_ALT}
                 width={340}
                 height={76}
                 className="h-auto w-[140px] object-contain md:w-[155px]"
               />
             </Link>
-            <p className="mt-3 max-w-sm text-sm leading-relaxed text-slate-400">
+            <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/75">
               ERP17 Cloud Solution is a leading business management platform
               empowering enterprises with seamless automation. With a legacy of
               serving 1,000+ businesses over 9 years, we specialize in
@@ -135,14 +135,14 @@ export default function Footer() {
           {/* Contact */}
           <div className="lg:col-span-4">
             <FooterHeading>Location</FooterHeading>
-            <ul className="space-y-4 text-sm text-slate-400">
+            <ul className="space-y-4 text-sm text-white/75">
               <li className="flex gap-3">
                 <MapPin
                   className="mt-0.5 h-4 w-4 shrink-0 text-[var(--primary)]"
                   strokeWidth={2.2}
                 />
                 <span>
-                  <span className="font-medium text-slate-300">
+                  <span className="font-medium text-white/90">
                     Dhaka Office:
                   </span>{" "}
                   820 Makkah Tower(9th Floor) West Shewrapara, Mirpur,
@@ -155,7 +155,7 @@ export default function Footer() {
                   strokeWidth={2.2}
                 />
                 <span>
-                  <span className="font-medium text-slate-300">
+                  <span className="font-medium text-white/90">
                     Chittagong Office:
                   </span>{" "}
                   House#13, Road#3, Block-K, Halishahar, Chittagong. Bangladesh
@@ -167,7 +167,7 @@ export default function Footer() {
                   strokeWidth={2.2}
                 />
                 <span>
-                  <span className="font-medium text-slate-300">Phone:</span>{" "}
+                  <span className="font-medium text-white/90">Phone:</span>{" "}
                   <a
                     href="tel:+8801982211000"
                     className="hover:text-[var(--primary)]"
@@ -189,7 +189,7 @@ export default function Footer() {
                   strokeWidth={2.2}
                 />
                 <span>
-                  <span className="font-medium text-slate-300">Email:</span>{" "}
+                  <span className="font-medium text-white/90">Email:</span>{" "}
                   <a
                     href="mailto:support@erp17.com"
                     className="hover:text-[var(--primary)]"
@@ -201,7 +201,7 @@ export default function Footer() {
             </ul>
 
             <div className="mt-8 border-t border-white/10 pt-6">
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-slate-300">
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-white/90">
                 Follow Our Socials
               </p>
               <div className="flex flex-wrap gap-2.5">
@@ -212,7 +212,7 @@ export default function Footer() {
                       key={social.label}
                       href={social.href}
                       aria-label={social.label}
-                      className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-slate-300 transition-colors hover:border-[var(--primary)]/40 hover:bg-[var(--primary)] hover:text-white"
+                      className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white/80 transition-colors hover:border-[var(--primary)]/40 hover:bg-[var(--primary)] hover:text-white"
                     >
                       <Icon className="h-4 w-4" strokeWidth={2} />
                     </Link>
@@ -236,7 +236,7 @@ export default function Footer() {
 
       <div className="relative border-t border-white/10 bg-black/20 py-5">
         <div className="container text-center">
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-white/65">
             © 2026, ERP17 Cloud Solution. All Rights Reserved.
           </p>
         </div>

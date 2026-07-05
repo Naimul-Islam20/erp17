@@ -1,12 +1,11 @@
-"use client";
-
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar, ArrowRight } from "lucide-react";
-import blogsData from "@/data/blogs.json";
+import { getBlogs } from "@/lib/blogs-api";
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const blogs = await getBlogs();
+
   return (
     <main className="py-10 md:py-16 bg-gray-50 min-h-screen">
       <div className="container">
@@ -22,7 +21,7 @@ export default function BlogPage() {
 
         {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogsData.map((blog) => (
+          {blogs.map((blog) => (
             <article 
               key={blog.id} 
               className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow group flex flex-col"
@@ -57,7 +56,7 @@ export default function BlogPage() {
 
                 <div className="h-[60px] mb-3">
                   <h2 className="text-xl font-bold text-[var(--secondary)] line-clamp-2 group-hover:text-[var(--secondary)] transition-colors leading-snug">
-                    <Link href={`/blog/${blog.slug}`}>
+                    <Link href={`/blog/${blog.id}`}>
                       {blog.title}
                     </Link>
                   </h2>
@@ -71,7 +70,7 @@ export default function BlogPage() {
 
                 <div className="flex items-center justify-start pt-4 border-t border-gray-100 mt-auto">
                   <Link 
-                    href={`/blog/${blog.slug}`}
+                    href={`/blog/${blog.id}`}
                     className="text-[var(--primary)] hover:text-[var(--primary-hover)] font-bold text-sm flex items-center gap-1 group/link"
                   >
                     Read More 

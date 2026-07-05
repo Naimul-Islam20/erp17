@@ -41,6 +41,7 @@ export default async function NewsletterDetailsPage({ params }) {
         <NewsletterPageShell
           categories={categories}
           activeCategories={newsletter.categories || []}
+          isAllNewsActive={false}
         >
           <article>
             <Link

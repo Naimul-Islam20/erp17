@@ -14,7 +14,7 @@
       "menu_uid": "products/crm",
       "parent_id": 1,
       "order_no": 1,
-      "menu_icon": "FaAddressBook",
+      "menu_icon": "FaHandshake",
       "icon_color": "#6366F1",
       "description": "Leads, deals, contacts, and pipelines in one cloud CRM on ERP17",
       "has_child": 0
@@ -25,7 +25,7 @@
       "menu_uid": "products/hrm",
       "parent_id": 1,
       "order_no": 2,
-      "menu_icon": "BiGroup",
+      "menu_icon": "FaUsers",
       "icon_color": "#F43F5E",
       "description": "Human Resource Management — profiles, documents, hierarchy & reports in one place",
       "has_child": 0
@@ -47,7 +47,7 @@
       "menu_uid": "products/hotel-booking",
       "parent_id": 1,
       "order_no": 4,
-      "menu_icon": "FaHotel",
+      "menu_icon": "FaBed",
       "icon_color": "#0D9488",
       "description": "Rooms, rates, reservations, and guest experience in one booking suite",
       "has_child": 0
@@ -91,7 +91,7 @@
       "menu_uid": "products/distribution",
       "parent_id": 1,
       "order_no": 8,
-      "menu_icon": "FaTruck",
+      "menu_icon": "FaShippingFast",
       "icon_color": "#2563EB",
       "description": "Depot to dealer—stock transfers, van sales, and delivery tracking on ERP17",
       "has_child": 0
@@ -102,7 +102,7 @@
       "menu_uid": "products/accounts",
       "parent_id": 1,
       "order_no": 9,
-      "menu_icon": "BiSpreadsheet",
+      "menu_icon": "FaCalculator",
       "icon_color": "#0EA5E9",
       "description": "Chart of accounts, journals, bank reconciliation, and financial reporting on ERP17 Cloud",
       "has_child": 0
@@ -113,7 +113,7 @@
       "menu_uid": "products/invoicing",
       "parent_id": 1,
       "order_no": 10,
-      "menu_icon": "BiReceipt",
+      "menu_icon": "FaFileInvoiceDollar",
       "icon_color": "#8B5CF6",
       "description": "Quotes, tax-ready invoices, payments, and customer statements in one billing flow",
       "has_child": 0
@@ -124,7 +124,7 @@
       "menu_uid": "products/inventory",
       "parent_id": 1,
       "order_no": 11,
-      "menu_icon": "BiPackage",
+      "menu_icon": "FaBoxes",
       "icon_color": "#F59E0B",
       "description": "Multi-location stock, batches, reorder alerts, and valuation synced with sales and purchasing",
       "has_child": 0

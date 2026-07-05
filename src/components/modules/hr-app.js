@@ -179,7 +179,7 @@ const HrApp = () => {
           </div>
 
           <div className="space-y-5 lg:col-span-5 lg:sticky lg:top-28">
-            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-3 shadow-lg md:rounded-3xl">
+            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-3 shadow md:rounded-3xl">
                 <Image
                   src="/img/home/intgMobile.webp"
                   alt="ERP17 Mobile App Illustration"

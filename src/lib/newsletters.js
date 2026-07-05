@@ -4,11 +4,6 @@ import { normalizeNewsletter } from "@/lib/newsletters-core";
 
 export { slugifyTitle } from "@/lib/newsletters-core";
 
-function shouldUseStaticNewsletters() {
-  const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || "";
-  return /^(https?:\/\/)?(127\.0\.0\.1|localhost)(:\d+)?\/?$/i.test(apiBase);
-}
-
 async function fetchNewsletterPage(page = 1) {
   const response = await fetch(
     buildApiUrl(`/newsletters?per_page=50&page=${page}`),
@@ -48,11 +43,25 @@ async function fetchNewslettersFromApi() {
   return allItems;
 }
 
-export async function getNewsletters() {
-  if (shouldUseStaticNewsletters()) {
-    return staticNewsletters.map(normalizeNewsletter);
+async function fetchNewsletterById(id) {
+  const response = await fetch(buildApiUrl(`/newsletters/${id}`), {
+    headers: { Accept: "application/json" },
+  });
+
+  if (!response.ok) {
+    throw new Error(`Newsletter detail API failed with status ${response.status}`);
   }
 
+  const json = await response.json();
+
+  if (!json?.success || !json.data) {
+    throw new Error("Invalid newsletter detail API response");
+  }
+
+  return normalizeNewsletter(json.data);
+}
+
+export async function getNewsletters() {
   try {
     const items = await fetchNewslettersFromApi();
     if (items.length > 0) {
@@ -71,5 +80,26 @@ export async function getNewsletters() {
 
 export async function getNewsletterBySlug(slug) {
   const items = await getNewsletters();
-  return items.find((item) => item.slug === slug) || null;
+  const summary = items.find((item) => item.slug === slug) || null;
+
+  if (!summary) {
+    return null;
+  }
+
+  try {
+    const details = await fetchNewsletterById(summary.id);
+    return {
+      ...summary,
+      ...details,
+      slug: summary.slug,
+      excerpt: details.excerpt || summary.excerpt,
+      description: details.description || summary.description,
+      content: details.content || summary.content,
+      image: details.image || summary.image,
+      blocks: details.blocks || summary.blocks || [],
+    };
+  } catch (error) {
+    console.error("Failed to fetch newsletter details from API:", error);
+    return summary;
+  }
 }

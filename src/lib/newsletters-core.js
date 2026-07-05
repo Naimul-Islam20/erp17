@@ -12,7 +12,8 @@ export function parseDateParts(dateValue) {
   if (!dateValue) return { month: null, day: null, year: null };
 
   const parsed = new Date(dateValue);
-  if (Number.isNaN(parsed.getTime())) return { month: null, day: null, year: null };
+  if (Number.isNaN(parsed.getTime()))
+    return { month: null, day: null, year: null };
 
   return {
     month: parsed.toLocaleString("en-US", { month: "long" }),

@@ -214,12 +214,16 @@ export default function ConsultationPopup() {
         </button>
 
         <div className="grid md:grid-cols-12">
-          <div className="bg-gradient-to-br from-[var(--primary)] to-[var(--primary-hover)] p-5 sm:p-7 md:col-span-6 md:p-10 flex flex-col items-center justify-center text-center min-h-[180px] sm:min-h-[220px]">
+          <div className="bg-[var(--primary-soft)] p-5 sm:p-7 md:col-span-6 md:p-10 flex flex-col items-center justify-center text-center min-h-[180px] sm:min-h-[220px]">
             <SiteLogo
               priority
-              className="relative -top-3 sm:-top-6 mb-1 sm:mb-4 h-auto w-[96px] sm:w-[140px]"
+              className="relative -top-3 sm:-top-6 mb-1 sm:mb-4 h-auto w-[132px] sm:w-[190px]"
+              style={{
+                filter:
+                  "grayscale(1) brightness(0.62) sepia(1) hue-rotate(40deg) saturate(700%)",
+              }}
             />
-            <p className="text-[11px] uppercase tracking-[0.2em] text-white/85 font-semibold">
+            <p className="text-[11px] uppercase tracking-[0.2em] text-[var(--primary)] font-semibold">
               ERP17 Cloud Solution
             </p>
             <h2 className="mt-1 sm:mt-2 text-xl sm:text-2xl md:text-4xl font-bold text-[var(--secondary)]">

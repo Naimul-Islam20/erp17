@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { primaryCtaClassName } from "@/constants/cta";
-import { FOOTER_LOGO_SRC, SITE_LOGO_ALT } from "@/constants/brand";
+import { SITE_LOGO_ALT, SITE_LOGO_SRC } from "@/constants/brand";
 import menus from "@/data/menus";
 import { BiChevronDown, BiCircle } from "react-icons/bi";
 import * as BiIcons from "react-icons/bi";
@@ -45,11 +45,20 @@ export default function Header() {
   // Click outside listener (desktop dropdown)
   useEffect(() => {
     function handleClickOutside(event) {
-      if (openDropdown !== null && navRef.current) {
-        // Only close when clicking fully outside the desktop nav area.
-        if (!navRef.current.contains(event.target)) {
-          setOpenDropdown(null);
-        }
+      if (openDropdown === null) return;
+
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+
+      const clickedActiveTrigger = target.closest(
+        `[data-dropdown-trigger="${openDropdown}"]`,
+      );
+      const clickedActivePanel = target.closest(
+        `[data-dropdown-panel="${openDropdown}"]`,
+      );
+
+      if (!clickedActiveTrigger && !clickedActivePanel) {
+        setOpenDropdown(null);
       }
     }
 
@@ -81,7 +90,7 @@ export default function Header() {
               <Link href="/">
                 <div className="w-[108px] md:w-[140px] lg:w-[160px]">
                   <Image
-                    src={FOOTER_LOGO_SRC}
+                    src={SITE_LOGO_SRC}
                     alt={SITE_LOGO_ALT}
                     width={340}
                     height={76}
@@ -107,6 +116,7 @@ export default function Header() {
                     >
                       {hasChildren ? (
                         <div
+                          data-dropdown-trigger={menu.id}
                           className="flex items-center cursor-pointer font-medium text-gray-800 hover:text-[var(--primary)] uppercase"
                           onClick={() =>
                             setOpenDropdown(
@@ -128,6 +138,7 @@ export default function Header() {
 
                       {hasChildren && openDropdown === menu.id && (
                         <div
+                          data-dropdown-panel={menu.id}
                           className={`
     ${
       childCount > 10
@@ -183,7 +194,12 @@ export default function Header() {
 
               {/* Get Started button */}
               <div className="ml-5">
-                <Link href="/get-quote" className={primaryCtaClassName}>Get a Quote</Link>
+                <Link
+                  href="/get-quote"
+                  className={`${primaryCtaClassName} font-medium uppercase tracking-[0.08em]`}
+                >
+                  GET A QUOTE
+                </Link>
               </div>
             </div>
 

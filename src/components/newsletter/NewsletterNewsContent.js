@@ -1,48 +1,58 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import NewsletterListItem from "@/components/newsletter/NewsletterListItem";
 import NewsletterPageShell from "@/components/newsletter/NewsletterPageShell";
 
-function groupByMonth(items) {
-  const groups = [];
-  const map = new Map();
-
-  for (const item of items) {
-    const label =
-      item.month && item.year ? `${item.month} ${item.year}` : "Updates";
-    if (!map.has(label)) {
-      const group = { label, items: [] };
-      map.set(label, group);
-      groups.push(group);
-    }
-    map.get(label).items.push(item);
+function getCategoryFromUrl() {
+  if (typeof window === "undefined") {
+    return null;
   }
 
-  return groups;
+  return new URLSearchParams(window.location.search).get("category");
 }
 
 export default function NewsletterNewsContent({ items, categories }) {
-  const searchParams = useSearchParams();
-  const activeCategory = searchParams.get("category");
+  const [activeCategory, setActiveCategory] = useState(null);
+
+  useEffect(() => {
+    const syncCategoryFromUrl = () => {
+      setActiveCategory(getCategoryFromUrl());
+    };
+
+    syncCategoryFromUrl();
+    window.addEventListener("popstate", syncCategoryFromUrl);
+
+    return () => {
+      window.removeEventListener("popstate", syncCategoryFromUrl);
+    };
+  }, []);
+
+  const handleCategorySelect = (category) => {
+    const nextCategory = category || null;
+    const nextUrl = nextCategory
+      ? `/newsletter?category=${encodeURIComponent(nextCategory)}`
+      : "/newsletter";
+
+    window.history.pushState({}, "", nextUrl);
+    setActiveCategory(nextCategory);
+  };
 
   const filteredItems = activeCategory
     ? items.filter((item) => item.categories?.includes(activeCategory))
     : items;
 
-  const monthGroups = groupByMonth(filteredItems);
-
   return (
     <NewsletterPageShell
       categories={categories}
       activeCategories={activeCategory ? [activeCategory] : []}
+      isAllNewsActive={!activeCategory}
+      onCategorySelect={handleCategorySelect}
     >
       <div className="mb-8">
         <nav className="flex gap-2 text-sm text-black mb-4">
-          <Link href="/">
-            Home
-          </Link>
+          <Link href="/">Home</Link>
           <span>/</span>
           <span>Newsletter</span>
         </nav>
@@ -56,18 +66,9 @@ export default function NewsletterNewsContent({ items, categories }) {
       </div>
 
       {filteredItems.length > 0 ? (
-        <div className="space-y-10">
-          {monthGroups.map((group) => (
-            <section key={group.label}>
-              <h2 className="text-sm font-bold uppercase tracking-wider text-slate-400 mb-4 pb-2 border-b border-slate-200">
-                {group.label}
-              </h2>
-              <div className="relative border-l-2 border-[var(--primary-soft)] ml-1">
-                {group.items.map((item) => (
-                  <NewsletterListItem key={item.id} item={item} />
-                ))}
-              </div>
-            </section>
+        <div className="relative border-l-2 border-[var(--primary-soft)] ml-1">
+          {filteredItems.map((item) => (
+            <NewsletterListItem key={item.id} item={item} />
           ))}
         </div>
       ) : (

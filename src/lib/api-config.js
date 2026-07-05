@@ -1,5 +1,7 @@
 const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL || "https://service.erp17.com";
+  process.env.NEXT_PUBLIC_API_BASE_URL ||
+  process.env.NEXT_PUBLIC_LIVE_API_BASE_URL ||
+  "https://service.erp17.com";
 const API_PREFIX = `${API_BASE_URL}/api`;
 
 export function buildApiUrl(path = "") {

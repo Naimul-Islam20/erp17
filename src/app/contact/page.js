@@ -22,15 +22,15 @@ export default function ContactPage() {
 
     const formData = new FormData(formElement);
     const payload = {
-      full_name: String(formData.get("full_name") || ""),
+      name: String(formData.get("name") || ""),
+      company_name: String(formData.get("company_name") || ""),
+      designation: String(formData.get("designation") || ""),
+      mobile: String(formData.get("mobile") || ""),
       email: String(formData.get("email") || ""),
-      phone: String(formData.get("phone") || ""),
-      subject: String(formData.get("subject") || ""),
-      message: String(formData.get("message") || ""),
     };
 
     try {
-      const response = await fetch(buildApiUrl("/contact-messages"), {
+      const response = await fetch(buildApiUrl("/expert-sessions"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -39,16 +39,27 @@ export default function ContactPage() {
         body: JSON.stringify(payload),
       });
 
+      const responseBody = await response.json().catch(() => ({}));
+
       if (!response.ok) {
-        const errorBody = await response.text();
-        throw new Error(errorBody || "Failed to send message.");
+        const firstError = responseBody?.errors
+          ? Object.values(responseBody.errors)[0]?.[0]
+          : "";
+        throw new Error(
+          firstError || responseBody?.message || "Failed to submit request.",
+        );
       }
 
-      showToast("success", "Your message has been sent successfully.");
+      showToast(
+        "success",
+        responseBody?.message || "Request submitted successfully.",
+      );
       formElement.reset();
     } catch (error) {
       const errorMessage =
-        error instanceof Error ? error.message : "Could not send the message. Please try again.";
+        error instanceof Error
+          ? error.message
+          : "Could not submit request. Please try again.";
       showToast("error", errorMessage);
     } finally {
       setIsSubmitting(false);
@@ -156,7 +167,7 @@ export default function ContactPage() {
                   <input
                     type="text"
                     id="name"
-                    name="full_name"
+                    name="name"
                     required
                     placeholder="Enter your name"
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition"
@@ -175,35 +186,35 @@ export default function ContactPage() {
                 </div>
               </div>
               <div className="space-y-2">
-                <label htmlFor="phone" className="text-sm font-medium text-gray-700">Phone Number</label>
+                <label htmlFor="mobile" className="text-sm font-medium text-gray-700">Phone Number</label>
                 <input
                   type="tel"
-                  id="phone"
-                  name="phone"
+                  id="mobile"
+                  name="mobile"
                   required
                   placeholder="Enter your phone number"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition"
                 />
               </div>
               <div className="space-y-2">
-                <label htmlFor="subject" className="text-sm font-medium text-gray-700">Subject</label>
+                <label htmlFor="company_name" className="text-sm font-medium text-gray-700">Company Name</label>
                 <input
                   type="text"
-                  id="subject"
-                  name="subject"
+                  id="company_name"
+                  name="company_name"
                   required
-                  placeholder="Message subject"
+                  placeholder="Enter company name"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition"
                 />
               </div>
               <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium text-gray-700">Message</label>
+                <label htmlFor="designation" className="text-sm font-medium text-gray-700">Designation</label>
                 <textarea
-                  id="message"
-                  name="message"
+                  id="designation"
+                  name="designation"
                   required
                   rows="4"
-                  placeholder="How can we help you?"
+                  placeholder="Enter your designation"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition resize-none"
                 ></textarea>
               </div>
@@ -212,7 +223,7 @@ export default function ContactPage() {
                 disabled={isSubmitting}
                 className="w-full bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white font-bold py-4 rounded-xl transition duration-300 disabled:opacity-60"
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
+                {isSubmitting ? "Submitting..." : "Submit Request"}
               </button>
             </form>
           </div>
