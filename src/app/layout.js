@@ -66,7 +66,8 @@ export const metadata = {
     images: [SITE_LOGO_SRC],
   },
   icons: {
-    icon: [{ url: SITE_LOGO_SRC, type: "image/png" }],
+    icon: [{ url: "/favicon.ico", type: "image/x-icon" }],
+    shortcut: [{ url: "/favicon.ico", type: "image/x-icon" }],
     apple: [{ url: SITE_LOGO_SRC }],
   },
 };
