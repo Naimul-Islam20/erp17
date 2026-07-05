@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import {
   Target,
@@ -72,11 +73,13 @@ export default function AboutUsPage() {
 
             {/* Right Column - Image */}
             <div className="flex-1 w-full relative">
-              <div className="relative z-10">
-                <img
+              <div className="relative z-10 aspect-[3/2] w-full overflow-hidden rounded-2xl shadow-xl">
+                <Image
                   src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000"
                   alt="Professional Office"
-                  className="w-full h-auto object-cover rounded-2xl shadow-xl"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
             </div>
@@ -219,9 +222,11 @@ export default function AboutUsPage() {
             {/* Left Side: Product Visual Mockup */}
             <div className="lg:w-1/2 relative">
               <div className="relative z-10 w-full overflow-hidden rounded-[2rem] shadow-2xl border border-slate-100">
-                <img
+                <Image
                   src="/img/about/dashboard-mockup.png"
                   alt="ERP17 Dashboard Mockup"
+                  width={1200}
+                  height={750}
                   className="w-full h-auto object-cover"
                 />
               </div>

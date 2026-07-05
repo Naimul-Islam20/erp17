@@ -1,12 +1,7 @@
-import staticBlogs from "@/data/blogs.json";
 import { buildApiUrl } from "@/lib/api-config";
 
-function buildBlogsApiUrl(path = "") {
-  return buildApiUrl(path);
-}
-
 async function fetchBlogsApi(path) {
-  const response = await fetch(buildBlogsApiUrl(path), {
+  const response = await fetch(buildApiUrl(path), {
     headers: { Accept: "application/json" },
   });
 
@@ -26,38 +21,16 @@ function pickFeaturedImage(blog) {
   );
 }
 
-function mapStaticBlog(blog) {
+function mapBlog(blog) {
   return {
     id: blog.id,
     slug: String(blog.id),
     title: blog.title || "",
     category: blog.category || "General",
-    image: blog.image || "/website.png",
+    image: pickFeaturedImage(blog),
     excerpt: blog.excerpt || "",
-    date: blog.date || new Date().toISOString(),
-    blocksCount: 0,
-  };
-}
-
-function mapStaticBlogDetails(blog) {
-  return {
-    id: blog.id,
-    slug: String(blog.id),
-    title: blog.title || "",
-    category: blog.category || "General",
-    image: blog.image || "/website.png",
-    excerpt: blog.excerpt || "",
-    date: blog.date || new Date().toISOString(),
-    blocks: blog.content
-      ? [
-          {
-            id: `${blog.id}-description`,
-            type: "description",
-            body: blog.content,
-            sort_order: 0,
-          },
-        ]
-      : [],
+    date: blog.created_at || blog.updated_at || new Date().toISOString(),
+    blocksCount: blog.blocks_count || 0,
   };
 }
 
@@ -65,24 +38,11 @@ export async function getBlogs() {
   try {
     const payload = await fetchBlogsApi("/blogs");
     const blogs = Array.isArray(payload?.data) ? payload.data : [];
-
-    if (blogs.length > 0) {
-      return blogs.map((blog) => ({
-        id: blog.id,
-        slug: String(blog.id),
-        title: blog.title || "",
-        category: blog.category || "General",
-        image: pickFeaturedImage(blog),
-        excerpt: blog.excerpt || "",
-        date: blog.created_at || blog.updated_at || new Date().toISOString(),
-        blocksCount: blog.blocks_count || 0,
-      }));
-    }
+    return blogs.map(mapBlog);
   } catch (error) {
     console.error("Failed to fetch blogs from API:", error);
+    return [];
   }
-
-  return staticBlogs.map(mapStaticBlog);
 }
 
 export async function getBlogDetails(id) {
@@ -90,29 +50,27 @@ export async function getBlogDetails(id) {
     const payload = await fetchBlogsApi(`/blogs/${id}`);
     const blog = payload?.data;
 
-    if (blog) {
-      const blocks = Array.isArray(blog.blocks)
-        ? [...blog.blocks].sort(
-            (a, b) => (a.sort_order || 0) - (b.sort_order || 0),
-          )
-        : [];
+    if (!blog) return null;
 
-      return {
-        id: blog.id,
-        slug: String(blog.id),
-        title: blog.title || "",
-        category: blog.category || "General",
-        image: pickFeaturedImage(blog),
-        excerpt:
-          blocks.find((block) => block.type === "description")?.body || "",
-        date: blog.created_at || blog.updated_at || new Date().toISOString(),
-        blocks,
-      };
-    }
+    const blocks = Array.isArray(blog.blocks)
+      ? [...blog.blocks].sort(
+          (a, b) => (a.sort_order || 0) - (b.sort_order || 0),
+        )
+      : [];
+
+    return {
+      id: blog.id,
+      slug: String(blog.id),
+      title: blog.title || "",
+      category: blog.category || "General",
+      image: pickFeaturedImage(blog),
+      excerpt:
+        blocks.find((block) => block.type === "description")?.body || "",
+      date: blog.created_at || blog.updated_at || new Date().toISOString(),
+      blocks,
+    };
   } catch (error) {
     console.error("Failed to fetch blog details from API:", error);
+    return null;
   }
-
-  const fallback = staticBlogs.find((blog) => blog.id === id);
-  return fallback ? mapStaticBlogDetails(fallback) : null;
 }

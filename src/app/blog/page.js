@@ -20,6 +20,7 @@ export default async function BlogPage() {
         </div>
 
         {/* Blog Grid */}
+        {blogs.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogs.map((blog) => (
             <article 
@@ -81,6 +82,11 @@ export default async function BlogPage() {
             </article>
           ))}
         </div>
+        ) : (
+          <p className="py-10 text-center text-sm text-slate-600">
+            No blog data available yet.
+          </p>
+        )}
       </div>
     </main>
   );
