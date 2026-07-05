@@ -5,10 +5,9 @@ import { notFound } from "next/navigation";
 import RelatedArticlesSidebar from "@/components/blog/RelatedArticlesSidebar";
 import { getBlogDetails, getBlogs } from "@/lib/blogs-api";
 
-export function generateStaticParams() {
-  return getBlogs().then((blogs) =>
-    blogs.map((blog) => ({ slug: String(blog.id) })),
-  );
+export async function generateStaticParams() {
+  const blogs = await getBlogs().catch(() => []);
+  return blogs.map((blog) => ({ slug: String(blog.id) }));
 }
 
 function formatBlogDate(date) {
