@@ -69,7 +69,7 @@ export default function CRMDetailsPage() {
       introIcon={Users}
       introImage="/img/products/crm-hero.jpg"
       introImageAlt="Client Relationship Management (CRM) Software"
-      introTitle="Client Relationship Management (CRM) Software"
+      introTitle="Turn Leads into Lasting Customer Relationships"
       introText="In today's competitive market, nurturing client relationships is the key to sustainable business growth. At ERP17, we've developed an advanced Client Relationship Management (CRM) Software that helps you manage leads, automate sales processes, and deliver personalized experiences - all from a single platform. Whether you're a startup or an enterprise, our CRM adapts to your unique workflow and scales with your business."
       highlights={["Lead Management","Sales Pipeline Tracking","Client Management","Activity Scheduling","Email Integration","Quotation & Invoicing","Reports & Analytics","User Role & Permission","Mobile CRM Access","API Integrations"]}
       whyChoose={{

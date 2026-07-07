@@ -1,10 +1,8 @@
-import Link from "next/link";
 import Image from "next/image";
 import ProductSectionTitle from "@/components/products/ProductSectionTitle";
 import ProductCheckItem from "@/components/products/ProductCheckItem";
 
 export default function ProductSectionsLayout({
-  breadcrumb,
   title,
   heroDescription,
   heroImage,
@@ -13,34 +11,21 @@ export default function ProductSectionsLayout({
 }) {
   return (
     <main className="min-h-screen bg-slate-50">
-      <section className="border-b border-slate-200/80 bg-gradient-to-b from-white to-slate-50 pt-8 pb-10 md:pt-12 md:pb-14">
-        <div className="container max-w-5xl">
-          <nav className="mb-6 flex flex-wrap items-center gap-2 text-sm text-slate-500">
-            <Link
-              href="/"
-              className="transition-colors hover:text-[var(--primary)]"
-            >
-              Home
-            </Link>
-            <span>/</span>
-            <span className="font-medium text-[var(--secondary)]">
-              {breadcrumb}
-            </span>
-          </nav>
-
+      <section className="bg-gradient-to-b from-white to-slate-50 pt-8 pb-4 md:pt-12 md:pb-6">
+        <div className="container max-w-5xl text-center">
           <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-[var(--secondary)] md:text-5xl">
             {title}
           </h1>
-          <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
+          <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
             {heroDescription}
           </p>
         </div>
       </section>
 
       {heroImage ? (
-        <section className="py-10 md:py-14">
+        <section className="pb-10 pt-2 md:pb-14 md:pt-4">
           <div className="container max-w-5xl">
-            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.06)] md:rounded-3xl">
+            <div className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.06)] md:rounded-xl">
               <Image
                 src={heroImage}
                 alt={heroImageAlt ?? title}
@@ -88,7 +73,7 @@ export default function ProductSectionsLayout({
                   section.imgRight ? "order-1 lg:order-2" : "order-1 lg:order-1"
                 }
               >
-                <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.06)] md:rounded-3xl">
+                <div className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.06)] md:rounded-xl">
                   <Image
                     src={section.img}
                     alt={section.heading}

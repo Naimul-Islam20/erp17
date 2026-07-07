@@ -13,8 +13,8 @@ import {
 } from "@/lib/consultation-popup";
 
 const LEGACY_DISMISS_KEY = "erp17-consultation-dismissed";
-const INITIAL_OPEN_DELAY_MS = 10 * 1000;
-const REOPEN_DELAY_MS = 3 * 60 * 1000;
+const INITIAL_OPEN_DELAY_MS = 60 * 1000;
+const REOPEN_DELAY_MS = 5 * 60 * 1000;
 
 export default function ConsultationPopup() {
   const pathname = usePathname();

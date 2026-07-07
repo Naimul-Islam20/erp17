@@ -69,7 +69,7 @@ export default function POSDetailsPage() {
       introIcon={CreditCard}
       introImage="/img/products/pos-hero.jpg"
       introImageAlt="Point of Sale (POS) Software"
-      introTitle="Point of Sale (POS) Software"
+      introTitle="Sell Faster with a Smarter Checkout Experience"
       introText="In today's fast-paced retail and service environment, you need more than just a cash register to stay ahead. You need a smart, intuitive, and reliable Point of Sale (POS) system that can handle every aspect of your business - from sales and inventory to billing, reporting, and customer management. At ERP17, we offer a modern, feature-rich POS Software that helps you run your store efficiently, serve customers faster, and make data-driven decisions. Whether you run a retail shop, restaurant, pharmacy, or service center, our POS software is designed to simplify operations and maximize your profits."
       highlights={["Fast and accurate billing","Customizable invoice formats","Multiple payment options (cash, card, digital wallets)"]}
       whyChoose={{

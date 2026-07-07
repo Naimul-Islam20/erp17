@@ -42,17 +42,16 @@ const HeroSection = () => {
 
       <div className="container relative z-10">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          <div className="order-1 space-y-7 text-center lg:text-left">
+          <div className="order-1 space-y-4 text-center md:space-y-5 lg:text-left">
             <div className="flex justify-center lg:justify-start">
-              <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-600 shadow-sm">
-                <span className="h-2 w-2 rounded-full bg-[var(--primary)]" />
+              <span className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-600 shadow-sm">
                 ERP17 Cloud Solution
               </span>
             </div>
 
             <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight text-[var(--secondary)] sm:text-5xl md:text-6xl">
               Simplify Operations.
-              <span className="mt-2 block text-[var(--primary)]">
+              <span className="mt-1 block text-[var(--primary)]">
                 Accelerate Growth.
               </span>
             </h1>
@@ -63,7 +62,7 @@ const HeroSection = () => {
               for finance, people, inventory, and sales.
             </p>
 
-            <ul className="mx-auto max-w-xl space-y-3 text-left lg:mx-0">
+            <ul className="mx-auto max-w-xl space-y-2 text-left lg:mx-0">
               {highlights.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm text-slate-700 md:text-base">
                   <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[var(--primary)]" />
@@ -72,7 +71,7 @@ const HeroSection = () => {
               ))}
             </ul>
 
-            <div className="flex flex-wrap items-center justify-center gap-3 pt-2 lg:justify-start">
+            <div className="flex flex-wrap items-center justify-center gap-3 lg:justify-start">
               <Link href="/get-quote" className={primaryCtaClassName}>
                 Get a Quote
               </Link>

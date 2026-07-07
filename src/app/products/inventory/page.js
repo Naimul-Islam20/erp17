@@ -109,7 +109,7 @@ export default function InventoryDetailsPage() {
       introIcon={Package}
       introImage="/img/products/inventory-hero.jpg"
       introImageAlt="Inventory Management Software"
-      introTitle="Inventory Management Software"
+      introTitle="Track Stock Smarter, Cut Costs Faster"
       introText="Managing stock manually across multiple locations can lead to overstocking, stockouts, losses, and delayed deliveries. At ERP17, our Inventory Management Software helps businesses gain complete control over inventory movement, valuation, and replenishment from one powerful system. From purchase to warehouse to sales, every stock transaction is tracked in real time so your business can run smoothly, reduce costs, and improve profitability."
       highlights={["Real-Time Stock Tracking","Multi-Warehouse Control","Batch and Serial Tracking","Low-Stock Alerts","Reorder Automation","Barcode and QR Support","Supplier Management","Stock Valuation","Demand Forecasting","ERP Integration"]}
       whyChoose={{

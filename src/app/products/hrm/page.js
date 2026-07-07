@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 import {
   Check,
@@ -20,7 +19,6 @@ import {
   Smartphone,
   Sparkles,
   Truck,
-  Users,
 } from "lucide-react";
 
 export const metadata = {
@@ -184,25 +182,12 @@ export default function HRMDetailsPage() {
   return (
     <main className="min-h-screen bg-slate-50">
       {/* Hero */}
-      <section className="border-b border-slate-200/80 bg-gradient-to-b from-white to-slate-50 pt-8 pb-10 md:pt-12 md:pb-14">
-        <div className="container max-w-5xl">
-          <nav className="mb-6 flex flex-wrap items-center gap-2 text-sm text-slate-500">
-            <Link
-              href="/"
-              className="transition-colors hover:text-[var(--primary)]"
-            >
-              Home
-            </Link>
-            <span>/</span>
-            <span className="font-medium text-[var(--secondary)]">
-              Human Resource Management (HRM)
-            </span>
-          </nav>
-
+      <section className="bg-gradient-to-b from-white to-slate-50 pt-8 pb-4 md:pt-12 md:pb-6">
+        <div className="container max-w-5xl text-center">
           <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-[var(--secondary)] md:text-5xl">
             Human Resource Management (HRM)
           </h1>
-          <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
+          <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
             Comprehensive HRM software for managing attendance, payroll, leave,
             recruitment, performance, and employee data with automation and
             analytics.
@@ -211,11 +196,11 @@ export default function HRMDetailsPage() {
       </section>
 
       {/* Intro */}
-      <section className="py-10 md:py-14">
+      <section className="pb-10 pt-2 md:pb-14 md:pt-4">
         <div className="container max-w-5xl">
           <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
             <div className="order-2 lg:order-1">
-              <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.06)] md:rounded-3xl">
+              <div className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.06)] md:rounded-xl">
                 <Image
                   src="/img/products/hrm-hero.jpg"
                   alt="HR team collaborating in a modern office"
@@ -228,14 +213,9 @@ export default function HRMDetailsPage() {
             </div>
 
             <div className="order-1 space-y-5 lg:order-2">
-              <div className="flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--primary-soft)] text-[var(--primary)]">
-                  <Users className="h-5 w-5" strokeWidth={2.2} />
-                </div>
-                <h2 className="text-2xl font-bold text-[var(--secondary)] md:text-3xl">
-                  Human Resource Management (HRM) Software
-                </h2>
-              </div>
+              <h2 className="text-2xl font-bold text-[var(--secondary)] md:text-3xl">
+                Simplify HR Operations, Empower Your Team
+              </h2>
               <p className="text-sm leading-relaxed text-slate-600 md:text-base md:leading-7">
                 At ERP17, we understand that your people are your most valuable
                 asset. That&apos;s why we&apos;ve developed an intelligent and
@@ -258,7 +238,7 @@ export default function HRMDetailsPage() {
       {/* Why Choose */}
       <section className="pb-10 md:pb-14">
         <div className="container max-w-5xl">
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 md:rounded-3xl md:p-8">
+          <div className="rounded-lg border border-slate-200 bg-white p-6 md:rounded-xl md:p-8">
             <SectionTitle>Why Choose Our HRM Software?</SectionTitle>
             <p className="mt-4 text-sm leading-relaxed text-slate-600 md:text-base md:leading-7">
               Managing human resources manually is time-consuming and
@@ -285,7 +265,7 @@ export default function HRMDetailsPage() {
             {features.map((feature) => (
               <article
                 key={feature.id}
-                className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm md:p-6"
+                className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm md:rounded-xl md:p-6"
               >
                 <h3 className="text-lg font-bold text-[var(--secondary)]">
                   {feature.id}
@@ -314,7 +294,7 @@ export default function HRMDetailsPage() {
             Cloud-Based & On-Premise Options
           </SectionTitle>
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border border-slate-200 bg-white p-5 md:p-6">
+            <div className="rounded-lg border border-slate-200 bg-white p-5 md:rounded-xl md:p-6">
               <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--primary-soft)] text-[var(--primary)]">
                 <Cloud className="h-5 w-5" />
               </div>
@@ -323,7 +303,7 @@ export default function HRMDetailsPage() {
                 Access from anywhere, auto-updates, lower upfront costs
               </p>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-5 md:p-6">
+            <div className="rounded-lg border border-slate-200 bg-white p-5 md:rounded-xl md:p-6">
               <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--primary-soft)] text-[var(--primary)]">
                 <Server className="h-5 w-5" />
               </div>
@@ -351,7 +331,7 @@ export default function HRMDetailsPage() {
               return (
                 <div
                   key={industry.label}
-                  className="flex items-center gap-3 rounded-xl bg-slate-50 px-4 py-3.5"
+                  className="flex items-center gap-3 rounded-lg bg-slate-50 px-4 py-3.5"
                 >
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--primary-soft)] text-[var(--primary)]">
                     <Icon className="h-4 w-4" strokeWidth={2.2} />
@@ -378,7 +358,7 @@ export default function HRMDetailsPage() {
               return (
                 <div
                   key={point.label}
-                  className="flex flex-col items-center rounded-2xl bg-gradient-to-b from-[var(--primary-soft)]/40 to-white px-4 py-6 text-center ring-1 ring-[var(--primary-soft)]"
+                  className="flex flex-col items-center rounded-lg bg-gradient-to-b from-[var(--primary-soft)]/40 to-white px-4 py-6 text-center ring-1 ring-[var(--primary-soft)] md:rounded-xl"
                 >
                   <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-white text-[var(--primary)] shadow-sm">
                     <Icon className="h-5 w-5" strokeWidth={2.2} />
@@ -397,7 +377,7 @@ export default function HRMDetailsPage() {
       <section className="border-t border-slate-200 pb-12 pt-10 md:pb-16 md:pt-14">
         <div className="container max-w-5xl">
           <div className="flex flex-col gap-5 md:flex-row md:items-start md:gap-8">
-            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border-2 border-[var(--primary)]/25 text-[var(--primary)]">
+            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg border-2 border-[var(--primary)]/25 text-[var(--primary)] md:rounded-xl">
               <Shield className="h-7 w-7" strokeWidth={2} />
             </div>
             <div className="flex-1">

@@ -69,7 +69,7 @@ export default function UaccountsDetailsPage() {
       introIcon={Wallet}
       introImage="/img/products/accounts-hero.jpg"
       introImageAlt="Account Management Software"
-      introTitle="Account Management Software"
+      introTitle="Simplify Finances, Strengthen Business Control"
       introText="Managing your company's finances doesn't have to be complicated or time-consuming. At ERP17, we empower businesses with a modern, intuitive Account Management Software that streamlines financial operations, automates complex accounting processes, and delivers real-time insights for smarter decision-making. Designed for businesses of any size, our software is your all-in-one solution for financial management, compliance, and growth."
       highlights={["Ledger Management","Invoicing and Billing","Expense & Income","Bank Reconciliation","Multi-Currency","Tax Management","Reporting & Analytics","Integrated Payment","Role-Based User","Mobile Access"]}
       whyChoose={{
