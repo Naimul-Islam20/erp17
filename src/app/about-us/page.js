@@ -71,10 +71,10 @@ export default function AboutUsPage() {
 
             {/* Right Column - Image */}
             <div className="flex-1 w-full relative">
-              <div className="relative z-10 aspect-[3/2] w-full overflow-hidden rounded-2xl shadow-xl">
+              <div className="relative z-10 aspect-[3/2] w-full overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.06)] md:rounded-xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000"
-                  alt="Professional Office"
+                  src="/img/about/hero-team.jpg"
+                  alt="ERP17 team collaborating in a modern workspace"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -105,7 +105,7 @@ export default function AboutUsPage() {
                 </p>
               </div>
 
-              <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100 relative group overflow-hidden">
+              <div className="p-8 rounded-lg bg-slate-50 border border-slate-100 relative group overflow-hidden md:rounded-xl">
                 <div className="absolute top-0 left-0 w-2 h-full bg-[var(--primary)]" />
                 <h4 className="text-xl font-bold text-[var(--secondary)] mb-4 flex items-center gap-3">
                   <Lightbulb className="text-[var(--primary)] w-6 h-6" /> Our Vision
@@ -120,19 +120,19 @@ export default function AboutUsPage() {
 
             <div className="relative h-full flex flex-col justify-center">
               <div className="grid grid-cols-2 gap-4">
-                <div className="p-8 bg-[var(--primary)] text-white rounded-3xl shadow-xl">
+                <div className="p-8 bg-[var(--primary)] text-white rounded-lg shadow-xl md:rounded-xl">
                   <Calendar className="w-10 h-10 mb-4 opacity-80" />
                   <p className="text-4xl font-black mb-2">2017</p>
                   <p className="font-semibold text-[var(--primary-soft)]">Year Founded</p>
                 </div>
-                <div className="p-8 bg-slate-900 text-white rounded-3xl mt-8">
+                <div className="p-8 bg-slate-900 text-white rounded-lg mt-8 md:rounded-xl">
                   <Award className="w-10 h-10 mb-4 text-[var(--primary)]" />
                   <p className="text-4xl font-black mb-2">9+</p>
                   <p className="font-semibold text-slate-300">
                     Years Experience
                   </p>
                 </div>
-                <div className="p-8 bg-slate-50 border border-slate-200 rounded-3xl">
+                <div className="p-8 bg-slate-50 border border-slate-200 rounded-lg md:rounded-xl">
                   <Building2 className="w-10 h-10 mb-4 text-[var(--primary)]" />
                   <p className="text-2xl font-black text-slate-900 mb-1">
                     BASIS
@@ -141,7 +141,7 @@ export default function AboutUsPage() {
                     Member Council
                   </p>
                 </div>
-                <div className="p-8 bg-slate-50 border border-slate-200 rounded-3xl mt-4">
+                <div className="p-8 bg-slate-50 border border-slate-200 rounded-lg mt-4 md:rounded-xl">
                   <Globe2 className="w-10 h-10 mb-4 text-[var(--primary)]" />
                   <p className="text-2xl font-black text-slate-900 mb-1">
                     CCCI
@@ -198,9 +198,9 @@ export default function AboutUsPage() {
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white p-8 rounded-3xl border border-slate-200"
+                className="bg-white p-8 rounded-lg border border-slate-200 md:rounded-xl"
               >
-                <div className="w-14 h-14 bg-[var(--primary-soft)] text-[var(--primary)] rounded-2xl flex items-center justify-center mb-6">
+                <div className="w-14 h-14 bg-[var(--primary-soft)] text-[var(--primary)] rounded-lg flex items-center justify-center mb-6 md:rounded-xl">
                   {item.icon}
                 </div>
                 <h4 className="text-xl font-bold text-[var(--secondary)] mb-3">
@@ -219,7 +219,7 @@ export default function AboutUsPage() {
           <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
             {/* Left Side: Product Visual Mockup */}
             <div className="lg:w-1/2 relative">
-              <div className="relative z-10 w-full overflow-hidden rounded-[2rem] shadow-2xl border border-slate-100">
+              <div className="relative z-10 w-full overflow-hidden rounded-lg shadow-2xl border border-slate-100 md:rounded-xl">
                 <Image
                   src="/img/about/dashboard-mockup.png"
                   alt="ERP17 Dashboard Mockup"
@@ -314,7 +314,7 @@ export default function AboutUsPage() {
             ].map((pillar, idx) => (
               <div
                 key={idx}
-                className="p-8 rounded-[32px] bg-white border border-slate-200 flex flex-col items-center text-center shadow-sm"
+                className="p-8 rounded-lg bg-white border border-slate-200 flex flex-col items-center text-center shadow-sm md:rounded-xl"
               >
                 <div className="w-16 h-16 bg-[var(--primary-soft)] text-[var(--primary)] rounded-full flex items-center justify-center mb-6">
                   {pillar.icon}
@@ -354,7 +354,7 @@ export default function AboutUsPage() {
               </div>
 
               <div className="flex gap-4">
-                <div className="flex-1 h-32 bg-slate-50 border border-slate-200 rounded-3xl flex flex-col items-center justify-center shadow-sm">
+                <div className="flex-1 h-32 bg-slate-50 border border-slate-200 rounded-lg flex flex-col items-center justify-center shadow-sm md:rounded-xl">
                   <span className="font-black text-slate-800 text-2xl tracking-tighter">
                     BASIS
                   </span>
@@ -362,7 +362,7 @@ export default function AboutUsPage() {
                     Member
                   </span>
                 </div>
-                <div className="flex-1 h-32 bg-slate-50 border border-slate-200 rounded-3xl flex flex-col items-center justify-center shadow-sm">
+                <div className="flex-1 h-32 bg-slate-50 border border-slate-200 rounded-lg flex flex-col items-center justify-center shadow-sm md:rounded-xl">
                   <span className="font-black text-slate-800 text-2xl tracking-tighter">
                     CCCI
                   </span>
@@ -374,7 +374,7 @@ export default function AboutUsPage() {
             </div>
 
             {/* Right Side: CTA */}
-            <div className="p-10 md:p-14 bg-[var(--primary-soft)] rounded-[40px] border border-[var(--primary-soft)] flex flex-col justify-center text-center lg:text-left relative overflow-hidden">
+            <div className="p-10 md:p-14 bg-[var(--primary-soft)] rounded-lg border border-[var(--primary-soft)] flex flex-col justify-center text-center lg:text-left relative overflow-hidden md:rounded-xl">
               <div className="relative z-10 space-y-6">
                 <h3 className="text-3xl md:text-4xl font-black text-[var(--secondary)] leading-tight">
                   Let&apos;s Build a Smarter <br /> Future Together
