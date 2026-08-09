@@ -43,7 +43,7 @@ export default function CoreHRPage() {
       </div>
 
       <div className="mt-6">
-        <Link href="/get-quote" className={primaryCtaClassName}>Get a Quote</Link>
+        <Link href="/choose-apps" className={primaryCtaClassName}>Get a Quote</Link>
       </div>
     </div>
   );

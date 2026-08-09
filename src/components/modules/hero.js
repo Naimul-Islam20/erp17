@@ -72,7 +72,7 @@ const HeroSection = () => {
             </ul>
 
             <div className="flex flex-wrap items-center justify-center gap-3 pt-2 lg:justify-start">
-              <Link href="/get-quote" className={primaryCtaClassName}>
+              <Link href="/choose-apps" className={primaryCtaClassName}>
                 Get a Quote
               </Link>
               <Link

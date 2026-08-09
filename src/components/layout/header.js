@@ -195,7 +195,7 @@ export default function Header() {
               {/* Get Started button */}
               <div className="ml-5">
                 <Link
-                  href="/get-quote"
+                  href="/choose-apps"
                   className={`${primaryCtaClassName} font-medium uppercase tracking-[0.08em]`}
                 >
                   GET A QUOTE

@@ -1,38 +1,89 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
-import { primaryCtaClassName } from "@/constants/cta";
+import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
 import { buildApiUrl } from "@/lib/api-config";
 import { PLANS } from "@/data/plansComparison";
+import { ALL_QUOTE_APPS, QUOTE_APP_VALUES } from "@/data/quote-apps";
 
 const VALID_PLAN_IDS = new Set(PLANS.map((plan) => plan.id));
 
-function getPlanFromParams(searchParams) {
-  const plan = searchParams.get("plan");
+function getPlanFromUrl() {
+  if (typeof window === "undefined") return "";
+  const plan = new URLSearchParams(window.location.search).get("plan");
   return plan && VALID_PLAN_IDS.has(plan) ? plan : "";
 }
 
-const MODULE_OPTIONS = [
-  { label: "Full ERP", value: "full_erp" },
-  { label: "HRM", value: "hrm" },
-  { label: "CRM", value: "crm" },
-  { label: "POS", value: "pos" },
-  { label: "ECOmmerce", value: "ecommerce" },
-  { label: "Accounts", value: "accounts" },
-];
+function getModulesFromUrl() {
+  if (typeof window === "undefined") return [];
+  const raw = new URLSearchParams(window.location.search).get("modules") || "";
+  if (!raw.trim()) return [];
+  return raw
+    .split(",")
+    .map((value) => value.trim())
+    .filter((value) => QUOTE_APP_VALUES.has(value));
+}
+
+function FormFloating({
+  id,
+  name,
+  label,
+  type = "text",
+  required = false,
+  defaultValue = "",
+}) {
+  return (
+    <div className="form-floating">
+      <input
+        id={id}
+        name={name}
+        type={type}
+        required={required}
+        defaultValue={defaultValue}
+        placeholder={label}
+        className="form-control"
+      />
+      <label htmlFor={id}>{label}</label>
+    </div>
+  );
+}
+
+function FormFloatingTextarea({ id, name, label, required = false, rows = 4 }) {
+  return (
+    <div className="form-floating form-floating-textarea">
+      <textarea
+        id={id}
+        name={name}
+        required={required}
+        rows={rows}
+        placeholder={label}
+        className="form-control"
+      />
+      <label htmlFor={id}>{label}</label>
+    </div>
+  );
+}
 
 export default function GetQuoteForm() {
-  const searchParams = useSearchParams();
-  const [selectedPlan, setSelectedPlan] = useState(() =>
-    getPlanFromParams(searchParams),
-  );
+  const [selectedPlan, setSelectedPlan] = useState("");
+  const [selectedModules, setSelectedModules] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [toast, setToast] = useState({ visible: false, type: "", message: "" });
 
   useEffect(() => {
-    setSelectedPlan(getPlanFromParams(searchParams));
-  }, [searchParams]);
+    setSelectedPlan(getPlanFromUrl());
+    setSelectedModules(getModulesFromUrl());
+  }, []);
+
+  const selectedCount = selectedModules.length;
+
+  const selectedModuleLabels = useMemo(() => {
+    return ALL_QUOTE_APPS.filter((app) =>
+      selectedModules.includes(app.value),
+    ).map((app) => app.label);
+  }, [selectedModules]);
+
+  const changeAppsHref = `/choose-apps${selectedPlan ? `?plan=${selectedPlan}` : ""}`;
 
   const showToast = (type, message) => {
     setToast({ visible: true, type, message });
@@ -47,27 +98,30 @@ export default function GetQuoteForm() {
     setIsSubmitting(true);
 
     const formData = new FormData(formElement);
+    const userDescription = String(formData.get("description") || "").trim();
+
     const payload = {
       name: String(formData.get("name") || ""),
       designation: String(formData.get("designation") || ""),
       company_name: String(formData.get("companyName") || ""),
-      employee_count: Number(formData.get("employeeCount") || 0),
-      plan_name: String(formData.get("plan") || ""),
-      modules_needed: formData.getAll("modules"),
+      employee_count: 0,
+      plan_name: selectedPlan || "",
+      modules_needed: selectedModules,
       email: String(formData.get("email") || ""),
       mobile_no: String(formData.get("mobile") || ""),
       address: String(formData.get("address") || ""),
-      description: String(formData.get("description") || ""),
+      description: [
+        userDescription,
+        selectedModuleLabels.length
+          ? `Selected apps: ${selectedModuleLabels.join(", ")}`
+          : "",
+      ]
+        .filter(Boolean)
+        .join(". "),
     };
 
-    if (!payload.plan_name) {
-      showToast("error", "Please select a plan.");
-      setIsSubmitting(false);
-      return;
-    }
-
     if (payload.modules_needed.length === 0) {
-      showToast("error", "Please select at least one module.");
+      showToast("error", "Please select at least one module first.");
       setIsSubmitting(false);
       return;
     }
@@ -89,7 +143,8 @@ export default function GetQuoteForm() {
 
       showToast("success", "Your quote request has been submitted successfully.");
       formElement.reset();
-      setSelectedPlan(getPlanFromParams(searchParams));
+      setSelectedPlan(getPlanFromUrl());
+      setSelectedModules(getModulesFromUrl());
     } catch (error) {
       const errorMessage =
         error instanceof Error
@@ -123,7 +178,7 @@ export default function GetQuoteForm() {
               <button
                 type="button"
                 onClick={() => setToast((prev) => ({ ...prev, visible: false }))}
-                className="text-slate-400 hover:text-slate-700 transition text-base leading-none"
+                className="text-base leading-none text-slate-400 transition hover:text-slate-700"
                 aria-label="Close notification"
               >
                 ×
@@ -133,193 +188,115 @@ export default function GetQuoteForm() {
         </div>
       ) : null}
 
-      <div className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-lg shadow-slate-200/40 sm:p-7 md:p-8">
-        <h2 className="text-xl font-bold text-[var(--secondary)] sm:text-2xl">
-          Get a Quote
-        </h2>
-        <p className="mt-2 text-sm text-slate-600 sm:text-base">
-          Share your requirements and we&apos;ll build a custom ERP solution for
-          your business.
-        </p>
+      <section className="bg-white pt-10 md:pt-14">
+        <div className="mx-auto max-w-[920px] px-4 text-center">
+          <h1 className="text-4xl font-bold tracking-tight text-[var(--secondary)] md:text-5xl">
+            Get a Quote
+          </h1>
+          <p className="mt-3 text-[15px] text-[var(--secondary)]/80">
+            Free instant access. No credit card required.
+          </p>
+        </div>
 
-        <form
-          onSubmit={handleSubmit}
-          className="mt-5 grid grid-cols-1 gap-4 sm:mt-6 sm:gap-5 md:grid-cols-2"
-        >
-          <div>
-            <label htmlFor="name" className="mb-2 block text-sm font-semibold text-slate-700">
-              Name
-            </label>
-            <input
+        <div className="mx-auto mt-8 max-w-[920px] px-4">
+          <div className="flex items-center justify-between gap-3 rounded-t-2xl bg-[#f3f4f6] px-4 py-4 sm:px-6">
+            <p className="text-[15px] text-[var(--secondary)]">
+              {selectedCount === 0
+                ? "No apps selected"
+                : `${selectedCount} app${selectedCount > 1 ? "s" : ""} selected`}
+            </p>
+            <Link
+              href={changeAppsHref}
+              className="shrink-0 rounded-[4px] bg-white px-4 py-2 text-[14px] font-semibold text-[var(--primary)] shadow-sm ring-1 ring-[var(--primary-soft)] transition hover:bg-[var(--primary-soft)]/40"
+            >
+              Change apps selection
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#f3f4f6] pb-20 pt-6">
+        <form onSubmit={handleSubmit} className="mx-auto max-w-[920px] px-4">
+          <div className="space-y-4">
+            <FormFloating
               id="name"
               name="name"
-              type="text"
+              label="Full Name"
               required
-              placeholder="Enter your name"
-              className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-[var(--primary)] sm:px-4 sm:py-3 sm:text-base"
             />
-          </div>
-
-          <div>
-            <label htmlFor="designation" className="mb-2 block text-sm font-semibold text-slate-700">
-              Designation
-            </label>
-            <select
-              id="designation"
-              name="designation"
-              defaultValue="Owner"
-              required
-              className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-[var(--primary)] sm:px-4 sm:py-3 sm:text-base"
-            >
-              <option value="Owner">Owner</option>
-              <option value="Manager">Manager</option>
-            </select>
-          </div>
-
-          <div>
-            <label htmlFor="companyName" className="mb-2 block text-sm font-semibold text-slate-700">
-              Company Name
-            </label>
-            <input
+            <FormFloating
               id="companyName"
               name="companyName"
-              type="text"
+              label="Company Name"
               required
-              placeholder="Enter company name"
-              className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-[var(--primary)] sm:px-4 sm:py-3 sm:text-base"
             />
-          </div>
 
-          <div>
-            <label htmlFor="employeeCount" className="mb-2 block text-sm font-semibold text-slate-700">
-              Approx. Number of Employees
-            </label>
-            <input
-              id="employeeCount"
-              name="employeeCount"
-              type="number"
-              min="1"
-              required
-              placeholder="e.g. 120"
-              className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-[var(--primary)] sm:px-4 sm:py-3 sm:text-base"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="plan" className="mb-2 block text-sm font-semibold text-slate-700">
-              Select Plan
-            </label>
-            <select
-              id="plan"
-              name="plan"
-              value={selectedPlan}
-              onChange={(event) => setSelectedPlan(event.target.value)}
-              required
-              className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-[var(--primary)] sm:px-4 sm:py-3 sm:text-base"
-            >
-              <option value="" disabled>
-                Choose a plan
-              </option>
-              {PLANS.map((plan) => (
-                <option key={plan.id} value={plan.id}>
-                  {plan.name}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="md:col-span-2">
-            <label className="mb-2 block text-sm font-semibold text-slate-700">
-              Modules Needed
-            </label>
-            <div className="space-y-2 rounded-lg border border-slate-300 bg-white p-3 sm:p-4">
-              {MODULE_OPTIONS.map((module) => (
-                <label
-                  key={module.value}
-                  className="flex items-center gap-2 px-1 py-1 text-sm text-slate-700"
-                >
-                  <input
-                    type="checkbox"
-                    name="modules"
-                    value={module.value}
-                    className="h-4 w-4 accent-[var(--primary)]"
-                  />
-                  <span>{module.label}</span>
-                </label>
-              ))}
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <FormFloating
+                id="email"
+                name="email"
+                type="email"
+                label="Email"
+                required
+              />
+              <FormFloating
+                id="mobile"
+                name="mobile"
+                type="tel"
+                label="Phone Number"
+                defaultValue="+880"
+                required
+              />
             </div>
-            <p className="mt-2 text-xs text-slate-500 sm:text-sm">
-              You can select multiple modules.
-            </p>
-          </div>
 
-          <div>
-            <label htmlFor="email" className="mb-2 block text-sm font-semibold text-slate-700">
-              Email
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
+            <FormFloating
+              id="designation"
+              name="designation"
+              label="Designation"
               required
-              placeholder="name@company.com"
-              className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-[var(--primary)] sm:px-4 sm:py-3 sm:text-base"
             />
-          </div>
-
-          <div>
-            <label htmlFor="mobile" className="mb-2 block text-sm font-semibold text-slate-700">
-              Mobile No.
-            </label>
-            <input
-              id="mobile"
-              name="mobile"
-              type="tel"
-              required
-              placeholder="+880..."
-              className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-[var(--primary)] sm:px-4 sm:py-3 sm:text-base"
-            />
-          </div>
-
-          <div className="md:col-span-2">
-            <label htmlFor="address" className="mb-2 block text-sm font-semibold text-slate-700">
-              Address
-            </label>
-            <input
+            <FormFloating
               id="address"
               name="address"
-              type="text"
+              label="Address"
               required
-              placeholder="Enter address"
-              className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-[var(--primary)] sm:px-4 sm:py-3 sm:text-base"
             />
-          </div>
-
-          <div className="md:col-span-2">
-            <label htmlFor="description" className="mb-2 block text-sm font-semibold text-slate-700">
-              Description
-            </label>
-            <textarea
+            <FormFloatingTextarea
               id="description"
               name="description"
-              rows={5}
+              label="Description"
               required
-              placeholder="Share your requirements..."
-              className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-[var(--primary)] sm:px-4 sm:py-3 sm:text-base"
             />
           </div>
 
-          <div className="md:col-span-2">
+          <p className="mt-5 text-center text-[13px] leading-relaxed text-[var(--secondary)]/70">
+            By clicking on Start Now, you accept our{" "}
+            <Link
+              href="/terms-condition"
+              className="text-[var(--primary)] underline underline-offset-2"
+            >
+              Terms &amp; Conditions
+            </Link>{" "}
+            and{" "}
+            <Link
+              href="/privacy-policy"
+              className="text-[var(--primary)] underline underline-offset-2"
+            >
+              Privacy Policy
+            </Link>
+          </p>
+
+          <div className="mt-4 flex justify-center">
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`${primaryCtaClassName} w-full sm:w-auto disabled:opacity-60`}
+              className="inline-flex items-center justify-center rounded-[4px] border border-[var(--primary)] bg-[var(--primary)] px-8 py-4 text-[18px] font-semibold text-white transition hover:bg-[var(--primary-hover)] disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {isSubmitting ? "Submitting..." : "Get a Quote"}
+              {isSubmitting ? "Submitting..." : "Start Now"}
             </button>
           </div>
         </form>
-      </div>
+      </section>
     </>
   );
 }

@@ -345,7 +345,7 @@ export default function PlansComparisonTable() {
                           </a>
                         ) : (
                           <Link
-                            href={`/get-quote?plan=${plan.id}`}
+                            href={`/choose-apps?plan=${plan.id}`}
                             className={`mt-3 md:mt-4 w-full text-[10px] md:text-xs px-3 md:px-4 py-2 md:py-2.5 inline-block transition-all duration-200 ${
                               isFeatured
                                 ? primaryCtaClassName +
@@ -431,7 +431,7 @@ export default function PlansComparisonTable() {
           <p className="mt-6 md:mt-8 text-center text-xs md:text-sm text-slate-500 px-2">
             Need a custom solution?{" "}
             <Link
-              href="/get-quote"
+              href="/choose-apps"
               className="font-semibold text-[var(--primary)] hover:underline"
             >
               Get a Quote
