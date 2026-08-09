@@ -27,7 +27,7 @@ import {
   UtensilsCrossed,
   Wallet,
 } from "lucide-react";
-import { ALL_QUOTE_APPS } from "@/data/quote-apps";
+import { ALL_QUOTE_APPS, QUOTE_APP_VALUES } from "@/data/quote-apps";
 import { PLANS } from "@/data/plansComparison";
 
 const ICONS = {
@@ -63,6 +63,16 @@ function getPlanFromUrl() {
   return plan && VALID_PLAN_IDS.has(plan) ? plan : "";
 }
 
+function getModulesFromUrl() {
+  if (typeof window === "undefined") return [];
+  const raw = new URLSearchParams(window.location.search).get("modules") || "";
+  if (!raw.trim()) return [];
+  return raw
+    .split(",")
+    .map((value) => value.trim())
+    .filter((value) => QUOTE_APP_VALUES.has(value));
+}
+
 export default function ChooseAppsContent() {
   const router = useRouter();
   const [plan, setPlan] = useState("");
@@ -70,6 +80,7 @@ export default function ChooseAppsContent() {
 
   useEffect(() => {
     setPlan(getPlanFromUrl());
+    setSelected(new Set(getModulesFromUrl()));
   }, []);
 
   const selectedCount = selected.size;

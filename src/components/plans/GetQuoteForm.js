@@ -83,7 +83,17 @@ export default function GetQuoteForm() {
     ).map((app) => app.label);
   }, [selectedModules]);
 
-  const changeAppsHref = `/choose-apps${selectedPlan ? `?plan=${selectedPlan}` : ""}`;
+  const changeAppsHref = useMemo(() => {
+    const params = new URLSearchParams();
+    if (selectedModules.length > 0) {
+      params.set("modules", selectedModules.join(","));
+    }
+    if (selectedPlan) {
+      params.set("plan", selectedPlan);
+    }
+    const query = params.toString();
+    return query ? `/choose-apps?${query}` : "/choose-apps";
+  }, [selectedModules, selectedPlan]);
 
   const showToast = (type, message) => {
     setToast({ visible: true, type, message });
