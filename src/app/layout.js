@@ -6,7 +6,7 @@ import Footer from "@/components/layout/footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import ConsultationPopup from "@/components/layout/ConsultationPopup";
 
-const FB_PIXEL_ID = "574839201648273";
+const FB_PIXEL_ID = "1740860900389081";
 import {
   SITE_LOGO_ALT,
   SITE_LOGO_HEIGHT,
