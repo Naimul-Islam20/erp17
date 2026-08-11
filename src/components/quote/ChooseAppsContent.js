@@ -10,7 +10,6 @@ import {
   Check,
   Clock,
   Factory,
-  FolderKanban,
   Gamepad2,
   Hotel,
   KeyRound,
@@ -37,7 +36,6 @@ const ICONS = {
   Car,
   Clock,
   Factory,
-  FolderKanban,
   Gamepad2,
   Hotel,
   KeyRound,
@@ -140,7 +138,7 @@ export default function ChooseAppsContent() {
                 selectedCount > 0 ? "lg:max-w-[calc(100%-300px)] xl:max-w-[calc(100%-320px)]" : "lg:max-w-full"
               }`}
             >
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5">
                 {ALL_QUOTE_APPS.map((app) => {
                   const Icon = ICONS[app.icon] || LayoutGrid;
                   const isSelected = selected.has(app.value);
@@ -151,25 +149,25 @@ export default function ChooseAppsContent() {
                       type="button"
                       onClick={() => toggleApp(app.value)}
                       aria-pressed={isSelected}
-                      className={`relative flex items-center gap-3 rounded-lg border-2 bg-white px-4 py-3.5 text-left transition md:rounded-xl ${
+                      className={`relative flex h-[58px] items-center gap-1.5 rounded-lg border-2 bg-white py-2.5 pl-2 pr-3 text-left transition md:h-[62px] md:rounded-xl md:gap-2 md:pl-2.5 md:pr-4 ${
                         isSelected
                           ? "border-[var(--primary)] shadow-sm"
                           : "border-transparent shadow-[0_1px_3px_rgba(15,23,42,0.08)] hover:shadow-[0_2px_8px_rgba(15,23,42,0.12)]"
                       }`}
                     >
                       {isSelected ? (
-                        <span className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-[var(--primary)] text-white shadow-sm">
-                          <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                        <span className="absolute -right-1.5 -top-1.5 z-10 flex h-5 w-5 items-center justify-center rounded-full bg-[var(--primary)] text-white shadow-sm md:h-6 md:w-6">
+                          <Check className="h-3 w-3 md:h-3.5 md:w-3.5" strokeWidth={3} />
                         </span>
                       ) : null}
 
                       <span
-                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-white"
+                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-white md:h-10 md:w-10"
                         style={{ backgroundColor: app.color }}
                       >
-                        <Icon className="h-5 w-5" strokeWidth={2.1} />
+                        <Icon className="h-4 w-4 md:h-5 md:w-5" strokeWidth={2.1} />
                       </span>
-                      <span className="flex-1 pr-2 text-sm font-semibold text-slate-800 md:text-base">
+                      <span className="min-w-0 flex-1 truncate text-sm font-semibold text-slate-800 md:text-base">
                         {app.label}
                       </span>
                     </button>

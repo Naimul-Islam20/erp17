@@ -13,7 +13,7 @@ export default function LegalPageLayout({
   return (
     <main className="min-h-screen bg-white">
       {/* Dark hero — matches Odoo legal header band */}
-      <section className="bg-[#714B67] pt-28 pb-16 md:pt-32 md:pb-20">
+      <section className="bg-[#54575a] pt-28 pb-16 md:pt-32 md:pb-20">
         <div className="mx-auto w-full max-w-[1100px] px-5 text-center md:px-8">
           <h1 className="text-[34px] font-bold leading-tight text-white md:text-[48px]">
             {title}
@@ -45,7 +45,7 @@ export default function LegalPageLayout({
               See also:{" "}
               <Link
                 href={relatedHref}
-                className="font-medium text-[#714B67] underline underline-offset-2"
+                className="font-medium text-[var(--primary)] underline underline-offset-2"
               >
                 {relatedLabel}
               </Link>

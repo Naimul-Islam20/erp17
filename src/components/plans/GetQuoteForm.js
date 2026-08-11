@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { buildWebsiteLeadsApiUrl } from "@/lib/api-config";
 import { PLANS } from "@/data/plansComparison";
@@ -214,12 +215,21 @@ export default function GetQuoteForm() {
         </div>
 
         <div className="mx-auto mt-8 max-w-[920px] px-4">
-          <div className="flex items-center justify-between gap-3 rounded-t-2xl bg-[#f3f4f6] px-4 py-4 sm:px-6">
-            <p className="text-[15px] text-[var(--secondary)]">
-              {selectedCount === 0
-                ? "No apps selected"
-                : `${selectedCount} app${selectedCount > 1 ? "s" : ""} selected`}
-            </p>
+          <div className="flex flex-wrap items-center justify-between gap-3 rounded-t-2xl bg-[#f3f4f6] px-4 py-4 sm:px-6">
+            <div className="flex min-w-0 items-center gap-3">
+              <Link
+                href={changeAppsHref}
+                className="inline-flex shrink-0 items-center gap-1.5 rounded-[4px] bg-white px-3 py-2 text-[14px] font-semibold text-[var(--secondary)] shadow-sm ring-1 ring-slate-200 transition hover:bg-white hover:text-[var(--primary)]"
+              >
+                <ArrowLeft className="h-4 w-4" strokeWidth={2.25} />
+                Back
+              </Link>
+              <p className="truncate text-[15px] text-[var(--secondary)]">
+                {selectedCount === 0
+                  ? "No apps selected"
+                  : `${selectedCount} app${selectedCount > 1 ? "s" : ""} selected`}
+              </p>
+            </div>
             <Link
               href={changeAppsHref}
               className="shrink-0 rounded-[4px] bg-white px-4 py-2 text-[14px] font-semibold text-[var(--primary)] shadow-sm ring-1 ring-[var(--primary-soft)] transition hover:bg-[var(--primary-soft)]/40"
@@ -268,19 +278,16 @@ export default function GetQuoteForm() {
               id="designation"
               name="designation"
               label="Designation"
-              required
             />
             <FormFloating
               id="address"
               name="address"
               label="Address"
-              required
             />
             <FormFloatingTextarea
               id="description"
               name="description"
               label="Description"
-              required
             />
           </div>
 

@@ -122,14 +122,7 @@ export const QUOTE_APP_CATEGORIES = [
         icon: "Truck",
         color: "#0F766E",
       },
-      { id: "cnf", label: "Cnf", value: "cnf", icon: "Ship", color: "#1D4ED8" },
-      {
-        id: "projects",
-        label: "Projects",
-        value: "projects",
-        icon: "FolderKanban",
-        color: "#4F46E5",
-      },
+      { id: "cnf", label: "C&F", value: "cnf", icon: "Ship", color: "#1D4ED8" },
     ],
   },
 ];
