@@ -63,8 +63,8 @@ const plans = [
     monthlyPrice: 2500,
     yearlyPrice: 2000,
     priceLabel: null,
-    ctaHref: "/get-quote",
-    ctaLabel: "Get a Quote",
+    ctaHref: "/contact",
+    ctaLabel: "Contact",
   },
   {
     id: "business",
@@ -72,8 +72,8 @@ const plans = [
     monthlyPrice: 5000,
     yearlyPrice: 4000,
     priceLabel: null,
-    ctaHref: "/get-quote",
-    ctaLabel: "Get a Quote",
+    ctaHref: "/contact",
+    ctaLabel: "Contact",
   },
   {
     id: "premium",
@@ -81,8 +81,8 @@ const plans = [
     monthlyPrice: 15000,
     yearlyPrice: 12000,
     priceLabel: null,
-    ctaHref: "/get-quote",
-    ctaLabel: "Get a Quote",
+    ctaHref: "/contact",
+    ctaLabel: "Contact",
   },
   {
     id: "corporate",

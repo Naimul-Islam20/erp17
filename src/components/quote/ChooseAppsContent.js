@@ -210,11 +210,6 @@ export default function ChooseAppsContent() {
                   })}
                 </div>
 
-                <div className="mt-5 rounded-lg bg-[var(--primary-soft)]/50 px-3 py-3 text-sm text-slate-700 md:rounded-xl">
-                  Custom quote based on your selected modules. No credit card
-                  required.
-                </div>
-
                 <button
                   type="button"
                   onClick={handleContinue}

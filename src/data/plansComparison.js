@@ -7,8 +7,8 @@ export const PLANS = [
     "monthlyPrice": 2500,
     "yearlyPrice": 2000,
     "priceLabel": null,
-    "ctaHref": "/choose-apps",
-    "ctaLabel": "Get a Quote"
+    "ctaHref": "/contact",
+    "ctaLabel": "Contact"
   },
   {
     "id": "business",
@@ -16,8 +16,8 @@ export const PLANS = [
     "monthlyPrice": 5000,
     "yearlyPrice": 4000,
     "priceLabel": null,
-    "ctaHref": "/choose-apps",
-    "ctaLabel": "Get a Quote"
+    "ctaHref": "/contact",
+    "ctaLabel": "Contact"
   },
   {
     "id": "premium",
@@ -25,8 +25,8 @@ export const PLANS = [
     "monthlyPrice": 15000,
     "yearlyPrice": 12000,
     "priceLabel": null,
-    "ctaHref": "/choose-apps",
-    "ctaLabel": "Get a Quote"
+    "ctaHref": "/contact",
+    "ctaLabel": "Contact"
   },
   {
     "id": "corporate",

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { buildApiUrl } from "@/lib/api-config";
+import { buildWebsiteLeadsApiUrl } from "@/lib/api-config";
 import { PLANS } from "@/data/plansComparison";
 import { ALL_QUOTE_APPS, QUOTE_APP_VALUES } from "@/data/quote-apps";
 
@@ -128,6 +128,11 @@ export default function GetQuoteForm() {
       ]
         .filter(Boolean)
         .join(". "),
+      organization_id:
+        process.env.NEXT_PUBLIC_ERP17_ORGANIZATION_ID ||
+        "4afeebf7-5427-4753-8ee3-2c9b2b3c2658",
+      company_id: process.env.NEXT_PUBLIC_ERP17_COMPANY_ID || "",
+      branch_id: process.env.NEXT_PUBLIC_ERP17_BRANCH_ID || "",
     };
 
     if (payload.modules_needed.length === 0) {
@@ -137,7 +142,7 @@ export default function GetQuoteForm() {
     }
 
     try {
-      const response = await fetch(buildApiUrl("/quote-requests"), {
+      const response = await fetch(buildWebsiteLeadsApiUrl("/crm/website-leads"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
