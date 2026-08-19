@@ -15,7 +15,7 @@ const WhatsAppButton = () => {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-8 right-8 z-[9999] flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-2xl hover:bg-[#20ba5a] transition-all hover:scale-110 active:scale-95 group animate-bounce-slow"
+      className="fixed bottom-20 right-8 md:bottom-8 z-[9999] flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-2xl hover:bg-[#20ba5a] transition-all hover:scale-110 active:scale-95 group animate-bounce-slow"
       aria-label="Chat on WhatsApp"
     >
       {/* Tooltip */}

@@ -136,11 +136,11 @@ const SECTION_GROUPS = groupComparisonBySection(COMPARISON_ROWS);
 const PLAN_COL_COUNT = PLANS.length + 1;
 
 const TABLE_LAYOUT = {
-  featureColWidth: 180,
+  featureColWidth: 120,
   planColWidth: 140,
-  tableMinWidth: 180 + PLANS.length * 140,
-  featureColPercent: `${(180 / (180 + PLANS.length * 140)) * 100}%`,
-  planColPercent: `${(140 / (180 + PLANS.length * 140)) * 100}%`,
+  tableMinWidth: 120 + PLANS.length * 140,
+  featureColPercent: `${(120 / (120 + PLANS.length * 140)) * 100}%`,
+  planColPercent: `${(140 / (120 + PLANS.length * 140)) * 100}%`,
 };
 
 function PlansTableColgroup({ layout }) {
@@ -201,9 +201,9 @@ export default function PlansComparisonTable() {
   };
 
   const stickyCellClass =
-    "sticky left-0 z-10 bg-white border-r border-slate-200 shadow-[4px_0_8px_-4px_rgba(0,0,0,0.06)]";
+    "md:sticky md:left-0 md:z-10 bg-white border-r border-slate-200 md:shadow-[4px_0_8px_-4px_rgba(0,0,0,0.06)]";
   const stickyHeadClass =
-    "sticky left-0 z-20 bg-slate-50 border-r border-slate-200 shadow-[4px_0_8px_-4px_rgba(0,0,0,0.06)]";
+    "md:sticky md:left-0 md:z-20 bg-slate-50 border-r border-slate-200 md:shadow-[4px_0_8px_-4px_rgba(0,0,0,0.06)]";
 
   const renderFeatureRow = (row, index) => (
     <tr
@@ -291,16 +291,15 @@ export default function PlansComparisonTable() {
           </p>
 
           <div className="relative overflow-x-auto overscroll-x-contain rounded-xl md:rounded-2xl border border-slate-200/80 bg-white shadow-xl shadow-slate-200/40 [-webkit-overflow-scrolling:touch]">
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-30 w-6 bg-gradient-to-l from-white/95 to-transparent md:hidden" />
             <table
               className="w-full border-collapse table-fixed text-left"
               style={{ minWidth: layout.tableMinWidth }}
             >
               <PlansTableColgroup layout={layout} />
               <thead>
-                <tr className="border-b border-slate-200">
+                <tr>
                   <th
-                    className={`${stickyHeadClass} p-3 md:p-5 text-left align-bottom min-w-[124px]`}
+                    className={`${stickyHeadClass} border-b border-slate-200 p-2 md:p-5 text-left align-bottom min-w-[100px] max-w-[120px] md:min-w-[124px] md:max-w-none`}
                   >
                     <span className="text-[10px] md:text-[11px] font-bold uppercase tracking-widest text-slate-400 leading-tight">
                       {isYearly ? "Billed Annually" : "Billed Monthly"}
@@ -396,31 +395,10 @@ export default function PlansComparisonTable() {
                           </button>
                         </td>
                       </tr>
-                      <tr className="border-b border-slate-100">
-                        <td colSpan={PLAN_COL_COUNT} className="p-0">
-                          <div
-                            className={`grid transition-[grid-template-rows] duration-300 ease-in-out motion-reduce:transition-none ${
-                              isExpanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                            }`}
-                          >
-                            <div className="overflow-hidden min-h-0">
-                              <div className="overflow-x-auto overscroll-x-contain [-webkit-overflow-scrolling:touch]">
-                                <table
-                                  className="w-full border-collapse table-fixed"
-                                  style={{ minWidth: layout.tableMinWidth }}
-                                >
-                                  <PlansTableColgroup layout={layout} />
-                                  <tbody>
-                                    {group.children.map((row, index) =>
-                                      renderFeatureRow(row, index),
-                                    )}
-                                  </tbody>
-                                </table>
-                              </div>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
+                      {isExpanded &&
+                        group.children.map((row, index) =>
+                          renderFeatureRow(row, index),
+                        )}
                     </Fragment>
                   );
                 })}
